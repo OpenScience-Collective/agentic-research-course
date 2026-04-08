@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Circular arrow path -->
+  <path d="M 100 30 A 70 70 0 0 1 170 100" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 170 100 A 70 70 0 0 1 100 170" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 100 170 A 70 70 0 0 1 30 100" fill="none" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 30 100 A 70 70 0 0 1 100 30" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <!-- Arrowheads -->
+  <polygon points="170,100 158,92 158,108" fill="#F59E0B"/>
+  <polygon points="100,170 92,158 108,158" fill="#2563EB"/>
+  <polygon points="30,100 42,108 42,92" fill="#F59E0B"/>
+  <polygon points="100,30 108,42 92,42" fill="#2563EB"/>
+  <!-- Stage labels as circles -->
+  <circle cx="100" cy="28" r="14" fill="#2563EB"/>
+  <text x="100" y="33" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">I</text>
+  <circle cx="172" cy="100" r="14" fill="#F59E0B"/>
+  <text x="172" y="105" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">B</text>
+  <circle cx="100" cy="172" r="14" fill="#2563EB"/>
+  <text x="100" y="177" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">P</text>
+  <circle cx="28" cy="100" r="14" fill="#F59E0B"/>
+  <text x="28" y="105" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">M</text>
+  <!-- Center checkmark -->
+  <circle cx="100" cy="100" r="22" fill="#059669" opacity="0.15"/>
+  <path d="M 86 100 L 96 110 L 114 90" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Neural network nodes -->
+  <!-- Input layer -->
+  <circle cx="40" cy="50" r="12" fill="#2563EB" opacity="0.9"/>
+  <circle cx="40" cy="100" r="12" fill="#2563EB" opacity="0.9"/>
+  <circle cx="40" cy="150" r="12" fill="#2563EB" opacity="0.9"/>
+  <!-- Hidden layer -->
+  <circle cx="100" cy="40" r="14" fill="#F59E0B" opacity="0.9"/>
+  <circle cx="100" cy="100" r="14" fill="#F59E0B" opacity="0.9"/>
+  <circle cx="100" cy="160" r="14" fill="#F59E0B" opacity="0.9"/>
+  <!-- Output layer -->
+  <circle cx="160" cy="75" r="12" fill="#2563EB" opacity="0.9"/>
+  <circle cx="160" cy="125" r="12" fill="#2563EB" opacity="0.9"/>
+  <!-- Connections: input to hidden -->
+  <line x1="52" y1="50" x2="86" y2="40" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="50" x2="86" y2="100" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="50" x2="86" y2="160" stroke="#2563EB" stroke-width="1.5" opacity="0.15"/>
+  <line x1="52" y1="100" x2="86" y2="40" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="100" x2="86" y2="100" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="100" x2="86" y2="160" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="150" x2="86" y2="40" stroke="#2563EB" stroke-width="1.5" opacity="0.15"/>
+  <line x1="52" y1="150" x2="86" y2="100" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <line x1="52" y1="150" x2="86" y2="160" stroke="#2563EB" stroke-width="1.5" opacity="0.3"/>
+  <!-- Connections: hidden to output -->
+  <line x1="114" y1="40" x2="148" y2="75" stroke="#F59E0B" stroke-width="1.5" opacity="0.3"/>
+  <line x1="114" y1="40" x2="148" y2="125" stroke="#F59E0B" stroke-width="1.5" opacity="0.2"/>
+  <line x1="114" y1="100" x2="148" y2="75" stroke="#F59E0B" stroke-width="1.5" opacity="0.3"/>
+  <line x1="114" y1="100" x2="148" y2="125" stroke="#F59E0B" stroke-width="1.5" opacity="0.3"/>
+  <line x1="114" y1="160" x2="148" y2="75" stroke="#F59E0B" stroke-width="1.5" opacity="0.2"/>
+  <line x1="114" y1="160" x2="148" y2="125" stroke="#F59E0B" stroke-width="1.5" opacity="0.3"/>
+</svg>

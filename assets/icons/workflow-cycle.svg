@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 180" width="700" height="180">
+  <!-- Step boxes -->
+  <!-- Issue -->
+  <rect x="10" y="50" width="110" height="50" rx="8" fill="#2563EB"/>
+  <text x="65" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Issue</text>
+  <!-- Arrow 1 -->
+  <line x1="125" y1="75" x2="155" y2="75" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <!-- Branch -->
+  <rect x="160" y="50" width="110" height="50" rx="8" fill="#F59E0B"/>
+  <text x="215" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Branch</text>
+  <!-- Arrow 2 -->
+  <line x1="275" y1="75" x2="305" y2="75" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <!-- Commits -->
+  <rect x="310" y="50" width="110" height="50" rx="8" fill="#2563EB"/>
+  <text x="365" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Commits</text>
+  <!-- Arrow 3 -->
+  <line x1="425" y1="75" x2="455" y2="75" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <!-- PR -->
+  <rect x="460" y="50" width="110" height="50" rx="8" fill="#F59E0B"/>
+  <text x="515" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">PR</text>
+  <!-- Arrow 4 -->
+  <line x1="575" y1="75" x2="605" y2="75" stroke="#64748B" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <!-- Merge -->
+  <rect x="610" y="50" width="80" height="50" rx="8" fill="#059669"/>
+  <text x="650" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Merge</text>
+  <!-- Return arrow (curved, from merge back to issue) -->
+  <path d="M 650 105 C 650 150, 400 160, 65 155 C 30 155, 20 130, 30 105" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowhead-light)"/>
+  <text x="350" y="148" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#94A3B8">closes issue</text>
+  <!-- Step numbers -->
+  <text x="65" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748B">1</text>
+  <text x="215" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748B">2</text>
+  <text x="365" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748B">3</text>
+  <text x="515" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748B">4</text>
+  <text x="650" y="40" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#64748B">5</text>
+  <!-- Arrowhead markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arrowhead-light" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94A3B8"/>
+    </marker>
+  </defs>
+</svg>

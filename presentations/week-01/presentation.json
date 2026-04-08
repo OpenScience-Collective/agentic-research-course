@@ -1,0 +1,1123 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "AI-Powered Research Workflows",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 1: Git, GitHub, and the Command Line -- Why AI Tools Need Version Control",
+      "theme": "default",
+      "aspectRatio": "16:9"
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# AI-Powered Research Workflows",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "Week 1: Git, GitHub, and the Command Line",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 2 }
+          }
+        ],
+        "speakerNotes": "Welcome everyone to the first session of AI-Powered Research Workflows. I'm Yahya Shirazi, and over the next 10 weeks we're going to transform how you do research."
+      },
+      {
+        "id": "what-this-course-is",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What This Course Is About",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "This is **not** a coding course.",
+            "style": {
+              "fontSize": "xl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "text",
+            "content": "This is a **new mindset** for doing research.",
+            "style": {
+              "fontSize": "xl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "I will show you the tools and workflows I use every day",
+              "You pick and choose what works for your research",
+              "There are many tools out there; these are the ones that changed my work",
+              "We will run a real research project together, from literature review to manuscript"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "slide-up", "index": 2 },
+            "position": { "area": "content", "order": 2 }
+          }
+        ],
+        "speakerNotes": "I want to set expectations. I'm not going to teach you how to code. I'm going to teach you a new mindset. I'll show you tools I use, and you pick what fits. There are many more tools; these are the ones that transformed my research productivity."
+      },
+      {
+        "id": "the-landscape",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/ai-landscape.svg",
+            "alt": "AI neural network icon",
+            "width": "120px",
+            "height": "120px",
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "## The Landscape",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "What AI tools exist for researchers today, and why they matter",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 1 }
+          }
+        ]
+      },
+      {
+        "id": "ai-agents-exist",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## AI Coding Agents Are Here",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "These are not autocomplete. They are **autonomous agents** that:",
+            "style": { "fontSize": "large" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Read your entire project and understand it",
+              "Write code, run commands, debug errors",
+              "Create pull requests and review code",
+              "Plan multi-step implementations before writing a line",
+              "Iterate on their own work until it's correct"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Claude Code** | **GitHub Copilot** | **Cursor** | **Windsurf** | and more...",
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "AI coding agents are fundamentally different from autocomplete. They read your project, understand context, plan approaches, write code, run tests, and iterate. They are autonomous agents, not suggestion engines."
+      },
+      {
+        "id": "why-closed-source",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Why Use Closed-Source AI Agents?",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### They are massively, massively powerful.",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "The capability gap between frontier and open-source models is still large",
+              "For research workflows, you need the best reasoning, not just code generation",
+              "The cost is real, but **relative to their power**, it is surprisingly accessible"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "title": "The Paradox",
+            "content": "I use closed-source tools to create **more open science**. The AI helps me publish open datasets, open-source plugins, and reproducible workflows faster than I ever could alone.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 2 },
+            "position": { "area": "content", "order": 2 }
+          }
+        ],
+        "speakerNotes": "I know some of you might wonder: why closed-source AI for open science? The answer: these tools are massively powerful, and I use that power to produce more open-source code, more open datasets, more transparent research. The tool being closed-source doesn't make the output closed."
+      },
+      {
+        "id": "the-numbers",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Numbers",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### GitHub Contributions",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold"
+            },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "text",
+            "content": "**2024:** 1,052 contributions",
+            "style": {
+              "fontSize": "xl",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**2025:** 8,563 contributions",
+            "style": {
+              "fontSize": "xl",
+              "alignment": "center",
+              "color": "#059669",
+              "fontWeight": "bold"
+            },
+            "animation": { "fragment": true, "type": "zoom", "index": 1 },
+            "position": { "area": "content", "order": 2 }
+          },
+          {
+            "type": "text",
+            "content": "### An **8x** increase, driven by integrating Claude Code into daily research.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#F59E0B",
+              "fontWeight": "bold"
+            },
+            "animation": { "fragment": true, "type": "slide-up", "index": 2 },
+            "position": { "area": "content", "order": 3 }
+          },
+          {
+            "type": "text",
+            "content": "This is not about typing faster. It's about having an agent that understands your project.",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 3 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "These are my actual numbers. From around 1,000 contributions in 2024 to over 8,500 the following year. That is not me typing more. That is an AI agent helping me write code, review PRs, manage projects, write papers. 8x. And I think most of the revenue AI companies generate, especially Anthropic, comes from individual subscriptions, from people like us paying monthly."
+      },
+      {
+        "id": "pricing",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Does It Cost?",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "table",
+            "headers": ["Plan", "Price", "What You Get"],
+            "rows": [
+              ["Free", "$0/mo", "Sonnet model, limited daily messages"],
+              ["Pro", "$20/mo", "All models, Claude Code, extended context"],
+              ["Max 5x", "$100/mo", "5x Pro usage, memory, priority access"],
+              ["Max 20x", "$200/mo", "20x Pro usage, early features"]
+            ],
+            "caption": "Claude subscription tiers (April 2026)",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "title": "For this course",
+            "content": "**Pro ($20/mo)** is sufficient for most researchers. You will run out of quota after 4-5 days of heavy use, then it resets. The **Free tier** works for following along, but has limited access to Claude Code.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          }
+        ],
+        "speakerNotes": "Let's talk cost. It's not cheap, but relative to what you get, it's remarkable. Pro at $20/month gets you Claude Code and all models. You'll probably hit the limit after 4-5 days of heavy use, then it refills. Max at $100 or $200 gives 5x or 20x that. For this course, Pro is enough."
+      },
+      {
+        "id": "open-science-mission",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Building Open Science with AI",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "What I've built in the past year with these tools:",
+            "style": { "fontSize": "medium" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**research-skills** -- open-source Claude Code plugin for academic workflows",
+              "**HBN BIDS Analysis** -- open EEG analysis pipeline for the Healthy Brain Network",
+              "**eventformer** -- EEG foundation model using Hierarchical Event Descriptors (HED)",
+              "**matlab-mcp** -- MCP server connecting Claude Code to MATLAB/EEGLAB",
+              "**This course** -- free, CC-BY-4.0, all materials open"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "Closed-source AI, **open-source output**.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#059669",
+              "fontWeight": "bold"
+            },
+            "animation": { "fragment": true, "type": "zoom" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "The proof is in the output. Everything I build with these tools is open. The plugin is free. The analysis pipelines are public. The course materials are CC-BY-4.0. The AI is closed-source; the science is open."
+      },
+      {
+        "id": "core-thesis",
+        "layout": "title",
+        "transition": "zoom",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Core Thesis",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "AI agents are **very, very powerful** tools\nthat need **checks and balances**\nand a **very controlled toolbox**.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#1E293B"
+            },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "That's what this course teaches, starting with **Git and version control**.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "center", "order": 2 }
+          }
+        ],
+        "speakerNotes": "This is the core thesis of the entire course. AI agents are extremely powerful. And precisely because they're so powerful, you need checks and balances. Git, version control, code review, CI/CD -- these are your controlled toolbox. That's what I'm teaching here."
+      },
+      {
+        "id": "power-problem",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Power Problem",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### Without guardrails",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#EF4444"
+            },
+            "position": { "area": "left" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "AI generates code 10x faster",
+              "Bugs accumulate 10x faster",
+              "No audit trail",
+              "\"It worked on my machine\"",
+              "Can't reproduce last week's result"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "left", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "### With version control",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#059669"
+            },
+            "position": { "area": "right" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "AI generates code 10x faster",
+              "Every change is tracked",
+              "Full audit trail: who, what, when, why",
+              "`git revert` is your undo button",
+              "Tag a commit, reproduce the result forever"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "right", "order": 1 }
+          }
+        ],
+        "speakerNotes": "Here is the problem. AI makes you faster. Without guardrails, you accumulate mistakes just as fast. With version control, every change is tracked, every mistake is reversible, and every result is reproducible."
+      },
+      {
+        "id": "course-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## 10-Week Roadmap",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "table",
+            "headers": ["Week", "Topic", "What You'll Build"],
+            "rows": [
+              ["1", "Git, GitHub, CLI", "Your first repository"],
+              ["2", "Claude Code Setup", "AI-ready project with CLAUDE.md"],
+              ["3", "Project Management", "Epic/sprint workflow"],
+              ["4", "CI/CD & Code Quality", "Automated testing pipeline"],
+              ["5", "Literature Search", "Literature review with opencite"],
+              ["6", "Grant Proposals", "NIH/NSF proposal sections"],
+              ["7", "Manuscripts", "IMRAD paper draft"],
+              ["8", "Scientific Figures", "Publication-ready figures"],
+              ["9", "Neuroinformatics", "BIDS dataset, PsychoPy experiment"],
+              ["10", "Custom Plugins", "Your own Claude Code plugin"]
+            ],
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content" }
+          }
+        ],
+        "speakerNotes": "Here is the full roadmap. 10 weeks, each one building on the last. By the end, you'll have gone from your first git commit to building your own Claude Code plugin. And throughout, we'll be running a real research project together."
+      },
+      {
+        "id": "practicum",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Practicum: Our Running Project",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "We will analyze **Healthy Brain Network (HBN)** EEG data together:",
+            "style": {
+              "fontSize": "large",
+              "color": "#2563EB"
+            },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Movie-watching paradigm with natural shot changes as events",
+                "children": ["Rich EEG data from a large developmental dataset"]
+              },
+              {
+                "text": "Using EEGLAB + matlab-mcp",
+                "children": ["Claude Code drives MATLAB directly via MCP protocol"]
+              },
+              {
+                "text": "From raw data to publication",
+                "children": ["Import, preprocess, ICA, ERPs, figures, manuscript"]
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "You will see how I approach each step. You are encouraged to bring your own project.",
+            "style": {
+              "fontSize": "medium",
+              "color": "#475569"
+            },
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "Throughout the course, we'll work on a real project: analyzing EEG data from the Healthy Brain Network for movie shot-change events. I'll use EEGLAB through Claude Code via the matlab-mcp server. You'll see every step, and you're encouraged to bring your own data and project."
+      },
+      {
+        "id": "section-terminal",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/terminal.svg",
+            "alt": "Terminal icon",
+            "width": "120px",
+            "height": "120px",
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "## Part 1: The Terminal",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "Your command center for everything that follows",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 2 }
+          }
+        ]
+      },
+      {
+        "id": "terminal-basics",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Terminal Essentials",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "Four commands to navigate your filesystem:",
+            "style": { "fontSize": "medium" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "code",
+            "code": "pwd              # Where am I?\n\nls               # What's here?\n\ncd my-project    # Go somewhere\n\nmkdir new-folder # Create a directory",
+            "language": "bash",
+            "caption": "The essential four",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**macOS:** I recommend [Ghostty](https://ghostty.org), a fast GPU-accelerated terminal. The built-in Terminal app works too. **Linux:** Ctrl+Alt+T. **Windows:** Use WSL.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 1 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "The terminal is your command center. Four commands to start: pwd tells you where you are, ls shows what's in the current directory, cd moves you around, mkdir creates new directories. That's enough to get started."
+      },
+      {
+        "id": "installing-tools",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Installing Tools",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### macOS",
+            "style": { "fontSize": "large", "fontWeight": "bold" },
+            "position": { "area": "left" }
+          },
+          {
+            "type": "code",
+            "code": "# Install Homebrew\n/bin/bash -c \"$(curl -fsSL\n  https://raw.githubusercontent.com\n  /Homebrew/install/HEAD/install.sh)\"\n\n# Then install git\nbrew install git",
+            "language": "bash",
+            "position": { "area": "left", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "### Linux",
+            "style": { "fontSize": "large", "fontWeight": "bold" },
+            "position": { "area": "right" }
+          },
+          {
+            "type": "code",
+            "code": "# Debian/Ubuntu\nsudo apt update\nsudo apt install git\n\n# Verify\ngit --version",
+            "language": "bash",
+            "position": { "area": "right", "order": 1 }
+          }
+        ],
+        "speakerNotes": "macOS users: install Homebrew first, then use it to install git and everything else. Linux users: apt handles it. Windows users: I strongly recommend WSL, the Windows Subsystem for Linux."
+      },
+      {
+        "id": "section-git",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/git-branch.svg",
+            "alt": "Git branching icon",
+            "width": "120px",
+            "height": "120px",
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "## Part 2: Git Fundamentals",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "Your undo button, your audit trail, your safety net",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 2 }
+          }
+        ]
+      },
+      {
+        "id": "three-states",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Three States of Git",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### Working Directory &nbsp; --`git add`--> &nbsp; Staging Area &nbsp; --`git commit`--> &nbsp; Repository &nbsp; --`git push`--> &nbsp; GitHub",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB",
+              "fontWeight": "bold"
+            },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Working directory** -- your files as you see them right now",
+              "**Staging area** -- changes you've selected for the next snapshot",
+              "**Repository** -- the permanent history of all snapshots"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Think of it like photography: you **arrange** the scene (staging), then **take the photo** (commit). The photo album (repository) keeps every shot forever.",
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "Git has three states. Your working directory is what you see. The staging area is where you select what goes into the next snapshot. The repository is the permanent history. Think of it like photography: arrange the scene, take the photo, and the album keeps every shot forever."
+      },
+      {
+        "id": "git-commands",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Essential Git Commands",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "code",
+            "code": "# Create a new repository\ngit init my-research-project\ncd my-research-project\n\n# Check what's changed\ngit status\n\n# Stage files for commit\ngit add analysis.py\n\n# Take the snapshot\ngit commit -m \"feat: add initial analysis script\"\n\n# View history\ngit log --oneline",
+            "language": "bash",
+            "caption": "The daily workflow",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "text",
+            "content": "**That's it.** `status`, `add`, `commit`, `log`. Four commands for daily use.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#059669",
+              "fontWeight": "bold"
+            },
+            "animation": { "fragment": true, "type": "slide-up", "index": 1 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "Here are the commands you'll use every day. git init creates the repo. git status shows what changed. git add selects files. git commit takes the snapshot. git log shows history. That's the core loop."
+      },
+      {
+        "id": "push-pull",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Connecting to GitHub",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "code",
+            "code": "# Push your local work to GitHub\ngit push origin main\n\n# Get updates from GitHub\ngit pull origin main\n\n# Clone someone else's project\ngit clone https://github.com/user/repo.git",
+            "language": "bash",
+            "caption": "Syncing local and remote",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "title": "Why GitHub?",
+            "content": "GitHub is your **backup**, your **portfolio**, and your **collaboration platform**. It is also where Claude Code creates pull requests and tracks issues.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          }
+        ],
+        "speakerNotes": "GitHub is the remote copy of your repository. Push sends your commits up, pull brings updates down, clone copies an existing project. GitHub is where AI agents will create PRs, track issues, and collaborate with you."
+      },
+      {
+        "id": "section-github",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/github-workflow.svg",
+            "alt": "GitHub workflow cycle icon",
+            "width": "120px",
+            "height": "120px",
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "## Part 3: GitHub Workflow",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "Branches, pull requests, and issues",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 2 }
+          }
+        ]
+      },
+      {
+        "id": "branches",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Branches: Safe Experimentation",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "./assets/icons/git-branch-flow.svg",
+            "alt": "Git branching diagram showing main branch with feature branch diverging and merging back",
+            "width": "90%",
+            "height": "auto",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "code",
+            "code": "# Create a branch and switch to it\ngit checkout -b feature/add-bandpass-filter\n\n# Do your work, commit as usual\ngit add .\ngit commit -m \"feat: add 1-40 Hz bandpass filter\"\n\n# When done, push and create a pull request\ngit push -u origin feature/add-bandpass-filter",
+            "language": "bash",
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          }
+        ],
+        "speakerNotes": "Branches let you experiment safely. Create a branch, do your work, and if it works, merge it back. If it doesn't, delete the branch. No harm done. This is especially important when AI is generating code; you always want an escape hatch."
+      },
+      {
+        "id": "pull-requests",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Pull Requests: Your Review Checkpoint",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "A pull request (PR) is a proposal to merge changes. Even for solo work, PRs create a **checkpoint** where you review what changed.",
+            "style": { "fontSize": "medium" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Title:** What did you do? (<70 characters)",
+              "**Description:** Why? Link to the issue",
+              "**Diff:** See every line that changed",
+              "**Review:** AI agents can review your PR automatically (week 3+)"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "PRs are where **checks and balances** happen. This is the controlled toolbox in action.",
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "Pull requests are the review checkpoint. Even if you work alone, PRs force you to review what changed before it goes into main. And starting in week 3, we'll have AI agents reviewing our PRs automatically. This is the checks and balances in practice."
+      },
+      {
+        "id": "issues",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Issues: Tracking What Needs to Be Done",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Every significant task starts with an issue",
+              "Issues describe **what** and **why**, not how",
+              "Branch names link to issues: `feature/issue-42-add-filter`",
+              "PRs close issues: \"Fixes #42\"",
+              "Your AI agent reads issues for context"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "code",
+            "code": "# Create an issue from the terminal\ngh issue create --title \"Add bandpass filter to preprocessing\"\n\n# Create a branch from the issue\ngh issue develop 42",
+            "language": "bash",
+            "caption": "Using the gh CLI",
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "content", "order": 1 }
+          }
+        ],
+        "speakerNotes": "Issues are how you track work. Every significant task starts as an issue. The branch links to the issue, the PR closes the issue. It creates a complete trail from 'we need this' to 'it's done and reviewed.'"
+      },
+      {
+        "id": "full-workflow",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Full Workflow",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "./assets/icons/workflow-cycle.svg",
+            "alt": "Full workflow: Issue, Branch, Commits, PR, Merge cycle",
+            "width": "90%",
+            "height": "auto",
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Issue** -- define what needs to be done",
+              "**Branch** -- isolate the work",
+              "**Commits** -- track every change",
+              "**Pull Request** -- review before merging",
+              "**Merge** -- integrate and close the issue"
+            ],
+            "bulletStyle": "number",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "content", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**Next week**, an AI agent joins this workflow.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#F59E0B",
+              "fontWeight": "bold"
+            },
+            "animation": { "fragment": true, "type": "zoom", "index": 2 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "This is the complete workflow. Issue, branch, commits, PR, review, merge. It's a cycle. And next week, we add Claude Code to this loop. The AI agent will help you write code, review PRs, and plan implementations, all within this structured workflow."
+      },
+      {
+        "id": "before-next-week",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Before Next Session",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Create a GitHub account",
+                "children": ["github.com -- free, takes 2 minutes"]
+              },
+              {
+                "text": "Install git",
+                "children": ["macOS: `brew install git` | Linux: `sudo apt install git`"]
+              },
+              {
+                "text": "Create a repository and make at least 3 commits",
+                "children": ["Practice the loop: edit, add, commit, push"]
+              },
+              {
+                "text": "Install Claude Code",
+                "children": ["We'll use it starting Week 2"]
+              }
+            ],
+            "bulletStyle": "number",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "If you get stuck, ask in the **Discord** (OpenScience Collective). That's what it's for.",
+            "animation": { "fragment": true, "type": "slide-up" },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "Here's what to do before next week. Create a GitHub account, install git, practice making commits, and install Claude Code. If you get stuck, the Discord is there for exactly this."
+      },
+      {
+        "id": "resources",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Resources",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Course repo:** github.com/neuromechanist/agentic-research-course",
+              "**Blog post:** neuromechanist.github.io/blog/010-agentic-research-workflows",
+              "**research-skills plugin:** github.com/neuromechanist/research-skills",
+              "**Discord:** discord.gg/5dWJCUmUww (Open Science Collective)",
+              "**Claude Code:** claude.ai/claude-code"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "animation": { "fragment": true, "type": "fade" },
+            "position": { "area": "content" }
+          }
+        ]
+      },
+      {
+        "id": "closing",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Questions?",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "Next week: **Setting Up Claude Code for Research**\n\nThe AI agent enters the workflow.",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**Open Science Collective** | osc.earth | CC-BY-4.0",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": { "area": "center", "order": 2 }
+          }
+        ],
+        "speakerNotes": "Thank you everyone. Questions? Next week we install Claude Code and bring the AI agent into this workflow. See you then."
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+# Agentic Research Course -- Development Plan
+
+## Project Overview
+**Goal:** Deliver a 10-week live course on AI-powered research workflows, with a hands-on practicum analyzing HBN EEG data for movie shot-change events using EEGLAB + matlab-mcp.
+**Timeline:** April-June 2026 (10 weekly sessions)
+**Deliverables:** Session content, presentations, exercises, practicum codebase, blog posts/guidelines
+
+## Work Plan -- Weeks 1-5 (Expanded)
+
+### Week 1: Git, GitHub, and the Command Line + Landscape Overview
+- [x] Session README with learning objectives
+- [ ] Expand README with detailed objectives and landscape overview
+- [ ] Create presentation outline (presentations/week-01/)
+- [ ] Prepare live demo: init repo, first commit, push to GitHub
+- [ ] Create exercises.md with post-session practice
+- [ ] Blog post or guidelines document (optional)
+
+### Week 2: Setting Up Claude Code for Research
+- [x] Session README with learning objectives
+- [ ] Expand README with detailed objectives
+- [ ] Create presentation outline (presentations/week-02/)
+- [ ] Prepare live demo: install Claude Code, create CLAUDE.md, first AI-assisted task
+- [ ] Create exercises.md
+- [ ] Begin practicum: set up HBN analysis project with CLAUDE.md
+
+### Week 3: Project Management with AI
+- [x] Session README with learning objectives
+- [ ] Expand README with detailed objectives
+- [ ] Create presentation outline (presentations/week-03/)
+- [ ] Prepare live demo: epic/sprint workflow on HBN practicum
+- [ ] Create exercises.md
+
+### Week 4: CI/CD and Code Quality
+- [x] Session README
+- [ ] Expand and finalize content
+
+### Week 5: Literature Search and Review
+- [x] Session README
+- [ ] Expand and finalize content
+
+## Session Prep Checklist (per week)
+- [ ] README.md finalized with objectives, outline, key concepts
+- [ ] Presentation materials in presentations/week-NN/
+- [ ] Live demo scripted and tested
+- [ ] exercises.md created (optional)
+- [ ] references.md created (optional)
+
+## Success Criteria
+- [ ] Weeks 1-3 fully expanded with detailed learning objectives
+- [ ] Presentation outlines for weeks 1-3
+- [ ] Practicum project scaffolded (HBN analysis with matlab-mcp)
+- [ ] All 10 session READMEs have basic content
+- [ ] Course blog post published (neuromechanist.github.io)
+
+## Notes
+- Presentation happening soon; prioritize weeks 1-3 content
+- Blog post already published at neuromechanist.github.io/blog/010-agentic-research-workflows/
+- Course companion: research-skills plugin (free, open source)

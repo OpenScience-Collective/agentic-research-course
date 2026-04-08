@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 200" width="700" height="200">
+  <!-- Main branch line -->
+  <line x1="50" y1="60" x2="650" y2="60" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+  <!-- Feature branch -->
+  <path d="M 200 60 C 220 60, 240 140, 280 140" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="280" y1="140" x2="450" y2="140" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 450 140 C 490 140, 510 60, 530 60" fill="none" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  <!-- Main branch commits -->
+  <circle cx="50" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="130" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="200" cy="60" r="8" fill="#2563EB"/>
+  <circle cx="530" cy="60" r="10" fill="#059669" stroke="#059669" stroke-width="2"/>
+  <circle cx="650" cy="60" r="8" fill="#2563EB"/>
+  <!-- Feature branch commits -->
+  <circle cx="320" cy="140" r="7" fill="#F59E0B"/>
+  <circle cx="390" cy="140" r="7" fill="#F59E0B"/>
+  <circle cx="450" cy="140" r="7" fill="#F59E0B"/>
+  <!-- Labels -->
+  <text x="50" y="35" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E293B">main</text>
+  <text x="390" y="175" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#F59E0B">feature/add-filter</text>
+  <!-- Merge label -->
+  <text x="530" y="35" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#059669">merge</text>
+  <!-- Branch label -->
+  <text x="200" y="100" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" fill="#64748B">branch</text>
+</svg>
