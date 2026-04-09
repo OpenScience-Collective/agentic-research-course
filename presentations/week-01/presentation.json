@@ -651,7 +651,7 @@
           },
           {
             "type": "code",
-            "code": "# Install Homebrew\n/bin/bash -c \"$(curl -fsSL\n  https://raw.githubusercontent.com\n  /Homebrew/install/HEAD/install.sh)\"\n\n# Then install git\nbrew install git",
+            "code": "# Install Homebrew\n/bin/bash -c \"$(curl -fsSL\n  https://raw.githubusercontent.com\n  /Homebrew/install/HEAD/install.sh)\"\n\n# Then install git and gh\nbrew install git gh",
             "language": "bash",
             "position": { "area": "left", "order": 1 }
           },
@@ -663,12 +663,12 @@
           },
           {
             "type": "code",
-            "code": "# Debian/Ubuntu\nsudo apt update\nsudo apt install git\n\n# Verify\ngit --version",
+            "code": "# Debian/Ubuntu\nsudo apt update\nsudo apt install git gh\n\n# Verify\ngit --version\ngh --version",
             "language": "bash",
             "position": { "area": "right", "order": 1 }
           }
         ],
-        "speakerNotes": "macOS users: install Homebrew first, then use it to install git and everything else. Linux users: apt handles it. Windows users: I strongly recommend WSL, the Windows Subsystem for Linux."
+        "speakerNotes": "macOS users: install Homebrew first, then use it to install git and gh. Linux users: apt handles it. Windows users: I strongly recommend WSL, the Windows Subsystem for Linux. We install both git for version control and gh for GitHub operations."
       },
       {
         "id": "section-git",
@@ -851,6 +851,87 @@
             "position": { "area": "center", "order": 2 }
           }
         ]
+      },
+      {
+        "id": "git-vs-gh",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Two CLIs: `git` vs `gh`",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "text",
+            "content": "### `git` -- Version Control",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#F97316"
+            },
+            "position": { "area": "left" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Tracks file changes locally",
+              "Commits, branches, merges",
+              "Push/pull to any remote",
+              "Works without GitHub"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "medium" },
+            "animation": { "fragment": true, "type": "fade", "index": 0 },
+            "position": { "area": "left", "order": 1 }
+          },
+          {
+            "type": "code",
+            "code": "git add .\ngit commit -m \"update\"\ngit push\ngit log\ngit diff\ngit clone <url>",
+            "language": "bash",
+            "animation": { "fragment": true, "type": "fade", "index": 2 },
+            "position": { "area": "left", "order": 2 }
+          },
+          {
+            "type": "text",
+            "content": "### `gh` -- GitHub CLI",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": { "area": "right" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Interacts with GitHub features",
+              "Issues, PRs, Actions, releases",
+              "Repo creation and management",
+              "Requires a GitHub account"
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "medium" },
+            "animation": { "fragment": true, "type": "fade", "index": 1 },
+            "position": { "area": "right", "order": 1 }
+          },
+          {
+            "type": "code",
+            "code": "gh issue create\ngh pr create\ngh repo create\ngh issue develop 42\ngh pr view\ngh repo clone user/repo",
+            "language": "bash",
+            "animation": { "fragment": true, "type": "fade", "index": 3 },
+            "position": { "area": "right", "order": 2 }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Where they overlap:** cloning repos (`git clone` vs `gh repo clone`). That is about it. You will use both together: `git` for version control, `gh` for GitHub operations.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 4 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "You will hear me mention two command-line tools that sound similar. git is the version control tool: it tracks changes, makes commits, manages branches. It works with any remote, not just GitHub. gh is the GitHub CLI: it handles GitHub-specific things like issues, pull requests, and repo management. The only real overlap is cloning repos; both can do it. In practice, you use them together: git for your code history, gh for your project management."
       },
       {
         "id": "branches",

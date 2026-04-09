@@ -10,10 +10,12 @@
 ### Week 1: Git, GitHub, and the Command Line + Landscape Overview
 - [x] Session README with learning objectives
 - [ ] Expand README with detailed objectives and landscape overview
-- [ ] Create presentation outline (presentations/week-01/)
+- [x] Create presentation outline (presentations/week-01/)
+- [x] Create presentation slides (presentations/week-01/presentation.json)
 - [ ] Prepare live demo: init repo, first commit, push to GitHub
 - [ ] Create exercises.md with post-session practice
-- [ ] Blog post or guidelines document (optional)
+- [x] Blog post: step-by-step setup guide (blog/week-01-setup-guide.md)
+- [x] Slide-running instructions (presentations/README.md)
 
 ### Week 2: Setting Up Claude Code for Research
 - [x] Session README with learning objectives

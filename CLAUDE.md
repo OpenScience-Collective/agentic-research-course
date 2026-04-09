@@ -29,11 +29,11 @@ assets/               # Shared images, diagrams
 ```
 
 ## Related Repositories
-- **HBN_BIDS_analysis** (`../../HBN_BIDS_analysis`) -- MATLAB EEG pipeline for HBN data, BIDS conversion
-- **eventformer** (`../../eventformer`) -- EEG foundation models with HED vocabulary (NeurIPS 2026)
-- **bimanual-analysis** (`../../bimanual-analysis`) -- Multimodal EEG/EMG analysis pipeline
-- **matlab-mcp-tools** (`../../matlab-mcp-tools`) -- MCP server for MATLAB/EEGLAB integration with Claude Code
-- **research-skills** plugin -- Course companion plugin (opencite, grant writing, manuscript prep, neuroinformatics)
+- **matlab-mcp-tools** ([GitHub](https://github.com/neuromechanist/matlab-mcp-tools)) -- MCP server for MATLAB/EEGLAB integration with Claude Code
+- **research-skills** ([GitHub](https://github.com/neuromechanist/research-skills)) -- Course companion plugin (opencite, grant writing, manuscript prep, neuroinformatics)
+- **HEDit** ([GitHub](https://github.com/Annotation-Garden/HEDit)) -- Multi-agent system for Hierarchical Event Descriptor (HED) annotation generation
+- **image-annotation** ([GitHub](https://github.com/Annotation-Garden/image-annotation)) -- Web-based annotation tool for static images
+- **agentic-presentation-builder** ([GitHub](https://github.com/neuromechanist/agentic-presentation-builder)) -- JSON-based presentation engine used for course slides
 
 ## Practicum Project
 The live demos use HBN EEG data to analyze neural responses to movie shot changes:
