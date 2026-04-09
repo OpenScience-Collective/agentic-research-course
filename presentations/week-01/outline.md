@@ -3,7 +3,7 @@
 ## Opening: The Landscape (8 min)
 
 ### Slide 1: Title
-- AI-Powered Research Workflows
+- Agentic Research Course
 - Week 1: Git, GitHub, and the Command Line
 - Open Science Collective
 

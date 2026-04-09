@@ -1,7 +1,7 @@
 {
   "presentation": {
     "metadata": {
-      "title": "AI-Powered Research Workflows",
+      "title": "Agentic Research Course",
       "author": "Seyed Yahya Shirazi, Ph.D.",
       "description": "Week 1: Git, GitHub, and the Command Line -- Why AI Tools Need Version Control",
       "theme": "default",
@@ -15,7 +15,7 @@
         "elements": [
           {
             "type": "text",
-            "content": "# AI-Powered Research Workflows",
+            "content": "# Agentic Research Course",
             "style": {
               "fontSize": "xxl",
               "alignment": "center",
@@ -44,7 +44,7 @@
             "position": { "area": "center", "order": 2 }
           }
         ],
-        "speakerNotes": "Welcome everyone to the first session of AI-Powered Research Workflows. I'm Yahya Shirazi, and over the next 10 weeks we're going to transform how you do research."
+        "speakerNotes": "Welcome everyone to the first session of Agentic Research Course. I'm Yahya Shirazi, and over the next 10 weeks we're going to transform how you do research."
       },
       {
         "id": "what-this-course-is",
@@ -1148,7 +1148,7 @@
           {
             "type": "bullets",
             "items": [
-              "**Course repo:** github.com/neuromechanist/agentic-research-course",
+              "**Course repo:** github.com/OpenScience-Collective/agentic-research-course",
               "**Blog post:** neuromechanist.github.io/blog/010-agentic-research-workflows",
               "**research-skills plugin:** github.com/neuromechanist/research-skills",
               "**Discord:** discord.gg/5dWJCUmUww (Open Science Collective)",

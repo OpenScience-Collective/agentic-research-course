@@ -2,7 +2,7 @@
 
 *A step-by-step walkthrough for getting your research computing environment ready.*
 
-This guide accompanies [Week 1](../sessions/week-01/) of the AI-Powered Research Workflows course by the [Open Science Collective](https://osc.earth). By the end, you will have a working terminal, git installed, a GitHub account, and your first repository pushed to the cloud.
+This guide accompanies [Week 1](../sessions/week-01/) of the Agentic Research Course course by the [Open Science Collective](https://osc.earth). By the end, you will have a working terminal, git installed, a GitHub account, and your first repository pushed to the cloud.
 
 No prior coding experience is assumed.
 
@@ -485,10 +485,10 @@ We will walk through the full setup together in Week 2.
 
 - [Git documentation](https://git-scm.com/doc)
 - [GitHub Skills](https://skills.github.com/) (free interactive courses)
-- [Course repository](https://github.com/neuromechanist/agentic-research-course)
+- [Course repository](https://github.com/OpenScience-Collective/agentic-research-course)
 - [Open Science Collective Discord](https://discord.gg/5dWJCUmUww)
 - [research-skills plugin](https://github.com/neuromechanist/research-skills)
 
 ---
 
-*Part of the [AI-Powered Research Workflows](https://github.com/neuromechanist/agentic-research-course) course by the Open Science Collective. Licensed under CC-BY-4.0.*
+*Part of the [Agentic Research Course](https://github.com/OpenScience-Collective/agentic-research-course) course by the Open Science Collective. Licensed under CC-BY-4.0.*
