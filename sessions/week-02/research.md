@@ -85,7 +85,7 @@ Source: [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overv
 | **Git integration** | None | Deep (commits, PRs, branches) | None |
 | **Requires coding** | No | Comfortable with terminal | No |
 
-**Claude Cowork** is Anthropic's newest product (research preview, early 2026). It brings agentic capabilities to the Claude Desktop app for non-coding tasks: creating spreadsheets with formulas, PowerPoint presentations, formatted documents, data analysis. It runs code in an isolated VM on your computer, can coordinate sub-agents in parallel, and supports scheduled tasks. Available on Pro, Max, Team, and Enterprise plans.
+**Claude Cowork** is Anthropic's newest agentic product (generally available as of April 2026; some features still in research preview). It brings agentic capabilities to the Claude Desktop app for non-coding tasks: creating spreadsheets with formulas, PowerPoint presentations, formatted documents, data analysis. It runs code in an isolated VM on your computer, can coordinate sub-agents in parallel, and supports scheduled tasks. Available on Pro, Max, Team, and Enterprise plans.
 
 Source: [claude.com/product/cowork](https://claude.com/product/cowork), [support.claude.com](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 
@@ -132,7 +132,8 @@ Prompted to log in on first use. That's it.
 ### Authentication
 
 - First launch opens browser for login
-- Supports: Claude subscription (Pro/Max/Team/Enterprise), Console account (API), third-party providers (AWS Bedrock, Google Vertex AI)
+- Supports: Claude subscription (Pro/Max/Team/Enterprise) or Anthropic Console account (API)
+- Terminal CLI and VS Code also support third-party providers (AWS Bedrock, Google Vertex AI)
 - Check status: `claude auth status`
 - Switch accounts: `/login` in session
 
@@ -143,11 +144,11 @@ Claude Code asks permission before taking actions. Three key modes:
 | Mode | Behavior | When to use |
 |------|----------|-------------|
 | **Default** | Asks before file edits and shell commands | Starting out, learning the tool |
-| **Accept Edits** | Auto-approves file edits, asks for shell commands | Trusted coding sessions |
-| **Plan Mode** | Read-only; creates a plan you approve first | Complex changes, unfamiliar code |
-| **Auto Mode** | Background classifier evaluates safety, blocks risky actions | Experienced users, CI/CD |
+| **Accept Edits** | Auto-approves file edits plus filesystem commands (mkdir, touch, mv, cp, rm, sed); asks for other shell commands | Trusted coding sessions |
+| **Plan Mode** | Prevents edits; Claude can still read files and run shell commands (with normal permission prompts), but cannot modify your source | Complex changes, unfamiliar code |
+| **Auto Mode** | Background classifier evaluates safety, blocks risky actions | Team/Enterprise/API plan only; requires Sonnet 4.6 or Opus 4.6; opt-in via `--enable-auto-mode` |
 
-Cycle modes with `Shift+Tab`. Configure permanent rules with `/permissions`.
+Cycle modes with `Shift+Tab`. The default cycle covers `default`, `acceptEdits`, and `plan`. Auto mode must be enabled with `--enable-auto-mode` (Team/Enterprise/API only, not Pro/Max). Configure permanent rules with `/permissions`.
 
 Source: [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview), [code.claude.com/docs/en/permission-modes](https://code.claude.com/docs/en/permission-modes)
 
@@ -176,7 +177,7 @@ Full-featured command-line interface. All features available. This is what we te
 - Standalone app for macOS and Windows
 - Visual diff review, multiple sessions side-by-side
 - Schedule recurring tasks, kick off cloud sessions
-- Download: [claude.ai desktop downloads](https://code.claude.com/docs/en/overview)
+- Installation instructions on the [Claude Code overview page](https://code.claude.com/docs/en/overview)
 
 ### Claude Code on the Web
 
@@ -392,7 +393,7 @@ Use plan mode for changes under src/billing/.
 
 ### Auto Memory
 
-Claude also maintains **auto-memory** at `~/.claude/projects/<project>/memory/MEMORY.md`. Claude writes this itself based on your corrections and discovered patterns. First 200 lines loaded every session. Machine-local, not shared.
+Claude also maintains **auto-memory** at `~/.claude/projects/<project>/memory/MEMORY.md`. Claude writes this itself based on your corrections and discovered patterns. First 200 lines OR 25KB (whichever comes first) loaded every session. Machine-local, not shared.
 
 Toggle with `/memory` command.
 
@@ -404,7 +405,7 @@ Source: [code.claude.com/docs/en/memory](https://code.claude.com/docs/en/memory)
 
 ### What It Is
 
-A permission mode where Claude uses **read-only tools only** (Read, Grep, Glob, view-only Bash). Claude gathers information, asks questions, and creates a detailed implementation plan for your approval before making any changes.
+A permission mode that **prevents edits**. Claude can still read files and run shell commands (subject to normal permission prompts), but cannot modify your source. Claude gathers information, asks questions, and creates a detailed implementation plan for your approval before making any changes.
 
 ### How to Enter/Exit
 
@@ -643,18 +644,17 @@ Mix and match seats. Includes Claude Code, Cowork, SSO, admin controls.
 | Sonnet 4.6 | $3 | $15 |
 | Haiku 4.5 | $1 | $5 |
 
-Average enterprise cost: ~$13/developer/active day, $150-250/developer/month.
+Anthropic publishes average enterprise cost guidance in [code.claude.com/docs/en/costs](https://code.claude.com/docs/en/costs): around $13/developer/active day and $150-250/developer/month, with 90% of users under $30/active day.
 
 ### Nonprofit Discount
 
 **Yes, Anthropic offers nonprofit pricing.**
 
-- **Standard seat (nonprofit):** $8/user/month (vs $20-25 standard)
-- **Premium seat (nonprofit):** ~$40/user/month (vs $100-125 standard) -- pending confirmation
-- Minimum 2 seats
+- **Team plan for nonprofits:** $8/user/month for organizations with fewer than 20 people (vs $20-25 standard)
+- **Premium seats (nonprofit):** not published on the public page; contact sales
 - **Eligibility:** 501(c)(3) organizations, international equivalents, K-12 schools, mission-based healthcare providers
 - **Verification:** Through Goodstack partner (~2-3 minutes)
-- **Enterprise:** Custom pricing; contact nonprofit sales team
+- **Enterprise:** Custom pricing; contact nonprofit sales team (for larger organizations above the 20-person cap)
 
 Source: [claude.com/solutions/nonprofits](https://claude.com/solutions/nonprofits)
 
@@ -672,8 +672,9 @@ Source: [claude.com/solutions/education](https://claude.com/solutions/education)
 
 ### Recommendation for PIs/Departments
 
-- **For individual researchers:** Pro plan ($20/month) is sufficient
-- **For labs/departments (5+ people):** Team plan with mixed seats. Most US universities are 501(c)(3) nonprofits, so departments and PIs likely qualify for the **$8/seat nonprofit Team plan** (vs $20-25/seat standard) through Goodstack verification. This is the practical path for lab-sized groups.
+- **For individual researchers:** Pro plan ($20/month, or $17/month billed annually) is sufficient
+- **For labs under 20 people** at 501(c)(3) universities: apply as the nonprofit purchasing entity for the Team plan at **$8/seat/month** (vs $20-25 standard) via Goodstack verification. Most US universities are 501(c)(3)s; the lab typically registers as the unit, not the whole university.
+- **For departments or groups over 20 people:** route to Enterprise; contact the nonprofit sales team for pricing
 - **For university-wide adoption:** Contact Anthropic Education team for institutional plan with student/faculty/staff access, Canvas/LMS integration, and learning mode features
 - **For API-heavy research:** Console account with pay-per-token; use workspace spend limits
 

@@ -394,7 +394,7 @@
           {
             "type": "callout",
             "calloutType": "tip",
-            "content": "This course focuses on **Claude Code**. Cowork is new (research preview) and handles non-coding tasks like spreadsheets and presentations.",
+            "content": "This course focuses on **Claude Code**. Cowork is Anthropic's newest agentic product (generally available) for non-coding tasks like spreadsheets and presentations.",
             "animation": {
               "fragment": true,
               "type": "slide-up",
@@ -406,7 +406,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\nAnthropic has three products now. Claude Chat is what most people know: conversational AI in the browser. Claude Code is the coding agent we're learning. And Cowork is brand new, a research preview that brings agentic capabilities to knowledge work: creating spreadsheets, presentations, documents. All three are available on Pro and above. We focus on Code."
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\nAnthropic has three products now. Claude Chat is what most people know: conversational AI in the browser. Claude Code is the coding agent we're learning. Cowork is the newest agentic product, now generally available, that brings agentic capabilities to knowledge work: creating spreadsheets, presentations, documents. Cowork is on Pro and above; Claude Code is also on Pro and above. We focus on Code."
       },
       {
         "id": "interfaces",
@@ -677,18 +677,18 @@
               ],
               [
                 "Accept Edits",
-                "Auto-approves file edits",
+                "Auto-approves file edits + filesystem commands (mkdir, mv, cp, rm, sed)",
                 "Trusted sessions"
               ],
               [
                 "Plan",
-                "Read-only; plans before acting",
+                "Prevents edits; can still read and run commands with prompts",
                 "Complex changes"
               ],
               [
-                "Auto",
-                "Classifier evaluates safety",
-                "Experienced users"
+                "Auto (opt-in)",
+                "Safety classifier evaluates each action",
+                "Team/Enterprise only; Sonnet/Opus 4.6"
               ]
             ],
             "animation": {
@@ -705,7 +705,7 @@
             "type": "callout",
             "calloutType": "important",
             "title": "Shift+Tab",
-            "content": "Press **Shift+Tab** to cycle between modes anytime during a session. Start with Default, graduate to Accept Edits as you build trust.",
+            "content": "Press **Shift+Tab** to cycle Default -> Accept Edits -> Plan. Auto mode is opt-in via `--enable-auto-mode` and not available on Pro or Max.",
             "animation": {
               "fragment": true,
               "type": "slide-up",
@@ -717,7 +717,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\nClaude Code has a permission model. By default it asks before writing files or running commands. You control the guardrails. Shift+Tab cycles between modes. Start with Default mode. As you build trust, move to Accept Edits. Plan mode is read-only, perfect for exploration. Auto mode is for power users, a background classifier decides what's safe."
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\nClaude Code has a permission model. By default it asks before writing files or running commands. Shift+Tab cycles Default, Accept Edits, Plan. Start with Default. Accept Edits auto-approves edits and common filesystem commands like mkdir and mv. Plan mode prevents edits but still lets Claude read files and run commands with normal prompts. Auto mode is opt-in via --enable-auto-mode and requires a Team, Enterprise, or API plan plus Sonnet 4.6 or Opus 4.6; it is not available on Pro or Max."
       },
       {
         "id": "section-claude-md",
@@ -1248,7 +1248,7 @@
           },
           {
             "type": "text",
-            "content": "If your repo uses AGENTS.md for other tools (Copilot, Cursor), import it:",
+            "content": "If your repo uses AGENTS.md for other tools (OpenAI Codex, other agent frameworks), import it:",
             "style": {
               "fontSize": "medium"
             },
@@ -1291,7 +1291,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\nQuick note on AGENTS.md. Some repos use it for GitHub Copilot or Cursor. Claude Code ignores it. But you can import it into your CLAUDE.md with the @ syntax. This way both tools read the same instructions without duplication. The @ import works with any file."
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\nQuick note on AGENTS.md. Some repos use it for OpenAI Codex or other agent frameworks. Claude Code ignores it. But you can import it into your CLAUDE.md with the @ syntax. This way both tools read the same instructions without duplication. The @ import works with any file."
       },
       {
         "id": "section-extending",
@@ -1507,6 +1507,10 @@
               [
                 "/loop",
                 "Run a prompt repeatedly on an interval"
+              ],
+              [
+                "/claude-api",
+                "Load Claude API reference for your language"
               ]
             ],
             "animation": {
@@ -1584,7 +1588,7 @@
             "type": "bullets",
             "items": [
               {
-                "text": "**Google Drive:** read design docs, meeting notes",
+                "text": "**Serena:** semantic code exploration (LSP-powered symbol navigation)",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -1592,7 +1596,7 @@
                 }
               },
               {
-                "text": "**Jira / Linear:** update tickets, track issues",
+                "text": "**LSP servers:** real-time code intelligence for TypeScript, Python, Rust, Go",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -1600,7 +1604,7 @@
                 }
               },
               {
-                "text": "**Databases:** query and analyze data",
+                "text": "**hed-mcp:** Hierarchical Event Descriptor (HED) annotation for neuroimaging",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -1608,7 +1612,7 @@
                 }
               },
               {
-                "text": "**Slack:** read channels, post updates",
+                "text": "**matlab-mcp-tools:** drive EEGLAB / MATLAB from Claude Code",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -1616,7 +1620,7 @@
                 }
               },
               {
-                "text": "**MATLAB (matlab-mcp-tools):** run EEGLAB from Claude Code",
+                "text": "**General:** Google Drive, Notion, Jira, Slack, databases",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -1647,7 +1651,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 8x to reveal all fragments]\n\nMCP is Model Context Protocol, an open standard. It connects Claude Code to external tools. You can read Google Drive docs, update Jira tickets, query databases, post to Slack. For our practicum, we use matlab-mcp-tools to drive EEGLAB from Claude Code. Claude runs MATLAB commands, reads EEG data, and generates figures, all from the terminal."
+        "speakerNotes": "[Press -> 8x to reveal all fragments]\n\nMCP is Model Context Protocol, an open standard. The most useful MCPs for researchers: Serena for semantic code exploration, LSP servers for language-aware code intelligence, hed-mcp for HED annotation in neuroimaging workflows, and matlab-mcp-tools to drive EEGLAB. General-purpose MCPs connect to Google Drive, Notion, Jira, Slack, databases. For our practicum, we use matlab-mcp-tools to run EEGLAB from Claude Code."
       },
       {
         "id": "hooks-agents",
@@ -2333,7 +2337,7 @@
           {
             "type": "callout",
             "calloutType": "tip",
-            "content": "Install: `claude plugin install research-skills` | GitHub: [github.com/neuromechanist/research-skills](https://github.com/neuromechanist/research-skills)",
+            "content": "Install: `claude plugin install project@research-skills` | GitHub: [github.com/neuromechanist/research-skills](https://github.com/neuromechanist/research-skills)",
             "animation": {
               "fragment": true,
               "type": "slide-up",
@@ -2376,18 +2380,18 @@
               ],
               [
                 "Pro (individual)",
-                "$20/mo",
-                "$20/mo"
+                "$20/mo ($17 annual)",
+                "same"
               ],
               [
                 "Team Standard (5+ seats)",
                 "$20-25/seat/mo",
-                "$8/seat/mo"
+                "$8/seat/mo (<20 people)"
               ],
               [
                 "Team Premium (5+ seats)",
                 "$100-125/seat/mo",
-                "~$40/seat/mo"
+                "Contact sales"
               ],
               [
                 "Enterprise",
@@ -2409,7 +2413,7 @@
             "type": "bullets",
             "items": [
               {
-                "text": "Most US universities are **501(c)(3) nonprofits** -- labs and departments qualify",
+                "text": "Most US universities are **501(c)(3) nonprofits** -- the lab registers as the nonprofit unit",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -2417,7 +2421,7 @@
                 }
               },
               {
-                "text": "Nonprofit verification through Goodstack (~3 minutes)",
+                "text": "Nonprofit Team plan is **for orgs under 20 people** ($8/seat); larger groups route to Enterprise",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -2425,7 +2429,7 @@
                 }
               },
               {
-                "text": "**Education plans** available for university-wide deployment; contact Anthropic",
+                "text": "Verification through Goodstack (~3 minutes)",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
@@ -2433,11 +2437,19 @@
                 }
               },
               {
-                "text": "For this course: **Pro ($20/mo)** is sufficient",
+                "text": "**Education plans** available for university-wide deployment; contact Anthropic",
                 "animation": {
                   "fragment": true,
                   "type": "fade",
                   "index": 4
+                }
+              },
+              {
+                "text": "For this course: **Pro ($20/mo or $17 annual)** is sufficient",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
                 }
               }
             ],
@@ -2453,18 +2465,18 @@
           {
             "type": "callout",
             "calloutType": "tip",
-            "content": "PIs: if your university is a 501(c)(3), your lab can get Team seats at **$8/seat/month** instead of $25. Verify at Goodstack in 3 minutes.",
+            "content": "PIs: if your lab has fewer than 20 people at a 501(c)(3) university, apply as the nonprofit unit for Team seats at **$8/seat/month** via Goodstack.",
             "animation": {
               "fragment": true,
               "type": "slide-up",
-              "index": 5
+              "index": 6
             },
             "position": {
               "area": "footer"
             }
           }
         ],
-        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\nLet's talk pricing. Pro at 20 dollars a month is enough for this course. But here's the big news for PIs and department heads: most US universities are 501(c)(3) nonprofits. That means you qualify for the nonprofit Team plan at 8 dollars per seat per month instead of 25. Premium seats drop from 125 to about 40. Verification through Goodstack takes 3 minutes. There are also university-wide education plans; contact Anthropic's education team for those."
+        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\nLet's talk pricing. Pro at 20 dollars a month, or 17 with annual billing, is enough for this course. For PIs and department heads: most US universities are 501(c)(3) nonprofits. For labs under 20 people, you can apply as the nonprofit unit for the Team plan at 8 dollars per seat per month instead of 25. Above 20 people, you route to Enterprise and contact the nonprofit sales team. Verification through Goodstack takes 3 minutes. There are also university-wide education plans; contact Anthropic's education team for those."
       },
       {
         "id": "before-next-week",
