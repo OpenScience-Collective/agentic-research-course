@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Folder icon -->
+  <path d="M30 40 L30 170 L170 170 L170 55 L90 55 L80 40 Z" fill="#F1F5F9" stroke="#334155" stroke-width="1.5"/>
+  <path d="M30 40 L80 40 L90 55 L30 55 Z" fill="#E2E8F0" stroke="#334155" stroke-width="1.5"/>
+  <!-- .context/ label -->
+  <text x="100" y="35" font-family="monospace" font-size="12" fill="#2563EB" text-anchor="middle" font-weight="bold">.context/</text>
+  <!-- plan.md -->
+  <rect x="45" y="68" width="110" height="20" rx="3" fill="#2563EB" opacity="0.15"/>
+  <text x="52" y="82" font-family="monospace" font-size="10" fill="#2563EB">plan.md</text>
+  <text x="145" y="82" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="end">tasks</text>
+  <!-- ideas.md -->
+  <rect x="45" y="93" width="110" height="20" rx="3" fill="#F59E0B" opacity="0.15"/>
+  <text x="52" y="107" font-family="monospace" font-size="10" fill="#B45309">ideas.md</text>
+  <text x="145" y="107" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="end">design</text>
+  <!-- research.md -->
+  <rect x="45" y="118" width="110" height="20" rx="3" fill="#22C55E" opacity="0.15"/>
+  <text x="52" y="132" font-family="monospace" font-size="10" fill="#15803D">research.md</text>
+  <text x="145" y="132" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="end">findings</text>
+  <!-- scratch_history.md -->
+  <rect x="45" y="143" width="110" height="20" rx="3" fill="#EF4444" opacity="0.15"/>
+  <text x="52" y="157" font-family="monospace" font-size="10" fill="#DC2626">scratch_history</text>
+  <text x="145" y="157" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="end">failures</text>
+</svg>

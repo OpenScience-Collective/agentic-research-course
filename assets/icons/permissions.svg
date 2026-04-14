@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Shield outline -->
+  <path d="M100 20 L160 50 L160 110 Q160 160 100 185 Q40 160 40 110 L40 50 Z" fill="#F0FDF4" stroke="#22C55E" stroke-width="2.5"/>
+  <!-- Shield inner glow -->
+  <path d="M100 35 L148 58 L148 108 Q148 148 100 170 Q52 148 52 108 L52 58 Z" fill="#DCFCE7" opacity="0.5"/>
+  <!-- Lock icon in center -->
+  <rect x="82" y="90" width="36" height="30" rx="4" fill="#22C55E"/>
+  <path d="M88 90 L88 78 Q88 65 100 65 Q112 65 112 78 L112 90" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <!-- Keyhole -->
+  <circle cx="100" cy="102" r="5" fill="white"/>
+  <rect x="98" y="105" width="4" height="8" rx="1" fill="white"/>
+  <!-- Permission levels text -->
+  <text x="100" y="140" font-family="sans-serif" font-size="8" fill="#15803D" text-anchor="middle">Read | Write | Execute</text>
+  <text x="100" y="155" font-family="sans-serif" font-size="7" fill="#64748B" text-anchor="middle">You control the guardrails</text>
+</svg>

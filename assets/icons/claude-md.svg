@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Document shape -->
+  <path d="M45 25 L135 25 L155 45 L155 175 L45 175 Z" fill="#F8FAFC" stroke="#334155" stroke-width="2"/>
+  <!-- Folded corner -->
+  <path d="M135 25 L135 45 L155 45" fill="#E2E8F0" stroke="#334155" stroke-width="2"/>
+  <!-- CLAUDE.md title -->
+  <text x="60" y="68" font-family="monospace" font-size="13" fill="#2563EB" font-weight="bold">CLAUDE.md</text>
+  <!-- Divider -->
+  <line x1="55" y1="76" x2="145" y2="76" stroke="#CBD5E1" stroke-width="1"/>
+  <!-- Content lines representing rules -->
+  <rect x="60" y="85" width="50" height="3" rx="1.5" fill="#334155" opacity="0.6"/>
+  <rect x="60" y="95" width="80" height="3" rx="1.5" fill="#64748B" opacity="0.4"/>
+  <rect x="60" y="105" width="60" height="3" rx="1.5" fill="#64748B" opacity="0.4"/>
+  <!-- Checkbox items -->
+  <rect x="60" y="120" width="8" height="8" rx="2" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <rect x="73" y="122" width="55" height="3" rx="1.5" fill="#64748B" opacity="0.4"/>
+  <rect x="60" y="135" width="8" height="8" rx="2" fill="none" stroke="#22C55E" stroke-width="1.5"/>
+  <rect x="73" y="137" width="65" height="3" rx="1.5" fill="#64748B" opacity="0.4"/>
+  <!-- Never do section -->
+  <rect x="60" y="152" width="80" height="3" rx="1.5" fill="#EF4444" opacity="0.6"/>
+  <rect x="60" y="162" width="60" height="3" rx="1.5" fill="#EF4444" opacity="0.4"/>
+</svg>
