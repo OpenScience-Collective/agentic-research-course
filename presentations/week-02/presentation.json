@@ -1,0 +1,2661 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 2: Setting Up Claude Code for Research -- From Installation to Your First AI-Assisted Task",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 2: Setting Up Claude Code for Research",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/3JtBrU3c](https://discord.gg/3JtBrU3c)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back; welcome to newcomers\n\n- Last week: git, GitHub, terminal (the safety net)\n\n- Today: install Claude Code, the tool that needs the safety net\n\n- Week 1 recording on YouTube; link in Discord\n\n- Course site: courses.osc.earth/agentic-research\n\n- Discord link on the slide"
+      },
+      {
+        "id": "week1-recap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Quick Recap: Week 1 Essentials",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "For those who missed last week, or need a refresher:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**git** = version control on your machine. Commits = snapshots you can return to",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**GitHub** = online platform. PRs, code review, issues",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Terminal** = text interface. Where Claude Code lives",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**`gh` CLI** = GitHub from the command line",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "code": "# git: version control        # gh: GitHub from CLI\ngit add .                     gh issue create\ngit commit -m \"update\"        gh pr create\ngit push                      gh repo clone user/repo\ngit log                       gh issue develop 42",
+            "position": {
+              "area": "content",
+              "order": 2
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 4
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "Week 1 recording + setup guide available in the Discord and on YouTube",
+            "position": {
+              "area": "footer",
+              "order": 3
+            },
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Audience grew 10x; give a 2-minute foundation\n\n- git: tracks changes locally\n\n- GitHub: online platform, enables collaboration\n\n- Terminal: text interface where Claude Code runs\n\n- gh CLI: GitHub from command line\n\n- Key insight: AI is powerful -> QA and version control matter MORE, not less"
+      },
+      {
+        "id": "section-claude-code",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#FFF7ED",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/claude-face.svg",
+            "alt": "Claude face icon with wink animation",
+            "width": "140px",
+            "height": "140px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## Meet Claude Code",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#92400E"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "An agentic coding tool that reads, writes, runs, and iterates",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#78716C"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Section divider: Meet Claude Code\n\n- Let's get into the agent itself"
+      },
+      {
+        "id": "what-is-claude-code",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Is Claude Code?",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Not autocomplete. An **autonomous agent** that:",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Reads your **entire project** and understands the structure",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Writes and edits code **across multiple files**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Runs terminal commands (build, test, lint, deploy)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Creates git commits, branches, and pull requests",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Plans multi-step implementations **before writing a line**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "Iterates on its own work until tests pass",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "You describe what you want. Claude Code figures out how to build it.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code is NOT autocomplete or chat\n\n- Autonomous agent that:\n  - Reads entire project\n  - Writes/edits across multiple files\n  - Runs terminal commands\n  - Creates commits, branches, PRs\n  - Plans before writing code\n  - Iterates until tests pass\n\n- You describe the outcome; Claude figures out the implementation"
+      },
+      {
+        "id": "claude-ecosystem",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Claude Ecosystem",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Three products, three audiences:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "",
+              "Claude Chat",
+              "Claude Code",
+              "Claude Cowork"
+            ],
+            "rows": [
+              [
+                "What is it?",
+                "Conversational AI",
+                "Agentic coding tool",
+                "Agentic knowledge work"
+              ],
+              [
+                "Runs where?",
+                "Browser, mobile",
+                "Terminal, IDE, web",
+                "Desktop app"
+              ],
+              [
+                "File access",
+                "Upload only",
+                "Full read/write",
+                "Granted folders"
+              ],
+              [
+                "Needs coding?",
+                "No",
+                "Yes",
+                "No"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "This course focuses on **Claude Code**. Cowork is Anthropic's newest agentic product (generally available) for non-coding tasks like spreadsheets and presentations.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Three products from Anthropic:\n  - Claude Chat: conversational AI in browser\n  - Claude Code: the coding agent we're learning\n  - Claude Cowork: generally available, for non-coding agentic work (spreadsheets, presentations, documents)\n\n- Cowork and Code both on Pro and above\n\n- Course focuses on Code"
+      },
+      {
+        "id": "interfaces",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where Claude Code Lives",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/icons/interfaces.svg",
+            "alt": "Claude Code interface diagram showing Terminal, VS Code, Desktop, Web, JetBrains",
+            "width": "280px",
+            "height": "280px",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Terminal CLI** -- full-featured, what we teach in this course",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**VS Code / Cursor** -- inline diffs, @-mentions, plan review",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Desktop App** -- visual diffs, multiple sessions, scheduled tasks",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Web** (claude.ai/code) -- no local setup, long-running tasks",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**JetBrains** -- PyCharm, IntelliJ, WebStorm",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "**Third-party: Conductor** -- GUI wrapper, parallel agents, visual workflows",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "All official surfaces share the same engine. Your CLAUDE.md, settings, and MCP servers work everywhere.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code runs everywhere:\n  - Terminal CLI (what we teach)\n  - VS Code / Cursor extension\n  - JetBrains plugin\n  - Desktop app\n  - Web at claude.ai/code\n  - Third-party: Conductor (macOS GUI wrapper)\n\n- All official surfaces share same engine\n\n- CLAUDE.md, settings, MCP servers work everywhere"
+      },
+      {
+        "id": "interface-screenshots",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## In Practice",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/screenshots/vscode-claude.png",
+            "alt": "Claude Code in VS Code",
+            "width": "100%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/screenshots/code-app.png",
+            "alt": "Claude Code Desktop App",
+            "width": "100%",
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "text",
+            "content": "VS Code Extension (left) | Desktop App (right)",
+            "style": {
+              "fontSize": "small",
+              "alignment": "center",
+              "color": "#94A3B8"
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Left: VS Code extension (inline diffs, conversation panel)\n\n- Right: Desktop app (visual diff review)\n\n- Both connect to same engine\n\n- Pick whatever feels comfortable"
+      },
+      {
+        "id": "section-setup",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#EFF6FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/claude-code.svg",
+            "alt": "Terminal with Claude Code",
+            "width": "120px",
+            "height": "120px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## Getting Started",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "Installation, authentication, and permissions",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Section divider: Getting Started\n\n- Installation, auth, permissions"
+      },
+      {
+        "id": "installation",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Install Claude Code",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            },
+            "code": "# macOS / Linux (recommended)\ncurl -fsSL https://claude.ai/install.sh | bash\n\n# macOS via Homebrew\nbrew install --cask claude-code\n\n# Windows PowerShell\nirm https://claude.ai/install.ps1 | iex"
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Then run `cd your-project && claude` to start. Native install auto-updates. Homebrew/WinGet require manual upgrade.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Installation is one command\n\n- Native install recommended (auto-updates)\n\n- Homebrew works but upgrade manually\n\n- Windows: use PowerShell (Git for Windows required for native)\n\n- Then: cd your-project && claude\n\n- First run: browser opens for login"
+      },
+      {
+        "id": "permission-model",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Permission Model",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Mode",
+              "Behavior",
+              "When to Use"
+            ],
+            "rows": [
+              [
+                "Default",
+                "Asks before edits and commands",
+                "Starting out"
+              ],
+              [
+                "Accept Edits",
+                "Auto-approves file edits + filesystem commands (mkdir, mv, cp, rm, sed)",
+                "Trusted sessions"
+              ],
+              [
+                "Plan",
+                "Prevents edits; can still read and run commands with prompts",
+                "Complex changes"
+              ],
+              [
+                "Auto (opt-in)",
+                "Safety classifier evaluates each action",
+                "Team/Enterprise only; Sonnet/Opus 4.6"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "title": "Shift+Tab",
+            "content": "Press **Shift+Tab** to cycle Default -> Accept Edits -> Plan. Auto mode is opt-in via `--enable-auto-mode` and not available on Pro or Max.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Default: asks before edits and commands\n\n- Accept Edits: auto-approves edits AND filesystem commands (mkdir, mv, cp, rm, sed)\n\n- Plan: prevents edits; can still read and run commands (with prompts)\n\n- Auto: opt-in via --enable-auto-mode; Team/Enterprise/API only, NOT Pro/Max\n\n- Shift+Tab cycles Default -> Accept Edits -> Plan\n\n- Start at Default, move up as trust builds"
+      },
+      {
+        "id": "section-claude-md",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#F0FDF4",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/claude-md.svg",
+            "alt": "CLAUDE.md document icon",
+            "width": "120px",
+            "height": "120px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## CLAUDE.md",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#166534"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "The most important file in your project",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Section divider: CLAUDE.md\n\n- The most important file in your project"
+      },
+      {
+        "id": "claude-md-what",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Is CLAUDE.md?",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "A markdown file with **persistent instructions** that Claude reads at the start of **every session**.",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "You write it; it guides Claude's behavior",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "A good CLAUDE.md turns a generic AI into a **domain-aware research assistant**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Think of it as the briefing you'd give a new team member",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Run `/init` to generate a starter, then refine",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "left",
+              "order": 1
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/screenshots/init.png",
+            "alt": "Screenshot of /init generating a CLAUDE.md file",
+            "width": "100%",
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 5x to reveal all fragments]\n\n- CLAUDE.md = persistent instructions loaded every session\n\n- Plain markdown at project root\n\n- Turns generic AI into domain-aware assistant\n\n- Run /init to generate a starter\n\n- Then refine manually\n\n- Think of it as onboarding a new team member"
+      },
+      {
+        "id": "claude-md-scope",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## CLAUDE.md Scope Hierarchy",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "More specific locations take precedence:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Scope",
+              "Location",
+              "Shared With"
+            ],
+            "rows": [
+              [
+                "Organization",
+                "System-level (IT-deployed)",
+                "All users"
+              ],
+              [
+                "Project",
+                "./CLAUDE.md (in repo)",
+                "Team via git"
+              ],
+              [
+                "User",
+                "~/.claude/CLAUDE.md",
+                "Just you (all projects)"
+              ],
+              [
+                "Local",
+                "./CLAUDE.local.md (gitignored)",
+                "Just you (this project)"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Project CLAUDE.md** = team standards, check into git. **User** = personal, all projects.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Local** (CLAUDE.local.md) = personal project-specific, gitignored. Subdirectory files load on demand.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Multiple scopes, more specific wins:\n  - Managed (org-wide, IT-deployed)\n  - Project (./CLAUDE.md, shared via git)\n  - User (~/.claude/CLAUDE.md, personal)\n  - Local (./CLAUDE.local.md, gitignored)\n\n- All are concatenated, not override\n\n- Subdirectory files load on demand"
+      },
+      {
+        "id": "claude-md-content",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Goes In vs. What Stays Out",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Include",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#22C55E"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Build and test commands",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Code style rules (non-default)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Repo etiquette (branch naming, PR conventions)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Architecture decisions",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Common gotchas",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "\"Never do this\" rules",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "left",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Exclude",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#EF4444"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Things Claude can infer from code",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 6
+                }
+              },
+              {
+                "text": "Standard language conventions",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 7
+                }
+              },
+              {
+                "text": "Detailed API docs (link instead)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 8
+                }
+              },
+              {
+                "text": "Info that changes frequently",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 9
+                }
+              },
+              {
+                "text": "Long tutorials",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 10
+                }
+              },
+              {
+                "text": "Self-evident practices",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 11
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "right",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**Keep under 200 lines.** Bloated CLAUDE.md files cause Claude to ignore your actual instructions. If Claude follows a rule without the instruction, delete it.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 12
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 13x to reveal all fragments]\n\n- From official Anthropic best practices\n\n- Include: build commands, code style rules, workflow conventions, architecture decisions, gotchas, never-do rules\n\n- Exclude: things Claude can infer, standard conventions, long tutorials, frequently-changing info\n\n- CRITICAL: keep under 200 lines\n\n- If Claude ignores a rule, file is too long\n\n- If Claude already does something right without the rule, delete the rule"
+      },
+      {
+        "id": "rules-directory",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Organizing Rules: `.claude/rules/`",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "For larger projects, split instructions into topic files:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "text",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            },
+            "code": ".claude/\n\u251c\u2500\u2500 CLAUDE.md              # Main instructions\n\u2514\u2500\u2500 rules/\n    \u251c\u2500\u2500 code-style.md      # Code style guidelines\n    \u251c\u2500\u2500 testing.md          # Testing conventions\n    \u2514\u2500\u2500 security.md         # Security requirements"
+          },
+          {
+            "type": "text",
+            "content": "Rules can be **path-scoped** with YAML frontmatter:",
+            "style": {
+              "fontSize": "medium",
+              "fontWeight": "bold"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          },
+          {
+            "type": "code",
+            "language": "yaml",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 2
+            },
+            "position": {
+              "area": "content",
+              "order": 3
+            },
+            "code": "---\npaths:\n  - \"src/api/**/*.ts\"\n---\n# API Rules\n- All endpoints must validate input\n- Use standard error response format"
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Path-scoped rules only load when Claude works with matching files, saving context space.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- For larger projects: split rules into .claude/rules/*.md\n\n- Each file covers one topic (testing, security, code-style)\n\n- Powerful: path-scoped rules via YAML frontmatter\n\n- Only load when Claude works with matching files\n\n- Keeps context clean\n\n- We use this pattern in research-skills templates"
+      },
+      {
+        "id": "agents-md",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What About AGENTS.md?",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Claude Code reads **CLAUDE.md**, not AGENTS.md.",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "text",
+            "content": "If your repo uses AGENTS.md for other tools (OpenAI Codex, other agent frameworks), import it:",
+            "style": {
+              "fontSize": "medium"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "code",
+            "language": "markdown",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 2
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            },
+            "code": "# CLAUDE.md\n@AGENTS.md\n\n## Claude Code Specific\nUse plan mode for changes under src/billing/."
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "The `@path` syntax imports files inline. Works with any file: `@README.md`, `@package.json`, `@docs/conventions.md`",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "content",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- AGENTS.md is NOT read by Claude Code\n\n- Some repos use it for OpenAI Codex, other agent frameworks\n\n- Solution: import into CLAUDE.md with @ syntax\n\n- Both tools read same instructions, no duplication\n\n- @ import works with any file (README, package.json, etc.)"
+      },
+      {
+        "id": "section-extending",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#F5F3FF",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/plugin-ecosystem.svg",
+            "alt": "Plugin ecosystem diagram",
+            "width": "140px",
+            "height": "140px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## Extending Claude Code",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#5B21B6"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "Plugins, Skills, MCP, Hooks, and Agents",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Section divider: Extending Claude Code\n\n- Plugins, Skills, MCP, Hooks, Agents"
+      },
+      {
+        "id": "concept-map",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Big Picture",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/icons/plugin-ecosystem.svg",
+            "alt": "Plugin ecosystem: Plugin contains Skills, Hooks, Agents, MCP. Below: CLAUDE.md and Auto Memory always loaded.",
+            "width": "45%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Concept",
+              "What It Does",
+              "When to Use"
+            ],
+            "rows": [
+              [
+                "Plugin",
+                "Distributable package",
+                "Share tools with a team"
+              ],
+              [
+                "Skill",
+                "Workflow / knowledge",
+                "Repeatable procedures"
+              ],
+              [
+                "Hook",
+                "Automated action",
+                "Must happen every time"
+              ],
+              [
+                "Agent",
+                "Isolated worker",
+                "Side tasks, keep context clean"
+              ],
+              [
+                "MCP",
+                "External tool connector",
+                "Connect to APIs, databases"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Plugin = distributable package\n\n- Inside a plugin:\n  - Skills (workflows, load on demand)\n  - Hooks (automated actions at lifecycle points)\n  - Agents (isolated workers, own context)\n  - MCP servers (external tool connectors)\n\n- Below: CLAUDE.md + auto-memory always loaded"
+      },
+      {
+        "id": "skills-detail",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Skills: Reusable Workflows",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Stored in `.claude/skills/<name>/SKILL.md`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Claude loads them **on demand**, not every session",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Invoke with `/skill-name` or Claude auto-detects from context",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Can include supporting files: templates, scripts, examples",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Bundled skills** ship with Claude Code:",
+            "style": {
+              "fontSize": "medium",
+              "fontWeight": "bold"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 4
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Command",
+              "What It Does"
+            ],
+            "rows": [
+              [
+                "/simplify",
+                "Review and improve recent code"
+              ],
+              [
+                "/batch",
+                "Parallelize large changes across worktrees"
+              ],
+              [
+                "/debug",
+                "Enable debug logging and troubleshoot"
+              ],
+              [
+                "/loop",
+                "Run a prompt repeatedly on an interval"
+              ],
+              [
+                "/claude-api",
+                "Load Claude API reference for your language"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 5
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Skill vs CLAUDE.md:** CLAUDE.md = facts loaded every session. Skills = procedures loaded on demand. If CLAUDE.md is getting long, move procedures to skills.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Skills = SKILL.md files\n\n- Load on demand, NOT every session\n\n- Invoke with /skill-name or Claude auto-detects\n\n- Can include supporting files (templates, scripts, examples)\n\n- Bundled skills: /simplify, /batch, /debug, /loop, /claude-api\n\n- Skill vs CLAUDE.md:\n  - CLAUDE.md = facts every session\n  - Skills = procedures on demand\n\n- If CLAUDE.md grows, move procedures to skills"
+      },
+      {
+        "id": "mcp-detail",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## MCP: Connecting External Tools",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Model Context Protocol** -- an open standard for connecting AI to external data sources.",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            },
+            "code": "# Add an MCP server\nclaude mcp add notion-server npx @notionhq/mcp-server\n\n# Or configure in .mcp.json"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Serena:** semantic code exploration (LSP-powered symbol navigation)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**LSP servers:** real-time code intelligence for TypeScript, Python, Rust, Go",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**hed-mcp:** Hierarchical Event Descriptor (HED) annotation for neuroimaging",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "**matlab-mcp-tools:** drive EEGLAB / MATLAB from Claude Code",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              },
+              {
+                "text": "**General:** Google Drive, Notion, Jira, Slack, databases",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 6
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Our practicum uses **matlab-mcp-tools** to drive EEGLAB from Claude Code for EEG analysis.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 7
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 8x to reveal all fragments]\n\n- MCP = Model Context Protocol (open standard)\n\n- Research-relevant MCPs:\n  - Serena: semantic code exploration\n  - LSP servers: real-time code intelligence\n  - hed-mcp: HED annotation for neuroimaging\n  - matlab-mcp-tools: drive EEGLAB from Claude Code (our practicum)\n\n- General: Google Drive, Notion, Jira, Slack, databases\n\n- Add with: claude mcp add <name> <command>"
+      },
+      {
+        "id": "hooks-agents",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Hooks and Agents",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Hooks",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Automated actions at lifecycle points. **Deterministic**, not advisory.",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "left",
+              "order": 1
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Run linter after every file edit",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Block destructive commands",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Auto-format code on save",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Inject context at session start",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "left",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Agents (Subagents)",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#A78BFA"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Isolated workers with their **own context window**.",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "right",
+              "order": 1
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Keeps main conversation clean",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "Good for research / exploration",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              },
+              {
+                "text": "Can restrict tools and model",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 6
+                }
+              },
+              {
+                "text": "Returns summary, not raw data",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 7
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "right",
+              "order": 2
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Hooks:** \"This WILL happen.\" | **CLAUDE.md:** \"Please do this.\" | **Agents:** \"Do this in your own space.\"",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 8
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 9x to reveal all fragments]\n\n- Hooks = automated actions at lifecycle points\n  - Deterministic, not advisory (unlike CLAUDE.md)\n  - Examples: run linter after edits, block dangerous commands, auto-format\n\n- Agents = isolated workers, own context window\n  - Keep main conversation clean\n  - Good for research / exploration\n  - Can restrict tools and model\n  - Return summary, not raw data\n\n- Three-way distinction:\n  - Hooks: \"this WILL happen\"\n  - CLAUDE.md: \"please do this\"\n  - Agents: \"do this in your own space\" "
+      },
+      {
+        "id": "plan-mode",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Plan Mode: Think Before You Code",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/icons/plan-mode.svg",
+            "alt": "Plan mode workflow: Explore, Plan, Implement, Commit",
+            "width": "35%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Explore** (Plan Mode): Claude reads files, builds understanding",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Plan** (Plan Mode): Claude proposes approach, you review",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Implement** (Normal Mode): Claude writes the code",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Commit** (Normal Mode): Claude commits and opens PR",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "number",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "left",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "Enter with **Shift+Tab** (twice) or `/plan`. Press **Ctrl+G** to edit the plan in your editor.",
+            "style": {
+              "fontSize": "medium",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 4
+            },
+            "position": {
+              "area": "left",
+              "order": 2
+            }
+          },
+          {
+            "type": "image",
+            "src": "./assets/screenshots/plan.png",
+            "alt": "Screenshot of Claude Code in plan mode",
+            "width": "100%",
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- Most important feature for complex changes\n\n- Shift+Tab twice to enter\n\n- Four phases: Explore -> Plan -> Implement -> Commit\n\n- Claude explores read-only, proposes plan\n\n- You review plan (Ctrl+G opens in editor)\n\n- Approve, then Shift+Tab back to normal to implement\n\n- Prevents solving the wrong problem\n\n- Skip for small changes (one-liner fixes, renames)"
+      },
+      {
+        "id": "essential-commands",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Essential Commands and Shortcuts",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Command",
+              "What It Does"
+            ],
+            "rows": [
+              [
+                "/init",
+                "Generate starter CLAUDE.md from your codebase"
+              ],
+              [
+                "/plan",
+                "Enter plan mode (explore before coding)"
+              ],
+              [
+                "/clear",
+                "Reset context between unrelated tasks"
+              ],
+              [
+                "/compact",
+                "Summarize conversation to free context"
+              ],
+              [
+                "/memory",
+                "Edit CLAUDE.md, toggle auto-memory"
+              ],
+              [
+                "/model",
+                "Switch model (opus, sonnet, haiku)"
+              ],
+              [
+                "/diff",
+                "Interactive viewer of uncommitted changes"
+              ],
+              [
+                "/rewind",
+                "Undo to any previous checkpoint"
+              ],
+              [
+                "/resume",
+                "Continue a previous session"
+              ],
+              [
+                "/cost",
+                "Show token usage stats"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "title": "Key shortcuts",
+            "content": "**Shift+Tab** = cycle permission modes | **Esc** = stop Claude | **Esc+Esc** = rewind | **Ctrl+G** = open in editor | **@** = file autocomplete | **!** = bash mode",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- /init bootstraps CLAUDE.md\n\n- /plan for exploration before implementation\n\n- /clear between unrelated tasks (critical for context)\n\n- /compact summarizes when context fills\n\n- /model to switch Opus/Sonnet/Haiku\n\n- /rewind and Esc+Esc for undo\n\n- Shortcuts: Shift+Tab (modes), Esc (stop), @ (file autocomplete), ! (bash mode)"
+      },
+      {
+        "id": "best-practices",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Anthropic's Top 3 Best Practices",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### 1. Give Claude a way to verify its work",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#2563EB"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Include tests, expected outputs, or screenshots. This is the **single highest-leverage** thing you can do.",
+            "style": {
+              "fontSize": "medium"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "### 2. Explore first, then plan, then code",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#F59E0B"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 2
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Separate research from implementation. Use Plan Mode for the thinking phase.",
+            "style": {
+              "fontSize": "medium"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 3
+            },
+            "position": {
+              "area": "content",
+              "order": 3
+            }
+          },
+          {
+            "type": "text",
+            "content": "### 3. Manage context aggressively",
+            "style": {
+              "fontSize": "large",
+              "fontWeight": "bold",
+              "color": "#22C55E"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 4
+            },
+            "position": {
+              "area": "content",
+              "order": 4
+            }
+          },
+          {
+            "type": "text",
+            "content": "`/clear` between tasks. Use subagents for investigation. After two failed corrections, start fresh with a better prompt.",
+            "style": {
+              "fontSize": "medium"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 5
+            },
+            "position": {
+              "area": "content",
+              "order": 5
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Direct from Anthropic's official best-practices page\n\n- #1: Give Claude a way to verify\n  - Tests, expected outputs, screenshots\n  - Highest-leverage thing you can do\n\n- #2: Explore, plan, THEN code\n  - Don't jump to implementation\n  - Use Plan Mode for exploration\n\n- #3: Manage context aggressively\n  - /clear between tasks\n  - Subagents for research\n  - After 2 failed corrections, /clear and rewrite prompt"
+      },
+      {
+        "id": "section-our-workflow",
+        "layout": "title",
+        "transition": "fade",
+        "background": "#FFFBEB",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/context-directory.svg",
+            "alt": ".context/ directory structure",
+            "width": "120px",
+            "height": "120px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## Our Research Workflow",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold",
+              "color": "#92400E"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "Opinionated additions on top of official Claude Code features",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#78716C"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Section divider: Our Research Workflow\n\n- Our opinionated additions on top of official features"
+      },
+      {
+        "id": "context-directory",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The `.context/` Directory",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Four files that track your project's evolving state across sessions:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "File",
+              "Purpose",
+              "When to Update"
+            ],
+            "rows": [
+              [
+                "plan.md",
+                "Tasks, phases, status",
+                "Start of each session"
+              ],
+              [
+                "ideas.md",
+                "Design decisions, architecture",
+                "When making design choices"
+              ],
+              [
+                "research.md",
+                "Technical explorations, solutions",
+                "After investigating a question"
+              ],
+              [
+                "scratch_history.md",
+                "Failed attempts, lessons",
+                "Immediately after failure"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Claude reads these files. Your `plan.md` becomes its task list. Your `scratch_history.md` prevents it from repeating your mistakes.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "content",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- NOT an official Claude Code feature\n\n- Our opinionated pattern for project state\n\n- Four files in .context/:\n  - plan.md: current task list\n  - ideas.md: design decisions\n  - research.md: technical findings\n  - scratch_history.md: failed attempts (maybe the most valuable)\n\n- Claude reads all of them\n\n- scratch_history prevents repeating mistakes"
+      },
+      {
+        "id": "research-skills-plugin",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The research-skills Plugin",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Free, open-source Claude Code plugin for academic research workflows:",
+            "style": {
+              "fontSize": "medium",
+              "color": "#64748B"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Domain",
+              "Key Skills",
+              "Course Week"
+            ],
+            "rows": [
+              [
+                "project",
+                "/init-project, /epic-dev, /setup-ci",
+                "Weeks 2-4"
+              ],
+              [
+                "opencite",
+                "/opencite, /literature-review",
+                "Week 5"
+              ],
+              [
+                "grant",
+                "/grant-write, /grant-review",
+                "Week 6"
+              ],
+              [
+                "manuscript",
+                "/paper-review, /manuscript-prep",
+                "Week 7"
+              ],
+              [
+                "scientific-figures",
+                "/scientific-figures",
+                "Week 8"
+              ],
+              [
+                "neuroinformatics",
+                "/convert-bids, /design-experiment",
+                "Week 9"
+              ],
+              [
+                "presentation",
+                "/create-presentation",
+                "All weeks"
+              ]
+            ],
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Install: `claude plugin install project@research-skills` | GitHub: [github.com/neuromechanist/research-skills](https://github.com/neuromechanist/research-skills)",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Free, open source companion plugin\n\n- Seven domains, mapped to course weeks:\n  - project: /init-project, /epic-dev, /setup-ci\n  - opencite: literature search\n  - grant: proposal writing and review\n  - manuscript: peer review, formatting\n  - scientific-figures: publication figures\n  - neuroinformatics: BIDS, PsychoPy\n  - presentation: these slides\n\n- Install with correct marketplace suffix: @research-skills"
+      },
+      {
+        "id": "pricing",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Pricing and Access",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Plan",
+              "Standard Price",
+              "Nonprofit Price"
+            ],
+            "rows": [
+              [
+                "Free",
+                "$0/mo",
+                "$0/mo"
+              ],
+              [
+                "Pro (individual)",
+                "$20/mo ($17 annual)",
+                "same"
+              ],
+              [
+                "Team Standard (5+ seats)",
+                "$20-25/seat/mo",
+                "$8/seat/mo (<20 people)"
+              ],
+              [
+                "Team Premium (5+ seats)",
+                "$100-125/seat/mo",
+                "Contact sales"
+              ],
+              [
+                "Enterprise",
+                "$20/seat + usage",
+                "Custom"
+              ]
+            ],
+            "caption": "Prices as of April 2026",
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Most US universities are **501(c)(3) nonprofits** -- the lab registers as the nonprofit unit",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Nonprofit Team plan is **for orgs under 20 people** ($8/seat); larger groups route to Enterprise",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Verification through Goodstack (~3 minutes)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Education plans** available for university-wide deployment; contact Anthropic",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "For this course: **Pro ($20/mo or $17 annual)** is sufficient",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "PIs: if your lab has fewer than 20 people at a 501(c)(3) university, apply as the nonprofit unit for Team seats at **$8/seat/month** via Goodstack.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Pro at $20/mo ($17 annual) is enough for this course\n\n- Big news for PIs:\n  - Most US universities are 501(c)(3) nonprofits\n  - Labs under 20 people: apply as nonprofit unit\n  - Team plan drops from $25 to $8/seat/month\n  - Goodstack verification: ~3 minutes\n\n- Above 20 people: Enterprise\n\n- University-wide: contact Anthropic Education team\n\n- API-heavy: Console account, workspace spend limits"
+      },
+      {
+        "id": "before-next-week",
+        "layout": "single-column",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Before Next Week",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Install Claude Code and verify it works (`claude --version`)",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Run `/init` in a project to create your first CLAUDE.md",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Create the `.context/` directory with `plan.md`, `ideas.md`, `research.md`, `scratch_history.md`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Ask Claude Code to do one task related to your research",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Review what it generated and refine the CLAUDE.md manually",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "(Optional) Install the research-skills plugin",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "number",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Next week:** Project management with AI -- epics, sprints, worktrees, and structured development workflows.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Homework checklist:\n  - Install Claude Code\n  - Run /init to generate CLAUDE.md\n  - Create .context/ directory\n  - Give Claude ONE real research task (small is fine)\n  - Review what it generated, refine CLAUDE.md\n  - Optional: install research-skills plugin\n\n- Next week: project management (epics, sprints, worktrees)"
+      },
+      {
+        "id": "resources",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Resources",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "**Official docs:** [code.claude.com/docs](https://code.claude.com/docs/en/overview)",
+              "**Best practices:** [code.claude.com/docs/en/best-practices](https://code.claude.com/docs/en/best-practices)",
+              "**research-skills plugin:** [github.com/neuromechanist/research-skills](https://github.com/neuromechanist/research-skills)",
+              "**matlab-mcp-tools:** [github.com/neuromechanist/matlab-mcp-tools](https://github.com/neuromechanist/matlab-mcp-tools)",
+              "**Nonprofit pricing:** [claude.com/solutions/nonprofits](https://claude.com/solutions/nonprofits)",
+              "**Education plans:** [claude.com/solutions/education](https://claude.com/solutions/education)",
+              "**Conductor (third-party):** [docs.conductor.build](https://docs.conductor.build/)",
+              "**Course Discord:** link in the YouTube description"
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- All links available to attendees\n\n- Official docs: code.claude.com/docs\n\n- Best practices page is worth reading cover-to-cover\n\n- research-skills and matlab-mcp-tools: free, open source\n\n- Nonprofit pricing for PIs\n\n- Conductor for GUI users\n\n- Course Discord for questions"
+      },
+      {
+        "id": "closing",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "image",
+            "src": "./assets/icons/claude-face.svg",
+            "alt": "Claude face with wink",
+            "width": "120px",
+            "height": "120px",
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "## Questions?",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "Open Science Collective | [osc.earth](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- Q&A time\n\n- Chat in Discord\n\n- Raise hand on stage\n\n- Thanks everyone"
+      }
+    ]
+  }
+}
