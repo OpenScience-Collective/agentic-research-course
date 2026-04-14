@@ -69,7 +69,7 @@
             }
           }
         ],
-        "speakerNotes": "- Welcome back; welcome to newcomers\n- Last week: git, GitHub, terminal (the safety net)\n- Today: install Claude Code, the tool that needs the safety net\n- Week 1 recording on YouTube; link in Discord\n- Course site: courses.osc.earth/agentic-research\n- Discord link on the slide"
+        "speakerNotes": "- Welcome back; welcome to newcomers\n\n- Last week: git, GitHub, terminal (the safety net)\n\n- Today: install Claude Code, the tool that needs the safety net\n\n- Week 1 recording on YouTube; link in Discord\n\n- Course site: courses.osc.earth/agentic-research\n\n- Discord link on the slide"
       },
       {
         "id": "week1-recap",
@@ -171,7 +171,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Audience grew 10x; give a 2-minute foundation\n- git: tracks changes locally\n- GitHub: online platform, enables collaboration\n- Terminal: text interface where Claude Code runs\n- gh CLI: GitHub from command line\n- Key insight: AI is powerful -> QA and version control matter MORE, not less"
+        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Audience grew 10x; give a 2-minute foundation\n\n- git: tracks changes locally\n\n- GitHub: online platform, enables collaboration\n\n- Terminal: text interface where Claude Code runs\n\n- gh CLI: GitHub from command line\n\n- Key insight: AI is powerful -> QA and version control matter MORE, not less"
       },
       {
         "id": "section-claude-code",
@@ -217,7 +217,7 @@
             }
           }
         ],
-        "speakerNotes": "- Section divider: Meet Claude Code\n- Let's get into the agent itself"
+        "speakerNotes": "- Section divider: Meet Claude Code\n\n- Let's get into the agent itself"
       },
       {
         "id": "what-is-claude-code",
@@ -320,7 +320,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code is NOT autocomplete or chat\n- Autonomous agent that:\n  - Reads entire project\n  - Writes/edits across multiple files\n  - Runs terminal commands\n  - Creates commits, branches, PRs\n  - Plans before writing code\n  - Iterates until tests pass\n- You describe the outcome; Claude figures out the implementation"
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code is NOT autocomplete or chat\n\n- Autonomous agent that:\n  - Reads entire project\n  - Writes/edits across multiple files\n  - Runs terminal commands\n  - Creates commits, branches, PRs\n  - Plans before writing code\n  - Iterates until tests pass\n\n- You describe the outcome; Claude figures out the implementation"
       },
       {
         "id": "claude-ecosystem",
@@ -407,7 +407,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Three products from Anthropic:\n  - Claude Chat: conversational AI in browser\n  - Claude Code: the coding agent we're learning\n  - Claude Cowork: generally available, for non-coding agentic work (spreadsheets, presentations, documents)\n- Cowork and Code both on Pro and above\n- Course focuses on Code"
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Three products from Anthropic:\n  - Claude Chat: conversational AI in browser\n  - Claude Code: the coding agent we're learning\n  - Claude Cowork: generally available, for non-coding agentic work (spreadsheets, presentations, documents)\n\n- Cowork and Code both on Pro and above\n\n- Course focuses on Code"
       },
       {
         "id": "interfaces",
@@ -509,7 +509,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code runs everywhere:\n  - Terminal CLI (what we teach)\n  - VS Code / Cursor extension\n  - JetBrains plugin\n  - Desktop app\n  - Web at claude.ai/code\n  - Third-party: Conductor (macOS GUI wrapper)\n- All official surfaces share same engine\n- CLAUDE.md, settings, MCP servers work everywhere"
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Claude Code runs everywhere:\n  - Terminal CLI (what we teach)\n  - VS Code / Cursor extension\n  - JetBrains plugin\n  - Desktop app\n  - Web at claude.ai/code\n  - Third-party: Conductor (macOS GUI wrapper)\n\n- All official surfaces share same engine\n\n- CLAUDE.md, settings, MCP servers work everywhere"
       },
       {
         "id": "interface-screenshots",
@@ -557,7 +557,7 @@
             }
           }
         ],
-        "speakerNotes": "- Left: VS Code extension (inline diffs, conversation panel)\n- Right: Desktop app (visual diff review)\n- Both connect to same engine\n- Pick whatever feels comfortable"
+        "speakerNotes": "- Left: VS Code extension (inline diffs, conversation panel)\n\n- Right: Desktop app (visual diff review)\n\n- Both connect to same engine\n\n- Pick whatever feels comfortable"
       },
       {
         "id": "section-setup",
@@ -603,7 +603,7 @@
             }
           }
         ],
-        "speakerNotes": "- Section divider: Getting Started\n- Installation, auth, permissions"
+        "speakerNotes": "- Section divider: Getting Started\n\n- Installation, auth, permissions"
       },
       {
         "id": "installation",
@@ -647,7 +647,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Installation is one command\n- Native install recommended (auto-updates)\n- Homebrew works but upgrade manually\n- Windows: use PowerShell (Git for Windows required for native)\n- Then: cd your-project && claude\n- First run: browser opens for login"
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Installation is one command\n\n- Native install recommended (auto-updates)\n\n- Homebrew works but upgrade manually\n\n- Windows: use PowerShell (Git for Windows required for native)\n\n- Then: cd your-project && claude\n\n- First run: browser opens for login"
       },
       {
         "id": "permission-model",
@@ -719,7 +719,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Default: asks before edits and commands\n- Accept Edits: auto-approves edits AND filesystem commands (mkdir, mv, cp, rm, sed)\n- Plan: prevents edits; can still read and run commands (with prompts)\n- Auto: opt-in via --enable-auto-mode; Team/Enterprise/API only, NOT Pro/Max\n- Shift+Tab cycles Default -> Accept Edits -> Plan\n- Start at Default, move up as trust builds"
+        "speakerNotes": "[Press -> 2x to reveal all fragments]\n\n- Default: asks before edits and commands\n\n- Accept Edits: auto-approves edits AND filesystem commands (mkdir, mv, cp, rm, sed)\n\n- Plan: prevents edits; can still read and run commands (with prompts)\n\n- Auto: opt-in via --enable-auto-mode; Team/Enterprise/API only, NOT Pro/Max\n\n- Shift+Tab cycles Default -> Accept Edits -> Plan\n\n- Start at Default, move up as trust builds"
       },
       {
         "id": "section-claude-md",
@@ -765,7 +765,7 @@
             }
           }
         ],
-        "speakerNotes": "- Section divider: CLAUDE.md\n- The most important file in your project"
+        "speakerNotes": "- Section divider: CLAUDE.md\n\n- The most important file in your project"
       },
       {
         "id": "claude-md-what",
@@ -854,7 +854,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 5x to reveal all fragments]\n\n- CLAUDE.md = persistent instructions loaded every session\n- Plain markdown at project root\n- Turns generic AI into domain-aware assistant\n- Run /init to generate a starter\n- Then refine manually\n- Think of it as onboarding a new team member"
+        "speakerNotes": "[Press -> 5x to reveal all fragments]\n\n- CLAUDE.md = persistent instructions loaded every session\n\n- Plain markdown at project root\n\n- Turns generic AI into domain-aware assistant\n\n- Run /init to generate a starter\n\n- Then refine manually\n\n- Think of it as onboarding a new team member"
       },
       {
         "id": "claude-md-scope",
@@ -951,7 +951,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Multiple scopes, more specific wins:\n  - Managed (org-wide, IT-deployed)\n  - Project (./CLAUDE.md, shared via git)\n  - User (~/.claude/CLAUDE.md, personal)\n  - Local (./CLAUDE.local.md, gitignored)\n- All are concatenated, not override\n- Subdirectory files load on demand"
+        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Multiple scopes, more specific wins:\n  - Managed (org-wide, IT-deployed)\n  - Project (./CLAUDE.md, shared via git)\n  - User (~/.claude/CLAUDE.md, personal)\n  - Local (./CLAUDE.local.md, gitignored)\n\n- All are concatenated, not override\n\n- Subdirectory files load on demand"
       },
       {
         "id": "claude-md-content",
@@ -1128,7 +1128,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 13x to reveal all fragments]\n\n- From official Anthropic best practices\n- Include: build commands, code style rules, workflow conventions, architecture decisions, gotchas, never-do rules\n- Exclude: things Claude can infer, standard conventions, long tutorials, frequently-changing info\n- CRITICAL: keep under 200 lines\n- If Claude ignores a rule, file is too long\n- If Claude already does something right without the rule, delete the rule"
+        "speakerNotes": "[Press -> 13x to reveal all fragments]\n\n- From official Anthropic best practices\n\n- Include: build commands, code style rules, workflow conventions, architecture decisions, gotchas, never-do rules\n\n- Exclude: things Claude can infer, standard conventions, long tutorials, frequently-changing info\n\n- CRITICAL: keep under 200 lines\n\n- If Claude ignores a rule, file is too long\n\n- If Claude already does something right without the rule, delete the rule"
       },
       {
         "id": "rules-directory",
@@ -1215,7 +1215,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- For larger projects: split rules into .claude/rules/*.md\n- Each file covers one topic (testing, security, code-style)\n- Powerful: path-scoped rules via YAML frontmatter\n- Only load when Claude works with matching files\n- Keeps context clean\n- We use this pattern in research-skills templates"
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- For larger projects: split rules into .claude/rules/*.md\n\n- Each file covers one topic (testing, security, code-style)\n\n- Powerful: path-scoped rules via YAML frontmatter\n\n- Only load when Claude works with matching files\n\n- Keeps context clean\n\n- We use this pattern in research-skills templates"
       },
       {
         "id": "agents-md",
@@ -1294,7 +1294,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- AGENTS.md is NOT read by Claude Code\n- Some repos use it for OpenAI Codex, other agent frameworks\n- Solution: import into CLAUDE.md with @ syntax\n- Both tools read same instructions, no duplication\n- @ import works with any file (README, package.json, etc.)"
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- AGENTS.md is NOT read by Claude Code\n\n- Some repos use it for OpenAI Codex, other agent frameworks\n\n- Solution: import into CLAUDE.md with @ syntax\n\n- Both tools read same instructions, no duplication\n\n- @ import works with any file (README, package.json, etc.)"
       },
       {
         "id": "section-extending",
@@ -1340,7 +1340,7 @@
             }
           }
         ],
-        "speakerNotes": "- Section divider: Extending Claude Code\n- Plugins, Skills, MCP, Hooks, Agents"
+        "speakerNotes": "- Section divider: Extending Claude Code\n\n- Plugins, Skills, MCP, Hooks, Agents"
       },
       {
         "id": "concept-map",
@@ -1411,7 +1411,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Plugin = distributable package\n- Inside a plugin:\n  - Skills (workflows, load on demand)\n  - Hooks (automated actions at lifecycle points)\n  - Agents (isolated workers, own context)\n  - MCP servers (external tool connectors)\n- Below: CLAUDE.md + auto-memory always loaded"
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Plugin = distributable package\n\n- Inside a plugin:\n  - Skills (workflows, load on demand)\n  - Hooks (automated actions at lifecycle points)\n  - Agents (isolated workers, own context)\n  - MCP servers (external tool connectors)\n\n- Below: CLAUDE.md + auto-memory always loaded"
       },
       {
         "id": "skills-detail",
@@ -1541,7 +1541,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Skills = SKILL.md files\n- Load on demand, NOT every session\n- Invoke with /skill-name or Claude auto-detects\n- Can include supporting files (templates, scripts, examples)\n- Bundled skills: /simplify, /batch, /debug, /loop, /claude-api\n- Skill vs CLAUDE.md:\n  - CLAUDE.md = facts every session\n  - Skills = procedures on demand\n- If CLAUDE.md grows, move procedures to skills"
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Skills = SKILL.md files\n\n- Load on demand, NOT every session\n\n- Invoke with /skill-name or Claude auto-detects\n\n- Can include supporting files (templates, scripts, examples)\n\n- Bundled skills: /simplify, /batch, /debug, /loop, /claude-api\n\n- Skill vs CLAUDE.md:\n  - CLAUDE.md = facts every session\n  - Skills = procedures on demand\n\n- If CLAUDE.md grows, move procedures to skills"
       },
       {
         "id": "mcp-detail",
@@ -1655,7 +1655,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 8x to reveal all fragments]\n\n- MCP = Model Context Protocol (open standard)\n- Research-relevant MCPs:\n  - Serena: semantic code exploration\n  - LSP servers: real-time code intelligence\n  - hed-mcp: HED annotation for neuroimaging\n  - matlab-mcp-tools: drive EEGLAB from Claude Code (our practicum)\n- General: Google Drive, Notion, Jira, Slack, databases\n- Add with: claude mcp add <name> <command>"
+        "speakerNotes": "[Press -> 8x to reveal all fragments]\n\n- MCP = Model Context Protocol (open standard)\n\n- Research-relevant MCPs:\n  - Serena: semantic code exploration\n  - LSP servers: real-time code intelligence\n  - hed-mcp: HED annotation for neuroimaging\n  - matlab-mcp-tools: drive EEGLAB from Claude Code (our practicum)\n\n- General: Google Drive, Notion, Jira, Slack, databases\n\n- Add with: claude mcp add <name> <command>"
       },
       {
         "id": "hooks-agents",
@@ -1822,7 +1822,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 9x to reveal all fragments]\n\n- Hooks = automated actions at lifecycle points\n  - Deterministic, not advisory (unlike CLAUDE.md)\n  - Examples: run linter after edits, block dangerous commands, auto-format\n- Agents = isolated workers, own context window\n  - Keep main conversation clean\n  - Good for research / exploration\n  - Can restrict tools and model\n  - Return summary, not raw data\n- Three-way distinction:\n  - Hooks: \"this WILL happen\"\n  - CLAUDE.md: \"please do this\"\n  - Agents: \"do this in your own space\" "
+        "speakerNotes": "[Press -> 9x to reveal all fragments]\n\n- Hooks = automated actions at lifecycle points\n  - Deterministic, not advisory (unlike CLAUDE.md)\n  - Examples: run linter after edits, block dangerous commands, auto-format\n\n- Agents = isolated workers, own context window\n  - Keep main conversation clean\n  - Good for research / exploration\n  - Can restrict tools and model\n  - Return summary, not raw data\n\n- Three-way distinction:\n  - Hooks: \"this WILL happen\"\n  - CLAUDE.md: \"please do this\"\n  - Agents: \"do this in your own space\" "
       },
       {
         "id": "plan-mode",
@@ -1921,7 +1921,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- Most important feature for complex changes\n- Shift+Tab twice to enter\n- Four phases: Explore -> Plan -> Implement -> Commit\n- Claude explores read-only, proposes plan\n- You review plan (Ctrl+G opens in editor)\n- Approve, then Shift+Tab back to normal to implement\n- Prevents solving the wrong problem\n- Skip for small changes (one-liner fixes, renames)"
+        "speakerNotes": "[Press -> 4x to reveal all fragments]\n\n- Most important feature for complex changes\n\n- Shift+Tab twice to enter\n\n- Four phases: Explore -> Plan -> Implement -> Commit\n\n- Claude explores read-only, proposes plan\n\n- You review plan (Ctrl+G opens in editor)\n\n- Approve, then Shift+Tab back to normal to implement\n\n- Prevents solving the wrong problem\n\n- Skip for small changes (one-liner fixes, renames)"
       },
       {
         "id": "essential-commands",
@@ -2010,7 +2010,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- /init bootstraps CLAUDE.md\n- /plan for exploration before implementation\n- /clear between unrelated tasks (critical for context)\n- /compact summarizes when context fills\n- /model to switch Opus/Sonnet/Haiku\n- /rewind and Esc+Esc for undo\n- Shortcuts: Shift+Tab (modes), Esc (stop), @ (file autocomplete), ! (bash mode)"
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- /init bootstraps CLAUDE.md\n\n- /plan for exploration before implementation\n\n- /clear between unrelated tasks (critical for context)\n\n- /compact summarizes when context fills\n\n- /model to switch Opus/Sonnet/Haiku\n\n- /rewind and Esc+Esc for undo\n\n- Shortcuts: Shift+Tab (modes), Esc (stop), @ (file autocomplete), ! (bash mode)"
       },
       {
         "id": "best-practices",
@@ -2129,7 +2129,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Direct from Anthropic's official best-practices page\n- #1: Give Claude a way to verify\n  - Tests, expected outputs, screenshots\n  - Highest-leverage thing you can do\n- #2: Explore, plan, THEN code\n  - Don't jump to implementation\n  - Use Plan Mode for exploration\n- #3: Manage context aggressively\n  - /clear between tasks\n  - Subagents for research\n  - After 2 failed corrections, /clear and rewrite prompt"
+        "speakerNotes": "[Press -> 3x to reveal all fragments]\n\n- Direct from Anthropic's official best-practices page\n\n- #1: Give Claude a way to verify\n  - Tests, expected outputs, screenshots\n  - Highest-leverage thing you can do\n\n- #2: Explore, plan, THEN code\n  - Don't jump to implementation\n  - Use Plan Mode for exploration\n\n- #3: Manage context aggressively\n  - /clear between tasks\n  - Subagents for research\n  - After 2 failed corrections, /clear and rewrite prompt"
       },
       {
         "id": "section-our-workflow",
@@ -2175,7 +2175,7 @@
             }
           }
         ],
-        "speakerNotes": "- Section divider: Our Research Workflow\n- Our opinionated additions on top of official features"
+        "speakerNotes": "- Section divider: Our Research Workflow\n\n- Our opinionated additions on top of official features"
       },
       {
         "id": "context-directory",
@@ -2257,7 +2257,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- NOT an official Claude Code feature\n- Our opinionated pattern for project state\n- Four files in .context/:\n  - plan.md: current task list\n  - ideas.md: design decisions\n  - research.md: technical findings\n  - scratch_history.md: failed attempts (maybe the most valuable)\n- Claude reads all of them\n- scratch_history prevents repeating mistakes"
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- NOT an official Claude Code feature\n\n- Our opinionated pattern for project state\n\n- Four files in .context/:\n  - plan.md: current task list\n  - ideas.md: design decisions\n  - research.md: technical findings\n  - scratch_history.md: failed attempts (maybe the most valuable)\n\n- Claude reads all of them\n\n- scratch_history prevents repeating mistakes"
       },
       {
         "id": "research-skills-plugin",
@@ -2353,7 +2353,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Free, open source companion plugin\n- Seven domains, mapped to course weeks:\n  - project: /init-project, /epic-dev, /setup-ci\n  - opencite: literature search\n  - grant: proposal writing and review\n  - manuscript: peer review, formatting\n  - scientific-figures: publication figures\n  - neuroinformatics: BIDS, PsychoPy\n  - presentation: these slides\n- Install with correct marketplace suffix: @research-skills"
+        "speakerNotes": "[Press -> 1x to reveal all fragments]\n\n- Free, open source companion plugin\n\n- Seven domains, mapped to course weeks:\n  - project: /init-project, /epic-dev, /setup-ci\n  - opencite: literature search\n  - grant: proposal writing and review\n  - manuscript: peer review, formatting\n  - scientific-figures: publication figures\n  - neuroinformatics: BIDS, PsychoPy\n  - presentation: these slides\n\n- Install with correct marketplace suffix: @research-skills"
       },
       {
         "id": "pricing",
@@ -2481,7 +2481,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Pro at $20/mo ($17 annual) is enough for this course\n- Big news for PIs:\n  - Most US universities are 501(c)(3) nonprofits\n  - Labs under 20 people: apply as nonprofit unit\n  - Team plan drops from $25 to $8/seat/month\n  - Goodstack verification: ~3 minutes\n- Above 20 people: Enterprise\n- University-wide: contact Anthropic Education team\n- API-heavy: Console account, workspace spend limits"
+        "speakerNotes": "[Press -> 6x to reveal all fragments]\n\n- Pro at $20/mo ($17 annual) is enough for this course\n\n- Big news for PIs:\n  - Most US universities are 501(c)(3) nonprofits\n  - Labs under 20 people: apply as nonprofit unit\n  - Team plan drops from $25 to $8/seat/month\n  - Goodstack verification: ~3 minutes\n\n- Above 20 people: Enterprise\n\n- University-wide: contact Anthropic Education team\n\n- API-heavy: Console account, workspace spend limits"
       },
       {
         "id": "before-next-week",
@@ -2572,7 +2572,7 @@
             }
           }
         ],
-        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Homework checklist:\n  - Install Claude Code\n  - Run /init to generate CLAUDE.md\n  - Create .context/ directory\n  - Give Claude ONE real research task (small is fine)\n  - Review what it generated, refine CLAUDE.md\n  - Optional: install research-skills plugin\n- Next week: project management (epics, sprints, worktrees)"
+        "speakerNotes": "[Press -> 7x to reveal all fragments]\n\n- Homework checklist:\n  - Install Claude Code\n  - Run /init to generate CLAUDE.md\n  - Create .context/ directory\n  - Give Claude ONE real research task (small is fine)\n  - Review what it generated, refine CLAUDE.md\n  - Optional: install research-skills plugin\n\n- Next week: project management (epics, sprints, worktrees)"
       },
       {
         "id": "resources",
@@ -2610,7 +2610,7 @@
             }
           }
         ],
-        "speakerNotes": "- All links available to attendees\n- Official docs: code.claude.com/docs\n- Best practices page is worth reading cover-to-cover\n- research-skills and matlab-mcp-tools: free, open source\n- Nonprofit pricing for PIs\n- Conductor for GUI users\n- Course Discord for questions"
+        "speakerNotes": "- All links available to attendees\n\n- Official docs: code.claude.com/docs\n\n- Best practices page is worth reading cover-to-cover\n\n- research-skills and matlab-mcp-tools: free, open source\n\n- Nonprofit pricing for PIs\n\n- Conductor for GUI users\n\n- Course Discord for questions"
       },
       {
         "id": "closing",
@@ -2654,7 +2654,7 @@
             }
           }
         ],
-        "speakerNotes": "- Q&A time\n- Chat in Discord\n- Raise hand on stage\n- Thanks everyone"
+        "speakerNotes": "- Q&A time\n\n- Chat in Discord\n\n- Raise hand on stage\n\n- Thanks everyone"
       }
     ]
   }
