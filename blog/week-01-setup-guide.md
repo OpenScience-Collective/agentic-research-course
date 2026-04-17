@@ -35,7 +35,13 @@ Everything later in this course (agents, plugins, continuous integration, automa
 
 None of those benefits are new with AI. They became load-bearing with AI.
 
-Week 1 is about installing git and GitHub so that Week 2 can bring in Claude Code on top of a foundation that catches its mistakes. The setup in this guide is one-time. The workflow it enables is what you will use for the next ten weeks, and for every research project after that.
+Week 1 is about installing git and GitHub so that Week 2 can bring in Claude Code on top of a foundation that catches its mistakes. The setup in this guide is one-time. The workflow it enables is what you will use for the next ten weeks, and for every research project after that:
+
+```
+Issue  ->  Branch  ->  Commits  ->  Pull Request  ->  Review  ->  Merge  ->  Pull main
+```
+
+You will run this loop end to end in section 9.
 
 ---
 
@@ -90,7 +96,19 @@ Package managers let you install software from the command line. Think of them a
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Follow the on-screen instructions. After installation, verify it works:
+The installer prints a "Next steps" section at the end. On Apple Silicon Macs, that includes adding Homebrew to your shell's `PATH`. Run exactly what the installer tells you (the path differs on Intel and Apple Silicon), which usually looks like:
+
+```bash
+# Apple Silicon
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Intel
+echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/usr/local/bin/brew shellenv)"
+```
+
+Verify:
 
 ```bash
 brew --version
@@ -116,7 +134,7 @@ sudo apt update
 
 ## 3. Install Git and the GitHub CLI
 
-You need two command-line tools: `git` for version control and `gh` (the GitHub CLI) for interacting with GitHub. They sound similar but do different things; we will explain the distinction in the next section.
+You need two command-line tools: `git` for version control and `gh`, GitHub's command-line interface (CLI), for interacting with GitHub. They sound similar but do different things; we will explain the distinction in the next section.
 
 ### macOS
 
@@ -126,9 +144,23 @@ brew install git gh
 
 ### Linux (Debian/Ubuntu) or WSL
 
+`git` is in the default apt repos. `gh` is not, so add GitHub's apt repo first (the four commands below are the official install from [cli.github.com](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)):
+
 ```bash
-sudo apt install git gh
+sudo apt install git
+
+# Add GitHub's apt repo for gh
+(type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
+  && sudo mkdir -p -m 755 /etc/apt/keyrings \
+  && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+  && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+  && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+  && sudo apt update \
+  && sudo apt install gh -y
 ```
+
+If the block above feels heavy, Homebrew also runs on Linux and installs `gh` with a single command (`brew install gh`); see [brew.sh](https://brew.sh) for the installer.
 
 Verify both installations:
 
@@ -152,13 +184,13 @@ Use the same email you will use for GitHub.
 
 ### Authenticate the GitHub CLI
 
-After creating your GitHub account (next section), log in to `gh`:
+You will log in to `gh` after creating your GitHub account and adding an SSH key (the next section). The command will be:
 
 ```bash
 gh auth login
 ```
 
-Follow the prompts: select GitHub.com, choose HTTPS or SSH, and authenticate through your browser. This lets you create repos, issues, and pull requests from the terminal.
+Follow the prompts: pick **GitHub.com**, pick **SSH** as the authentication protocol (matches the SSH key you set up in section 4), then authenticate through your browser. Come back to this command after section 4 is done.
 
 ---
 
@@ -229,7 +261,7 @@ GitHub offers free benefits for students, faculty, and research labs. These are 
 Apply for the [GitHub Student Developer Pack](https://education.github.com/pack):
 
 1. Go to [education.github.com/students](https://education.github.com/students)
-2. Click **Join Global Campus**
+2. Click **Apply** (the exact button label may be "Apply to GitHub Education" or similar)
 3. Verify your academic status (use your `.edu` email or upload proof of enrollment)
 4. Once approved, you get GitHub Pro for free, plus access to dozens of developer tools
 
@@ -240,9 +272,9 @@ Benefits include unlimited private repos, GitHub Copilot access, and free domain
 Apply for the [GitHub Teacher Toolbox](https://education.github.com/teachers):
 
 1. Go to [education.github.com/teachers](https://education.github.com/teachers)
-2. Click **Join Global Campus**
+2. Click **Apply**
 3. Verify your academic status with your institutional email
-4. Once approved, you get GitHub Pro and can create free GitHub Classroom organizations
+4. Once approved, you get a free **GitHub Team** subscription (unlimited collaborators and private repositories), free **GitHub Copilot Pro**, and the ability to create free GitHub Classroom organizations
 
 **Research labs (organizations):**
 
@@ -391,19 +423,29 @@ git add README.md
 git commit -m "Add project goals to README"
 ```
 
+> **Commit message style.** Subjects should be atomic (one logical change) and under 50 characters. "Add README with project description" is 35 characters; "Add project goals to README" is 27; both are fine. An anti-pattern: `"updated some stuff and fixed the license thing"`. More on why in Week 3.
+
 ### View your history
 
 ```bash
 git log --oneline
 ```
 
-You should see three commits, each with a short message.
+You should see three commits, each with a short message. Yours will look something like this (the seven-character hashes will differ from mine):
+
+```
+7f3e1c2 Add project goals to README
+b04a2d7 Add initial research notes
+a9e5f01 Add README with project description
+```
 
 ---
 
 ## 7. How Git Thinks: The Three States
 
 You just used `git add` and `git commit` without much explanation. Now that the commands have worked once, the mental model is easier to absorb.
+
+Before you start this section, make sure `git status` shows a clean working tree (no modified or staged files). If it does not, commit or discard the pending changes first so this exercise starts from a known state.
 
 Every file in a git repository is in one of three places:
 
@@ -485,6 +527,32 @@ git show
 
 These three commands will become muscle memory. They answer "what have I actually changed" at three different points in the three-state cycle.
 
+### The undo button
+
+The opener promised that git gives you an undo button. Here is how to press it.
+
+To discard a working-directory edit you have not staged yet (back to the last committed version):
+
+```bash
+git restore README.md
+```
+
+To unstage a file (move it out of the staging area, keeping the working-directory edits):
+
+```bash
+git restore --staged README.md
+```
+
+To revert an already-committed change safely (creates a new commit that undoes the old one, keeping history honest):
+
+```bash
+git revert <commit-hash>
+```
+
+`git revert` is the right tool for "this commit broke things, back it out." It does not rewrite history, so it is safe even on commits that have already been pushed and reviewed.
+
+Try it on a throwaway change: edit `README.md`, run `git status` to see it listed as modified, then run `git restore README.md` and confirm the file is back to its committed state.
+
 ---
 
 ## 8. Push to GitHub
@@ -565,23 +633,39 @@ You should see the new branch name. `main` is untouched.
 
 ### 9c. Make the change and commit
 
+We will write a placeholder `LICENSE` for this exercise. For a real repository you would copy the full legal text (for CC-BY-4.0, that lives at [creativecommons.org/licenses/by/4.0/legalcode.txt](https://creativecommons.org/licenses/by/4.0/legalcode.txt) and should be downloaded in full). A placeholder is fine for learning the workflow:
+
 ```bash
-# Grab the CC-BY-4.0 license text (from creativecommons.org or any canonical source)
-echo "This work is licensed under CC-BY-4.0. See https://creativecommons.org/licenses/by/4.0/ for details." > LICENSE
+cat > LICENSE <<'EOF'
+CC-BY-4.0 License (placeholder)
+
+This project will be licensed under Creative Commons Attribution 4.0
+International (CC-BY-4.0). Replace this file with the full legal text
+from https://creativecommons.org/licenses/by/4.0/legalcode.txt before
+publishing.
+
+Copyright (c) 2026 Your Name
+EOF
 
 git add LICENSE
-git commit -m "Add CC-BY-4.0 license"
+git commit -m "Add CC-BY-4.0 license placeholder"
 ```
 
 Atomic commit, under 50 characters in the subject, describing what changed.
 
 ### 9d. Push the branch
 
+The branch name was auto-generated by `gh issue develop` from the issue title, so use whatever is currently checked out rather than hard-coding the name:
+
 ```bash
-git push -u origin 1-add-a-license-file
+git push -u origin "$(git branch --show-current)"
 ```
 
-(Replace the branch name with whatever `gh issue develop` actually created. Your own branch name will be printed by `git branch --show-current`.)
+If you want to see what branch name that resolves to:
+
+```bash
+git branch --show-current
+```
 
 ### 9e. Open a pull request
 
@@ -614,13 +698,13 @@ For a one-file license addition there is not much to catch. Still, do the habit.
 
 ### 9g. Merge
 
-Back on the PR page, click **Merge pull request**. GitHub offers three merge styles:
+Back on the PR page, click **Merge pull request**, then pick **Create a merge commit** from the dropdown, then confirm. We will compare the three merge styles in Week 3; for now, merge commit is the most faithful representation of what happened.
+
+For reference, GitHub offers three merge styles:
 
 - **Create a merge commit:** keeps all commits from the branch in history, plus a merge commit. Most honest representation of what happened.
 - **Squash and merge:** combines all the commits on the branch into a single commit on `main`. Cleaner history if the branch had lots of noisy "fix typo" commits.
 - **Rebase and merge:** replays the branch's commits on `main` with no merge commit. Linear history.
-
-For most research work, start with merge commits. Switch to squash when a branch grew a long tail of "fix lint" commits that do not carry useful history. We will come back to this choice in Week 3.
 
 After merging, click **Delete branch** (GitHub offers the button right there). The branch has done its job; leaving it around just makes your branch list noisy.
 
@@ -637,6 +721,16 @@ You should see the new `LICENSE` file and the new commit (merge commit or squash
 
 ```bash
 git log --oneline
+```
+
+You should see something like (hashes will differ):
+
+```
+d5c9af3 Merge pull request #2 from user/1-add-a-license-file
+e8b1a02 Add CC-BY-4.0 license placeholder
+7f3e1c2 Add project goals to README
+b04a2d7 Add initial research notes
+a9e5f01 Add README with project description
 ```
 
 Issue 1 is now closed automatically. The loop is complete:
@@ -665,7 +759,7 @@ EOF
 
 git add CONTRIBUTING.md
 git commit -m "Add CONTRIBUTING guide"
-git push -u origin <branch-name>
+git push -u origin "$(git branch --show-current)"
 gh pr create --title "Add CONTRIBUTING guide" --body "Closes #<issue-number>"
 gh pr view --web
 ```
@@ -713,8 +807,7 @@ Before the next session, install [Claude Code](https://claude.ai/claude-code), t
 # macOS / Linux
 curl -fsSL https://claude.ai/install.sh | bash
 
-# Or via Homebrew on macOS (first-time install needs Anthropic's tap)
-brew tap anthropics/claude-code
+# Or via Homebrew on macOS
 brew install --cask claude-code
 
 # Windows PowerShell
@@ -756,6 +849,9 @@ We will walk through the full setup (authentication, `CLAUDE.md`, `.context/` di
 | `git pull` | Get updates from GitHub |
 | `git log --oneline` | View commit history |
 | `git show` | Show the last commit |
+| `git restore <file>` | Discard working-directory changes (the undo button) |
+| `git restore --staged <file>` | Unstage a file, keep the edits |
+| `git revert <hash>` | Safely undo a committed change with a new commit |
 | `git clone <url>` | Copy a remote repo |
 | `git branch --show-current` | Print the current branch name |
 | `git checkout <branch>` | Switch to a branch |
