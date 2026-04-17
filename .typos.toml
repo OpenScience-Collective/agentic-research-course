@@ -1,0 +1,15 @@
+[default.extend-words]
+# Hierarchical Event Descriptors (HED) is a domain acronym used throughout
+# the course. typos confuses it with HEAD. Preserve the exact casing.
+HED = "HED"
+hed = "hed"
+
+[files]
+# Skip bundled third-party artifacts and lock files.
+extend-exclude = [
+  "presentations/**/assets/**",
+  "**/dist/**",
+  "**/node_modules/**",
+  "**/*.lock",
+  "**/bun.lock",
+]
