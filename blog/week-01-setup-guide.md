@@ -808,7 +808,7 @@ Before the next session, install [Claude Code](https://claude.ai/claude-code), t
 curl -fsSL https://claude.ai/install.sh | bash
 
 # Or via Homebrew on macOS
-brew install --cask claude-code
+brew install claude-code
 
 # Windows PowerShell
 irm https://claude.ai/install.ps1 | iex

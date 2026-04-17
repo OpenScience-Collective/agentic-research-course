@@ -58,11 +58,10 @@ Native install (recommended, auto-updates):
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-Or via [Homebrew](https://brew.sh) (first-time install needs Anthropic's tap):
+Or via [Homebrew](https://brew.sh):
 
 ```bash
-brew tap anthropics/claude-code
-brew install --cask claude-code
+brew install claude-code
 ```
 
 ### Linux
