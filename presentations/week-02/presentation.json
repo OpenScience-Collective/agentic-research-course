@@ -181,7 +181,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/claude-face.svg",
+            "src": "../../assets/icons/claude-face.svg",
             "alt": "Claude face icon with wink animation",
             "width": "140px",
             "height": "140px",
@@ -426,7 +426,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/icons/interfaces.svg",
+            "src": "../../assets/icons/interfaces.svg",
             "alt": "Claude Code interface diagram showing Terminal, VS Code, Desktop, Web, JetBrains",
             "width": "280px",
             "height": "280px",
@@ -528,7 +528,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/screenshots/vscode-claude.png",
+            "src": "../../assets/screenshots/vscode-claude.png",
             "alt": "Claude Code in VS Code",
             "width": "100%",
             "position": {
@@ -537,7 +537,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/screenshots/code-app.png",
+            "src": "../../assets/screenshots/code-app.png",
             "alt": "Claude Code Desktop App",
             "width": "100%",
             "position": {
@@ -567,7 +567,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/claude-code.svg",
+            "src": "../../assets/icons/claude-code.svg",
             "alt": "Terminal with Claude Code",
             "width": "120px",
             "height": "120px",
@@ -729,7 +729,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/claude-md.svg",
+            "src": "../../assets/icons/claude-md.svg",
             "alt": "CLAUDE.md document icon",
             "width": "120px",
             "height": "120px",
@@ -846,7 +846,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/screenshots/init.png",
+            "src": "../../assets/screenshots/init.png",
             "alt": "Screenshot of /init generating a CLAUDE.md file",
             "width": "100%",
             "position": {
@@ -1304,7 +1304,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/plugin-ecosystem.svg",
+            "src": "../../assets/icons/plugin-ecosystem.svg",
             "alt": "Plugin ecosystem diagram",
             "width": "140px",
             "height": "140px",
@@ -1359,7 +1359,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/icons/plugin-ecosystem.svg",
+            "src": "../../assets/icons/plugin-ecosystem.svg",
             "alt": "Plugin ecosystem: Plugin contains Skills, Hooks, Agents, MCP. Below: CLAUDE.md and Auto Memory always loaded.",
             "width": "45%",
             "position": {
@@ -1841,7 +1841,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/icons/plan-mode.svg",
+            "src": "../../assets/icons/plan-mode.svg",
             "alt": "Plan mode workflow: Explore, Plan, Implement, Commit",
             "width": "35%",
             "position": {
@@ -1913,7 +1913,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/screenshots/plan.png",
+            "src": "../../assets/screenshots/plan.png",
             "alt": "Screenshot of Claude Code in plan mode",
             "width": "100%",
             "position": {
@@ -2139,7 +2139,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/context-directory.svg",
+            "src": "../../assets/icons/context-directory.svg",
             "alt": ".context/ directory structure",
             "width": "120px",
             "height": "120px",
@@ -2619,7 +2619,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/claude-face.svg",
+            "src": "../../assets/icons/claude-face.svg",
             "alt": "Claude face with wink",
             "width": "120px",
             "height": "120px",

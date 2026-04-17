@@ -38,15 +38,20 @@ For every session week, follow this pattern.
 
 ### 1. Build the Presentation Bundle
 
+Use agentic-presentation-builder **v0.1.3 or newer**. v0.1.3 added the local-deck loader and `present-cli`, both of which resolve asset paths relative to the JSON file. That is why the source `presentation.json` files use `../../assets/...` (relative to `presentations/week-NN/`, which lands at the repo's `assets/` directory).
+
 From the presentation builder:
 
 ```bash
 cd ~/Documents/git/osc/agentic-presentation-builder
+git fetch --tags
+git checkout v0.1.3   # or newer
+bun install
 bun run build
 # Output goes to dist/
 ```
 
-This produces a static bundle with an updated `presentation.html` and hashed asset files. If the engine has not changed since Week 1, you can reuse the existing bundled `assets/` (Reveal.js JS/CSS) and only swap the JSON + icons.
+This produces a static bundle with an updated `presentation.html` and hashed asset files. If the engine has not changed since the previous week, you can reuse the existing bundled `assets/` (Reveal.js JS/CSS) and only swap the JSON + icons.
 
 ### 2. Copy the Slides into osc-docs
 
@@ -67,12 +72,14 @@ cp -r ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/week-01/asset
 cp ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/week-01/presentation.html \
    ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/$WEEK/presentation.html
 
-# Copy the week's JSON
-cp ~/Documents/git/osc/agentic-research-course/presentations/$WEEK/presentation.json \
-   ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/$WEEK/$WEEK.json
+# Copy the week's JSON, rewriting asset paths from "../../assets/" to "./assets/"
+# (per-week bundles are self-contained, so the published JSON points at sibling assets)
+sed 's|"src": "\.\./\.\./assets/|"src": "./assets/|g' \
+  ~/Documents/git/osc/agentic-research-course/presentations/$WEEK/presentation.json \
+  > ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/$WEEK/$WEEK.json
 
 # Copy only the icons this week actually references
-# (check presentation.json for "./assets/icons/*.svg" references)
+# (check presentation.json for "../../assets/icons/*.svg" references)
 cp ~/Documents/git/osc/agentic-research-course/assets/icons/claude-*.svg \
    ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/$WEEK/assets/icons/
 # ...etc. Copy only what the JSON references.
@@ -81,6 +88,8 @@ cp ~/Documents/git/osc/agentic-research-course/assets/icons/claude-*.svg \
 cp ~/Documents/git/osc/agentic-research-course/assets/screenshots/*.png \
    ~/Documents/git/osc/osc-docs/courses/slides/agentic-research/$WEEK/assets/screenshots/
 ```
+
+> **Why the rewrite?** Source JSON uses `../../assets/...` so the local-deck loader and `present-cli` (v0.1.3+) can find files at the repo root. The osc-docs deployment serves slides via plain iframe, so `<img src>` resolves relative to `presentation.html`'s URL. Per-week bundles keep `assets/` as a sibling of the JSON, so paths must be flipped to `./assets/` on copy.
 
 If the engine has changed (new agentic-presentation-builder release), copy the full `dist/assets/` fresh:
 
@@ -236,4 +245,4 @@ After the YouTube upload:
 
 - **Slide iframe breaks on mobile Safari** if the Reveal.js bundle is missing even one hashed asset. Always copy the complete `assets/` directory.
 - **MkDocs tab sync** requires exact label match across the whole page. One mismatched label breaks every tab group.
-- **Relative paths in JSON:** The slide JSON uses `./assets/icons/*.svg`. Those paths are relative to the slide `presentation.html` location, not the markdown page.
+- **Relative paths in JSON:** Source JSON uses `../../assets/icons/*.svg` (relative to `presentations/week-NN/`, resolving to the repo's `assets/`). The local-deck loader and `present-cli` honor JSON-relative paths. The osc-docs publish step rewrites them to `./assets/...` so they resolve relative to the bundled `presentation.html`.

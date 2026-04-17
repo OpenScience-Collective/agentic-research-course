@@ -105,7 +105,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/ai-landscape.svg",
+            "src": "../../assets/icons/ai-landscape.svg",
             "alt": "AI neural network icon",
             "width": "120px",
             "height": "120px",
@@ -568,7 +568,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/terminal.svg",
+            "src": "../../assets/icons/terminal.svg",
             "alt": "Terminal icon",
             "width": "120px",
             "height": "120px",
@@ -678,7 +678,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/git-branch.svg",
+            "src": "../../assets/icons/git-branch.svg",
             "alt": "Git branching icon",
             "width": "120px",
             "height": "120px",
@@ -823,7 +823,7 @@
         "elements": [
           {
             "type": "image",
-            "src": "./assets/icons/github-workflow.svg",
+            "src": "../../assets/icons/github-workflow.svg",
             "alt": "GitHub workflow cycle icon",
             "width": "120px",
             "height": "120px",
@@ -946,7 +946,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/icons/git-branch-flow.svg",
+            "src": "../../assets/icons/git-branch-flow.svg",
             "alt": "Git branching diagram showing main branch with feature branch diverging and merging back",
             "width": "90%",
             "height": "auto",
@@ -1052,7 +1052,7 @@
           },
           {
             "type": "image",
-            "src": "./assets/icons/workflow-cycle.svg",
+            "src": "../../assets/icons/workflow-cycle.svg",
             "alt": "Full workflow: Issue, Branch, Commits, PR, Merge cycle",
             "width": "90%",
             "height": "auto",
