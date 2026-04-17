@@ -10,9 +10,9 @@ You do not need to finish the entire guide in one sitting. The install and first
 
 ## Why Setup Matters Before You Run
 
-Week 1 installed the safety net. This week installs the tool that makes the safety net necessary.
+Week 1 installed the safety net (git, GitHub, the command line). This week installs the tool that makes the safety net necessary.
 
-Claude Code is an autonomous agent. It reads your entire project, writes code across multiple files, runs commands, creates commits and pull requests, and iterates on its own output until tests pass. The same agent can either accelerate your research by an order of magnitude or silently write code that looks plausible and is wrong in ways you will only discover three weeks later.
+Claude Code is an autonomous agent. It reads your entire project, writes code across multiple files, runs commands, creates commits and pull requests (PRs), and iterates on its own output until tests pass. The same agent can either accelerate your research by an order of magnitude or silently write code that looks plausible and is wrong in ways you will only discover three weeks later.
 
 The difference between those two outcomes is setup. Concretely:
 
@@ -41,7 +41,7 @@ You describe the outcome you want. Claude Code figures out how to build it, runs
 Anthropic currently offers three agentic products. They overlap in branding but solve different problems.
 
 - **Claude Chat** is the conversational AI at [claude.ai](https://claude.ai). You paste in text or files, ask questions, and get answers. No access to your filesystem or terminal.
-- **Claude Code** is what this course is about: an agent for developers and researchers that runs on your machine, reads your repository, and modifies files. It is available as a CLI, a VS Code extension, a desktop app, and a web interface.
+- **Claude Code** is what this course is about: an agent for developers and researchers that runs on your machine, reads your repository, and modifies files. It is available as a command-line interface (CLI), a VS Code extension, a desktop app, and a web interface.
 - **Claude Cowork** (generally available in April 2026) is aimed at non-coding knowledge workers. It builds spreadsheets, slide decks, and documents on your behalf. If someone in your lab asks Claude to build a grant budget in Excel, that is Cowork, not Code.
 
 All three are available on Claude Pro and above. For this course, we use Claude Code.
@@ -58,13 +58,22 @@ Native install (recommended, auto-updates):
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-Or via Homebrew:
+Or via [Homebrew](https://brew.sh) (first-time install needs Anthropic's tap):
 
 ```bash
+brew tap anthropics/claude-code
 brew install --cask claude-code
 ```
 
 ### Linux
+
+If `curl` is missing (common on minimal Ubuntu and some WSL images), install it first:
+
+```bash
+sudo apt install curl
+```
+
+Then run the installer:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
@@ -102,9 +111,9 @@ claude
 On first run, a browser window opens for login. You can authenticate two ways:
 
 - **Claude subscription** (Pro, Max, Team, or Enterprise). This uses your existing monthly quota.
-- **Anthropic Console account**, which gives pay-per-token access if you already have API credits.
+- **Anthropic Console account**, which gives pay-per-token access if you already have application programming interface (API) credits.
 
-Check your auth state at any time:
+Check your auth state at any time from your shell (not inside a running `claude` session; type `/exit` to drop back to the shell first if needed):
 
 ```bash
 claude auth status
@@ -114,7 +123,7 @@ claude auth status
 
 Claude Pro at $20 per month (or $17 per month with annual billing) is sufficient for everything we do in these 10 sessions. If you run out of quota in the middle of a live demo, upgrading to Max gets you 5x or 20x the usage.
 
-If you are a principal investigator (PI) at a 501(c)(3) university with fewer than 20 people in your lab, apply as the nonprofit purchasing unit for the Team plan at $8 per seat per month through Goodstack. See [Anthropic's nonprofits page](https://claude.com/solutions/nonprofits) for details. This is a meaningful saving for research groups.
+If your lab is at a 501(c)(3) nonprofit (or international equivalent), you can get the Team plan at $8 per seat per month. Organizations purchasing fewer than 20 seats verify through Goodstack; larger purchases go through Anthropic sales directly. See [Anthropic's nonprofits page](https://claude.com/solutions/nonprofits) for details. This is meaningful savings for research groups.
 
 ---
 
@@ -125,11 +134,11 @@ Claude Code asks before doing anything destructive. You control the guardrails t
 | Mode | Behavior | When to use |
 |------|----------|-------------|
 | **Default** | Asks before every file edit and shell command | Starting out; unfamiliar tasks |
-| **Accept Edits** | Auto-approves file edits plus common filesystem commands (`mkdir`, `mv`, `cp`, `rm`, `sed`) | Trusted coding sessions where you are watching the output |
-| **Plan** | No edits allowed; Claude can still read files and run commands with prompts | Complex multi-file changes where you want a proposal first |
-| **Auto** | A safety classifier evaluates each action automatically | Team, Enterprise, or API only; opt-in via `--enable-auto-mode` |
+| **Accept Edits** | Auto-approves file edits plus common filesystem commands (`mkdir`, `touch`, `mv`, `cp`, `rm`, `rmdir`, `sed`) | Trusted coding sessions where you are watching the output |
+| **Plan** | Read-only; Claude can read files and run exploratory commands, but cannot modify anything | Complex multi-file changes where you want a proposal first |
+| **Auto** | A safety classifier evaluates each action automatically; available on Max, Team, Enterprise, or API (not Pro) | Long-running agentic tasks where you trust the classifier; start in it with `--permission-mode auto` |
 
-Press `Shift+Tab` in any session to cycle Default, Accept Edits, Plan. Auto mode is not in the default cycle and is not available on Pro or Max subscriptions.
+Press `Shift+Tab` to cycle Default, Accept Edits, and Plan (and Auto, on plans that include it). Two presses from Default lands on Plan. You can also jump straight to Plan Mode with `/plan`.
 
 ### Persist permissions across sessions
 
@@ -191,7 +200,7 @@ Treat `CLAUDE.md` like a README for an AI colleague. Include what is non-obvious
 
 ### Before and after: the same project, two `CLAUDE.md` files
 
-A bloated `CLAUDE.md` is the single most common mistake. Long files cause Claude to ignore rules because important instructions get buried. Here is the same imaginary EEG preprocessing project, one done wrong and one done right.
+A bloated `CLAUDE.md` is the single most common mistake. Long files cause Claude to ignore rules because important instructions get buried. Here is the same imaginary Healthy Brain Network (HBN) EEG preprocessing project, one done wrong and one done right.
 
 **Bloated version (500+ lines, Claude mostly ignores it):**
 
@@ -247,6 +256,10 @@ matlab-mcp; EEGLAB for preprocessing.
 - `pop_loadset` fails silently on files over 2 GB; chunk first
 - The preprocessing pipeline expects sfreq = 500; resample on load
 - matlab-mcp session cap is 3; close old sessions with `matlab_close`
+
+## Context files
+- `.context/plan.md` -- current tasks and next steps
+- `.context/scratch_history.md` -- failed attempts, so we do not repeat them
 
 ## Never
 - Never use pip, conda, or virtualenv (UV only)
@@ -320,10 +333,10 @@ Here is what each file looks like when you first create it. Fill them in as you 
 ```markdown
 # Design Decisions
 
-## Why EEGLAB over MNE
+## Why EEGLAB over MNE-Python
 We already have the preprocessing scripts in MATLAB and the lab is
-MATLAB-literate. Rewriting in MNE would take a month; wrapping EEGLAB
-through matlab-mcp takes a day.
+MATLAB-literate. Rewriting in MNE-Python would take a month; wrapping
+EEGLAB through matlab-mcp takes a day.
 
 ## Why 1-40 Hz bandpass
 Matches the filter used in the canonical HBN preprocessing paper
@@ -353,10 +366,11 @@ Lesson: HBN is big. Always chunk.
 
 ### Optional: scaffold with a plugin
 
-If you want this directory set up automatically, install the `project` plugin from the course companion marketplace:
+If you want this directory set up automatically, install the `project` plugin from the course companion marketplace. Inside a running `claude` session, add the marketplace first, then install and run the plugin:
 
-```bash
-claude plugin install project@research-skills
+```text
+/plugin marketplace add neuromechanist/research-skills
+/plugin install project@research-skills
 /init-project
 ```
 
@@ -421,14 +435,14 @@ Do not say "no, that is wrong, start over." That wastes Claude's context on re-r
 
 ### Voice dictation is fine
 
-If you dictate prompts (in the car, walking between meetings, recovering from RSI), Claude handles the artifacts well. Typos, "um", "uh", incomplete sentences all come through legibly. Do not edit dictation before pasting; it costs you more time than the extra tokens save.
+If you dictate prompts (in the car, walking between meetings, recovering from a repetitive strain injury (RSI)), Claude handles the artifacts well. Typos, "um", "uh", incomplete sentences all come through legibly. Do not edit dictation before pasting; it costs you more time than the extra tokens save.
 
 ### When to stop prompting and start reading
 
 After two failed corrections on the same point, stop. The model is not going to get it on attempt three. Instead:
 
 1. Press `Esc` to stop Claude mid-action
-2. Run `/clear` to reset the context
+2. Run `/clear` to reset the context (wipes the current conversation without ending the session)
 3. Re-read the file yourself
 4. Write a new prompt from scratch that includes what you just learned
 
@@ -438,12 +452,12 @@ Two bad corrections burn more context than a clean restart. See the "Manage cont
 
 ## 8. Plan Mode: Explore, Plan, Implement
 
-The single highest-impact feature for research workflows is Plan Mode. Press `Shift+Tab` twice to enter it.
+The single highest-impact feature for research workflows is Plan Mode. From Default, press `Shift+Tab` twice to reach it (once from Accept Edits), or type `/plan` to jump straight in.
 
 The four-phase flow is:
 
 1. **Explore** (Plan Mode): Claude reads files, asks questions, builds understanding. It cannot edit anything.
-2. **Plan** (Plan Mode): Claude proposes an implementation plan. Press `Ctrl+G` to open the plan in your text editor and revise it before approving.
+2. **Plan** (Plan Mode): Claude proposes an implementation plan. Press `Ctrl+G` to open the plan in your text editor and revise it before approving. If `$EDITOR` is not set, Claude falls back to `vi`; to avoid that, run `export EDITOR=nano` (or `export EDITOR="code --wait"` for VS Code) before starting.
 3. **Implement** (Normal Mode): `Shift+Tab` back to Default or Accept Edits. Claude follows the approved plan.
 4. **Commit** (Normal Mode): Claude writes the commit message and opens a PR if you ask.
 
@@ -475,7 +489,7 @@ Claude Code has five extension mechanisms. You will use all of them over this co
 |---------|-----------|-------------|
 | **Plugin** | Distributable package bundling everything below | Share a tool or workflow with your team or the community |
 | **Skill** | Workflow or knowledge file that loads on demand | Repeatable procedures, checklists, domain recipes |
-| **MCP server** | Connector to external data or tools | Google Drive, Jira, databases, MATLAB, HED annotation |
+| **Model Context Protocol (MCP) server** | Connector to external data or tools | Google Drive, Jira, databases, MATLAB, HED annotation |
 | **Hook** | Automated shell command at a Claude lifecycle point | Enforce something with zero exceptions (pre-commit, post-edit) |
 | **Subagent** | Isolated worker with its own context window | Side investigations that would pollute your main context |
 
@@ -485,9 +499,11 @@ Three distinctions that cleared things up for me when I was learning this:
 - **`CLAUDE.md` says "please do this."** It is advisory. Claude usually follows it, but it is not enforced.
 - **Subagents say "do this in your own space."** They keep your main conversation clean when you need to explore a side question.
 
-For our research practicum, we use [`matlab-mcp-tools`](https://github.com/neuromechanist/matlab-mcp-tools) as the MCP server so Claude Code can drive EEGLAB. We also use [Serena](https://github.com/oraios/serena) for semantic code exploration in large codebases, and language server protocol (LSP) servers for real-time intelligence in typed languages. For neuroimaging annotation, `hed-mcp` handles Hierarchical Event Descriptor (HED) tagging.
+For our research practicum, we use [`matlab-mcp-tools`](https://github.com/neuromechanist/matlab-mcp-tools) as the MCP server so Claude Code can drive EEGLAB (installed in Week 9). We also use [Serena](https://github.com/oraios/serena) for semantic code exploration in large codebases, and language server protocol (LSP) servers for real-time intelligence in typed languages (covered in Week 4). For neuroimaging annotation, `hed-mcp` handles Hierarchical Event Descriptor (HED) tagging (Week 9).
 
-We will install and use these tools week by week. You do not need them now.
+Claude Code also ships with a handful of built-in skills (`/simplify`, `/loop`, `/claude-api`, and others listed in the Quick Reference). These are always available without installing anything.
+
+You do not need the third-party tools now. They are listed so the names are familiar when they come up.
 
 ---
 
@@ -593,7 +609,7 @@ claude
 | Command | What it does |
 |---------|-------------|
 | `/init` | Generate a starter `CLAUDE.md` by analyzing the project |
-| `/plan [description]` | Enter Plan Mode |
+| `/plan [description]` | Enter Plan Mode (equivalent to `Shift+Tab` twice from Default) |
 | `/clear` | Reset context between unrelated tasks |
 | `/compact [focus]` | Summarize conversation to free context |
 | `/memory` | Edit `CLAUDE.md`, toggle auto-memory |
@@ -608,7 +624,7 @@ claude
 
 | Shortcut | Action |
 |----------|--------|
-| `Shift+Tab` | Cycle permission modes (Default, Accept Edits, Plan) |
+| `Shift+Tab` | Cycle permission modes (Default, Accept Edits, Plan; plus Auto on Max/Team/Enterprise/API) |
 | `Esc` | Stop Claude mid-action |
 | `Esc` twice | Open rewind menu |
 | `Ctrl+G` | Open current input in your text editor |
