@@ -27,10 +27,20 @@
 
 ### Week 3: Project Management with AI
 - [x] Session README with learning objectives
-- [ ] Expand README with detailed objectives
-- [ ] Create presentation outline (presentations/week-03/)
-- [ ] Prepare live demo: epic/sprint workflow on HBN practicum
+- [x] Expand README with detailed objectives (tied to HBN practicum)
+- [x] Create presentation outline (presentations/week-03/outline.md, 15-slide cap)
+- [x] Create slide plan (presentations/week-03/slide-plan.md)
+- [x] Practicum starter: sessions/week-03/practicum/project_brief.md (HBN R3 "The Present" boy vs puppy ERSP)
+- [x] Practicum starter: sessions/week-03/practicum/shot_events.tsv (56 shots, has_boy/has_puppy/LLR/match_diff_s)
+- [x] Create presentation.json (15 slides, FHD-tested)
+- [x] Create SVG assets: problem-definition, epic-phases, epic-branching, worktree, review-pr
+- [x] Week 3 blog post (blog/week-03-project-management.md)
+- [x] Mirror to osc-docs (courses/agentic-research/week-03.md + slides bundle)
+- [x] Update mkdocs nav and index.md to link Week 3
+- [ ] Delete existing agentic-research-practicum GitHub repo for a clean init during live session
+- [ ] Dry-run the live walkthrough (init -> push private -> epic -> `/plan` -> Phase 1)
 - [ ] Create exercises.md
+- [ ] Upload Week 3 recording to YouTube and embed in osc-docs week-03.md
 
 ### Week 4: CI/CD and Code Quality
 - [x] Session README

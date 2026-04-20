@@ -1,109 +1,113 @@
 # Week 3 Presentation: Project Management with AI
 
-## Opening: Recap (3 min)
+15-slide cap. ~30 min presentation, then live walkthrough + Q&A.
+
+**Thesis:** AI is powerful. Structure (starting with a written problem definition, continuing through epic + sub-issues + worktrees + plan-mode + PR review) turns that power into trustworthy research output. Every theoretical point is anchored to the HBN Practicum: boy-vs-puppy ERSP on "The Present" in Release 3. Session-starter files live at `sessions/week-03/practicum/`.
+
+## Opening
 
 ### Slide 1: Title
 - Week 3: Project Management with AI
 
-### Slide 2: Where We Are
-- Week 1: Git (safety net)
+### Slide 2: Where we are
+- Week 1: git and GitHub (the safety net)
 - Week 2: Claude Code (the agent)
-- Today: How to organize real work
+- Today: structure that makes the agent trustworthy at research scale
 
-## Project Initialization (5 min)
+## Why Structure
 
-### Slide 3: The `/init-project` Scaffold
-- CLAUDE.md -- AI instructions
-- .rules/ -- development standards (git, docs, review, testing)
-- .context/ -- project state (plan, ideas, research, scratch_history)
-- One command sets up the whole structure
+### Slide 3: AI is powerful; structure turns power into results
+- Without structure: speed compounds into technical debt
+- With steps + checks + balances: speed compounds into output
+- Contrast diagram: tangled vs pipelined
 
-### Slide 4: Why Structure Matters
-- A single script: just commit and push
-- A multi-step pipeline: you need phases, tracking, review
-- AI can generate code fast; structure ensures correctness
+### Slide 4: Structured problem definition
+- The most undervalued artifact in AI-assisted research
+- Write the problem down *before* the agent plans anything
+- Five sections, every time: **Goal**, **Rough steps**, **Checks**, **Success criteria**, **Quality control**
+- Markdown file or user-scope `CLAUDE.md`; conversational works, markdown is better because it is versioned
+- Show `sessions/week-03/practicum/project_brief.md` as the working example
 
-## Epic/Sprint Workflow (12 min)
+## Initialize the Project
 
-### Slide 5: What is an Epic?
-- A large feature broken into phases
-- Each phase is independently completable, reviewable, mergeable
-- Example: "Analyze HBN EEG data" is an epic with 6 phases
+### Slide 5: `/project:init-project`
+- Consumes your structured definition
+- Scaffolds: `CLAUDE.md` (AI context), `.rules/` (team standards), `.context/` (working state), `.gitignore`
+- Local scaffold; Week 4 adds remote CI/CD
 
-### Slide 6: The HBN Epic
-```
-Epic: HBN Movie Shot-Change ERP Analysis
-├── Phase 1: Data import and BIDS structure
-├── Phase 2: Preprocessing
-├── Phase 3: ICA decomposition
-├── Phase 4: Epoch extraction
-├── Phase 5: Statistical analysis
-└── Phase 6: Figures and manuscript sections
-```
+## The Epic/Sprint Workflow
 
-### Slide 7: GitHub Issues Structure
-- Parent issue: the epic (describes the goal, lists phases)
-- Sub-issues: one per phase (linked with `gh sub-issue add`)
-- Each sub-issue becomes a branch, a worktree, a PR
+### Slide 6: Epic = multi-phase feature
+- A feature too large for one PR
+- Phase = sub-issue = branch = worktree = PR
 
-### Slide 8: Live Demo -- Creating the Epic
-- `gh issue create --title "Epic: HBN Shot-Change Analysis"`
-- Create sub-issues for each phase
-- Link them: `gh sub-issue add <parent> --sub-issue-number <child>`
+### Slide 7: Our epic -- HBN "The Present" boy vs puppy ERSP
+- Compare 0-500 ms ERSP between boy-shots and puppy-shots
+- HBN-EEG Release 3, task `ThePresent`, EEGLAB + matlab-mcp
+- Input files: `project_brief.md`, `shot_events.tsv`
+- 49 trusted shots after drift filter: 23 boy, 18 puppy, 3 both, 7 neither
 
-## Git Worktrees (5 min)
+### Slide 8: Six phases
+1. Preprocess R3 (filter, cleanline, channel rejection)
+2. AMICA + dipfit
+3. IClabel + brain component selection
+4. Expand shot events + epoch around shots
+5. ERSP precompute + IC clustering
+6. Group statistics + figures
+- Each phase is itself a check on the previous one
 
-### Slide 9: What is a Worktree?
-- Multiple branches checked out simultaneously in separate directories
-- No more stashing, no more switching
-- Develop Phase 2 while Phase 1 is in review
+### Slide 9: GitHub Issues + sub-issues
+- Parent epic issue; sub-issues per phase
+- `gh sub-issue add <parent> --sub-issue-number <child>`
+- Sub-issue status = phase status
 
-### Slide 10: Live Demo -- Worktrees
-```bash
-git worktree add ../epic-hbn -b feature/epic-hbn develop
-git worktree add ../hbn-phase1 -b feature/phase1-import feature/epic-hbn
-cd ../hbn-phase1
-```
+### Slide 10: Git worktrees
+- Parallel phase development without stashing
+- `git worktree add ../epic-hbn -b feature/epic-hbn main`
+- `git worktree add ../hbn-phase1 -b feature/phase1-preproc feature/epic-hbn`
+- Work Phase 2 while Phase 1 is in review
 
-## Plan Mode and Implementation (10 min)
+## Plan-Mode and Review Are Checks
 
-### Slide 11: Planning Before Coding
-- `/plan` enters plan mode
-- Claude proposes: files to create, functions to write, data flow
-- You review, adjust, approve
-- Then Claude implements the approved plan
+### Slide 11: `/plan` is a check on your reasoning
+- Plan mode proposes files, functions, tests, open questions before any code is written
+- You reshape the plan; then Claude implements
+- Self-check: is the problem defined tightly enough for the plan to be short?
 
-### Slide 12: Live Demo -- Phase 1
-- Enter plan mode for "Data import and BIDS structure"
-- Review the plan
-- Approve and watch Claude implement
-- Commit the result
+### Slide 12: `/review-pr` is a check on the output
+- Six reviewers per PR: code quality, silent failures, comments, tests, types, architecture
+- Address every finding; explain false positives in the PR
+- No technical debt carried forward
 
-## PR Workflow (5 min)
+## Bridge to Hands-On
 
-### Slide 13: Creating the PR
-- `gh pr create` with title, description, issue reference
-- Run `/review-pr` for automated review
-- Six specialized agents check different aspects
+### Slide 13: What's next vs what today gives you
+- Week 4 adds CI/CD (pre-commit, GitHub Actions, linters, type checks)
+- Today's workflow already ships without any of that
+- CI/CD is leverage, not prerequisite
 
-### Slide 14: No Technical Debt
-- Address ALL findings, not just critical
-- Only skip genuine false positives
-- If you skip something, explain why
-- This discipline is what makes AI-assisted development trustworthy
+## Final Handoff
 
-## Wrap-up (2 min)
+### Slide 14: Walkthrough roadmap
+- `git init` the practicum locally
+- Copy `project_brief.md` + `shot_events.tsv`
+- `/project:init-project`
+- Push a fresh private repo to `OpenScience-Collective`
+- Create epic + six sub-issues
+- `/plan` Phase 1 preprocessing
+- Approve and implement with matlab-mcp
 
-### Slide 15: The Full Workflow
-1. Create epic issue with phases
-2. Create worktrees
-3. Plan each phase with `/plan`
-4. Implement, commit, PR
-5. Review with `/review-pr`
-6. Merge phase to epic branch
-7. When all phases done: epic PR to main
+### Slide 15: What we have / what we do next
+- **Have**
+  - `project_brief.md` -- goal, steps, checks, success, QC
+  - `shot_events.tsv` -- 56 shots, has_boy, has_puppy, LLR, match_diff_s
+- **Do next (live)**
+  - Init practicum, push private
+  - Epic + six sub-issues
+  - `/plan` Phase 1
+  - Implement Phase 1 preprocessing for HBN Release 3 in MATLAB/EEGLAB
 
-### Slide 16: Before Next Week
-- Try the epic workflow on your project
-- Practice: branch, commit, PR, review, merge
-- Next week: CI/CD and automated code quality
+## Before Next Week
+
+- Try the epic + worktree workflow on one of your own projects
+- Week 4 layers CI/CD and code quality gates on top of this workflow

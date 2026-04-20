@@ -2,95 +2,107 @@
 
 ## The Big Picture
 
-You have git (week 1) and Claude Code (week 2). Now the question becomes: how do you organize non-trivial work? A single script is easy. A multi-step analysis pipeline with preprocessing, artifact rejection, Independent Component Analysis (ICA), and statistical analysis is not. This session teaches the epic/sprint workflow: breaking complex research projects into phases, tracking each phase with GitHub Issues, developing in parallel with git worktrees, and using Claude Code to plan and review every step.
+Week 1 gave us the safety net (git, GitHub). Week 2 gave us the agent (Claude Code). This session is about organizing real work. A one-off script gets committed and forgotten. A study-level EEG analysis, a manuscript, or a grant submission is a project: multiple phases, multiple people, multiple decision points. AI makes it cheap to write code; structure is what makes that code trustworthy.
 
-The core principle: the bigger the project, the more structure you need. AI makes it easy to generate code; project management makes it possible to trust that code.
+The core message: the bigger the project, the more structure you need. Epic/sprint workflow, GitHub Issues with sub-issues, git worktrees, plan mode, `/review-pr`. No CI/CD yet; Week 4 adds the automated gates. Today's workflow already ships.
+
+This week is a live walkthrough. We present for ~30 minutes, then we immediately start building a real repository: the HBN "The Present" boy-vs-puppy ERSP analysis.
 
 ## Learning Objectives
 
 By the end of this session, participants will be able to:
 
 ### Project Initialization
-- Use `/init-project` to scaffold a project with CLAUDE.md, `.rules/`, `.context/`, and config files
-- Customize templates for their specific research domain
-- Understand the role of each file in the project structure
+- Run `/project:init-project` and explain what each scaffolded file does (CLAUDE.md, `.rules/`, `.context/`, `.gitignore`, pre-commit stub)
+- Drop research input files (project brief, event tables) into a fresh repository as the starting point for `/plan`
 
 ### Epic/Sprint Workflow
-- Define an "epic" as a large feature broken into sequential phases
-- Create a parent GitHub Issue for the epic with phase descriptions
-- Create sub-issues for each phase and link them to the parent
-- Explain when to use epics (multi-phase) vs single branches (small tasks)
+- Define an epic and its phases
+- Create a parent GitHub Issue for the epic; create sub-issues for each phase
+- Link sub-issues with `gh sub-issue add`
 
 ### Git Worktrees
-- Explain what a worktree is and why it matters for parallel development
 - Create worktrees for epic branches and phase branches
-- Develop in one phase while another is in review
+- Develop one phase while another is in review
 - Clean up worktrees after merge
 
 ### Plan Mode and Implementation
-- Use `/plan` to design an implementation before writing code
-- Review and refine plans before execution
-- Implement a phase following the approved plan
+- Enter plan mode, review the proposed plan, reshape it before any code is written
+- Approve the plan and implement a phase end-to-end
 
 ### Pull Requests and Code Review
-- Create PRs with clear titles, descriptions, and issue references
-- Run `/review-pr` for automated code review
-- Address all review findings (no technical debt carried forward)
-- Understand the merge workflow: phase PRs to epic branch, epic PR to main
+- Create a PR linked to the phase sub-issue
+- Run `/review-pr` and interpret the output from six specialized reviewers
+- Address every finding or explicitly mark false positives
 
-### Practicum Application
-- Define the HBN analysis as a multi-phase epic
-- Create the epic issue structure for the practicum
-- Begin Phase 1 of the HBN practicum
+### Practicum
+- Initialize the practicum repository from a fresh `git init` using the two session-starter files (`project_brief.md`, `shot_events.tsv`)
+- Push the repository to `OpenScience-Collective/agentic-research-practicum` as private
+- Produce a working plan for Phase 1 and begin implementing the preprocessing function for HBN-EEG Release 3 in MATLAB/EEGLAB
 
 ## Outline
 
 | Time  | Section | Description |
 |-------|---------|-------------|
-| 0:00  | Recap | Weeks 1-2 review; from single scripts to real projects |
-| 0:03  | Project Initialization | `/init-project` demo; what each template file does |
-| 0:08  | Epic/Sprint Concepts | When and why to use epics; phase decomposition |
-| 0:13  | GitHub Issues and Sub-Issues | Creating epics, phases, linking with `gh sub-issue add` |
-| 0:18  | Git Worktrees | Creating and managing worktrees; parallel development demo |
-| 0:25  | Live Demo: HBN Epic | Define the HBN analysis epic; create issues, worktree, plan Phase 1 |
-| 0:35  | PR Workflow | Create PR, run `/review-pr`, address findings |
-| 0:40  | Wrap-up | The workflow in summary; what to practice |
-| 0:45  | Q&A | Open questions |
+| 0:00  | Opening | Title + where we are |
+| 0:03  | Why structure | AI is powerful; steps + checks unlock it |
+| 0:05  | Structured problem definition | Goal, steps, **checks**, success, QC -- our `project_brief.md` |
+| 0:08  | `/project:init-project` | What the scaffold gives you |
+| 0:11  | Epic = multi-phase feature | Epic / phase / sub-issue / branch / worktree / PR |
+| 0:13  | Our epic | HBN "The Present" boy vs puppy ERSP |
+| 0:15  | Six phases | Preprocess -> AMICA -> IClabel -> epoch -> ERSP -> stats |
+| 0:17  | GitHub issues + sub-issues | `gh sub-issue add` |
+| 0:19  | Git worktrees | Parallel phase development |
+| 0:22  | `/plan` as check on reasoning | Proposes before code; reshape first |
+| 0:25  | `/review-pr` as check on output | Six reviewers, no tech debt |
+| 0:27  | Week 4 preview | CI/CD adds automated checks; today already ships |
+| 0:29  | Walkthrough roadmap | Next 30 minutes live |
+| 0:32  | Final handoff | What we have, what we do next |
+| 0:33  | Live walkthrough | Init practicum, push, epic, `/plan`, Phase 1 |
+| 1:15  | Q&A | Open questions |
 
 ## Key Concepts
 
-- **Epic:** A large feature (e.g., "HBN movie shot-change analysis") broken into phases, each with its own branch, sub-issue, and PR
-- **Sprint/Phase:** One step of an epic; small enough to complete, review, and merge in a focused session
-- **Git worktree:** A git feature that lets you check out multiple branches simultaneously in separate directories; no more stashing or switching
-- **Sub-issue:** A GitHub Issue linked to a parent issue; tracks phase progress within an epic
-- **Plan mode:** Claude Code's interactive planning feature; designs the approach before generating code
-- **`/review-pr`:** Automated code review using specialized agents (code quality, error handling, test coverage, type design)
-- **No technical debt carried forward:** Every PR review finding is addressed before merge, not deferred
+- **Epic:** a feature too large for one PR, broken into independently shippable phases
+- **Sub-issue:** a GitHub Issue linked to a parent epic issue; tracks phase progress
+- **Git worktree:** multiple branches checked out simultaneously in separate directories; no stashing or context switching
+- **Plan mode:** interactive planning in Claude Code; designs the approach before generating code (`Shift+Tab` to enter)
+- **`/review-pr`:** orchestrated PR review using six specialized agents (code quality, silent failures, comments, test coverage, type design, architecture)
+- **No technical debt carried forward:** every review finding is addressed before merge, or the false positive is explained in the PR
 
-## Example: HBN Practicum Epic
+## Practicum
+
+This session launches the practicum repository. Session-starter materials live in this course repository:
+
+- `sessions/week-03/practicum/project_brief.md` - the research project description
+- `sessions/week-03/practicum/shot_events.tsv` - 56 shots from "The Present" with `has_boy`, `has_puppy`, `LLR`, `match_diff_s` (drift filter: labels for rows with `match_diff_s > 1.0 s` are set to `n/a`; 49 trusted rows remain)
+
+The practicum repository (`OpenScience-Collective/agentic-research-practicum`) starts empty. During the live walkthrough we `git init` locally, copy the two starter files in, run `/project:init-project`, push to GitHub as private, create the epic and six sub-issues, plan Phase 1, and begin implementing the R3 preprocessing function in MATLAB/EEGLAB via `matlab-mcp-tools`.
+
+### Example: HBN Practicum Epic
 
 ```
-Epic: HBN Movie Shot-Change ERP Analysis
-├── Phase 1: Data import and BIDS structure
-├── Phase 2: Preprocessing (filtering, artifact rejection)
-├── Phase 3: ICA decomposition and component classification
-├── Phase 4: Epoch extraction around shot-change events
-├── Phase 5: ERP computation and statistical analysis
-└── Phase 6: Figures and manuscript sections
+Epic: HBN "The Present" -- Boy vs Puppy ERSP (Release 3)
+├── Phase 1: Preprocessing (filter, cleanline, channel rejection)
+├── Phase 2: AMICA + dipfit
+├── Phase 3: IClabel + brain component selection
+├── Phase 4: Expand shot events, epoch around shots
+├── Phase 5: ERSP precompute + IC clustering
+└── Phase 6: Group statistics + figures
 ```
 
 Each phase becomes a sub-issue, a worktree, a branch, and a PR.
 
 ## Pre-Session Prep
 
-- [ ] Completed Week 2 tasks (Claude Code installed, CLAUDE.md created)
-- [ ] Install the `gh` CLI: `brew install gh` (macOS) or see docs
-- [ ] Authenticate: `gh auth login`
-- [ ] Have your course project repository ready
+- [ ] Completed Week 2 tasks (Claude Code installed, CLAUDE.md on your own project)
+- [ ] Install `gh` CLI: `brew install gh` (macOS) and authenticate with `gh auth login`
+- [ ] Install the `gh sub-issue` extension: `gh extension install agbiotech/gh-sub-issue`
+- [ ] MATLAB with EEGLAB 2024+ available locally (for the hands-on portion; optional if just watching)
+- [ ] `matlab-mcp-tools` connected to Claude Code (see repo README for setup)
 
 ## Before Next Session
 
-- [ ] Try creating a multi-phase feature using the epic workflow
-- [ ] Practice: branch, commit, PR, review, merge
-- [ ] (Optional) Set up the HBN practicum project with the epic structure above
-- [ ] Read about GitHub Actions (we'll set up CI/CD in Week 4)
+- [ ] Try the epic + worktree workflow on one of your own projects
+- [ ] Practice: branch, plan, commit, PR, `/review-pr`, merge
+- [ ] Read about GitHub Actions. Week 4 adds CI/CD and code quality gates on top of this workflow.

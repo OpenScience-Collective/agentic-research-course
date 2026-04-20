@@ -1,0 +1,1151 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 3: Project Management with AI -- Structured Definitions, Epics, Worktrees, and Checks",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 3: Project Management with AI",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/3JtBrU3c](https://discord.gg/3JtBrU3c)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: Claude Code setup (install, CLAUDE.md, plan mode)\n\n- Today: how to organize real work so the agent stays trustworthy at research scale\n\n- Walkthrough format: ~30 min presentation, then we build a real repo live\n\n- Course site and Discord on the slide"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 1 -- Git and GitHub.** The safety net. Nothing you do with AI is safe without it.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Week 2 -- Claude Code.** The agent. Reads your project, plans, writes, runs, iterates.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Today -- Project management.** Structure that lets a research-scale project stay coherent.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "A one-off script is a commit. A study-level analysis is a project. The bigger the project, the more structure pays.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Week 1 gave you the safety net (git + GitHub)\n\n- Week 2 gave you the agent (Claude Code)\n\n- The agent without structure will happily produce code you cannot trust\n\n- Today fixes that"
+      },
+      {
+        "id": "structure-thesis",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## AI Is Powerful. Structure Turns Power Into Results.",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Unstructured\n\n- \"Can you analyze this EEG data?\"\n- Agent writes 400 lines; you cannot audit them\n- Speed becomes technical debt\n- Every output needs a full re-review\n- You lose trust in the code",
+            "style": {
+              "fontSize": "medium",
+              "color": "#991B1B"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Structured\n\n- Goal, rough steps, checks, success criteria written down\n- Agent plans phase-by-phase; you reshape the plan\n- Each phase has a failure mode and a PR review\n- Speed becomes output\n- You extend trust to the pipeline",
+            "style": {
+              "fontSize": "medium",
+              "color": "#14532D"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Same agent. Same prompt budget. The difference is the **steps + checks + balances** you put in front of it.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The thesis slide. Do not rush.\n\n- Same model, same prompt budget. Unstructured vs structured is the delta.\n\n- 'Speed becomes technical debt' vs 'speed becomes output'\n\n- Transition: so where does structure start? With how you describe the problem."
+      },
+      {
+        "id": "problem-definition",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Most Undervalued Artifact: A Structured Problem Definition",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/problem-definition.svg",
+            "alt": "Markdown document with five sections: Goal, Steps, Checks, Success, QC",
+            "width": "45%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Goal** -- one or two sentences. What question does this answer?",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Rough steps** -- a phase sketch the plan can renegotiate. Not a prescription.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Checks** -- what would invalidate the analysis? Name the failure modes up front.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Success** -- what does \"done\" look like? A figure, a p-value, a saved STUDY file.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Quality control** -- data-quality notes, gotchas, drift filters, invalidation rules.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Conversational works. Markdown is better. Markdown is versioned; Claude reads it every session; humans can review it.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Most important teaching slide. Spend 90 seconds here.\n\n- Read the five labels aloud.\n\n- Concrete example is coming on slide 7. Our `project_brief.md` has all five sections.\n\n- Scope matters: project-level (project_brief.md) for the project; user-level CLAUDE.md for defaults that apply to every project."
+      },
+      {
+        "id": "init-project",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## `/project:init-project` -- Scaffold Standing Files",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "code",
+            "language": "text",
+            "code": "your-project/\n\u251c\u2500\u2500 CLAUDE.md     # project-scope AI context, goals, rules\n\u251c\u2500\u2500 .rules/       # team standards (git, docs, tests)\n\u251c\u2500\u2500 .context/     # plan.md, ideas.md, research.md, scratch_history.md\n\u2514\u2500\u2500 .gitignore",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Local scaffold today.** Remote CI/CD (pre-commit hooks, GitHub Actions, linters) arrives in Week 4.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- init-project is in the `research-skills` plugin\n\n- CLAUDE.md: project-scope AI context\n\n- .rules/: team standards (git conventions, docs, review process, testing policy)\n\n- .context/: four working-state files (plan, ideas, research, scratch_history)\n\n- This is everything Claude Code reads on startup in this project\n\n- Today everything is local; Week 4 adds remote automated gates"
+      },
+      {
+        "id": "epic-concept",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Epic = Multi-Phase Feature",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "A feature too large for one PR. Decompose into phases; each phase ships independently.",
+            "style": {
+              "fontSize": "medium",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Phase** = one reviewable, mergeable slice of the epic",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Sub-issue** = GitHub Issue linked to the parent epic issue",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Branch** = feature branch scoped to one phase",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Worktree** = separate working directory for that branch",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**PR** = the review gate before the phase merges back to the epic branch",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Phase = sub-issue = branch = worktree = PR. One unit of work, five artifacts that hold each other accountable.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Epic terminology borrowed from agile; applies naturally to research projects\n\n- Phase = sub-issue = branch = worktree = PR. Say this line three times if you have to.\n\n- Each phase holds the others accountable: you cannot merge without PR; PR needs sub-issue; sub-issue needs branch; branch runs in its worktree"
+      },
+      {
+        "id": "our-epic",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Our Epic -- HBN \"The Present\" Boy vs Puppy ERSP",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Research Question\n\nDo the first 500 ms of EEG differ when a shot opens with the boy visible vs the puppy visible?\n\n### Dataset\n\n- HBN-EEG Release 3 (ds005507)\n- Task: `ThePresent` (3.5-min Pixar short)\n- 183 subjects, 128-channel EEG, BIDS\n- Sampling rate: 500 Hz (mini: 100 Hz)\n\n### Tools\n\n- EEGLAB 2024+ (AMICA, IClabel, dipfit5, std_precomp)\n- `matlab-mcp-tools` so Claude drives MATLAB",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### In Hand\n\n- `project_brief.md` (structured problem definition)\n- `shot_events.tsv` (event table)\n\n### Shot Stats (trusted labels)",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "Category",
+              "Shots"
+            ],
+            "rows": [
+              [
+                "has_boy = 1",
+                "23"
+              ],
+              [
+                "has_puppy = 1",
+                "18"
+              ],
+              [
+                "both",
+                "3"
+              ],
+              [
+                "neither",
+                "7"
+              ],
+              [
+                "trusted rows",
+                "49 / 56"
+              ]
+            ],
+            "style": {
+              "fontSize": "small"
+            },
+            "position": {
+              "area": "right",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Generated Live\n\n`CLAUDE.md`, `.rules/`, `.context/`, epic + six sub-issues, Phase 1 MATLAB",
+            "style": {
+              "fontSize": "small"
+            },
+            "position": {
+              "area": "right",
+              "order": 2
+            }
+          }
+        ],
+        "speakerNotes": "- First time the audience sees a concrete project. Keep this slide up.\n\n- Two files in hand; everything else gets generated during the walkthrough\n\n- 49 trusted shots = plenty of trials per ERSP condition\n\n- The drift filter (>1.0s diff) invalidated 3 rows where the nearest annotation came from a different shot\n\n- Tools: EEGLAB + matlab-mcp (the MCP server that lets Claude Code drive MATLAB)"
+      },
+      {
+        "id": "six-phases",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Six Phases, Six Checkpoints",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/epic-branching.svg",
+            "alt": "Git timeline: main at top; epic branch below; six phase branches merge into epic, which carries an integration checkpoint before merging back to main",
+            "width": "45%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Phase 1.** Preprocess R3 -- import BIDS, high-pass 1 Hz, cleanline 60/120/180 Hz, channel rejection",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Phase 2.** AMICA + dipfit -- per-subject ICA, attach weights, compute dipoles",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Phase 3.** IClabel -- classify components, keep brain, drop the rest",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Phase 4.** Shot events + epoch -- expand `shot_events.tsv`, epoch around shots, split by flag",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Phase 5.** ERSP precompute + IC clustering -- study-level, 3-80 Hz",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "**Phase 6.** Group statistics + figures -- cluster contrasts, manuscript-ready plots",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "**Phases merge into the epic branch first, not `main`.** The epic branch acts as an integration checkpoint: once all six phases are merged there you get one combined test before the epic PR goes to `main`. On simpler projects you can skip the epic branch; on research pipelines with six phases it is worth the extra review.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Phases are not immutable. /plan will renegotiate them.\n\n- Each phase has a natural failure mode. Preprocess: bad channels not removed. AMICA: non-convergence. IClabel: too few brain components. Epoch: event count mismatch. ERSP: zero-trial conditions. Stats: multiple-comparison blowup.\n\n- The epic branch is the integration point. On involved projects phases merge INTO the epic branch first, then the whole epic merges to main as one PR. You get a combined integration test that none of the individual phase PRs can give you.\n\n- Reference pipeline in study_handy_scripts.m is a known-working recipe. Use it; do not copy it verbatim."
+      },
+      {
+        "id": "github-issues",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## GitHub Issues + Sub-Issues",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Parent issue describes the epic. One sub-issue per phase, linked to the parent. Sub-issue status = phase status.",
+            "style": {
+              "fontSize": "medium",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Install once: `gh extension install agbiotech/gh-sub-issue`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Parent epic: `gh issue create --title \"Epic: ...\" --label epic`  -> issue `#1`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Phase 1: `gh issue create --title \"Phase 1: Preprocess R3\" --label feature`  -> issue `#2`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Link them: `gh sub-issue add 1 --sub-issue-number 2`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Repeat for phases 2..6",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "No out-of-band trackers. Issues live where the code lives; PRs close them automatically.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- gh sub-issue is an extension; install once per machine\n\n- Parent epic issue describes the goal and lists phase sub-issues\n\n- Each phase sub-issue tracks one branch and one PR\n\n- Sub-issue status (open/closed) = phase status\n\n- You can see the whole epic tree from the parent issue page on GitHub"
+      },
+      {
+        "id": "worktrees",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Git Worktrees -- Parallel Phase Development",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/worktree.svg",
+            "alt": "main folder branching to epic-hbn, hbn-phase1, hbn-phase2 folders",
+            "width": "45%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Epic branch:** `git worktree add ../epic-hbn -b feature/epic main`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Phase 1:** `git worktree add ../hbn-phase1 -b feature/p1 feature/epic`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Phase 2, in parallel:** `git worktree add ../hbn-phase2 -b feature/p2 feature/epic`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Clean up after merge:** `git worktree remove ../hbn-phase1`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "- Worktrees solve context loss, not a feature\n\n- No stashing, no git stash pop, no switching branches in the same directory\n\n- Claude Code runs fine in each worktree; point it at the directory of the phase you want to work on\n\n- Clean up with `git worktree remove` after the phase PR merges"
+      },
+      {
+        "id": "plan-check",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## `/plan` -- A Check on Your Reasoning",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Plan mode proposes files, functions, tests, and open questions **before** any code is written",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "You reshape the plan -- reorder steps, drop items, add checks, pin parameter values",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Only after you approve does Claude start implementing",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Enter with Shift+Tab until the status line shows \"plan mode\"",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Self-check: is the problem defined tightly enough for the plan to be short? Long plan = thin problem definition.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- /plan is the single most leveraged habit in the course\n\n- Frame it as a check on your reasoning: if your definition is weak, the plan will be sprawling and generic\n\n- If the plan is short and specific, your definition was solid\n\n- Reshape the plan before any code gets written. Cheap to edit text, expensive to refactor code."
+      },
+      {
+        "id": "review-check",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## `/review-pr` -- A Check on the Output",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/review-pr.svg",
+            "alt": "Central PR card with six reviewer tokens around it",
+            "width": "45%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**code-reviewer** -- style, naming, logic, OWASP-class issues",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**silent-failure-hunter** -- try/except swallowing errors, fallbacks hiding bugs",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**comment-analyzer** -- stale, wrong, or load-bearing comments",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**pr-test-analyzer** -- does test coverage match the feature?",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**type-design-analyzer** -- invariants, encapsulation, enforcement",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "**code-simplifier** -- removes duplication, tightens the diff",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Address every finding. Skip only genuine false positives and explain why in the PR. No technical debt carried forward.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 6
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- AI reviewing AI, supervised by you\n\n- Each reviewer has its own lens; together they catch what a single review misses\n\n- 'No tech debt carried forward' is the rule. Skipping a finding = explain it in the PR thread.\n\n- This is the check-on-output. Pairs with /plan (check on reasoning) and shot_events.tsv (check on data quality)."
+      },
+      {
+        "id": "week-4-preview",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Week 4 Adds Automated Checks. Today Already Ships.",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 4 adds** -- pre-commit hooks (ruff, biome), GitHub Actions, type checkers (ty, pyright), typo linters",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Those are automated checks** -- they run without you having to remember",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Today's workflow already ships** -- structured definition + `/plan` + `/review-pr` is enough to produce trustworthy research code",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**CI/CD is leverage, not prerequisite** -- do not wait to learn it before starting your project",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "If you walk out of today with only the epic + plan + review-pr loop, you can ship research code.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Common failure mode: people think they need CI/CD before starting. They do not.\n\n- Today's workflow is already enough to produce trustworthy code\n\n- CI/CD next week adds automated gates; they are leverage on top of a working workflow\n\n- This is the bridge slide into the walkthrough"
+      },
+      {
+        "id": "walkthrough-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Walkthrough Roadmap -- Next ~30 Minutes, Live",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "`git init` the practicum locally",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Copy `project_brief.md` + `shot_events.tsv` into the new repo",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Run `/project:init-project` -- scaffold `CLAUDE.md`, `.rules/`, `.context/`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Push a **fresh private** repo to `OpenScience-Collective/agentic-research-practicum`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "Create the epic issue and six phase sub-issues",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "`/plan` Phase 1 preprocessing -- reshape the plan before any code",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              },
+              {
+                "text": "Approve the plan; watch Claude write the first MATLAB function via `matlab-mcp`",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 6
+                }
+              }
+            ],
+            "bulletStyle": "number",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- Read the seven steps. Do not do them here; that is the walkthrough.\n\n- Audience needs to see the arc before we start typing\n\n- Transition: final slide stays on screen while we run step 1"
+      },
+      {
+        "id": "final-handoff",
+        "layout": "two-column",
+        "transition": "slide",
+        "background": "#F0FDF4",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Questions? Ask While the Agent Preprocesses.",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### What We Have\n\n**`project_brief.md`**\n\n- Goal\n- Rough steps\n- Checks\n- Success criteria\n- Quality control\n\n**`shot_events.tsv`**\n\n- 56 shots\n- `has_boy`, `has_puppy`\n- `LLR`, `match_diff_s`\n- 49 trusted rows after drift filter",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### What We Do Next, Live\n\n1. Init practicum locally\n2. Push private to `OpenScience-Collective`\n3. Create epic + six sub-issues\n4. `/plan` Phase 1\n5. Implement Phase 1 preprocessing for HBN Release 3 in MATLAB/EEGLAB via `matlab-mcp`",
+            "style": {
+              "fontSize": "medium"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Discord: [discord.gg/3JtBrU3c](https://discord.gg/3JtBrU3c) | Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/)",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Final handoff slide. Stays up while we start the walkthrough.\n\n- Two columns: what we have vs what we will do\n\n- 'Questions? Ask while the agent preprocesses' is the transition line\n\n- Walkthrough begins the moment this slide goes up"
+      }
+    ]
+  }
+}

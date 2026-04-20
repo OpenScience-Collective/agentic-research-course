@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Epic pill on the left -->
+  <rect x="10" y="86" width="44" height="28" rx="14" fill="#2563EB" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="32" y="104" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Epic</text>
+
+  <!-- Main pill on the right -->
+  <rect x="146" y="86" width="44" height="28" rx="14" fill="#14532D" stroke="#14532D" stroke-width="1.5"/>
+  <text x="168" y="104" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">main</text>
+
+  <!-- Connector lines from epic to each phase, then to main -->
+  <path d="M54 100 Q72 40 92 40 L108 40 Q128 40 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M54 100 Q72 64 92 64 L108 64 Q128 64 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M54 100 Q72 88 92 88 L108 88 Q128 88 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M54 100 Q72 112 92 112 L108 112 Q128 112 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M54 100 Q72 136 92 136 L108 136 Q128 136 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+  <path d="M54 100 Q72 160 92 160 L108 160 Q128 160 146 100" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Phase circles -->
+  <circle cx="100" cy="40" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="44" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P1</text>
+
+  <circle cx="100" cy="64" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="68" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P2</text>
+
+  <circle cx="100" cy="88" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="92" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P3</text>
+
+  <circle cx="100" cy="112" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="116" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P4</text>
+
+  <circle cx="100" cy="136" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="140" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P5</text>
+
+  <circle cx="100" cy="160" r="12" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="164" font-family="sans-serif" font-size="10" fill="#334155" font-weight="bold" text-anchor="middle">P6</text>
+</svg>

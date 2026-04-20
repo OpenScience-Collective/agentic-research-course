@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <marker id="pr-arrow" markerWidth="7" markerHeight="5" refX="6.5" refY="2.5" orient="auto">
+      <path d="M0 0 L7 2.5 L0 5 Z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <!-- Arrows from reviewers to PR (drawn first so PR + circles cover ends) -->
+  <line x1="100" y1="38" x2="100" y2="78" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="161" y1="60" x2="128" y2="87" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="172" y1="100" x2="132" y2="100" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="161" y1="140" x2="128" y2="113" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="39" y1="140" x2="72" y2="113" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="28" y1="100" x2="68" y2="100" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+  <line x1="39" y1="60" x2="72" y2="87" stroke="#64748B" stroke-width="1.2" marker-end="url(#pr-arrow)"/>
+
+  <!-- Central PR card -->
+  <rect x="68" y="82" width="64" height="36" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="2"/>
+  <text x="100" y="98" font-family="sans-serif" font-size="9" fill="#64748B" font-weight="bold" text-anchor="middle">PR #42</text>
+  <line x1="76" y1="103" x2="124" y2="103" stroke="#E2E8F0" stroke-width="1"/>
+  <rect x="76" y="108" width="30" height="2" rx="1" fill="#CBD5E1"/>
+  <rect x="76" y="112" width="40" height="2" rx="1" fill="#CBD5E1"/>
+
+  <!-- Six reviewer tokens (top, top-right, right, bottom-right, bottom-left, left, top-left) -->
+  <!-- top: CR -->
+  <circle cx="100" cy="26" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="100" y="30" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">CR</text>
+
+  <!-- top-right: SF -->
+  <circle cx="168" cy="52" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="168" y="56" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">SF</text>
+
+  <!-- right: CA -->
+  <circle cx="180" cy="100" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="180" y="104" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">CA</text>
+
+  <!-- bottom-right: TA -->
+  <circle cx="168" cy="148" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="168" y="152" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">TA</text>
+
+  <!-- bottom-left: TD -->
+  <circle cx="32" cy="148" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="32" y="152" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">TD</text>
+
+  <!-- left: CS -->
+  <circle cx="20" cy="100" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="20" y="104" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold" text-anchor="middle">CS</text>
+
+  <!-- top-left (seventh slot left empty visually; arrow from top-left skipped) -->
+  <circle cx="32" cy="52" r="14" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+  <text x="32" y="56" font-family="sans-serif" font-size="7" fill="#334155" font-weight="bold" text-anchor="middle">you</text>
+</svg>

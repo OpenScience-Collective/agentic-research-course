@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Document shape with folded corner -->
+  <path d="M40 20 L140 20 L160 40 L160 185 L40 185 Z" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+  <path d="M140 20 L140 40 L160 40" fill="#E2E8F0" stroke="#334155" stroke-width="2"/>
+
+  <!-- Title strip -->
+  <text x="52" y="40" font-family="monospace" font-size="10" fill="#2563EB" font-weight="bold">project_brief.md</text>
+  <line x1="52" y1="46" x2="150" y2="46" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Section: Goal -->
+  <rect x="52" y="58" width="16" height="3" rx="1.5" fill="#334155"/>
+  <text x="72" y="61" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold">Goal</text>
+  <rect x="52" y="66" width="96" height="2" rx="1" fill="#64748B" opacity="0.35"/>
+
+  <!-- Section: Steps -->
+  <rect x="52" y="78" width="16" height="3" rx="1.5" fill="#334155"/>
+  <text x="72" y="81" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold">Steps</text>
+  <rect x="52" y="86" width="88" height="2" rx="1" fill="#64748B" opacity="0.35"/>
+
+  <!-- Section: Checks (emphasized) -->
+  <rect x="48" y="97" width="108" height="20" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+  <rect x="52" y="103" width="16" height="3.5" rx="1.5" fill="#2563EB"/>
+  <text x="72" y="107" font-family="sans-serif" font-size="10" fill="#2563EB" font-weight="bold">Checks</text>
+  <rect x="52" y="111" width="92" height="2" rx="1" fill="#2563EB" opacity="0.5"/>
+
+  <!-- Section: Success -->
+  <rect x="52" y="128" width="16" height="3" rx="1.5" fill="#334155"/>
+  <text x="72" y="131" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold">Success</text>
+  <rect x="52" y="136" width="84" height="2" rx="1" fill="#64748B" opacity="0.35"/>
+
+  <!-- Section: QC -->
+  <rect x="52" y="148" width="16" height="3" rx="1.5" fill="#334155"/>
+  <text x="72" y="151" font-family="sans-serif" font-size="9" fill="#334155" font-weight="bold">QC</text>
+  <rect x="52" y="156" width="96" height="2" rx="1" fill="#64748B" opacity="0.35"/>
+  <rect x="52" y="162" width="72" height="2" rx="1" fill="#64748B" opacity="0.35"/>
+</svg>
