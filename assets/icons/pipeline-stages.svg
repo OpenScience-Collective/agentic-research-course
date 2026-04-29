@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 160" width="420" height="160">
+  <!-- Title -->
+  <text x="210" y="20" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="middle">CI pipeline shape -- each stage is a check</text>
+
+  <!-- Stage 1: install -->
+  <rect x="14" y="58" width="64" height="44" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="46" y="78" font-family="monospace" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">install</text>
+  <text x="46" y="92" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">uv sync</text>
+
+  <path d="M80 80 L96 80" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <polygon points="96,80 90,76 90,84" fill="#2563EB"/>
+
+  <!-- Stage 2: lint -->
+  <rect x="98" y="58" width="64" height="44" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="130" y="78" font-family="monospace" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">lint</text>
+  <text x="130" y="92" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">ruff + biome</text>
+
+  <path d="M164 80 L180 80" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <polygon points="180,80 174,76 174,84" fill="#2563EB"/>
+
+  <!-- Stage 3: type -->
+  <rect x="182" y="58" width="64" height="44" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="214" y="78" font-family="monospace" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">type</text>
+  <text x="214" y="92" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">ty</text>
+
+  <path d="M248 80 L264 80" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <polygon points="264,80 258,76 258,84" fill="#2563EB"/>
+
+  <!-- Stage 4: test -->
+  <rect x="266" y="58" width="64" height="44" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="298" y="78" font-family="monospace" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">test</text>
+  <text x="298" y="92" font-family="sans-serif" font-size="8" fill="#475569" text-anchor="middle">pytest</text>
+
+  <path d="M332 80 L348 80" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <polygon points="348,80 342,76 342,84" fill="#2563EB"/>
+
+  <!-- Stage 5: coverage -->
+  <rect x="350" y="58" width="64" height="44" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <text x="382" y="78" font-family="monospace" font-size="10" fill="#064E3B" font-weight="bold" text-anchor="middle">coverage</text>
+  <text x="382" y="92" font-family="sans-serif" font-size="8" fill="#065F46" text-anchor="middle">artifact</text>
+
+  <!-- Final green check below coverage -->
+  <circle cx="382" cy="124" r="10" fill="#059669"/>
+  <path d="M376 124 L380 128 L388 120" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Failure escape arrow -->
+  <text x="210" y="140" font-family="sans-serif" font-size="9" fill="#991B1B" font-style="italic" text-anchor="middle">any stage fails -- the run stops, the PR cannot merge</text>
+</svg>

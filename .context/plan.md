@@ -44,7 +44,17 @@
 
 ### Week 4: CI/CD and Code Quality
 - [x] Session README
-- [ ] Expand and finalize content
+- [x] Create presentation outline (presentations/week-04/outline.md, 23-slide cap)
+- [x] Create slide plan (presentations/week-04/slide-plan.md)
+- [ ] Create SVG assets (ci-loop, yaml-anatomy, triggers, tooling-old-vs-new, uv-speed, pre-commit-flow, pipeline-stages, matlab-ci, security-shield, setup-ci-tree)
+- [ ] Create presentation.json (23 slides, FHD-tested)
+- [ ] Capture screenshots (ci-pr-checks, ci-failed-typo, coverage-report)
+- [ ] Dry-run live walkthrough (/project:setup-ci on practicum)
+- [ ] Week 4 blog post (blog/week-04-cicd.md)
+- [ ] Mirror blog to osc-docs (courses/agentic-research/week-04.md)
+- [ ] Mirror slides bundle to osc-docs (courses/slides/agentic-research/week-04/)
+- [ ] Update osc-docs mkdocs nav and index.md to link Week 4
+- [ ] Upload Week 4 recording to YouTube and embed in osc-docs week-04.md
 
 ### Week 5: Literature Search and Review
 - [x] Session README

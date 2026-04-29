@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+  <!-- Title -->
+  <text x="180" y="20" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold" text-anchor="middle">Same job. Different stack.</text>
+
+  <!-- LEFT: Classical chain -->
+  <text x="90" y="44" font-family="sans-serif" font-size="11" fill="#991B1B" font-weight="bold" text-anchor="middle">Classical (10 tools)</text>
+  <rect x="20" y="50" width="140" height="220" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+
+  <g font-family="monospace" font-size="11" fill="#991B1B">
+    <rect x="30" y="60"  width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="74"  text-anchor="middle">pip</text>
+    <rect x="30" y="84"  width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="98"  text-anchor="middle">venv</text>
+    <rect x="30" y="108" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="122" text-anchor="middle">black</text>
+    <rect x="30" y="132" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="146" text-anchor="middle">flake8</text>
+    <rect x="30" y="156" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="170" text-anchor="middle">isort</text>
+    <rect x="30" y="180" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="194" text-anchor="middle">mypy</text>
+    <rect x="30" y="204" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="218" text-anchor="middle">npm + node</text>
+    <rect x="30" y="228" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="242" text-anchor="middle">eslint + prettier</text>
+    <rect x="30" y="252" width="120" height="20" rx="3" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="0.8"/>
+    <text x="90" y="266" text-anchor="middle">cspell</text>
+  </g>
+
+  <!-- Arrow between -->
+  <path d="M170 160 L190 160" fill="none" stroke="#64748B" stroke-width="2"/>
+  <polygon points="190,160 184,156 184,164" fill="#64748B"/>
+
+  <!-- RIGHT: Modern chain -->
+  <text x="270" y="44" font-family="sans-serif" font-size="11" fill="#14532D" font-weight="bold" text-anchor="middle">Modern (4 tools)</text>
+  <rect x="200" y="50" width="140" height="220" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+
+  <g font-family="monospace" font-size="11" fill="#14532D">
+    <rect x="210" y="80" width="120" height="28" rx="3" fill="#FFFFFF" stroke="#86EFAC" stroke-width="0.8"/>
+    <text x="270" y="98" text-anchor="middle" font-weight="bold">UV + ruff + ty</text>
+    <text x="270" y="118" font-size="9" fill="#15803D" text-anchor="middle">Python: env + lint + type</text>
+
+    <rect x="210" y="140" width="120" height="28" rx="3" fill="#FFFFFF" stroke="#86EFAC" stroke-width="0.8"/>
+    <text x="270" y="158" text-anchor="middle" font-weight="bold">Bun + Biome</text>
+    <text x="270" y="178" font-size="9" fill="#15803D" text-anchor="middle">JS/TS: env + lint + test</text>
+
+    <rect x="210" y="200" width="120" height="28" rx="3" fill="#FFFFFF" stroke="#86EFAC" stroke-width="0.8"/>
+    <text x="270" y="218" text-anchor="middle" font-weight="bold">typos</text>
+    <text x="270" y="238" font-size="9" fill="#15803D" text-anchor="middle">spell-check, single binary</text>
+  </g>
+
+  <text x="180" y="280" font-family="sans-serif" font-size="9" fill="#475569" font-style="italic" text-anchor="middle">Either chain works. The point is to pick one.</text>
+</svg>

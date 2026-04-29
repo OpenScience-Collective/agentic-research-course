@@ -1,0 +1,1598 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 4: CI/CD and Code Quality -- Automated Checks Outside the Repo",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 4: CI/CD and Code Quality",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/3JtBrU3c](https://discord.gg/3JtBrU3c)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: epic + sub-issues + worktrees + plan + review (structure inside the repo)\n\n- Today: CI/CD -- automated checks **outside** the repo, on every push\n\n- Walkthrough format: ~28 min presentation, then we wire CI into the practicum live\n\n- Course site and Discord on the slide"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 1 -- Git and GitHub.** The safety net."
+              },
+              {
+                "text": "**Week 2 -- Claude Code.** The agent."
+              },
+              {
+                "text": "**Week 3 -- Project management.** Epic, sub-issues, worktrees, plan, review."
+              },
+              {
+                "text": "**Today -- CI/CD.** Automated checks on every push."
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Last week, checks you run. This week, checks the **machine** runs for you.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Recap quickly. Don't re-teach Week 3.\n\n- The transition: last week your discipline carried the workflow. This week the machine takes over the boring parts."
+      },
+      {
+        "id": "ci-problem",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Problem CI/CD Solves",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/ci-loop.svg",
+            "alt": "Code is pushed to a runner that runs lint, test, build steps and reports pass or fail",
+            "width": "45%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**'Works on my machine'** -- the canonical research bug. Different OS, different Python, different toolbox.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Agent commits a change that breaks an unrelated module; nobody notices for two weeks.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Manual checking does not scale. Under deadline, humans skip it.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Research output is only as reproducible as the **pipeline** that produced it.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Tell the war story. People remember stories, not lists.\n\n- The agent angle: AI commits a lot of code; the surface area for silent breakage grows fast.\n\n- Land the last bullet hard. CI is reproducibility infrastructure, not just a code-quality tool."
+      },
+      {
+        "id": "ci-vs-cd",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## CI vs CD, Plainly",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Continuous Integration\n\nEvery push runs lint, type, tests.\n\nBroken `main` becomes mechanically impossible.",
+            "style": {
+              "fontSize": "xl",
+              "color": "#1E40AF"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Continuous Deployment\n\nEvery passing build can ship.\n\nDocker image, paper PDF, docs site, release tag.",
+            "style": {
+              "fontSize": "xl",
+              "color": "#14532D"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "For research, **CI** is the part you use every day. **CD** usually means publishing docs or tagging releases.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Two short definitions; do not overload.\n\n- CI vs CD is one of the most googled and least useful distinctions in software. Explain in 60 seconds and move on.\n\n- For research, the bulk of value is on the CI side. CD shows up when you publish docs or release a versioned tool."
+      },
+      {
+        "id": "how-actions-works",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## How GitHub Actions Works",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/github-workflow.svg",
+            "alt": "Cycle of integrate, build, push, monitor with a center checkmark",
+            "width": "40%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "A YAML file in `.github/workflows/` is read on every event."
+              },
+              {
+                "text": "GitHub spins up a **runner** (Ubuntu, macOS, or Windows VM)."
+              },
+              {
+                "text": "Runner executes your **steps**: commands or **actions** from the Marketplace."
+              },
+              {
+                "text": "Logs and artifacts saved on the run."
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "April 2026 defaults: `ubuntu-latest` = 24.04, `macos-latest` = macOS 15 (Apple Silicon), `windows-latest` = Server 2025.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Mental model: every push triggers a fresh VM somewhere in Microsoft's data center; that VM runs your YAML.\n\n- Reusable actions = the npm/uv of CI. actions/checkout, actions/setup-python, etc.\n\n- macos-latest flipped to Apple Silicon. If your code or any toolbox depends on x86_64, pin to macos-13 explicitly. This is the most common 2025 footgun."
+      },
+      {
+        "id": "yaml-anatomy",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## YAML Anatomy -- Five Parts to Know",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/yaml-anatomy.svg",
+            "alt": "An annotated CI workflow file with arrows pointing at name, on, jobs, runs-on, and steps",
+            "width": "60%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**name** -- what shows up in the GitHub UI."
+              },
+              {
+                "text": "**on** -- which events fire the workflow (push, PR, schedule, manual)."
+              },
+              {
+                "text": "**jobs** -- one or more parallel jobs; each gets its own runner."
+              },
+              {
+                "text": "**runs-on** -- which OS the job runs on."
+              },
+              {
+                "text": "**steps** -- the commands or actions, top to bottom."
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "YAML indentation is significant. **Spaces only**, never tabs. A misplaced two-space indent is the #1 reason new workflows fail.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Most informative slide of the deck. Read each label aloud.\n\n- Pause on `on:` -- this is the single most-asked question from new users (the next slide).\n\n- Tabs vs spaces: real world bug. Mention how the GitHub UI's web editor highlights it but a copy-paste from a blog rarely does."
+      },
+      {
+        "id": "triggers",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Triggers -- Controlling When CI Fires",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/triggers.svg",
+            "alt": "Five trigger icons: push, pull_request, schedule, workflow_dispatch, paths filter",
+            "width": "85%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "`paths:` filters skip a 10-minute build when only the README changed. Use it on every workflow that touches code. Full YAML examples in the speaker notes.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Five trigger types is enough for 95% of research workflows.\n\n- Reference YAML to read aloud:\n\n  on:\n    push:\n      branches: [main]\n      paths: ['src/**', 'pyproject.toml']\n    pull_request:\n    schedule:\n      - cron: '0 6 * * *'   # 06:00 UTC daily\n    workflow_dispatch:\n\n- Land the paths filter. Researchers iterate on README and notebook outputs constantly; you don't want to burn CI minutes on every doc commit.\n\n- workflow_dispatch is the manual run button -- handy for re-running the nightly job ad hoc."
+      },
+      {
+        "id": "tools-matter",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Tools Matter, Especially in CI",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Faster feedback = more iterations per session.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Single-binary tools = fewer moving parts in CI.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Lockfiles = bit-identical envs across collaborators and CI.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Both chains work. Pick one. The next four slides show **why we pick the modern one**.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Transition slide; do not dwell.\n\n- Land the callout: head off the 'but I use pip' objection before slide 9.\n\n- The whole tooling block is a justification, not a sales pitch."
+      },
+      {
+        "id": "uv",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Python: UV Replaces pip, conda, venv",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/uv-speed.svg",
+            "alt": "Bar chart: pip 21.4s vs uv 2.6s on cold install of JupyterLab",
+            "width": "55%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Locked deps** -- `uv.lock` pins every transitive package.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Fast** -- ~8x cold install; up to ~100x with warm cache.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**One binary** -- replaces pip, venv, pyenv, pip-tools.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Tools** -- `uv tool install ruff` puts CLIs on your PATH.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Lockfiles solve **\"but it ran on my laptop in 2024.\"** Same `uv.lock` -> same packages -> same numbers.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- UV 0.11.x as of April 2026; release cadence is roughly weekly.\n\n- The 21.4s vs 2.6s number is from the JupyterLab benchmark on cold install. Cite if asked.\n\n- Researcher translation: this is the slide where the audience feels the value. Land it. Two years from now your reviewer asks you to re-run the analysis; with uv.lock you can."
+      },
+      {
+        "id": "ruff-ty",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Python: ruff + ty Replace Black, Flake8, isort, mypy",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**ruff** -- lint **and** format in one Rust binary; ~10-100x faster than flake8/black.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**ty** -- Astral's type checker; mypy-compatible logic, much faster.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "One config block, sub-second feedback, identical behavior locally and in CI.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "`ruff check --fix --unsafe-fixes` autofixes most lint issues.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "toml",
+            "code": "# pyproject.toml\n[tool.ruff]\nline-length = 100\ntarget-version = \"py312\"\n[tool.ruff.lint]\nselect = [\"E\", \"F\", \"I\", \"UP\", \"B\"]\nfix = true\n[tool.ty]\nrespect-ignore-files = true",
+            "position": {
+              "area": "content",
+              "order": 1
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 3
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "ty is still **beta** (April 2026, v0.0.x). Stable for daily research use; expect minor API churn before 1.0.",
+            "position": {
+              "area": "footer"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- ruff replaces four tools at once. That's not marketing; you can delete black, flake8, isort, and pyupgrade from your dev deps the day you adopt ruff.\n\n- ty is still 0.0.x (April 2026). Be honest about it. The breakage so far has been minor; if you want a 1.0-stable type checker today, mypy is fine.\n\n- The pyproject snippet on the left is real -- copyable."
+      },
+      {
+        "id": "bun-biome",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## JS/TS: Bun + Biome",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Bun** -- package manager + runtime + test runner. Replaces npm, node, jest."
+              },
+              {
+                "text": "**Biome** -- lint + format for JS, TS, JSX, JSON, CSS, GraphQL. Community fork of Rome."
+              },
+              {
+                "text": "97% Prettier-compatible formatting; 450+ rules from ESLint and typescript-eslint."
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "json",
+            "code": "// biome.json\n{\n  \"linter\": {\n    \"enabled\": true,\n    \"rules\": { \"recommended\": true }\n  },\n  \"formatter\": {\n    \"enabled\": true,\n    \"indentStyle\": \"space\",\n    \"lineWidth\": 100\n  }\n}",
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "Bun 1.3.x and Biome 2.4.x are production-ready in April 2026. JS/TS research tooling has caught up with the Rust-on-Python wave.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Some researchers will say 'I don't write JS.' Most do, indirectly: Jupyter extensions, web visualizations, doc tooling.\n\n- The story is identical to Python: one binary replaces the pile.\n\n- Biome 2.0 GA shipped in 2025; we are on 2.4.x as of April 2026."
+      },
+      {
+        "id": "typos-cspell",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Spell-Check: typos vs cspell",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "table",
+            "headers": [
+              "",
+              "typos",
+              "cspell"
+            ],
+            "rows": [
+              [
+                "Language",
+                "Rust binary",
+                "Node.js"
+              ],
+              [
+                "Config",
+                "single `_typos.toml`",
+                "`cspell.json` + dict files"
+              ],
+              [
+                "Speed",
+                "very fast",
+                "fast"
+              ],
+              [
+                "Dictionaries",
+                "minimal, low false-positive",
+                "rich language packs"
+              ],
+              [
+                "CI",
+                "first-class action",
+                "first-class action"
+              ]
+            ],
+            "style": {
+              "fontSize": "small"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Both check code, comments, and docs.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**typos** wins on speed and simplicity for small-to-medium repos.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**cspell** wins when you need rich per-language dictionaries (medical, legal, multilingual).",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Either is fine. The point is **add a typo job to CI** so your README stops drifting.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- This slide ends the cspell-vs-typos debate in 30 seconds.\n\n- Course companion repo uses `typos` (added in PR #9). Live demo can show that workflow file.\n\n- The actionable: add a typo job; pick whichever; move on."
+      },
+      {
+        "id": "core-message",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Core Message",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/tooling-old-vs-new.svg",
+            "alt": "Two stacks of tools side by side: classical chain on the left with 9 boxes, modern chain on the right with 3 grouped boxes",
+            "width": "60%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Pick **one** chain per language. Pin it in `pyproject.toml` / `package.json`. Let CI enforce it. Mixed chains double the surface area for drift.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Philosophical anchor of the tooling block.\n\n- Land it with conviction so slides 14-15 (pre-commit + pipeline shape) feel like execution, not opinion.\n\n- 'Mixed chains double the surface area for drift' -- say this. It's the line that lets people give up on their old toolchain without ego loss."
+      },
+      {
+        "id": "pre-commit",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Pre-Commit Hooks -- Catch Issues in 200 ms",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "code",
+            "language": "yaml",
+            "code": "# .pre-commit-config.yaml\nrepos:\n  - repo: https://github.com/astral-sh/ruff-pre-commit\n    rev: v0.15.12\n    hooks:\n      - id: ruff-check\n        args: [--fix]\n      - id: ruff-format\n  - repo: https://github.com/crate-ci/typos\n    rev: v1.45.2\n    hooks:\n      - id: typos",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Runs on **staged files only** before each commit.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Same tools as CI (`ruff`, `biome`, `typos`); ~600x faster than waiting for the runner.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Auto-fixes touch the file -- re-`git add` and re-commit.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Same tools, **staged files only**. `uv tool install pre-commit && pre-commit install` -- one line, lifetime of guardrails.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Pre-commit hooks run the linters on staged files only. 200 ms locally vs 2 min on the CI runner.\n\n- The two install lines work on Mac, Linux, Windows-WSL.\n\n- Failure mode: a hook auto-fixes the file. The commit fails because the working tree changed. Run `git add` again and re-commit. This trips up first-timers; warn them."
+      },
+      {
+        "id": "pipeline-shape",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Pipeline Shape -- Lint, Type, Test, Coverage",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/pipeline-stages.svg",
+            "alt": "Horizontal pipeline: install, lint, type, test, coverage with green check at the end",
+            "width": "85%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Each stage is a check; failure stops the run and blocks the PR.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Coverage report uploaded as a build artifact -- readable from the PR.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Same shape for Python, JS/TS, R, Julia. Tools change; topology does not.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 3x to reveal fragments]\n\n- Standard pipeline shape. Five stages cover 95% of research projects.\n\n- Coverage as artifact: HTML report or codecov badge in the PR.\n\n- The topology lesson: when you switch languages, you keep the shape and swap the tools."
+      },
+      {
+        "id": "codecov",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Codecov -- Coverage Tracking + PR Comments",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "code",
+            "language": "yaml",
+            "code": "# .github/workflows/ci.yml\n- run: uv run pytest --cov --cov-report=xml\n\n- uses: codecov/codecov-action@v5\n  with:\n    files: ./coverage.xml\n    token: ${{ secrets.CODECOV_TOKEN }}",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Badge** in your README so reviewers see coverage at a glance.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**PR comment** shows coverage delta -- did this PR raise or lower it?",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Trend graph** tracks coverage over time across releases.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Free for public repos; works with `pytest --cov`, `bun test --coverage`, MATLAB Cobertura output.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Don't chase 100%. 70-80% on the analytical core is plenty; aim for **direction** (delta per PR), not absolute number.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Codecov is the most-used coverage host; Coveralls is a fine alternative.\n\n- The PR comment is where reviewers actually see coverage -- the badge is for marketing.\n\n- 70-80% target: analytical pipelines have a lot of plumbing code (CLI parsing, file IO) that does not benefit from heavy testing. Cover the math, the parsers, and the failure modes; skip the trivial.\n\n- For matlab-mcp projects: MATLAB's MOTest framework can emit Cobertura XML which Codecov accepts."
+      },
+      {
+        "id": "setup-matlab",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## matlab-actions/setup-matlab",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Official action, current `v3.0.1` (April 2026); MATLAB R2021a+ on Linux, macOS, Windows.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Companions: `run-tests`, `run-command`, `run-build`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**License-free in CI for public repos.** Private repos use a batch licensing token.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "yaml",
+            "code": "jobs:\n  matlab-tests:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: matlab-actions/setup-matlab@v3\n        with:\n          release: R2024b\n          products: >\n            Signal_Processing_Toolbox\n            Statistics_and_Machine_Learning_Toolbox\n      - uses: matlab-actions/run-tests@v3",
+            "position": {
+              "area": "content",
+              "order": 1
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 3
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "First time MATLAB joins the same CI pipeline as your Python. Live runs on every push, no manual license server.",
+            "position": {
+              "area": "footer"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- `matlab-actions/setup-matlab` (MathWorks-maintained). Current major v3, latest tag v3.0.1 as of April 2026.\n\n- License-free CI: the action automatically licenses MATLAB and most toolboxes for public repos. Private repos need a batch licensing token (MLM_LICENSE_TOKEN secret).\n\n- This is huge for reproducibility. Your shot-change analysis can run on every push the same way pytest does."
+      },
+      {
+        "id": "matlab-limits",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Limits of MATLAB in CI",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/matlab-ci.svg",
+            "alt": "Hosted runner with MATLAB working but Python engine blocked, with a self-hosted runner showing all features working",
+            "width": "75%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "**MATLAB Engine for Python is blocked under license-free CI.** Direct quote from the official `setup-matlab` README: \"Public project and MATLAB batch licensing do not support external language interfaces, including MATLAB Engine APIs for Python.\" This is **the** matlab-mcp pain point.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The boomerang for matlab-mcp users. Be honest about it.\n\n- Direct quote is from the official setup-matlab README. Cite verbatim if asked.\n\n- Other limits worth mentioning briefly: not every MathWorks toolbox is licensed in CI mode (transformation products like MATLAB Coder and Compiler are excluded); Apple Silicon support depends on MATLAB release (R2023b+ recommended; consult MathWorks support page for the exact matrix).\n\n- Do not dwell. Move to the workaround on the next slide."
+      },
+      {
+        "id": "matlab-strategy",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Strategy for matlab-mcp Projects",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Hosted runner** -- run Python wrapper code: lint, type check, unit tests. Fast, free, every push.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Self-hosted runner** -- your Mac or lab workstation, registered to GitHub. Run the MATLAB analysis here with your full license.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Or:** trigger the MATLAB job manually with `workflow_dispatch` instead of every push.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Don't gate the cheap stuff on the expensive MATLAB job. Split the pipeline.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Practical for the HBN practicum: Python wrappers + event-table validators run on hosted runners every PR. The full EEGLAB pipeline runs on a self-hosted Mac when triggered.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Self-hosted runners are free to set up. GitHub provides the registration script; you run it on your Mac or workstation.\n\n- Security note: only register self-hosted runners on private repos. Public repos = anyone-can-fork = anyone-can-run-code-on-your-machine.\n\n- Connect to the practicum: Phase 1-4 wrappers are pure Python; gates them on hosted runners. Phase 5-6 (ERSP precompute, group stats) run on the self-hosted Mac."
+      },
+      {
+        "id": "security",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Security Audits in CI",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/security-shield.svg",
+            "alt": "Shield icon over a lock symbol with three green check marks, listing pip-audit, bun audit, gitleaks below",
+            "width": "40%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Dependencies** -- `uv run pip-audit` (Python), `bun audit` (JS).",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Secrets** -- GitHub free secret scanning + a pre-commit hook (`gitleaks`).",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Supply chain** -- pin actions by SHA, not just `@v4` -- prevents tag hijacks.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Run on every PR. Block merge on critical findings.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "info",
+            "content": "Use sparingly. A noisy security scanner becomes the boy who cried wolf. Configure thresholds; review findings; do not just bury them.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Default GitHub secret scanning catches the well-known patterns (AWS keys, GitHub tokens). Add gitleaks for academic API keys.\n\n- Pin-by-SHA: paranoid but cheap. Dependabot can update SHAs automatically. The 2024 tj-actions/changed-files compromise affected ~23k repos that were tag-pinned -- SHA pinning would have prevented it.\n\n- Critical-only thresholds keep the noise down."
+      },
+      {
+        "id": "setup-ci",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## `/project:setup-ci` -- One Command",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Detects your repo's languages and writes the right templates."
+              },
+              {
+                "text": "Drops `.github/workflows/`, `.pre-commit-config.yaml`, language config."
+              },
+              {
+                "text": "You commit. Push. Pipeline turns green on the next run."
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/setup-ci-tree.svg",
+            "alt": "Folder tree showing files generated by setup-ci: github workflows, pre-commit config, pyproject.toml, biome.json",
+            "width": "60%",
+            "position": {
+              "area": "content",
+              "order": 1
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Same family as `/project:init-project` from Week 3. Init scaffolds **inside** the repo; setup-ci scaffolds the **remote referee**.",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- `/project:setup-ci` is in the research-skills plugin (course companion).\n\n- Scaffold first; customize second. Most researchers leave 90% of the generated config and tweak one or two thresholds.\n\n- Connect to Week 3: init-project builds the inside, setup-ci builds the outside. Same architecture, different scope."
+      },
+      {
+        "id": "walkthrough",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Walkthrough Roadmap",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Open the practicum repo from Week 3.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Run `/project:setup-ci` and annotate the produced YAML live.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Push and watch the pipeline run on GitHub.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Introduce a deliberate typo and type error -- watch CI catch both.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "number",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "code": "cd ~/agentic-research-practicum\nclaude\n> /project:setup-ci\n\ngit add .github .pre-commit-config.yaml\ngit commit -m \"add CI\"\ngit push\n\ngh run watch     # streams the run in your terminal",
+            "position": {
+              "area": "content",
+              "order": 1
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 4
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Goal of the walkthrough: see CI **catch** something. A failing run with a clear error is worth more than ten passing runs.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- The walkthrough starts the moment this slide goes up.\n\n- Deliberate failure is the teaching moment. A red CI run is the most reassuring thing for a first-time CI user; it proves the system actually works.\n\n- gh run watch streams the run in your terminal -- nicer than alt-tabbing to the browser."
+      },
+      {
+        "id": "whats-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Today\n\n- Every push linted, typed, tested, scanned\n- Green or red badge on every PR\n- The agent cannot ship breakage",
+            "style": {
+              "fontSize": "xl",
+              "color": "#1E40AF"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Week 5\n\n- Literature search with `opencite`\n- First **pure-research** week\n- DOI -> BibTeX -> PDF -> markdown\n- Foundation for grant + manuscript weeks",
+            "style": {
+              "fontSize": "xl",
+              "color": "#14532D"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Before next week: `/project:setup-ci` on your own project. Push a broken commit. Watch CI catch it.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Frame today as infrastructure for the next six weeks.\n\n- Week 5 is the first pure-research week. From here on, the engineering scaffolding fades into the background and the deliverables get more academic (lit reviews, grants, manuscripts, figures).\n\n- The before-next-week ask is small and concrete."
+      },
+      {
+        "id": "closing",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What We Have / What We Do Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Have\n\n- Week 3 practicum + epic + Phase 1 PR\n- Six phase sub-issues open",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "text",
+            "content": "### Do Next, Live\n\n1. `/project:setup-ci` on the practicum\n2. Annotate the YAML\n3. Push -> watch -> add a typo\n4. Phase 1 PR with green CI",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**Questions? Ask while CI runs.**",
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Final slide. Stays on screen until the agent starts typing.\n\n- The bottom line invites questions during the live build, which is the highest-engagement window of the session."
+      }
+    ]
+  }
+}

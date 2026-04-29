@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Shield outline -->
+  <path d="M100 22 L160 42 L160 100 Q160 150 100 178 Q40 150 40 100 L40 42 Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+
+  <!-- Inner shield darker -->
+  <path d="M100 32 L150 50 L150 100 Q150 142 100 166 Q50 142 50 100 L50 50 Z" fill="#FFFFFF" stroke="#2563EB" stroke-width="1"/>
+
+  <!-- Lock icon center -->
+  <rect x="86" y="92" width="28" height="22" rx="2" fill="#2563EB"/>
+  <path d="M90 92 L90 84 Q90 76 100 76 Q110 76 110 84 L110 92" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+  <circle cx="100" cy="103" r="2.5" fill="#FFFFFF"/>
+
+  <!-- Audit checks below the lock -->
+  <text x="100" y="134" font-family="monospace" font-size="8" fill="#1E40AF" font-weight="bold" text-anchor="middle">pip-audit</text>
+  <text x="100" y="146" font-family="monospace" font-size="8" fill="#1E40AF" font-weight="bold" text-anchor="middle">bun audit</text>
+  <text x="100" y="158" font-family="monospace" font-size="8" fill="#1E40AF" font-weight="bold" text-anchor="middle">gitleaks</text>
+
+  <!-- Three small green checks above lock -->
+  <circle cx="74" cy="60" r="7" fill="#059669"/>
+  <path d="M70 60 L73 63 L78 57" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="100" cy="56" r="7" fill="#059669"/>
+  <path d="M96 56 L99 59 L104 53" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="126" cy="60" r="7" fill="#059669"/>
+  <path d="M122 60 L125 63 L130 57" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

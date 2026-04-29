@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" width="560" height="460">
+  <!-- Title -->
+  <text x="280" y="36" font-family="sans-serif" font-size="22" fill="#1E293B" font-weight="bold" text-anchor="middle">/project:setup-ci scaffolds</text>
+
+  <!-- Repo root -->
+  <text x="40" y="84" font-family="monospace" font-size="20" fill="#334155" font-weight="bold">my-research/</text>
+
+  <!-- .github/ -->
+  <text x="72" y="120" font-family="monospace" font-size="18" fill="#1E40AF">+-- .github/workflows/</text>
+  <text x="120" y="148" font-family="monospace" font-size="18" fill="#475569">+-- ci.yml</text>
+  <text x="152" y="170" font-family="sans-serif" font-size="14" fill="#64748B" font-style="italic">lint + type + test on push/PR</text>
+  <text x="120" y="200" font-family="monospace" font-size="18" fill="#475569">+-- typos.yml</text>
+  <text x="152" y="222" font-family="sans-serif" font-size="14" fill="#64748B" font-style="italic">spell-check job</text>
+  <text x="120" y="252" font-family="monospace" font-size="18" fill="#475569">L-- release.yml</text>
+  <text x="152" y="274" font-family="sans-serif" font-size="14" fill="#64748B" font-style="italic">tag, build, publish</text>
+
+  <!-- pre-commit-config -->
+  <text x="72" y="312" font-family="monospace" font-size="18" fill="#B45309">+-- .pre-commit-config.yaml</text>
+  <text x="120" y="334" font-family="sans-serif" font-size="14" fill="#64748B" font-style="italic">ruff + biome + typos hooks</text>
+
+  <!-- pyproject.toml -->
+  <text x="72" y="372" font-family="monospace" font-size="18" fill="#7C3AED">+-- pyproject.toml</text>
+  <text x="120" y="394" font-family="sans-serif" font-size="14" fill="#64748B" font-style="italic">ruff + ty + pytest config</text>
+
+  <!-- biome.json -->
+  <text x="72" y="432" font-family="monospace" font-size="18" fill="#7C3AED">L-- biome.json</text>
+</svg>
