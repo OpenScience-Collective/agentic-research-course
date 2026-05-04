@@ -70,12 +70,15 @@ The live demos use HBN EEG data to analyze neural responses to movie shot change
 - `.context/ideas.md` -- Pedagogical decisions, content design
 - `.context/research.md` -- Technical investigations, tool evaluations
 - `.context/scratch_history.md` -- Failed attempts, lessons learned
+- `.context/publishing.md` -- Step-by-step workflow for publishing sessions to courses.osc.earth
 
 ## Rules
 - `.rules/git.md` -- Version control standards
 - `.rules/documentation.md` -- Content and documentation standards
 - `.rules/code_review.md` -- PR review process
 - `.rules/self_improve.md` -- Evolving course standards from experience
+- `.rules/ci_cd.md` -- GitHub Actions workflow standards (see week 4)
+- `.rules/python.md` -- Python/UV standards for practicum code
 
 ---
 Check .context/plan.md for what to work on next.
