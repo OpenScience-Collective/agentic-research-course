@@ -5,3 +5,10 @@
 node_modules/
 .env
 .env.local
+
+# EEG data -- large binary files, never committed
+derivatives/
+*.set
+*.fdt
+*.bdf
+*.edf
