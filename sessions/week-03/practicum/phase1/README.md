@@ -54,7 +54,7 @@ derivatives/
 ## Acceptance criteria (closes #11)
 
 - [ ] `run_phase1('r3mini')` completes without error on R3-mini
-- [ ] All subjects retain >80% of channels (warning printed otherwise)
+- [ ] All subjects retain >90% of channels (warning printed otherwise)
 - [ ] `phase1_report.mat` saved with per-subject channel counts
 - [ ] No data files committed to git
 

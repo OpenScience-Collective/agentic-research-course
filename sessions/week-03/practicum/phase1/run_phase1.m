@@ -72,9 +72,9 @@ for i = 1:length(report)
         report(i).subject, report(i).n_orig, report(i).n_kept, report(i).n_rejected);
 end
 
-n_warn = sum([report.n_kept] ./ [report.n_orig] < 0.80);
+n_warn = sum([report.n_kept] ./ [report.n_orig] < 0.90);
 if n_warn > 0
-    fprintf('\nWARNING: %d subject(s) retained <80%% channels. Inspect before Phase 2.\n', n_warn);
+    fprintf('\nWARNING: %d subject(s) retained <90%% channels. Inspect before Phase 2.\n', n_warn);
 end
 
 fprintf('\n=== Phase 1 complete ===\n');
