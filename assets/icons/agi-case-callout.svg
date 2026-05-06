@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 280 120" width="280" height="120">
+  <!-- Soft amber callout background -->
+  <rect x="4" y="4" width="272" height="112" rx="12" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+
+  <!-- AGI plant logo PNG -->
+  <image href="agi-logo.png" xlink:href="agi-logo.png" x="14" y="14" width="64" height="64" preserveAspectRatio="xMidYMid meet"/>
+
+  <!-- Heading -->
+  <text x="92" y="32" font-family="sans-serif" font-size="12" fill="#78350F" font-weight="bold">Real-world example</text>
+
+  <!-- Repo + issue line with link icon -->
+  <text x="92" y="54" font-family="monospace" font-size="11" fill="#1E293B">Annotation-Garden</text>
+  <text x="92" y="68" font-family="monospace" font-size="11" fill="#1E293B">/management#3</text>
+
+  <!-- Link icon (chain) -->
+  <g transform="translate(214, 58)">
+    <path d="M0 4 a4 4 0 0 1 4 -4 h6 a4 4 0 0 1 4 4 v0 a4 4 0 0 1 -4 4 h-2" fill="none" stroke="#B45309" stroke-width="1.4"/>
+    <path d="M14 12 a4 4 0 0 1 -4 4 h-6 a4 4 0 0 1 -4 -4 v0 a4 4 0 0 1 4 -4 h2" fill="none" stroke="#B45309" stroke-width="1.4"/>
+  </g>
+
+  <!-- Sub-caption -->
+  <text x="92" y="92" font-family="sans-serif" font-size="10" fill="#78350F" font-style="italic">live epic; weeks 5-9 reuse it.</text>
+
+  <!-- Small badge corner -->
+  <rect x="14" y="88" width="64" height="20" rx="10" fill="#FFFFFF" stroke="#B45309" stroke-width="1.2"/>
+  <text x="46" y="102" font-family="monospace" font-size="10" fill="#78350F" text-anchor="middle">case-study</text>
+</svg>

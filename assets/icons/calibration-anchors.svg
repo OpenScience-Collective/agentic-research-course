@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" width="760" height="360">
+  <!-- Title -->
+  <text x="380" y="22" font-family="sans-serif" font-size="14" fill="#1E293B" font-weight="bold" text-anchor="middle">Calibration anchors prevent thumb-on-scale</text>
+
+  <!-- Two histograms side by side -->
+  <!-- Left histogram: Healthy spread -->
+  <g>
+    <rect x="50" y="50" width="320" height="170" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2"/>
+    <text x="210" y="70" font-family="sans-serif" font-size="12" fill="#064E3B" font-weight="bold" text-anchor="middle">Healthy spread</text>
+    <!-- check icon -->
+    <circle cx="338" cy="66" r="11" fill="#059669"/>
+    <path d="M332 66 L336 70 L344 60" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Bars roughly even -->
+    <rect x="100" y="130" width="50" height="70" fill="#A7F3D0" stroke="#059669" stroke-width="1.2"/>
+    <rect x="180" y="118" width="50" height="82" fill="#A7F3D0" stroke="#059669" stroke-width="1.2"/>
+    <rect x="260" y="124" width="50" height="76" fill="#A7F3D0" stroke="#059669" stroke-width="1.2"/>
+    <line x1="80" y1="200" x2="330" y2="200" stroke="#475569" stroke-width="1.4"/>
+    <text x="125" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">low</text>
+    <text x="205" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">medium</text>
+    <text x="285" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">high</text>
+  </g>
+
+  <!-- Right histogram: Over-concentrated -->
+  <g>
+    <rect x="390" y="50" width="320" height="170" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2"/>
+    <text x="550" y="70" font-family="sans-serif" font-size="12" fill="#7F1D1D" font-weight="bold" text-anchor="middle">Over-concentrated</text>
+    <!-- X icon -->
+    <circle cx="678" cy="66" r="11" fill="#DC2626"/>
+    <line x1="672" y1="60" x2="684" y2="72" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+    <line x1="684" y1="60" x2="672" y2="72" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- Bars: high one is huge -->
+    <rect x="440" y="186" width="50" height="14" fill="#FECACA" stroke="#DC2626" stroke-width="1.2"/>
+    <rect x="520" y="180" width="50" height="20" fill="#FECACA" stroke="#DC2626" stroke-width="1.2"/>
+    <rect x="600" y="100" width="50" height="100" fill="#FECACA" stroke="#DC2626" stroke-width="1.2"/>
+    <line x1="420" y1="200" x2="670" y2="200" stroke="#475569" stroke-width="1.4"/>
+    <text x="465" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">low</text>
+    <text x="545" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">medium</text>
+    <text x="625" y="214" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">high</text>
+  </g>
+
+  <!-- Anchor scale -->
+  <text x="380" y="252" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="middle">Anchor examples</text>
+
+  <!-- Horizontal scale line -->
+  <line x1="80" y1="296" x2="680" y2="296" stroke="#1E293B" stroke-width="1.6"/>
+  <line x1="80" y1="290" x2="80" y2="302" stroke="#1E293B" stroke-width="1.6"/>
+  <line x1="380" y1="290" x2="380" y2="302" stroke="#1E293B" stroke-width="1.6"/>
+  <line x1="680" y1="290" x2="680" y2="302" stroke="#1E293B" stroke-width="1.6"/>
+
+  <!-- low anchor chip -->
+  <rect x="40" y="266" width="180" height="22" rx="11" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+  <text x="130" y="282" font-family="sans-serif" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">Tangential background</text>
+
+  <!-- medium anchor chip -->
+  <rect x="280" y="266" width="200" height="22" rx="11" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.4"/>
+  <text x="380" y="282" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold" text-anchor="middle">Standard tool in scope</text>
+
+  <!-- high anchor chip -->
+  <rect x="540" y="266" width="180" height="22" rx="11" fill="#D1FAE5" stroke="#059669" stroke-width="1.4"/>
+  <text x="630" y="282" font-family="sans-serif" font-size="10" fill="#064E3B" font-weight="bold" text-anchor="middle">Direct dependency</text>
+
+  <text x="80" y="318" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">low</text>
+  <text x="380" y="318" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">medium</text>
+  <text x="680" y="318" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">high</text>
+
+  <text x="380" y="346" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Spell out what each level means before scoring -- otherwise the score collapses to "I liked it".</text>
+</svg>

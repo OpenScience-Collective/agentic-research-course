@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340">
+  <!-- Title -->
+  <text x="380" y="24" font-family="sans-serif" font-size="14" fill="#1E293B" font-weight="bold" text-anchor="middle">Cite-the-card rule: every claim points at a stored paper-card</text>
+
+  <!-- Left: paragraph block with claims -->
+  <rect x="40" y="58" width="320" height="240" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.2"/>
+  <text x="56" y="78" font-family="sans-serif" font-size="11" fill="#475569" font-weight="bold">draft.md</text>
+
+  <!-- Claim 1 (italic, blue) -->
+  <text x="56" y="102" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">Shot-change ERPs peak at 250 ms</text>
+  <text x="56" y="118" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">in occipital electrodes.</text>
+  <circle cx="50" cy="110" r="4" fill="#2563EB"/>
+
+  <!-- Claim 2 (italic, blue) -->
+  <text x="56" y="148" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">HBN data covers 5-21 year-olds</text>
+  <text x="56" y="164" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">across the full age range.</text>
+  <circle cx="50" cy="156" r="4" fill="#2563EB"/>
+
+  <!-- Claim 3 (italic, blue) -->
+  <text x="56" y="194" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">EEGLAB ICA is the standard</text>
+  <text x="56" y="210" font-family="sans-serif" font-size="11" fill="#1E293B" font-style="italic">artifact rejection step.</text>
+  <circle cx="50" cy="202" r="4" fill="#2563EB"/>
+
+  <!-- Claim 4 (red, struck through, no arrow) -->
+  <text x="56" y="244" font-family="sans-serif" font-size="11" fill="#7F1D1D" font-style="italic" text-decoration="line-through">"Studies in 2024 universally agree</text>
+  <text x="56" y="260" font-family="sans-serif" font-size="11" fill="#7F1D1D" font-style="italic" text-decoration="line-through">on the right window..."</text>
+  <circle cx="50" cy="252" r="4" fill="#DC2626"/>
+  <text x="56" y="284" font-family="sans-serif" font-size="10" fill="#7F1D1D" font-weight="bold">no card -- no claim</text>
+
+  <!-- Right: stack of paper-cards -->
+  <g>
+    <rect x="540" y="86" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="548" y="92" width="20" height="32" rx="2" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="560" y="106" font-family="monospace" font-size="8" fill="#1E40AF" text-anchor="middle">.md</text>
+    <text x="580" y="104" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">card-A</text>
+    <text x="580" y="120" font-family="monospace" font-size="9" fill="#475569">smith-2023</text>
+  </g>
+  <g>
+    <rect x="540" y="142" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="548" y="148" width="20" height="32" rx="2" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="560" y="162" font-family="monospace" font-size="8" fill="#1E40AF" text-anchor="middle">.md</text>
+    <text x="580" y="160" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">card-B</text>
+    <text x="580" y="176" font-family="monospace" font-size="9" fill="#475569">alex-2017</text>
+  </g>
+  <g>
+    <rect x="540" y="198" width="160" height="44" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="548" y="204" width="20" height="32" rx="2" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="560" y="218" font-family="monospace" font-size="8" fill="#1E40AF" text-anchor="middle">.md</text>
+    <text x="580" y="216" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">card-C</text>
+    <text x="580" y="232" font-family="monospace" font-size="9" fill="#475569">delorme-2004</text>
+  </g>
+
+  <!-- Three blue arrows fanning from claims to cards -->
+  <path d="M360 110 Q 450 108, 540 108" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <polygon points="540,108 532,104 532,112" fill="#2563EB"/>
+
+  <path d="M360 156 Q 450 160, 540 164" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <polygon points="540,164 532,160 532,168" fill="#2563EB"/>
+
+  <path d="M360 202 Q 450 210, 540 220" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <polygon points="540,220 532,216 532,224" fill="#2563EB"/>
+
+  <!-- For claim 4: dashed gray X to nothing -->
+  <path d="M360 252 L 470 252" fill="none" stroke="#DC2626" stroke-width="1.6" stroke-dasharray="3,3"/>
+  <line x1="470" y1="246" x2="482" y2="258" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+  <line x1="482" y1="246" x2="470" y2="258" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Caption -->
+  <text x="380" y="324" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">If a sentence cannot reach a stored card, it cannot stay in the draft.</text>
+</svg>

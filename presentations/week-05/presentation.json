@@ -1,0 +1,1446 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 5: Literature Search and Review -- The 5-Stage Pipeline, Citation Grounding, and the Boomerang",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 5: Literature Search and Review",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/3JtBrU3c](https://discord.gg/3JtBrU3c) | Recording: published to YouTube within 48 h",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: CI/CD wired automated checks outside the repo\n\n- Today: same checks-and-balances rigor applied to research output, starting with literature\n\n- Format: ~30 min presentation, then ~5 min live demo on the practicum, then 15 min Q&A\n\n- Course site, Discord, and recording note on the slide"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 1 -- Git and GitHub.** The safety net.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Week 2 -- Claude Code.** The agent.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Week 3 -- Project management.** Epic, sub-issues, worktrees, plan mode, `/review-pr`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Week 4 -- CI/CD.** Automated checks outside the repo, on every push.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Today -- Literature review.** The same rigor applied to research output. First pure-research week.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Each week's structure compounds. Week 5 is the first time we apply that structure to the research artefact itself.\n\n- We are not adding new infrastructure today. We are pointing the existing infrastructure at a research output."
+      },
+      {
+        "id": "failure-modes",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Three Failure Modes of Unstructured Reviews",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/failure-modes.svg",
+            "alt": "Three failure-mode icons: string-of-pearls, recency-bias clock, and a ghostly hallucinated paper",
+            "width": "85%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Manual reviews already fall into these traps. **AI accelerates each by an order of magnitude** -- agents will fabricate plausible citations unless forced to ground claims in a corpus they have actually read.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- String-of-pearls: one paper -> next paper -> next paper, no thematic argument. Looks well-cited from a distance, has no spine.\n\n- Recency bias: the top of the search-result page becomes the field. The actual canonical work is below the fold.\n\n- Hallucinated references: plausible author + year + DOI that does not exist. Most catastrophic in agent-driven workflows.\n\n- The fix is not 'ask the agent to cite better.' The fix is structural -- a pipeline where every claim is mechanically traceable."
+      },
+      {
+        "id": "ai-stakes",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## AI Raises the Stakes",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "An agent will fabricate a credible-sounding citation **unless it is forced to ground claims in a corpus it has actually read**.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Confirmation bias is mechanical: the agent paraphrases the first half of the search result and ignores the second.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Recency bias is mechanical: the top of the result page wins unless you sort otherwise.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "The fix is **structural**, not stylistic. A pipeline where every claim is mechanically traceable to a stored, retrievable artefact. The next 17 slides show what that pipeline looks like.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Confirmation bias is *not* a personality flaw, it is the agent's path of least resistance. The corpus discipline is the only durable defence.\n\n- Recency bias: the agent never sees citation counts unless you sort by them. `--sort citations` and `canonical` queries are the antidotes.\n\n- Land the structural-not-stylistic line. The whole rest of the talk is about what that structure actually is."
+      },
+      {
+        "id": "reframe",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Reframe: A Lit Review Is a Managed Pipeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Same shape as Week 3: epic with sub-issues, branches, pull requests, `/review-pr`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Plus** citation grounding at every step (the cite-the-card rule).",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Plus** a boomerang from review back to direction or collection when gaps surface.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Lit review = research with a Definition of Done.** The same way a feature branch is not 'done' until CI is green, a literature review is not 'done' until every claim points at a stored card and the review boomerang has run at least once.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- The whole talk in one line: the pipeline is the answer.\n\n- Definition-of-Done is the framing. Software engineers know this; it transfers cleanly.\n\n- The boomerang is the rigor signal. We come back to it on slide 16."
+      },
+      {
+        "id": "pipeline-hero",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The 5-Stage Pipeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/lit-review-pipeline.svg",
+            "alt": "Five-stage horizontal pipeline (Direction, Collect, Synthesize, Draft, Review) with a boomerang arrow looping from Stage 5 back to Stages 1 and 2",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Order is enforced. Drafting before synthesising is a **structural error**, not a style choice. Each stage has its own tools; we cover them next.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The hero diagram. Read each stage label aloud.\n\n- Direction -> Collect -> Synthesize -> Draft -> Review.\n\n- The boomerang arrow is the rigor signal. A review that never updates the corpus is hiding what it found.\n\n- Worked example throughout: Annotation Garden Initiative (AGI) research foundation epic at github.com/Annotation-Garden/management/issues/3 -- 99 paper-cards, 5 synthesis docs, 3 direction papers."
+      },
+      {
+        "id": "stage1-direction",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 1 -- Direction with /project:epic-dev",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/strand-fanout.svg",
+            "alt": "An epic node fanning into four parallel strand sub-issues, each with its own collection folder",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Plan-mode the topic into an epic + parallel **strand** sub-issues.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Strands are concurrent collection passes. Each strand: own brief, own branch, own PR.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Real example: AGI epic `Annotation-Garden/management#3`. Phase 1 collection across tools / data / science strands; ~99 cards.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 3x to reveal fragments]\n\n- The Week 3 pattern, applied to research output instead of code.\n\n- Strands are horizontally parallel. The point is to scope before searching, not to subdivide labour after.\n\n- AGI link: github.com/Annotation-Garden/management/issues/3 -- public, browseable, has the full epic / phase / sub-issue structure.\n\n- Today's practicum demo uses four strands by analytical perspective: psychophysics, action, language, emotion."
+      },
+      {
+        "id": "strand-brief",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Strand Brief Anatomy",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/strand-brief-anatomy.svg",
+            "alt": "A document silhouette annotated with five labelled regions: goal, scope, per-entry deliverable, acceptance criteria, out-of-scope",
+            "width": "90%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Goal** -- one sentence. The strand's main claim or coverage area.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Scope** -- 3-5 sub-areas the strand covers.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Per-entry deliverable** -- what every paper-card must contain.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Acceptance criteria** -- how we know the strand is done.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Out-of-scope** -- what *not* to chase.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Without the brief, Stage 2 collects whatever the agent's first search surfaces. The brief is a **scope contract**, not a courtesy line.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Five fields. Every brief, every strand. Worth standardising.\n\n- Out-of-scope is the most under-used. It tells the agent which adjacent rabbit-hole *not* to chase.\n\n- The AGI tools-strand brief at research/_briefs/strand-A-tools.md is the canonical example."
+      },
+      {
+        "id": "opencite-strategies",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 2 -- Three Search Strategies with opencite",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/opencite-strategies.svg",
+            "alt": "A query node fanning into three labelled paths: canonical, search, and cite",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "code": "# Foundational, high-citation works\nuvx opencite canonical \"naturalistic stimuli EEG\" --max 10\n\n# Recent or specific\nuvx opencite search \"movie-watching EEG developmental\" \\\n  --max 20 --sort citations\n\n# Citation graph traversal\nuvx opencite cite \"10.1126/science.1089506\" --direction both",
+            "position": {
+              "area": "right"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Two interfaces. **`/opencite:opencite` skill** drives the workflow with judgement (preferred). **`opencite` CLI** at `github.com/neuromechanist/opencite` is what the skill calls underneath. Install: `uv pip install opencite` or `uvx opencite`.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 2x to reveal fragments]\n\n- canonical: foundational, high-citation. Antidote to recency bias.\n\n- search: recent or specific. Combine with --sort date or --sort citations explicitly; don't trust default order.\n\n- cite: traversal. --direction both walks both citing-this and cited-by-this.\n\n- Skill vs CLI: the skill drives the *workflow* (decides which strategy, evaluates results, decides whether to download). The CLI is a primitive. Demo uses the skill; CLI commands shown for transparency."
+      },
+      {
+        "id": "opencite-output",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Batched Retrieval and Conversion",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/opencite-output-tree.svg",
+            "alt": "Folder tree from batch-fetch --convert: pdf/, markdown/, markdown/img/ with open-access and paywall badges on PDFs",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "code": "uvx opencite search \"naturalistic EEG\" \\\n  --max 20 -f json -o results.json\n\nuvx opencite batch-fetch \\\n  --from-json results.json \\\n  --convert -o ./papers \\\n  --summary report.json",
+            "position": {
+              "area": "right"
+            },
+            "animation": {
+              "fragment": true,
+              "type": "fade",
+              "index": 0
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**License-aware archival.** Open-access PDFs commit. Paywalled PDFs do not. Markdown extraction always commits (research-fair-use). The `redistribution_ok` flag in `meta.json` is the single source of truth.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 1
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 2x to reveal fragments]\n\n- batch-fetch is the time-saver. Search once -> json -> batch all PDFs in one go.\n\n- --convert is what makes the markdown side appear. Without it, just PDFs.\n\n- License-awareness is non-negotiable. Committing a paywalled PDF to a public repo is a copyright issue. Markdown extraction is generally fine for research notes; flag the case in `meta.json` notes if uncertain."
+      },
+      {
+        "id": "paper-card-anatomy",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Paper-Card Schema",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/paper-card-anatomy.svg",
+            "alt": "Annotated card.md page with YAML front-matter and six required sections highlighted",
+            "width": "92%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Folder per paper: `card.md`, `source.pdf` (if redistributable), `source.md` (always), `meta.json`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Front-matter** is queryable: slug, type, year, doi, license, modalities, tags, relevance, pdf_status.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**6 required sections.** TL;DR, Summary, Relevance, Notable details, Open questions, Citations.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "The schema is the **rigor discriminator**. With it, the corpus is queryable and uniform. Without it, every entry is a free-form note.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 3
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- The 6 sections are non-negotiable. Skip Open Questions and Phase 2 gap analysis becomes much harder.\n\n- TL;DR captures the *thesis*, not the abstract opening. Force the agent to extract one.\n\n- Relevance is paper-to-strand specific. Generic prose 'this is relevant because...' is not acceptable; the agent must cite specific mechanisms.\n\n- Schema lives in the practicum at sessions/week-05/practicum/_schema/paper-card.md, mirrored from the AGI repo verbatim."
+      },
+      {
+        "id": "calibration",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Calibration Anchors",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/calibration-anchors.svg",
+            "alt": "A horizontal low-medium-high scale with anchor-example chips and two histograms above showing healthy spread vs over-concentrated",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**high** -- direct dependency of the strand's main claim.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**medium** -- standard work in scope, not the anchor.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**low** -- tangential or background context.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Recalibrate** if more than ~40% of entries land at one level. The field has lost discriminative power.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "The **first** of three defences against thumb-on-scale. Cheap, mechanical, and applies to any rated field. Anchor examples are spelled out in `_schema/paper-card.md`.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Calibration anchors are the cheapest defence against thumb-on-scale. No prompt engineering, no review process, just anchor examples in the schema.\n\n- The 40% rule is empirical from the AGI corpus. When everything ends up 'high relevance', the field is doing nothing.\n\n- Same logic applies to any rated field, not just relevance. Use it for `md_quality`, `agi_relevance`, etc.\n\n- We come back to defences-against-thumb-on-scale on slide 17."
+      },
+      {
+        "id": "synthesize",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 3 -- Synthesise: Structure Before Prose",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/synthesis-artifacts.svg",
+            "alt": "Five thumbnails of synthesis outputs: tool ontology, dataset hierarchy, science map, gap analysis (highlighted), scope diagram",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "AGI Phase 2 produced **five docs**: tool ontology, dataset hierarchy, science map, gap analysis, scope diagram.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**No prose review yet.** Tables, hierarchies, maps.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Cross-strand references emerge here: a tool used by a dataset, a method enabled by a standard.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Gap analysis is the bridge to Stage 4.** It names the claims the prose review will defend.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Stage 3 is the most-skipped stage. The temptation is to draft as soon as you have papers.\n\n- Forcing yourself to produce structured tables first is what catches dataset-level patterns: same paper appearing in two strands, conflicting findings, coverage gaps.\n\n- The gap-analysis row is the seed of every claim in Stage 4. If you cannot name a row, you do not have a claim.\n\n- AGI synthesis docs at github.com/Annotation-Garden/management/tree/main/research/synthesis -- ~700 lines across the five docs."
+      },
+      {
+        "id": "manuscript-formatting",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 4a -- /manuscript:manuscript-formatting",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Mini-review** -- focused, citation-rich essay defending a thesis. Today's practicum.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Scoping review** -- map the extent of literature on a topic; broad search, categorisation.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Narrative review** -- selective, thematic synthesis with arguments.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Systematic review** -- exhaustive, reproducible search with PRISMA protocol; out-of-scope today.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**IMRAD background** -- the introduction section of a manuscript or grant. Week 6 and Week 7 revisit this skill.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Pick the structure first. Different review types have different writing rules; the formatting skill encodes them so you do not have to remember them at draft time.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Five common review types. Pick before drafting.\n\n- Today's practicum uses the mini-review structure: thesis up front, thematic sections, no methods or results, citation-rich.\n\n- Systematic reviews are out of scope today; PRISMA flow diagrams, registered protocols, and risk-of-bias tooling are an extension, not the default.\n\n- Week 6 (grants) and Week 7 (manuscripts) revisit the same skill for IMRAD."
+      },
+      {
+        "id": "cite-the-card",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 4b -- The Cite-the-Card Rule",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/cite-the-card.svg",
+            "alt": "A draft paragraph with arrows from each claim to a paper-card icon; one claim has no arrow and is struck through",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Every claim cites a paper-card by relative path.**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "If the agent cannot link to a `card.md`, the claim does not appear in the draft.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Thematic** over chronological organisation. Group by argument, not by year.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Citation weaving:** integral, non-integral, synthesis, contrast.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "The **second** of three defences against thumb-on-scale. Hallucinated citations are mechanically impossible if every claim points to a stored card.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- This is the moral rule of Stage 4. Land it.\n\n- Citation weaving:\n  - Integral: 'Hasson and colleagues showed...'\n  - Non-integral: '...has been shown in naturalistic viewing [card]'\n  - Synthesis: 'multiple lines of evidence converge on...'\n  - Contrast: 'X reports A, while Y reports the opposite'\n\n- Real example: the AGI direction-papers/science-direction.md has ~30 cite-the-card links across ~160 lines."
+      },
+      {
+        "id": "review-boomerang",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 5 -- /manuscript:paper-review and the Boomerang",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/review-boomerang.svg",
+            "alt": "The 5-stage pipeline with a thick boomerang arrow looping from Stage 5 back to Stage 2 and a thinner arc to Stage 1, with severity-tagged finding chips along the arrow",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Plays the **peer-reviewer** role: methodological rigor, statistical validity, balance, scope creep.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "Findings tagged by severity: **critical**, **major**, **minor**.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "Critical / major findings cycle back: missing evidence -> Stage 2; mis-scoped direction -> Stage 1.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Convergence in one shot is a red flag**, not a green flag.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- The peer-review skill is independent of the writing skill. Different agent, different prompt, deliberate adversarial framing.\n\n- Severity tagging matters. Without it, all findings look equally important and you lose signal.\n\n- The boomerang is the rigor signal. A first-draft review that passes everything either means the review is shallow or the corpus is hiding what it found. Either way, run again.\n\n- Land the convergence-as-red-flag line."
+      },
+      {
+        "id": "three-defences",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Bias and Rigor -- Three Defences",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/three-defences.svg",
+            "alt": "Three labelled shields: Calibration anchors (Stage 2), Cite-the-card (Stage 4), Boomerang (Stage 5)",
+            "width": "85%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Calibration anchors** -- at scoring time. Cheap and mechanical.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Cite-the-card** -- at drafting time. Makes hallucination structurally impossible.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Boomerang** -- at review time. Cycles the corpus, not the prose.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "Three defences, one per stage. Stack-redundant by design.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**A review that converges in one shot has either nothing to say or is hiding what it found.** Favorable and unfavorable findings should both land. The defences exist to make that mechanically possible.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- This is the moral of the session. Land the punchline carefully.\n\n- The three defences are stack-redundant: each catches a different failure mode at a different stage. None alone is sufficient.\n\n- Bias-irrespective: a review of a hypothesis you wanted to confirm should still surface findings against it. Calibration anchors prevent thumb-on-scale at scoring; cite-the-card at drafting; boomerang at review."
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo Roadmap",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Topic.** Neural correlates of naturalistic movie watching, organised by four perspectives: psychophysics, action, language, emotion. Extends Week 3 HBN movie-watching practicum.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Pre-built.** Epic + 4 strand briefs + 4 anchor cards (1 per strand) + synthesis stub + draft stub. Live in `sessions/week-05/practicum/`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Live action 1.** Add one new paper-card via `/opencite:opencite`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Live action 2.** Weave that card into one new synthesis paragraph via `/manuscript:manuscript-writing`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              },
+              {
+                "text": "**Live action 3.** Run `/manuscript:paper-review` on that paragraph. Whatever surfaces, we walk through.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "We do not manufacture a gap. If a real one appears (a likely natural one given the Healthy Brain Network's developmental cohort is **age-effect coverage**), we walk the boomerang back to Stage 2 with a follow-on `opencite search` -- described aloud, not run on stage, to stay in the time box.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 5
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Land the topic and the pre-built state. Audience needs to see this is real, not theatre.\n\n- The four anchor cards are at sessions/week-05/practicum/collection/{psychophysics,action,language,emotion}/<anchor>/. Hasson 2004, Hasson 2008, Huth 2016, Saarimaki 2016.\n\n- Demo paper to add live: chosen during dry-run. Pick a 2024-2026 open-access paper from one of the four strands, ideally HBN-adjacent.\n\n- Bias-aware: we do not manufacture a gap. If the review surfaces age-effect / developmental coverage as the natural finding, we walk the boomerang and end the demo cleanly."
+      },
+      {
+        "id": "what-next",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Today.** A literature review where every claim points at a stored, retrievable paper, and reviewer feedback updates the corpus instead of being argued away.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Today.** Three defences against thumb-on-scale, one per stage of the pipeline.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Next, Week 6.** Grant proposals -- starts from a literature review like the one we just built.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Next, Week 7.** Manuscripts -- consumes the cards and bibliography produced here.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Take-home in two sentences: defensible review, mechanically grounded.\n\n- Week 6 inherits the corpus directly: a Specific Aims page is a literature review condensed into one page.\n\n- Week 7 inherits the bibliography and the schema for IMRAD background sections."
+      },
+      {
+        "id": "have-do-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What We Have / What We Do Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Have**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "  - The 5-stage pipeline (direction, collect, synthesize, draft, review).",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "  - The AGI canonical example at `Annotation-Garden/management#3`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "  - The practicum scaffold with 4 strand briefs and 4 anchor cards.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Do next, live**",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 4
+                }
+              },
+              {
+                "text": "  - Add one paper via `/opencite:opencite`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 5
+                }
+              },
+              {
+                "text": "  - Weave one paragraph via `/manuscript:manuscript-writing`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 6
+                }
+              },
+              {
+                "text": "  - Review that paragraph via `/manuscript:paper-review`.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 7
+                }
+              },
+              {
+                "text": "  - Walk the boomerang.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 8
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Questions? Ask while opencite searches.**",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 9
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 10x to reveal fragments]\n\n- Final slide before the demo. Read the Have column first, then walk the Do-next column slowly so the audience anticipates the live actions.\n\n- The closing line ('Questions? Ask while opencite searches.') is the bridge into the demo and Q&A. It signals that latency is fine; the audience can interject during the run."
+      }
+    ]
+  }
+}

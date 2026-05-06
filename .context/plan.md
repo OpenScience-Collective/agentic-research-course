@@ -57,8 +57,21 @@
 - [ ] Upload Week 4 recording to YouTube and embed in osc-docs week-04.md
 
 ### Week 5: Literature Search and Review
-- [x] Session README
-- [ ] Expand and finalize content
+- [x] Session README (initial)
+- [x] Expand README with full objectives, the 5-stage pipeline, and AGI case-study reference
+- [x] Create presentation outline (presentations/week-05/outline.md)
+- [x] Create slide plan (presentations/week-05/slide-plan.md, 20-slide cap)
+- [x] Create SVG assets (lit-review-pipeline, failure-modes, strand-fanout, strand-brief-anatomy, opencite-strategies, opencite-output-tree, paper-card-anatomy, calibration-anchors, synthesis-artifacts, cite-the-card, review-boomerang, three-defences, agi-case-callout) -- 13 SVGs + 4 codex PNGs
+- [x] Create presentation.json (20 slides, fragment animations on bullets/code, FHD-tested)
+- [x] Practicum scaffold: sessions/week-05/practicum/ -- 4 perspective strands (psychophysics, action, language, emotion); 4 anchor cards (Hasson 2004, Hasson 2008, Huth 2016, Saarimaki 2016); INDEX.md + .bib per strand; synthesis stub; direction-paper draft stub; seed-cards-todo.md
+- [ ] Capture screenshots (opencite-search-output, batch-fetch-tree, paper-card-rendered, paper-review-feedback)
+- [ ] Dry-run live walkthrough (add 1 paper via opencite -> manuscript-writing weave -> paper-review boomerang)
+- [ ] Create exercises.md
+- [x] Week 5 blog post (blog/week-05-literature-review.md)
+- [x] Mirror blog to osc-docs (courses/agentic-research/week-05.md)
+- [x] Mirror slides bundle to osc-docs (courses/slides/agentic-research/week-05/) -- presentation.html + week-05.json (paths rewritten ./assets/icons/) + 17 icon files
+- [x] Update osc-docs index.md to link Week 5 (mkdocs uses awesome-pages auto-discovery; no nav edit needed)
+- [ ] Upload Week 5 recording to YouTube and embed in osc-docs week-05.md
 
 ## Session Prep Checklist (per week)
 - [ ] README.md finalized with objectives, outline, key concepts

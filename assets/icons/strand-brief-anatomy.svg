@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380">
+  <!-- Title -->
+  <text x="380" y="22" font-family="sans-serif" font-size="14" fill="#1E293B" font-weight="bold" text-anchor="middle">Strand brief anatomy -- five sections that define a sub-issue</text>
+
+  <!-- Document silhouette: rounded rect with folded corner -->
+  <path d="M50 50 L300 50 L340 90 L340 350 L50 350 Z" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.6"/>
+  <path d="M300 50 L300 90 L340 90 Z" fill="#E2E8F0" stroke="#1E293B" stroke-width="1.6"/>
+
+  <!-- Section: Goal (blue) -->
+  <rect x="66" y="76" width="258" height="42" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+  <text x="76" y="93" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Goal</text>
+  <text x="76" y="109" font-family="monospace" font-size="9" fill="#1E40AF">single-sentence research question</text>
+
+  <!-- Section: Scope (amber) -->
+  <rect x="66" y="128" width="258" height="42" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.2"/>
+  <text x="76" y="145" font-family="sans-serif" font-size="11" fill="#78350F" font-weight="bold">Scope</text>
+  <text x="76" y="161" font-family="monospace" font-size="9" fill="#78350F">topics, time window, methods</text>
+
+  <!-- Section: Per-entry deliverable (purple) -->
+  <rect x="66" y="180" width="258" height="42" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+  <text x="76" y="197" font-family="sans-serif" font-size="11" fill="#5B21B6" font-weight="bold">Per-entry deliverable</text>
+  <text x="76" y="213" font-family="monospace" font-size="9" fill="#5B21B6">one paper-card.md per source</text>
+
+  <!-- Section: Acceptance criteria (green) -->
+  <rect x="66" y="232" width="258" height="42" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+  <text x="76" y="249" font-family="sans-serif" font-size="11" fill="#064E3B" font-weight="bold">Acceptance criteria</text>
+  <text x="76" y="265" font-family="monospace" font-size="9" fill="#064E3B">N papers, M canonical, all schema-valid</text>
+
+  <!-- Section: Out-of-scope (red) -->
+  <rect x="66" y="284" width="258" height="42" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="76" y="301" font-family="sans-serif" font-size="11" fill="#7F1D1D" font-weight="bold">Out-of-scope</text>
+  <text x="76" y="317" font-family="monospace" font-size="9" fill="#7F1D1D">explicit exclusions stop scope creep</text>
+
+  <!-- Callouts on right -->
+  <line x1="324" y1="97" x2="430" y2="97" stroke="#2563EB" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <rect x="430" y="84" width="280" height="26" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+  <text x="440" y="101" font-family="sans-serif" font-size="11" fill="#1E40AF">What question this strand answers</text>
+
+  <line x1="324" y1="149" x2="430" y2="149" stroke="#F59E0B" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <rect x="430" y="136" width="280" height="26" rx="4" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.4"/>
+  <text x="440" y="153" font-family="sans-serif" font-size="11" fill="#78350F">Where to look, where to stop looking</text>
+
+  <line x1="324" y1="201" x2="430" y2="201" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <rect x="430" y="188" width="280" height="26" rx="4" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/>
+  <text x="440" y="205" font-family="sans-serif" font-size="11" fill="#5B21B6">The schema-enforced unit of evidence</text>
+
+  <line x1="324" y1="253" x2="430" y2="253" stroke="#059669" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <rect x="430" y="240" width="280" height="26" rx="4" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/>
+  <text x="440" y="257" font-family="sans-serif" font-size="11" fill="#064E3B">Concrete pass/fail signal for the strand</text>
+
+  <line x1="324" y1="305" x2="430" y2="305" stroke="#DC2626" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <rect x="430" y="292" width="280" height="26" rx="4" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.4"/>
+  <text x="440" y="309" font-family="sans-serif" font-size="11" fill="#7F1D1D">Adjacent topics that belong elsewhere</text>
+
+  <text x="380" y="368" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Same anatomy as a sprint sub-issue, applied to literature collection.</text>
+</svg>
