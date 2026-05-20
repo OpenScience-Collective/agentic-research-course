@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Stage 5 -- Format and submit (still in the repo)</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">/manuscript:manuscript-formatting packages exactly what the journal wants</text>
+
+  <!-- LEFT: LaTeX source tree (Green) -->
+  <g>
+    <rect x="60" y="68" width="320" height="220" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/>
+    <rect x="60" y="68" width="320" height="24" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.4"/>
+    <text x="220" y="84" font-family="monospace" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle">manuscript/  (LaTeX source tree)</text>
+
+    <text x="78" y="112" font-family="monospace" font-size="10.5" fill="#1E293B">main.tex</text>
+    <text x="78" y="128" font-family="monospace" font-size="10.5" fill="#1E293B">intro.tex</text>
+    <text x="78" y="144" font-family="monospace" font-size="10.5" fill="#1E293B">methods.tex</text>
+    <text x="78" y="160" font-family="monospace" font-size="10.5" fill="#1E293B">results.tex</text>
+    <text x="78" y="176" font-family="monospace" font-size="10.5" fill="#1E293B">discussion.tex</text>
+    <text x="78" y="192" font-family="monospace" font-size="10.5" fill="#1E293B">references.bib</text>
+    <text x="78" y="208" font-family="monospace" font-size="10.5" fill="#1E293B">cover-letter.tex</text>
+    <text x="78" y="224" font-family="monospace" font-size="10.5" fill="#1E293B">figures/</text>
+    <text x="78" y="240" font-family="monospace" font-size="10.5" fill="#475569">  + science-map/figure.pdf</text>
+    <text x="78" y="256" font-family="monospace" font-size="10.5" fill="#475569">  + perspective-method/figure.pdf</text>
+    <text x="78" y="272" font-family="monospace" font-size="10.5" fill="#1E293B">supplements/</text>
+  </g>
+
+  <!-- Center arrow + skill label -->
+  <path d="M390 178 L530 178" fill="none" stroke="#059669" stroke-width="2.4"/>
+  <polygon points="530,178 520,172 520,184" fill="#059669"/>
+  <text x="460" y="166" font-family="monospace" font-size="10" fill="#065F46" text-anchor="middle" font-weight="bold">/manuscript:</text>
+  <text x="460" y="178" font-family="monospace" font-size="10" fill="#065F46" text-anchor="middle" font-weight="bold">manuscript-formatting</text>
+  <text x="460" y="200" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">--journal nature</text>
+
+  <!-- RIGHT: submission zip (Teal accent for next-step Overleaf bridge) -->
+  <g>
+    <rect x="540" y="68" width="360" height="220" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.4"/>
+    <rect x="540" y="68" width="360" height="24" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.4"/>
+    <text x="720" y="84" font-family="monospace" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle">submission/  --&gt;  paper-submission.zip</text>
+
+    <!-- zip icon -->
+    <g transform="translate(566 108)">
+      <rect x="0" y="0" width="60" height="80" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.6"/>
+      <rect x="22" y="6" width="14" height="8" fill="#059669"/>
+      <rect x="22" y="18" width="14" height="8" fill="#059669"/>
+      <rect x="22" y="30" width="14" height="8" fill="#059669"/>
+      <rect x="22" y="42" width="14" height="14" rx="1.5" fill="#FFFFFF" stroke="#059669" stroke-width="1.2"/>
+      <text x="29" y="53" font-family="monospace" font-size="7" fill="#065F46" text-anchor="middle">ZIP</text>
+    </g>
+
+    <!-- contents listing -->
+    <text x="650" y="116" font-family="sans-serif" font-size="10.5" fill="#1E293B" font-weight="bold">Contents</text>
+    <text x="650" y="132" font-family="monospace" font-size="10" fill="#1E293B">main.tex + section .tex files</text>
+    <text x="650" y="146" font-family="monospace" font-size="10" fill="#1E293B">references.bib</text>
+    <text x="650" y="160" font-family="monospace" font-size="10" fill="#1E293B">figures/*.pdf  (composed)</text>
+    <text x="650" y="174" font-family="monospace" font-size="10" fill="#1E293B">supplements/*.pdf</text>
+    <text x="650" y="188" font-family="monospace" font-size="10" fill="#1E293B">cover-letter.pdf</text>
+
+    <!-- exclusions -->
+    <rect x="650" y="202" width="240" height="56" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <text x="664" y="218" font-family="sans-serif" font-size="10" fill="#475569" font-weight="bold">Excluded by design</text>
+    <text x="664" y="232" font-family="monospace" font-size="9.5" fill="#475569">.git/   scratch/   notes/</text>
+    <text x="664" y="246" font-family="monospace" font-size="9.5" fill="#475569">figures/&lt;panel&gt;/source.*  (kept in repo)</text>
+
+    <text x="720" y="280" font-family="sans-serif" font-size="10.5" fill="#065F46" font-weight="bold" text-anchor="middle">Ready for the journal  OR  for Overleaf upload</text>
+  </g>
+
+  <text x="480" y="312" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">The same zip ships to the journal portal or to Overleaf -- one artefact, two destinations.</text>
+</svg>

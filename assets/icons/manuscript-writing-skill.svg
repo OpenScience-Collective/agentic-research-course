@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960" height="340">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">/manuscript:manuscript-writing  --  cite-the-card in the diff</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Every claim cites a paper-card by relative path. No card, no claim.</text>
+
+  <!-- LEFT: terminal mock with skill invocation (Blue) -->
+  <g>
+    <rect x="60" y="64" width="380" height="240" rx="6" fill="#0F172A" stroke="#1E293B" stroke-width="1.4"/>
+    <!-- title chrome -->
+    <rect x="60" y="64" width="380" height="22" rx="6" fill="#1E293B"/>
+    <circle cx="74" cy="75" r="3.5" fill="#EF4444"/>
+    <circle cx="86" cy="75" r="3.5" fill="#F59E0B"/>
+    <circle cx="98" cy="75" r="3.5" fill="#22C55E"/>
+    <text x="250" y="79" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">manuscript/intro --  Claude Code</text>
+
+    <text x="74" y="106" font-family="monospace" font-size="10.5" fill="#94A3B8">$</text>
+    <text x="86" y="106" font-family="monospace" font-size="10.5" fill="#22C55E">/manuscript:manuscript-writing</text>
+    <text x="74" y="124" font-family="monospace" font-size="10" fill="#CBD5E1">  --section intro --format narrative-review</text>
+
+    <text x="74" y="148" font-family="monospace" font-size="10" fill="#94A3B8">reading lit-review/ ... found 13 cards</text>
+    <text x="74" y="162" font-family="monospace" font-size="10" fill="#94A3B8">picking structure ... narrative review</text>
+    <text x="74" y="176" font-family="monospace" font-size="10" fill="#94A3B8">drafting paragraph 1 (psychophysics)</text>
+    <text x="74" y="190" font-family="monospace" font-size="10" fill="#94A3B8">drafting paragraph 2 (action)</text>
+    <text x="74" y="204" font-family="monospace" font-size="10" fill="#94A3B8">drafting paragraph 3 (language)</text>
+    <text x="74" y="218" font-family="monospace" font-size="10" fill="#94A3B8">drafting paragraph 4 (emotion)</text>
+    <text x="74" y="232" font-family="monospace" font-size="10" fill="#94A3B8">running /manuscript:humanizer ... ok</text>
+
+    <text x="74" y="256" font-family="monospace" font-size="10" fill="#22C55E">wrote  manuscript/intro.tex</text>
+    <text x="74" y="270" font-family="monospace" font-size="10" fill="#22C55E">wrote  manuscript/references.bib (+4)</text>
+
+    <text x="74" y="292" font-family="monospace" font-size="10" fill="#FBBF24">cite-the-card discipline:  13/13 claims linked</text>
+  </g>
+
+  <!-- RIGHT: diff hunk with cite-the-card relative links highlighted -->
+  <g>
+    <rect x="460" y="64" width="440" height="240" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="460" y="64" width="440" height="22" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="680" y="80" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">manuscript/intro.tex  --  diff hunk (PR #42)</text>
+
+    <text x="474" y="106" font-family="monospace" font-size="10" fill="#475569">@@ -12,1 +12,4 @@</text>
+
+    <!-- removed line -->
+    <rect x="474" y="112" width="412" height="14" fill="#FEE2E2"/>
+    <text x="478" y="123" font-family="monospace" font-size="9.5" fill="#991B1B">-  Naturalistic stimuli are interesting and recent...</text>
+
+    <!-- added lines with highlighted relative paths -->
+    <rect x="474" y="128" width="412" height="14" fill="#DCFCE7"/>
+    <text x="478" y="139" font-family="monospace" font-size="9.5" fill="#166534">+  Naturalistic stimuli synchronise occipital activity</text>
+
+    <rect x="474" y="144" width="412" height="14" fill="#DCFCE7"/>
+    <text x="478" y="155" font-family="monospace" font-size="9.5" fill="#166534">+  across viewers (</text>
+    <rect x="558" y="146" width="248" height="11" rx="1.5" fill="#FEF3C7" stroke="#B45309" stroke-width="0.5"/>
+    <text x="562" y="155" font-family="monospace" font-size="9" fill="#78350F">../lit-review/psychophysics/hasson-2004/card.md</text>
+    <text x="808" y="155" font-family="monospace" font-size="9.5" fill="#166534">)</text>
+
+    <rect x="474" y="160" width="412" height="14" fill="#DCFCE7"/>
+    <text x="478" y="171" font-family="monospace" font-size="9.5" fill="#166534">+  Action observation drives a distinct motor signature</text>
+
+    <rect x="474" y="176" width="412" height="14" fill="#DCFCE7"/>
+    <text x="478" y="187" font-family="monospace" font-size="9.5" fill="#166534">+  (</text>
+    <rect x="488" y="178" width="236" height="11" rx="1.5" fill="#FEF3C7" stroke="#B45309" stroke-width="0.5"/>
+    <text x="492" y="187" font-family="monospace" font-size="9" fill="#78350F">../lit-review/action/hasson-2008/card.md</text>
+    <text x="726" y="187" font-family="monospace" font-size="9.5" fill="#166534">).</text>
+
+    <!-- summary block -->
+    <rect x="474" y="200" width="412" height="80" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <text x="486" y="218" font-family="sans-serif" font-size="10.5" fill="#1E293B" font-weight="bold">Style enforcement (humanizer pass)</text>
+    <text x="486" y="234" font-family="sans-serif" font-size="10" fill="#475569">- em-dashes removed (3)</text>
+    <text x="486" y="248" font-family="sans-serif" font-size="10" fill="#475569">- "delve" / "tapestry" stripped</text>
+    <text x="486" y="262" font-family="sans-serif" font-size="10" fill="#475569">- rule-of-three pattern collapsed where stilted</text>
+    <text x="486" y="276" font-family="sans-serif" font-size="10" fill="#475569">- abbreviations defined on first use</text>
+
+    <text x="680" y="296" font-family="monospace" font-size="9.5" fill="#475569" font-style="italic" text-anchor="middle">PR opens once the section diff is clean.</text>
+  </g>
+
+  <text x="480" y="326" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">/manuscript:humanizer runs on every section before the PR opens.</text>
+</svg>

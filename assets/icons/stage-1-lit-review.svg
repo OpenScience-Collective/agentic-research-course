@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Stage 1 -- Lit review (inherits Week 5)</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Week-5 corpus feeds the manuscript; /manuscript:manuscript-formatting picks the structure</text>
+
+  <!-- LEFT: Corpus folder (Amber) -->
+  <g>
+    <rect x="60" y="80" width="300" height="200" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="1.4"/>
+    <rect x="60" y="80" width="300" height="22" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1.4"/>
+    <text x="210" y="96" font-family="sans-serif" font-size="11.5" fill="#78350F" font-weight="bold" text-anchor="middle">lit-review/  (Week-5 corpus)</text>
+
+    <!-- strand subfolders -->
+    <text x="74" y="124" font-family="monospace" font-size="10.5" fill="#1E293B">+ psychophysics/</text>
+    <text x="84" y="138" font-family="monospace" font-size="10" fill="#475569">  hasson-2004/card.md</text>
+    <text x="84" y="151" font-family="monospace" font-size="10" fill="#475569">  dmochowski-2012/card.md</text>
+
+    <text x="74" y="172" font-family="monospace" font-size="10.5" fill="#1E293B">+ action/</text>
+    <text x="84" y="186" font-family="monospace" font-size="10" fill="#475569">  hasson-2008/card.md</text>
+
+    <text x="74" y="206" font-family="monospace" font-size="10.5" fill="#1E293B">+ language/</text>
+    <text x="84" y="220" font-family="monospace" font-size="10" fill="#475569">  huth-2016/card.md</text>
+
+    <text x="74" y="240" font-family="monospace" font-size="10.5" fill="#1E293B">+ emotion/</text>
+    <text x="84" y="254" font-family="monospace" font-size="10" fill="#475569">  saarimaki-2016/card.md</text>
+
+    <text x="210" y="272" font-family="sans-serif" font-size="10" fill="#78350F" font-style="italic" text-anchor="middle">paper-cards addressable by relative path</text>
+  </g>
+
+  <!-- Arrow into the structure picker -->
+  <path d="M370 180 L450 180" fill="none" stroke="#475569" stroke-width="2"/>
+  <polygon points="450,180 442,176 442,184" fill="#475569"/>
+
+  <!-- RIGHT: Structure picker (Blue with narrative highlighted) -->
+  <g>
+    <rect x="460" y="80" width="440" height="200" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="460" y="80" width="440" height="22" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="680" y="96" font-family="sans-serif" font-size="11.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">/manuscript:manuscript-formatting  --  pick a structure</text>
+
+    <!-- 5 options as rows, with narrative highlighted -->
+    <rect x="476" y="114" width="408" height="26" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <circle cx="490" cy="127" r="4" fill="none" stroke="#94A3B8" stroke-width="1"/>
+    <text x="504" y="131" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Mini-review</text>
+    <text x="600" y="131" font-family="sans-serif" font-size="10" fill="#475569">focused, single-question</text>
+
+    <rect x="476" y="146" width="408" height="26" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <circle cx="490" cy="159" r="4" fill="none" stroke="#94A3B8" stroke-width="1"/>
+    <text x="504" y="163" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Scoping review</text>
+    <text x="600" y="163" font-family="sans-serif" font-size="10" fill="#475569">map the extent of the field</text>
+
+    <!-- highlighted narrative -->
+    <rect x="476" y="178" width="408" height="26" rx="3" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <circle cx="490" cy="191" r="4" fill="#2563EB"/>
+    <text x="504" y="195" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Narrative review  &lt;-- live demo</text>
+    <text x="780" y="195" font-family="sans-serif" font-size="10" fill="#1E40AF">thematic synthesis with argument</text>
+
+    <rect x="476" y="210" width="408" height="26" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <circle cx="490" cy="223" r="4" fill="none" stroke="#94A3B8" stroke-width="1"/>
+    <text x="504" y="227" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Systematic review</text>
+    <text x="600" y="227" font-family="sans-serif" font-size="10" fill="#475569">PRISMA protocol</text>
+
+    <rect x="476" y="242" width="408" height="26" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+    <circle cx="490" cy="255" r="4" fill="none" stroke="#94A3B8" stroke-width="1"/>
+    <text x="504" y="259" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">IMRAD background</text>
+    <text x="600" y="259" font-family="sans-serif" font-size="10" fill="#475569">Introduction section of a paper or grant</text>
+  </g>
+
+  <text x="480" y="308" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">Cite-the-card transfers verbatim. Every claim points to a paper-card by relative path.</text>
+</svg>

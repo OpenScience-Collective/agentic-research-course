@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960" height="340">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">The comment-merge manual pass</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Overleaf comments live in the UI. Transcribe to the repo, then mark Resolved.</text>
+
+  <!-- LEFT: Overleaf comment thread (Teal/yellow) -->
+  <g>
+    <rect x="40" y="70" width="280" height="220" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4"/>
+    <rect x="40" y="70" width="280" height="24" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.4"/>
+    <text x="180" y="86" font-family="sans-serif" font-size="11" fill="#0F766E" font-weight="bold" text-anchor="middle">Overleaf comments panel</text>
+
+    <!-- comment card 1 -->
+    <rect x="58" y="108" width="244" height="78" rx="3" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+    <circle cx="68" cy="120" r="4" fill="#CA8A04"/>
+    <text x="78" y="123" font-family="sans-serif" font-size="9.5" fill="#854D0E" font-weight="bold">Advisor PI</text>
+    <text x="294" y="123" font-family="sans-serif" font-size="9" fill="#A16207" text-anchor="end">2d</text>
+    <text x="64" y="142" font-family="sans-serif" font-size="9.5" fill="#713F12">Worth distinguishing occipital</text>
+    <text x="64" y="154" font-family="sans-serif" font-size="9.5" fill="#713F12">vs occipital-parietal here. Hasson</text>
+    <text x="64" y="166" font-family="sans-serif" font-size="9.5" fill="#713F12">2008 frames it that way.</text>
+    <text x="64" y="180" font-family="sans-serif" font-size="9" fill="#A16207" font-style="italic">Reply  --  Resolve</text>
+
+    <!-- comment card 2 -->
+    <rect x="58" y="194" width="244" height="78" rx="3" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+    <circle cx="68" cy="206" r="4" fill="#CA8A04"/>
+    <text x="78" y="209" font-family="sans-serif" font-size="9.5" fill="#854D0E" font-weight="bold">Coauthor</text>
+    <text x="294" y="209" font-family="sans-serif" font-size="9" fill="#A16207" text-anchor="end">1d</text>
+    <text x="64" y="228" font-family="sans-serif" font-size="9.5" fill="#713F12">Fig 2 panel B caption refers to a</text>
+    <text x="64" y="240" font-family="sans-serif" font-size="9.5" fill="#713F12">condition not shown in the panel.</text>
+    <text x="64" y="252" font-family="sans-serif" font-size="9.5" fill="#713F12">Either add the panel or fix the text.</text>
+    <text x="64" y="266" font-family="sans-serif" font-size="9" fill="#A16207" font-style="italic">Reply  --  Resolve</text>
+  </g>
+
+  <!-- Middle arrow with "manual" callout -->
+  <path d="M328 180 L420 180" fill="none" stroke="#B45309" stroke-width="2.4"/>
+  <polygon points="420,180 410,174 410,186" fill="#B45309"/>
+  <rect x="332" y="152" width="84" height="22" rx="4" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+  <text x="374" y="167" font-family="sans-serif" font-size="10.5" fill="#78350F" font-weight="bold" text-anchor="middle">manual pass</text>
+  <text x="374" y="200" font-family="sans-serif" font-size="9.5" fill="#92400E" text-anchor="middle" font-style="italic">(git cannot do this)</text>
+
+  <!-- RIGHT: GitHub issues / PR comments (Blue) -->
+  <g>
+    <rect x="430" y="70" width="490" height="220" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="430" y="70" width="490" height="24" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="675" y="86" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">Transcribed into the repo</text>
+
+    <!-- transcription 1: PR comment for the small fix -->
+    <rect x="448" y="106" width="454" height="76" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="0.8"/>
+    <circle cx="460" cy="120" r="4" fill="#2563EB"/>
+    <text x="470" y="123" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold">PR comment  --  PR #42  (intro.tex line 18)</text>
+    <text x="454" y="142" font-family="sans-serif" font-size="9.5" fill="#1E293B">Advisor PI in Overleaf: distinguish occipital vs occipital-parietal.</text>
+    <text x="454" y="156" font-family="sans-serif" font-size="9.5" fill="#1E293B">Fix in this PR; one-line edit, no scope change.</text>
+    <text x="454" y="172" font-family="monospace" font-size="9" fill="#16A34A">linked: overleaf-comment-#3   resolved-in: 3a7c91d</text>
+
+    <!-- transcription 2: GitHub issue for the larger fix -->
+    <rect x="448" y="194" width="454" height="76" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.8"/>
+    <circle cx="460" cy="208" r="4" fill="#B45309"/>
+    <text x="470" y="211" font-family="sans-serif" font-size="9.5" fill="#78350F" font-weight="bold">Issue #N+12  --  Fig 2 caption-panel mismatch  (label: figures, paper)</text>
+    <text x="454" y="230" font-family="sans-serif" font-size="9.5" fill="#1E293B">Coauthor in Overleaf: caption refers to a condition not shown.</text>
+    <text x="454" y="244" font-family="sans-serif" font-size="9.5" fill="#1E293B">Decision needed: add the panel or remove the reference.</text>
+    <text x="454" y="260" font-family="monospace" font-size="9" fill="#B45309">linked: overleaf-comment-#7   blocks: PR #44</text>
+  </g>
+
+  <!-- bottom callout -->
+  <rect x="40" y="306" width="880" height="30" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+  <text x="480" y="326" font-family="sans-serif" font-size="11" fill="#78350F" font-weight="bold" text-anchor="middle">Mark "Resolve" in Overleaf ONLY after the transcription lands in the repo.</text>
+</svg>

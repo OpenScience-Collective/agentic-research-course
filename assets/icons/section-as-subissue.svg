@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Section-as-sub-issue -- the Week 3 pattern applied to prose</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">One sub-issue per IMRAD section, one worktree per sub-issue, parallel branches into manuscript/</text>
+
+  <!-- Epic at top -->
+  <g>
+    <rect x="360" y="72" width="240" height="50" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+    <circle cx="378" cy="89" r="6" fill="#FFFFFF" stroke="#B45309" stroke-width="1.4"/>
+    <circle cx="378" cy="89" r="2.5" fill="#B45309"/>
+    <text x="392" y="93" font-family="sans-serif" font-size="11" fill="#78350F" font-weight="bold">Epic #N -- Manuscript: naturalistic-stimuli review</text>
+    <text x="392" y="111" font-family="monospace" font-size="9.5" fill="#92400E">label: epic, paper</text>
+  </g>
+
+  <!-- 4 branching lines from epic to sub-issues -->
+  <path d="M480 122 L480 144 L150 144 L150 168" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M480 122 L480 144 L370 144 L370 168" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M480 122 L480 144 L590 144 L590 168" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+  <path d="M480 122 L480 144 L810 144 L810 168" fill="none" stroke="#94A3B8" stroke-width="1.4"/>
+
+  <!-- 4 sub-issues (IMRAD sections) -->
+  <g>
+    <rect x="60" y="168" width="180" height="48" rx="5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <circle cx="78" cy="186" r="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="78" cy="186" r="2" fill="#2563EB"/>
+    <text x="90" y="190" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">#N+1 -- Introduction</text>
+    <text x="90" y="206" font-family="monospace" font-size="9" fill="#475569">feature/issue-N+1-intro</text>
+  </g>
+  <g>
+    <rect x="280" y="168" width="180" height="48" rx="5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <circle cx="298" cy="186" r="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="298" cy="186" r="2" fill="#2563EB"/>
+    <text x="310" y="190" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">#N+2 -- Methods</text>
+    <text x="310" y="206" font-family="monospace" font-size="9" fill="#475569">feature/issue-N+2-methods</text>
+  </g>
+  <g>
+    <rect x="500" y="168" width="180" height="48" rx="5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <circle cx="518" cy="186" r="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="518" cy="186" r="2" fill="#2563EB"/>
+    <text x="530" y="190" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">#N+3 -- Results</text>
+    <text x="530" y="206" font-family="monospace" font-size="9" fill="#475569">feature/issue-N+3-results</text>
+  </g>
+  <g>
+    <rect x="720" y="168" width="180" height="48" rx="5" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <circle cx="738" cy="186" r="5" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <circle cx="738" cy="186" r="2" fill="#2563EB"/>
+    <text x="750" y="190" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">#N+4 -- Discussion</text>
+    <text x="750" y="206" font-family="monospace" font-size="9" fill="#475569">feature/issue-N+4-discussion</text>
+  </g>
+
+  <!-- arrows down to PRs -->
+  <path d="M150 222 L150 250" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <polygon points="150,250 146,242 154,242" fill="#475569"/>
+  <path d="M370 222 L370 250" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <polygon points="370,250 366,242 374,242" fill="#475569"/>
+  <path d="M590 222 L590 250" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <polygon points="590,250 586,242 594,242" fill="#475569"/>
+  <path d="M810 222 L810 250" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <polygon points="810,250 806,242 814,242" fill="#475569"/>
+
+  <!-- PRs -->
+  <g>
+    <rect x="100" y="252" width="100" height="34" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="150" y="266" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">PR -- intro</text>
+    <text x="150" y="278" font-family="monospace" font-size="8.5" fill="#16A34A" text-anchor="middle">CI: pass</text>
+  </g>
+  <g>
+    <rect x="320" y="252" width="100" height="34" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="370" y="266" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">PR -- methods</text>
+    <text x="370" y="278" font-family="monospace" font-size="8.5" fill="#16A34A" text-anchor="middle">CI: pass</text>
+  </g>
+  <g>
+    <rect x="540" y="252" width="100" height="34" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="590" y="266" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">PR -- results</text>
+    <text x="590" y="278" font-family="monospace" font-size="8.5" fill="#16A34A" text-anchor="middle">CI: pass</text>
+  </g>
+  <g>
+    <rect x="760" y="252" width="100" height="34" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="810" y="266" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">PR -- discussion</text>
+    <text x="810" y="278" font-family="monospace" font-size="8.5" fill="#16A34A" text-anchor="middle">CI: pass</text>
+  </g>
+
+  <!-- arrows converging into manuscript/ -->
+  <path d="M150 286 L150 308 L480 308 L480 312" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <path d="M370 286 L370 308" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <path d="M590 286 L590 308" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <path d="M810 286 L810 308 L480 308" fill="none" stroke="#475569" stroke-width="1.4"/>
+  <polygon points="480,312 476,304 484,304" fill="#475569"/>
+
+  <!-- manuscript/ branch -->
+  <g>
+    <rect x="360" y="314" width="240" height="36" rx="5" fill="#D1FAE5" stroke="#059669" stroke-width="1.6"/>
+    <text x="480" y="338" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">manuscript/  (long-lived branch)</text>
+  </g>
+
+  <text x="480" y="358" font-family="sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">merges to main only at submission</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Figures live in the same repo as the manuscript</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Three skills, one composition discipline -- every figure reproducible from source</text>
+
+  <!-- Card 1: scientific-figure (composer) -->
+  <g>
+    <rect x="60" y="76" width="270" height="200" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+    <rect x="60" y="76" width="270" height="26" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.6"/>
+    <text x="195" y="93" font-family="monospace" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">/figures:scientific-figure</text>
+
+    <!-- composed multi-panel preview -->
+    <rect x="84" y="120" width="222" height="100" rx="3" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+    <line x1="195" y1="120" x2="195" y2="220" stroke="#7C3AED" stroke-width="1"/>
+    <text x="92" y="134" font-family="sans-serif" font-size="9" fill="#5B21B6" font-weight="bold">A</text>
+    <text x="203" y="134" font-family="sans-serif" font-size="9" fill="#5B21B6" font-weight="bold">B</text>
+    <!-- panel A: bars -->
+    <rect x="100" y="190" width="6" height="20" fill="#7C3AED"/>
+    <rect x="112" y="170" width="6" height="40" fill="#7C3AED"/>
+    <rect x="124" y="180" width="6" height="30" fill="#7C3AED"/>
+    <rect x="136" y="160" width="6" height="50" fill="#7C3AED"/>
+    <rect x="148" y="178" width="6" height="32" fill="#7C3AED"/>
+    <line x1="98" y1="210" x2="160" y2="210" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="98" y1="160" x2="98" y2="210" stroke="#1E293B" stroke-width="0.8"/>
+    <!-- panel B: schematic -->
+    <path d="M210 200 C 210 175, 250 168, 268 188 C 286 195, 286 215, 268 215 C 245 220, 215 218, 210 200 Z" fill="#C4B5FD" stroke="#5B21B6" stroke-width="1"/>
+    <circle cx="230" cy="190" r="3" fill="#5B21B6"/>
+    <circle cx="262" cy="200" r="3" fill="#5B21B6"/>
+    <line x1="230" y1="190" x2="262" y2="200" stroke="#5B21B6" stroke-width="0.8"/>
+
+    <text x="195" y="244" font-family="sans-serif" font-size="10.5" fill="#1E293B" font-weight="bold" text-anchor="middle">Multi-panel composer</text>
+    <text x="195" y="260" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">load + place panel SVGs at mm coords</text>
+  </g>
+
+  <!-- Card 2: svg-figure -->
+  <g>
+    <rect x="345" y="76" width="270" height="200" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+    <rect x="345" y="76" width="270" height="26" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.6"/>
+    <text x="480" y="93" font-family="monospace" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">/figures:svg-figure</text>
+
+    <!-- schematic preview: boxes + arrow -->
+    <rect x="370" y="130" width="60" height="36" rx="3" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="400" y="152" font-family="sans-serif" font-size="9.5" fill="#5B21B6" text-anchor="middle" font-weight="bold">Stimulus</text>
+    <line x1="430" y1="148" x2="478" y2="148" stroke="#5B21B6" stroke-width="1.4"/>
+    <polygon points="478,148 472,144 472,152" fill="#5B21B6"/>
+    <rect x="478" y="130" width="60" height="36" rx="3" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="508" y="152" font-family="sans-serif" font-size="9.5" fill="#5B21B6" text-anchor="middle" font-weight="bold">EEG</text>
+    <line x1="538" y1="148" x2="586" y2="148" stroke="#5B21B6" stroke-width="1.4"/>
+    <polygon points="586,148 580,144 580,152" fill="#5B21B6"/>
+    <rect x="540" y="130" width="60" height="36" rx="3" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="570" y="152" font-family="sans-serif" font-size="9.5" fill="#5B21B6" text-anchor="middle" font-weight="bold">ERSP</text>
+
+    <text x="480" y="194" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="middle">box.x = 100mm  arrow.tip = 158mm</text>
+
+    <text x="480" y="244" font-family="sans-serif" font-size="10.5" fill="#1E293B" font-weight="bold" text-anchor="middle">Vector schematics</text>
+    <text x="480" y="260" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">boxes + arrows + text aligned to bbox</text>
+  </g>
+
+  <!-- Card 3: plot-styling -->
+  <g>
+    <rect x="630" y="76" width="270" height="200" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+    <rect x="630" y="76" width="270" height="26" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.6"/>
+    <text x="765" y="93" font-family="monospace" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">/figures:plot-styling</text>
+
+    <!-- palette swatches -->
+    <text x="650" y="128" font-family="sans-serif" font-size="9.5" fill="#1E293B" font-weight="bold">palette  (CB-safe)</text>
+    <rect x="650" y="134" width="22" height="14" fill="#0072B2"/>
+    <rect x="676" y="134" width="22" height="14" fill="#D55E00"/>
+    <rect x="702" y="134" width="22" height="14" fill="#009E73"/>
+    <rect x="728" y="134" width="22" height="14" fill="#E69F00"/>
+    <rect x="754" y="134" width="22" height="14" fill="#CC79A7"/>
+    <rect x="780" y="134" width="22" height="14" fill="#56B4E9"/>
+    <rect x="806" y="134" width="22" height="14" fill="#F0E442"/>
+
+    <!-- font + axis hints -->
+    <text x="650" y="172" font-family="sans-serif" font-size="9.5" fill="#1E293B" font-weight="bold">typography</text>
+    <text x="650" y="186" font-family="sans-serif" font-size="9.5" fill="#475569">Helvetica  6pt min  (Nature 5pt)</text>
+    <text x="650" y="200" font-family="sans-serif" font-size="9.5" fill="#475569">title 8pt   axis 6pt   tick 5pt</text>
+
+    <text x="650" y="220" font-family="sans-serif" font-size="9.5" fill="#1E293B" font-weight="bold">axes</text>
+    <text x="650" y="234" font-family="sans-serif" font-size="9.5" fill="#475569">no top / right spines   ticks outward</text>
+
+    <text x="765" y="260" font-family="sans-serif" font-size="10.5" fill="#1E293B" font-weight="bold" text-anchor="middle">Journal style</text>
+  </g>
+
+  <text x="480" y="298" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">Figure source lives next to the manuscript -- not on someone's laptop.</text>
+</svg>

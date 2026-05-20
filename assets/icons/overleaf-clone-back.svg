@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Step 3 -- Clone Overleaf back into the repo</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Overleaf is a remote alongside origin. One history, two collaborators.</text>
+
+  <!-- LEFT: terminal -->
+  <g>
+    <rect x="60" y="68" width="420" height="220" rx="6" fill="#0F172A" stroke="#1E293B" stroke-width="1.4"/>
+    <rect x="60" y="68" width="420" height="22" rx="6" fill="#1E293B"/>
+    <circle cx="74" cy="79" r="3.5" fill="#EF4444"/>
+    <circle cx="86" cy="79" r="3.5" fill="#F59E0B"/>
+    <circle cx="98" cy="79" r="3.5" fill="#22C55E"/>
+    <text x="270" y="83" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">~/research-paper  (manuscript/ branch)</text>
+
+    <text x="74" y="112" font-family="monospace" font-size="10.5" fill="#94A3B8">$</text>
+    <text x="86" y="112" font-family="monospace" font-size="10.5" fill="#22C55E">git remote add overleaf \</text>
+    <text x="86" y="126" font-family="monospace" font-size="10.5" fill="#22C55E">  https://git.overleaf.com/65f0...d4ad</text>
+
+    <text x="74" y="150" font-family="monospace" font-size="10.5" fill="#94A3B8">$</text>
+    <text x="86" y="150" font-family="monospace" font-size="10.5" fill="#22C55E">git fetch overleaf</text>
+    <text x="86" y="164" font-family="monospace" font-size="10" fill="#CBD5E1">From https://git.overleaf.com/65f0...d4ad</text>
+    <text x="86" y="178" font-family="monospace" font-size="10" fill="#CBD5E1"> * [new branch]   master  -&gt; overleaf/master</text>
+
+    <text x="74" y="202" font-family="monospace" font-size="10.5" fill="#94A3B8">$</text>
+    <text x="86" y="202" font-family="monospace" font-size="10.5" fill="#22C55E">git checkout -b overleaf-merge \</text>
+    <text x="86" y="216" font-family="monospace" font-size="10.5" fill="#22C55E">  overleaf/master</text>
+
+    <text x="74" y="240" font-family="monospace" font-size="10.5" fill="#94A3B8">$</text>
+    <text x="86" y="240" font-family="monospace" font-size="10.5" fill="#22C55E">git merge manuscript</text>
+    <text x="86" y="254" font-family="monospace" font-size="10" fill="#CBD5E1">Auto-merging intro.tex</text>
+    <text x="86" y="268" font-family="monospace" font-size="10" fill="#FBBF24">CONFLICT (content): in intro.tex</text>
+    <text x="86" y="280" font-family="monospace" font-size="9.5" fill="#94A3B8">resolve as usual, then commit.</text>
+  </g>
+
+  <!-- RIGHT: branch graph -->
+  <g>
+    <rect x="500" y="68" width="400" height="220" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4"/>
+    <rect x="500" y="68" width="400" height="22" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.4"/>
+    <text x="700" y="84" font-family="sans-serif" font-size="11" fill="#0F766E" font-weight="bold" text-anchor="middle">Branch graph after the round-trip</text>
+
+    <!-- main branch (bottom) -->
+    <line x1="530" y1="246" x2="870" y2="246" stroke="#94A3B8" stroke-width="1.4"/>
+    <text x="538" y="262" font-family="monospace" font-size="9.5" fill="#475569">main</text>
+    <circle cx="540" cy="246" r="3.5" fill="#94A3B8"/>
+    <circle cx="600" cy="246" r="3.5" fill="#94A3B8"/>
+    <circle cx="870" cy="246" r="5" fill="#475569"/>
+    <text x="868" y="270" font-family="monospace" font-size="9" fill="#475569" text-anchor="end">submission</text>
+
+    <!-- manuscript branch -->
+    <path d="M600 246 L630 200 L850 200 L870 246" fill="none" stroke="#2563EB" stroke-width="1.6"/>
+    <circle cx="640" cy="200" r="3.5" fill="#2563EB"/>
+    <circle cx="700" cy="200" r="3.5" fill="#2563EB"/>
+    <circle cx="780" cy="200" r="3.5" fill="#2563EB"/>
+    <text x="538" y="204" font-family="monospace" font-size="9.5" fill="#1E40AF">manuscript/</text>
+    <text x="700" y="190" font-family="monospace" font-size="8.5" fill="#1E40AF" text-anchor="middle">agent loop PRs</text>
+
+    <!-- overleaf-merge branch -->
+    <path d="M700 200 L730 150 L820 150 L850 200" fill="none" stroke="#0D9488" stroke-width="1.6" stroke-dasharray="4,3"/>
+    <circle cx="740" cy="150" r="3.5" fill="#0D9488"/>
+    <circle cx="800" cy="150" r="3.5" fill="#0D9488"/>
+    <text x="700" y="140" font-family="monospace" font-size="9" fill="#0F766E" text-anchor="middle">overleaf-merge</text>
+    <text x="800" y="140" font-family="monospace" font-size="8.5" fill="#0F766E" text-anchor="middle">co-author edits</text>
+
+    <!-- annotations -->
+    <rect x="530" y="100" width="340" height="36" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="0.8"/>
+    <text x="540" y="116" font-family="sans-serif" font-size="10" fill="#0F766E"><tspan font-weight="bold">overleaf/master</tspan>  = the Overleaf project's git URL</text>
+    <text x="540" y="130" font-family="sans-serif" font-size="10" fill="#0F766E">merges into manuscript/ before the next agent-loop pass</text>
+  </g>
+
+  <!-- bottom callout -->
+  <rect x="60" y="306" width="840" height="38" rx="6" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+  <text x="480" y="322" font-family="sans-serif" font-size="11" fill="#78350F" font-weight="bold" text-anchor="middle">Critical caveat (next slide): Overleaf inline comments do NOT travel through git.</text>
+  <text x="480" y="336" font-family="sans-serif" font-size="10" fill="#78350F" text-anchor="middle" font-style="italic">Transcribe every open comment before closing the round.</text>
+</svg>

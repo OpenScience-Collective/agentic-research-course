@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960" height="340">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">IMRAD = Specific Aims expanded</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">A manuscript Introduction is structurally the Week-6 Aims page expanded</text>
+
+  <!-- LEFT: Specific Aims page (Amber) -->
+  <rect x="60" y="80" width="280" height="220" rx="4" fill="#FFFFFF" stroke="#B45309" stroke-width="1.4"/>
+  <rect x="60" y="80" width="280" height="22" rx="4" fill="#FEF3C7" stroke="#B45309" stroke-width="1.4"/>
+  <text x="200" y="96" font-family="sans-serif" font-size="11.5" fill="#78350F" font-weight="bold" text-anchor="middle">Specific Aims (R-mechanism)</text>
+
+  <text x="74" y="120" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Opening</text>
+  <text x="74" y="132" font-family="sans-serif" font-size="9.5" fill="#1E293B">Hook + critical gap with stats</text>
+
+  <text x="74" y="150" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Overarching goal</text>
+  <rect x="74" y="155" width="252" height="14" rx="1.5" fill="#FEF3C7" stroke="#B45309" stroke-width="0.6"/>
+  <text x="80" y="166" font-family="sans-serif" font-size="9.5" fill="#1E293B" font-style="italic">One bold sentence -- the project's objective</text>
+
+  <text x="74" y="186" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Aim 1</text>
+  <text x="74" y="198" font-family="sans-serif" font-size="9.5" fill="#1E293B">Hypothesis + "We will..." methods</text>
+
+  <text x="74" y="216" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Aim 2</text>
+  <text x="74" y="228" font-family="sans-serif" font-size="9.5" fill="#1E293B">Parallel, independent of Aim 1</text>
+
+  <text x="74" y="246" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Aim 3 (optional)</text>
+  <text x="74" y="258" font-family="sans-serif" font-size="9.5" fill="#1E293B">Only if scope requires</text>
+
+  <text x="74" y="276" font-family="sans-serif" font-size="10" fill="#78350F" font-weight="bold">Expected Impact</text>
+  <text x="74" y="288" font-family="sans-serif" font-size="9.5" fill="#1E293B">Numbered deliverables</text>
+
+  <text x="200" y="316" font-family="monospace" font-size="10.5" fill="#78350F" text-anchor="middle" font-weight="bold">1 page  -- ~650 words</text>
+
+  <!-- Center arrow + "expands into" label -->
+  <path d="M350 200 L470 200" fill="none" stroke="#2563EB" stroke-width="2.4"/>
+  <polygon points="470,200 460,194 460,206" fill="#2563EB"/>
+  <text x="410" y="192" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">expands into</text>
+  <text x="410" y="216" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="middle">IMRAD body</text>
+
+  <!-- RIGHT: IMRAD body stack (Blue) -->
+  <g>
+    <rect x="490" y="80" width="410" height="42" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="504" y="96" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Introduction</text>
+    <text x="504" y="111" font-family="sans-serif" font-size="9.5" fill="#1E293B">funnel: broad context -&gt; narrow focus -&gt; gap -&gt; objective</text>
+    <text x="890" y="111" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="end">= Opening + Goal</text>
+  </g>
+  <g>
+    <rect x="490" y="128" width="410" height="42" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="504" y="144" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Methods</text>
+    <text x="504" y="159" font-family="sans-serif" font-size="9.5" fill="#1E293B">cohort, paradigm, N, software, BIDS / HED, analyses</text>
+    <text x="890" y="159" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="end">= Approach.methods</text>
+  </g>
+  <g>
+    <rect x="490" y="176" width="410" height="42" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="504" y="192" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Results</text>
+    <text x="504" y="207" font-family="sans-serif" font-size="9.5" fill="#1E293B">claims with statistics; one figure per claim; no interpretation</text>
+    <text x="890" y="207" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="end">= Aim 1 / Aim 2 / ...</text>
+  </g>
+  <g>
+    <rect x="490" y="224" width="410" height="42" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+    <text x="504" y="240" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">Discussion</text>
+    <text x="504" y="255" font-family="sans-serif" font-size="9.5" fill="#1E293B">interpret, bound, link back to the field, limitations</text>
+    <text x="890" y="255" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="end">= Expected Impact</text>
+  </g>
+
+  <text x="695" y="294" font-family="monospace" font-size="10.5" fill="#1E40AF" text-anchor="middle" font-weight="bold">~6-12 pages  -- ~5000+ words</text>
+  <text x="480" y="328" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">Cite-the-card transfers verbatim: every claim points to a paper-card by relative path.</text>
+</svg>

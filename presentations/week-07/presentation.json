@@ -1,0 +1,731 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 7: Manuscript Preparation and Peer Review -- GitHub-native authoring, the Overleaf round-trip, and the comment-merge manual pass",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 7: Manuscript Preparation and Peer Review",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/5dWJCUmUww](https://discord.gg/5dWJCUmUww) | Recording: published to YouTube within 48 h",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: grant proposals as a managed pipeline; Specific Aims as a 1-page lit review with deliverables\n\n- Today: a full IMRAD manuscript, GitHub-native end-to-end until co-authors take the wheel, then the Overleaf round-trip\n\n- The unique-to-this-week beat: the comment-merge manual pass. Overleaf inline comments do not travel through git\n\n- Format: ~30 min presentation, ~5 min live demo, 15 min Q&A"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 1 -- Git and GitHub.** The safety net.",
+                "animation": {"fragment": true, "type": "fade", "index": 0}
+              },
+              {
+                "text": "**Week 2 -- Claude Code.** The agent.",
+                "animation": {"fragment": true, "type": "fade", "index": 1}
+              },
+              {
+                "text": "**Week 3 -- Project management.** Epic, sub-issues, worktrees, plan mode, `/review-pr`.",
+                "animation": {"fragment": true, "type": "fade", "index": 2}
+              },
+              {
+                "text": "**Week 4 -- CI/CD.** Automated checks outside the repo.",
+                "animation": {"fragment": true, "type": "fade", "index": 3}
+              },
+              {
+                "text": "**Week 5 -- Literature review pipeline.** Today's lit-review stage is this verbatim.",
+                "animation": {"fragment": true, "type": "fade", "index": 4}
+              },
+              {
+                "text": "**Week 6 -- Grant pipeline.** Today's IMRAD structure is the Aims and Strategy expanded.",
+                "animation": {"fragment": true, "type": "fade", "index": 5}
+              },
+              {
+                "text": "**Today.** A full manuscript, GitHub-native, until co-authors take the wheel.",
+                "animation": {"fragment": true, "type": "slide-up", "index": 6}
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "content"}
+          }
+        ],
+        "speakerNotes": "[Press right 7x to reveal fragments]\n\n- Recap of the 6 weeks before this one. Each bullet is one beat\n\n- The last bullet plants the unique-to-this-week beat: the agent loop ends when co-authors take the wheel; the human loop begins\n\n- Land the line: 'GitHub-native until co-authors take the wheel'"
+      },
+      {
+        "id": "two-loops",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Two Loops, Two Tools",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/two-loops.svg",
+            "alt": "Side-by-side comparison of a GitHub pull-request mock with diff and CI checks (agent loop) and an Overleaf editor mock with inline comment threads (human loop)",
+            "width": "92%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**The agent loop wants pull requests. The human loop wants comments.** Picking the wrong tool for the wrong loop is the Week 7 failure mode.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- This is the framing slide. Land the distinction\n\n- Agent loop: PRs, diffs, CI, /manuscript:* skills, GitHub-native\n\n- Human loop: comments, tracked changes, real-time multi-author edits, Overleaf\n\n- Each loop has its own tool because the WORK is different. Trying to do co-author review through PR comments fails; trying to manage agent iteration through Overleaf fails"
+      },
+      {
+        "id": "loops-meet",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where the Loops Meet",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/loops-meet.svg",
+            "alt": "Both the agent loop and the human loop connect to a shared git repository at the center. Agent loop side notes that the repo holds canonical history. Human loop side carries a caveat that Overleaf comments do not travel through git.",
+            "width": "90%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Both loops live in the same source-of-truth repo. The boundary is between Stages 4 and 5 of the pipeline. The Overleaf round-trip keeps Overleaf in sync without abandoning version history.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The repo is canonical; Overleaf is a peripheral\n\n- The boundary lives between Stages 4 (self-review) and 5 (format and submit)\n\n- The amber caveat box on the right previews the comment-merge slide that comes near the end"
+      },
+      {
+        "id": "imrad-as-aims",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Reframe -- IMRAD = Specific Aims Expanded",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/imrad-as-aims.svg",
+            "alt": "A 1-page Specific Aims layout on the left fans out into IMRAD blocks (Introduction, Methods, Results, Discussion) on the right, with annotations showing how each Aims block maps to an IMRAD section",
+            "width": "92%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Introduction = Opening + Overarching goal. Methods + Results = Approach. Discussion = Expected Impact** -- once you have the results to claim it. Cite-the-card transfers verbatim.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The whole talk hinges on this slide\n\n- Today's work is not a new shape; it is Week 6's Aims expanded\n\n- The 'overarching goal' sentence from Week 6 lives, verbatim, in the manuscript Introduction\n\n- A reader who paid attention in Week 6 has already done 70% of the manuscript Introduction"
+      },
+      {
+        "id": "pipeline-hero",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The 5-Stage Manuscript Pipeline",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/manuscript-pipeline.svg",
+            "alt": "Five-stage horizontal pipeline (Lit review, Draft, Figures, Self-review, Format and submit) with a boomerang arrow looping from Self-review back to Stages 1-3 and a vertical divider between Stages 4 and 5 labelled agent loop and human loop",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Order enforced. Drafting before the lit review produces unsupported claims. Self-review is a gate, not polish. **Stages 1-4 are agent loop. Stage 5 invites the human loop in.**",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The hero diagram. Read each stage aloud\n\n- Lit review -> Draft -> Figures -> Self-review -> Format and submit\n\n- Boomerang from Self-review back to Stages 1, 2, or 3 depending on severity\n\n- The dashed teal divider is the unique-to-this-week beat: the human loop begins at Stage 5"
+      },
+      {
+        "id": "stage-1-lit-review",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 1 -- Lit Review (Inherits Week 5)",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/stage-1-lit-review.svg",
+            "alt": "Week-5 corpus folder with paper-cards organised by perspective (psychophysics, action, language, emotion) flows into a structure-picker showing five review-type options. Narrative review is highlighted as the live-demo choice.",
+            "width": "92%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "`/manuscript:manuscript-formatting` picks the structure. **Live demo uses narrative review** -- the natural next step after Week 5's mini-review on the same corpus.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The Week-5 corpus IS the input. No new collection step today\n\n- The structure-picker is the new artefact: pick narrative review for this demo\n\n- For trainees writing methods papers or empirical papers, the same picker offers IMRAD background"
+      },
+      {
+        "id": "imrad-conventions",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 2 -- IMRAD Section Conventions",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/imrad-conventions.svg",
+            "alt": "Four-row table showing Section, Tense, Length, and Anti-pattern columns for Title, Introduction, Methods, Results, and Discussion. Methods and Results rows are highlighted as past-tense, statistics-led.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "The skill enforces the conventions. The hardest one to internalise: **no interpretation in Results.** That belongs in the Discussion, paragraph 1.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Conventions are not arbitrary; they make reviewers' jobs faster\n\n- Methods in past tense. Results in past tense, no interpretation. Discussion mixes present and past\n\n- The skill catches the most common failure mode (interpretation in Results) and flags it before the PR opens"
+      },
+      {
+        "id": "section-as-subissue",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Section-as-Sub-Issue -- The Week 3 Pattern for Prose",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/section-as-subissue.svg",
+            "alt": "Epic issue at top branches into four sub-issues (intro, methods, results, discussion). Each sub-issue has its own worktree and PR. PRs converge into a long-lived manuscript/ branch.",
+            "width": "92%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "One sub-issue per IMRAD section. One worktree per sub-issue. **`manuscript/` merges to `main` only at submission.** Parallel authoring without merge-conflict roulette.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Same shape as Week 3 code. Trainees who learned the pattern there will recognise it instantly\n\n- The four section worktrees mean four people (or four passes by one person) can work concurrently\n\n- `manuscript/` is the long-lived branch; `main` only sees the submitted version. Easy to audit"
+      },
+      {
+        "id": "manuscript-writing-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /manuscript:manuscript-writing -- Cite-the-Card in the Diff",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/manuscript-writing-skill.svg",
+            "alt": "Terminal mock on the left showing the skill drafting four paragraphs and writing intro.tex; diff hunk on the right showing added lines with cite-the-card relative links highlighted (../lit-review/psychophysics/hasson-2004/card.md) and a summary of the humanizer pass.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "`/manuscript:humanizer` runs on every section before the PR opens -- strips em-dashes, rule-of-three, AI-tell vocabulary, ensures abbreviations defined on first use.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The skill is workflow, not one-shot\n\n- Every claim points to a paper-card. No card, no claim\n\n- The humanizer pass at the end is non-optional; it strips the AI tells that survive the writing pass"
+      },
+      {
+        "id": "figures-skills",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 3 -- Figures Live in the Repo",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-skills.svg",
+            "alt": "Three skill cards in a row: /figures:scientific-figure for multi-panel composition, /figures:svg-figure for vector schematics with aligned text and arrows, and /figures:plot-styling for journal-specific palette and typography",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**Figure source lives next to the manuscript.** When the journal asks for the source, you have it. When a reviewer challenges a panel, the script that built it is one click away.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Three skills, one discipline\n\n- The discipline is: figure source lives next to the manuscript. Not on someone's laptop, not in a Dropbox\n\n- Week 8 is figure design proper (composition, palette, panel layout); today is the workflow"
+      },
+      {
+        "id": "figures-tree",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Figures Directory Layout",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-tree.svg",
+            "alt": "Folder tree of manuscript/figures/ with subfolders per panel. source.svg, source.py, caption.tex are tracked in git; figure.pdf is gitignored as a build artefact. Right side shows the LaTeX snippet that includes the rendered figure and the caption file.",
+            "width": "93%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Text cites `figure.pdf`. Caption lives next to the figure source. **Cite-the-figure is cite-the-card for figures.**",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The tracked / gitignored split is the key discipline\n\n- Sources commit. Builds do not (they would bloat the repo and rot under format changes)\n\n- Captions ship next to figures so when the figure moves between manuscripts, the caption moves with it"
+      },
+      {
+        "id": "manuscript-boomerang",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 4 -- /manuscript:paper-review and the Boomerang",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/manuscript-boomerang.svg",
+            "alt": "Mini five-stage pipeline at the bottom with a boomerang arrow from Stage 4 back to Stages 1-3. Right side shows a findings table with Critical, Major, Minor severity chips and the stage each finding routes back to.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Critical -> Stage 1 or 2 (corpus gap or unsupported claim). Major -> Stage 2 or 3 (rewrite or figure source). Minor -> in place. **Convergence in one shot is a red flag.**",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Same skill as Week 5 (paper-review on the lit review). Same severity tagging\n\n- The boomerang is the rigor signal; first-draft convergence means the review is shallow or the draft is hiding something\n\n- Today's live demo will surface a Critical or Major finding and walk through the boomerang routing"
+      },
+      {
+        "id": "stage-5-submit",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Stage 5 -- Format and Submit (Still in the Repo)",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/stage-5-submit.svg",
+            "alt": "LaTeX source tree on the left (main.tex, intro.tex, methods.tex, results.tex, discussion.tex, references.bib, figures/, cover-letter.tex, supplements/) is packaged via /manuscript:manuscript-formatting into a paper-submission.zip on the right. The zip contains the LaTeX and BibTeX and composed figure PDFs; .git, scratch/, and figure sources are excluded by design.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**One artefact, two destinations.** The same zip ships to the journal portal at submission time, or to Overleaf when co-authors take the wheel.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- This is the last slide of the agent-loop section. Everything before lived in the repo\n\n- The zip is a deliberate contract: it includes exactly what the journal asked for, nothing else\n\n- Same zip doubles for Overleaf upload, which is the next slide"
+      },
+      {
+        "id": "overleaf-zip",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Overleaf Round-Trip Step 1 -- Ship a Zip",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/screenshots/archive-zip-tree.png",
+            "alt": "Finder window showing the paper-submission zip file and the expanded contents listing for the LaTeX source, BibTeX, figures, and supplementary materials",
+            "width": "92%",
+            "position": {"area": "left"}
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Co-authors and advisors mostly do not want to learn git. They want Overleaf.",
+                "animation": {"fragment": true, "type": "fade", "index": 0}
+              },
+              {
+                "text": "The Stage-5 submission zip doubles as the initial Overleaf payload.",
+                "animation": {"fragment": true, "type": "fade", "index": 1}
+              },
+              {
+                "text": "Overleaf: **Menu -> New Project -> Upload Project**.",
+                "animation": {"fragment": true, "type": "fade", "index": 2}
+              },
+              {
+                "text": "One artefact you already built. Zero new tooling. No fresh formatting.",
+                "animation": {"fragment": true, "type": "slide-up", "index": 3}
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {"fontSize": "large"},
+            "position": {"area": "right"}
+          }
+        ],
+        "speakerNotes": "- This slide starts the human-loop sequence\n\n- The zip on the left is the same submission zip from the previous slide\n\n- Frame this for the audience: 'Your advisor doesn't have to clone your repo. They open Overleaf, they see your draft. Friction removed'"
+      },
+      {
+        "id": "overleaf-git-tab",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Overleaf Round-Trip Step 2 -- Enable Overleaf Git",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/screenshots/overleaf-git-tab.png",
+            "alt": "Overleaf project Sync menu showing the Git option with the per-project git URL exposed (premium feature)",
+            "width": "95%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Overleaf premium exposes a **per-project git URL** (Menu -> Sync -> Git). The Overleaf project history IS git history. Many institutions provide free Overleaf premium; check yours.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- This is the slide that makes the round-trip possible\n\n- Without the git URL, Overleaf becomes an island and the round-trip degenerates to manual copy-paste\n\n- Check institutional licensing; UC system, MIT, Stanford, and many EU universities have site licenses"
+      },
+      {
+        "id": "overleaf-clone-back",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Overleaf Round-Trip Step 3 -- Clone Back",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/overleaf-clone-back.svg",
+            "alt": "Terminal mock on the left showing git remote add overleaf, git fetch overleaf, and the resulting checkout of overleaf-merge branch. Branch graph on the right shows main, manuscript/, and overleaf-merge converging at the submission commit.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Overleaf is a **remote alongside `origin`**. The overleaf-merge branch lives next to `manuscript/` and merges in via a PR. Resolve conflicts the usual way.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The three-command incantation. Memorise it for the demo\n\n- `git remote add overleaf <url>` then `git fetch overleaf` then `git checkout -b overleaf-merge overleaf/master`\n\n- The overleaf-merge branch sits in the same repo. Reviews, conflict resolution, and merge happen exactly like any other PR"
+      },
+      {
+        "id": "overleaf-comments-merge",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Overleaf Round-Trip Step 4 -- The Comment-Merge Manual Pass",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/screenshots/overleaf-comments-ui.png",
+            "alt": "Overleaf editor screenshot with inline review comments visible in the right panel; the comments highlight specific text in the LaTeX and have reply and resolve actions",
+            "width": "100%",
+            "position": {"area": "left"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/comment-merge-flow.svg",
+            "alt": "Diagram showing Overleaf comment threads on the left being transcribed via a manual-pass arrow into the repo on the right as either a PR comment (for a one-line fix) or a GitHub issue (for non-trivial work)",
+            "width": "100%",
+            "position": {"area": "right"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "**Overleaf comments do NOT travel through git.** Transcribe every open comment to a GitHub issue or PR comment, then mark Resolved in Overleaf. New defence -- introduced this week.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- This is the moral of the session. Land it hard\n\n- The screenshot on the left shows what Overleaf comments look like to the co-author\n\n- The diagram on the right shows what the manual pass looks like\n\n- The amber callout below is the new-this-week defence. Anyone who skips it loses every round of co-author input"
+      },
+      {
+        "id": "response-letter",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Response to Reviewers -- Point by Point",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/response-letter.svg",
+            "alt": "Two-column response letter. Left column: extracted reviewer comments with page and line citations. Right column: point-by-point responses with Response and Change paragraphs and a relative path to the section that changed. Vertical change bars run alongside the response column.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Same shape as Week 6's A1 Introduction. Tone rule: **respond, do not rebut.** Rebut only the genuinely wrong critiques.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Light coverage this week (~1 minute)\n\n- The shape: Response then Change then a relative path. Every change traceable\n\n- Vertical change bars in the LaTeX source mean the reviewer can see at a glance what moved\n\n- Tone: respond, do not rebut. Reviewers see defensive rebuttals more critically than corrected manuscripts"
+      },
+      {
+        "id": "three-defences",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Three Defences -- One per Stage Pair",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/three-defences-manuscript.svg",
+            "alt": "Three labelled shields. Shield 1 (Cite-the-card and Cite-the-figure) covers Stages 1-3 and is carried from Week 5. Shield 2 (Review boomerang) covers Stage 4 and is carried from Week 6. Shield 3 (Comment-merge pass) covers the Overleaf round-trip and is new this week, marked with a NEW badge.",
+            "width": "82%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Stack-redundant by design. **None alone is sufficient.** The Overleaf round closes only after the comments land in the repo.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- The moral of the session.  Three defences, deliberately redundant\n\n- Two carried in from previous weeks (cite-the-card, boomerang). One new (comment-merge pass)\n\n- Land the punchline: 'The Overleaf round closes only after the comments land in the repo'"
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo Roadmap",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/demo-roadmap.svg",
+            "alt": "Three live-action steps in a row with timing badges: draft intro paragraph (1:30, manuscript-writing), review the paragraph (2:30, paper-review with likely natural finding of uneven perspective coverage), and Overleaf hand-off (1:00, described with screenshots not run live). An off-stage tail shows boomerang follow-on and comment transcription described aloud.",
+            "width": "94%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "**We do not manufacture a finding.** Whatever the review surfaces, we walk through. The Overleaf round-trip is described with screenshots, not run live -- the moral is the comment-merge slide, not a demo.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Three live actions, ~5 minutes total\n\n- Step 1 (1:30): /manuscript:manuscript-writing drafts the synthesis paragraph for the four perspectives\n\n- Step 2 (2:30): /manuscript:paper-review on that paragraph; we walk through whatever surfaces\n\n- Step 3 (1:00): describe the Overleaf hand-off with screenshots. We do not run the round-trip live\n\n- If the review surfaces a Critical finding (likely natural one: uneven perspective coverage), describe the boomerang aloud"
+      },
+      {
+        "id": "what-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "A **GitHub-native manuscript pipeline** that handles the agent loop end-to-end.",
+                "animation": {"fragment": true, "type": "fade", "index": 0}
+              },
+              {
+                "text": "An **Overleaf round-trip** that brings co-author edits back without abandoning version history.",
+                "animation": {"fragment": true, "type": "fade", "index": 1}
+              },
+              {
+                "text": "A **comment-merge pass** that keeps every round of co-author feedback in the repo.",
+                "animation": {"fragment": true, "type": "fade", "index": 2}
+              },
+              {
+                "text": "**Today.** Defensible cite-the-card prose, figures whose source you actually have, and a submission zip ready for the journal portal.",
+                "animation": {"fragment": true, "type": "slide-up", "index": 3}
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {"fontSize": "large"},
+            "position": {"area": "left"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Next week -- scientific figure design proper.** Composition, palette, panel layout, narrative -- the things this week's Stage 3 used but did not teach.\n\n**Questions? Ask while the demo writes.**",
+            "animation": {"fragment": true, "type": "slide-up", "index": 4},
+            "position": {"area": "right"}
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Land the takeaways one at a time\n\n- Today: GitHub-native pipeline, Overleaf round-trip, comment-merge pass\n\n- Next week: figure design proper. Composition, palette, panel layout\n\n- Land the closing line: 'Questions? Ask while the demo writes'"
+      }
+    ]
+  }
+}

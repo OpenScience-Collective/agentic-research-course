@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960" height="340">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">figures/ directory layout</text>
+  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">Sources tracked; renders gitignored. Text cites figure.pdf; caption cites the source script.</text>
+
+  <!-- Tree panel -->
+  <rect x="60" y="64" width="500" height="244" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/>
+  <rect x="60" y="64" width="500" height="24" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.4"/>
+  <text x="310" y="80" font-family="monospace" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">manuscript/figures/</text>
+
+  <!-- Tree contents -->
+  <text x="78" y="110" font-family="monospace" font-size="11" fill="#1E293B">+ figures/</text>
+
+  <text x="92" y="128" font-family="monospace" font-size="11" fill="#1E293B">+ science-map/</text>
+  <text x="120" y="146" font-family="monospace" font-size="10.5" fill="#16A34A">source.svg</text>
+  <text x="120" y="162" font-family="monospace" font-size="10.5" fill="#16A34A">caption.tex</text>
+  <text x="120" y="178" font-family="monospace" font-size="10.5" fill="#94A3B8">figure.pdf</text>
+
+  <text x="92" y="200" font-family="monospace" font-size="11" fill="#1E293B">+ perspective-method-matrix/</text>
+  <text x="120" y="218" font-family="monospace" font-size="10.5" fill="#16A34A">source.py</text>
+  <text x="120" y="234" font-family="monospace" font-size="10.5" fill="#16A34A">data.csv</text>
+  <text x="120" y="250" font-family="monospace" font-size="10.5" fill="#16A34A">caption.tex</text>
+  <text x="120" y="266" font-family="monospace" font-size="10.5" fill="#94A3B8">figure.pdf</text>
+
+  <text x="92" y="288" font-family="monospace" font-size="10" fill="#94A3B8">+ ... (each panel in its own folder)</text>
+
+  <!-- legend -->
+  <rect x="420" y="106" width="124" height="20" rx="3" fill="#DCFCE7" stroke="#16A34A" stroke-width="0.8"/>
+  <text x="482" y="120" font-family="sans-serif" font-size="10" fill="#166534" font-weight="bold" text-anchor="middle">tracked in git</text>
+
+  <rect x="420" y="132" width="124" height="20" rx="3" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="482" y="146" font-family="sans-serif" font-size="10" fill="#475569" font-weight="bold" text-anchor="middle">gitignored render</text>
+
+  <!-- RIGHT: snippet from main.tex showing how it cites the figure -->
+  <rect x="580" y="64" width="320" height="244" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+  <rect x="580" y="64" width="320" height="24" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+  <text x="740" y="80" font-family="monospace" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">manuscript/main.tex  (snippet)</text>
+
+  <text x="594" y="108" font-family="monospace" font-size="10" fill="#1E293B">\begin{figure}[t]</text>
+  <text x="594" y="124" font-family="monospace" font-size="10" fill="#1E293B">  \centering</text>
+  <text x="594" y="140" font-family="monospace" font-size="10" fill="#1E293B">  \includegraphics[width=\linewidth]{</text>
+  <text x="608" y="156" font-family="monospace" font-size="10" fill="#7C3AED">    figures/science-map/figure.pdf</text>
+  <text x="594" y="172" font-family="monospace" font-size="10" fill="#1E293B">  }</text>
+  <text x="594" y="188" font-family="monospace" font-size="10" fill="#1E293B">  \input{</text>
+  <text x="608" y="204" font-family="monospace" font-size="10" fill="#7C3AED">    figures/science-map/caption.tex</text>
+  <text x="594" y="220" font-family="monospace" font-size="10" fill="#1E293B">  }</text>
+  <text x="594" y="236" font-family="monospace" font-size="10" fill="#1E293B">  \label{fig:science-map}</text>
+  <text x="594" y="252" font-family="monospace" font-size="10" fill="#1E293B">\end{figure}</text>
+
+  <rect x="594" y="266" width="292" height="34" rx="4" fill="#F8FAFC" stroke="#94A3B8" stroke-width="0.8"/>
+  <text x="740" y="280" font-family="sans-serif" font-size="10" fill="#1E293B" text-anchor="middle">PDF built on demand from source.</text>
+  <text x="740" y="294" font-family="sans-serif" font-size="10" fill="#1E293B" text-anchor="middle">Caption text lives next to the figure source.</text>
+
+  <text x="480" y="326" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">When the journal asks for the source, you have it. Cite-the-figure is cite-the-card for figures.</text>
+</svg>
