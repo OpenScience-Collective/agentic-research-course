@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Step 1 -- allocate the page budget before drafting</text>
+  <text x="480" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">staying within page limits is a hard constraint; over-running one section steals from another</text>
+
+  <!-- R01 row: 12 pages strategy -->
+  <text x="40" y="92" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">R01</text>
+  <text x="40" y="110" font-family="monospace" font-size="11" fill="#64748B">12p strategy</text>
+  <g>
+    <!-- significance ~2p -->
+    <rect x="220" y="84" width="120" height="30" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="280" y="103" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">Significance ~2p</text>
+    <!-- innovation ~1.5p -->
+    <rect x="344" y="84" width="90" height="30" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="389" y="103" font-family="sans-serif" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">Innov ~1.5p</text>
+    <!-- approach ~8.5p -->
+    <rect x="438" y="84" width="470" height="30" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+    <text x="673" y="103" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle">Approach ~8.5p  (prelim data ~2p, aims ~5p, rigor ~1p, timeline ~0.5p)</text>
+  </g>
+
+  <!-- R21 row: 6 pages -->
+  <text x="40" y="160" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">R21</text>
+  <text x="40" y="178" font-family="monospace" font-size="11" fill="#64748B">6p strategy</text>
+  <g>
+    <rect x="220" y="152" width="60" height="30" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="250" y="171" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">Sig ~1p</text>
+    <rect x="284" y="152" width="50" height="30" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="309" y="171" font-family="sans-serif" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">Inn ~0.75</text>
+    <rect x="338" y="152" width="260" height="30" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+    <text x="468" y="171" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle">Approach ~4.25p</text>
+  </g>
+
+  <!-- F31 row: 6 pages + extras -->
+  <text x="40" y="228" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">F31 / F32</text>
+  <text x="40" y="246" font-family="monospace" font-size="11" fill="#64748B">6p strategy</text>
+  <g>
+    <rect x="220" y="220" width="50" height="30" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="245" y="239" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">Sig ~1p</text>
+    <rect x="274" y="220" width="50" height="30" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="299" y="239" font-family="sans-serif" font-size="11" fill="#5B21B6" font-weight="bold" text-anchor="middle">Inn ~0.75</text>
+    <rect x="328" y="220" width="200" height="30" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+    <text x="428" y="239" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle">Approach ~4.25p</text>
+    <rect x="532" y="220" width="170" height="30" rx="4" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+    <text x="617" y="239" font-family="sans-serif" font-size="11" fill="#7C2D12" font-weight="bold" text-anchor="middle">Applicant background</text>
+    <rect x="706" y="220" width="190" height="30" rx="4" fill="#FFE4E6" stroke="#BE123C" stroke-width="1.2"/>
+    <text x="801" y="239" font-family="sans-serif" font-size="11" fill="#9F1239" font-weight="bold" text-anchor="middle">Sponsor + training plan</text>
+  </g>
+
+  <!-- Caption -->
+  <g>
+    <rect x="40" y="274" width="880" height="32" rx="4" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+    <text x="56" y="295" font-family="sans-serif" font-size="12" fill="#7C2D12">
+      <tspan font-weight="bold">Trim content, never spacing.</tspan>
+      <tspan> Reviewers know 9pt body and 0.4in margins on sight; sponsor-program officers reject without reading.</tspan>
+    </text>
+  </g>
+</svg>

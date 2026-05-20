@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 350" width="960" height="350">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Three defences for grants -- one per stage, stack-redundant</text>
+
+  <!-- Shield 1: NOFO contract -->
+  <g>
+    <path d="M150 80 L150 240 C 150 280, 210 310, 240 320 C 270 310, 330 280, 330 240 L 330 80 Z" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+    <text x="240" y="116" font-family="sans-serif" font-size="14" fill="#1E40AF" font-weight="bold" text-anchor="middle">NOFO contract</text>
+    <text x="240" y="136" font-family="monospace" font-size="11" fill="#1E40AF" text-anchor="middle">Step 0</text>
+    <line x1="180" y1="148" x2="300" y2="148" stroke="#2563EB" stroke-width="1"/>
+    <text x="240" y="174" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">Every aim, method,</text>
+    <text x="240" y="192" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">and budget line points</text>
+    <text x="240" y="210" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">back to a NOFO clause.</text>
+    <text x="240" y="252" font-family="sans-serif" font-size="11.5" fill="#1E40AF" font-style="italic" text-anchor="middle">guards: scope drift</text>
+  </g>
+
+  <!-- Shield 2: Cite-the-card (inherited from Week 5) -->
+  <g>
+    <path d="M390 80 L390 240 C 390 280, 450 310, 480 320 C 510 310, 570 280, 570 240 L 570 80 Z" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+    <text x="480" y="116" font-family="sans-serif" font-size="14" fill="#7C2D12" font-weight="bold" text-anchor="middle">Cite-the-card</text>
+    <text x="480" y="136" font-family="monospace" font-size="11" fill="#7C2D12" text-anchor="middle">Strategy / Aims</text>
+    <line x1="420" y1="148" x2="540" y2="148" stroke="#B45309" stroke-width="1"/>
+    <text x="480" y="174" font-family="sans-serif" font-size="11.5" fill="#7C2D12" text-anchor="middle">Every Significance and</text>
+    <text x="480" y="192" font-family="sans-serif" font-size="11.5" fill="#7C2D12" text-anchor="middle">Innovation claim links</text>
+    <text x="480" y="210" font-family="sans-serif" font-size="11.5" fill="#7C2D12" text-anchor="middle">to a Week-5 paper-card.</text>
+    <text x="480" y="252" font-family="sans-serif" font-size="11.5" fill="#7C2D12" font-style="italic" text-anchor="middle">guards: hallucinated cites</text>
+  </g>
+
+  <!-- Shield 3: Review boomerang -->
+  <g>
+    <path d="M630 80 L630 240 C 630 280, 690 310, 720 320 C 750 310, 810 280, 810 240 L 810 80 Z" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="720" y="116" font-family="sans-serif" font-size="14" fill="#991B1B" font-weight="bold" text-anchor="middle">Review boomerang</text>
+    <text x="720" y="136" font-family="monospace" font-size="11" fill="#991B1B" text-anchor="middle">grant-review</text>
+    <line x1="660" y1="148" x2="780" y2="148" stroke="#DC2626" stroke-width="1"/>
+    <text x="720" y="174" font-family="sans-serif" font-size="11.5" fill="#991B1B" text-anchor="middle">Critical findings cycle</text>
+    <text x="720" y="192" font-family="sans-serif" font-size="11.5" fill="#991B1B" text-anchor="middle">back to Aims or Strategy,</text>
+    <text x="720" y="210" font-family="sans-serif" font-size="11.5" fill="#991B1B" text-anchor="middle">not just to prose edits.</text>
+    <text x="720" y="252" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-style="italic" text-anchor="middle">guards: one-shot convergence</text>
+  </g>
+
+  <text x="480" y="338" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">A grant that "passes" on the first self-review either has nothing to say or is hiding what it found.</text>
+</svg>

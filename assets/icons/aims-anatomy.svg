@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Anatomy of a Specific Aims page (~650 words, 1 page)</text>
+
+  <!-- Page frame -->
+  <g>
+    <rect x="240" y="60" width="480" height="450" rx="6" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.4"/>
+    <!-- 0.5in margin marker -->
+    <rect x="252" y="72" width="456" height="426" fill="none" stroke="#CBD5E1" stroke-width="0.8" stroke-dasharray="3,3"/>
+  </g>
+
+  <!-- Section blocks -->
+  <!-- 1 Opening -->
+  <g>
+    <rect x="252" y="80" width="456" height="58" rx="3" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="266" y="100" font-family="sans-serif" font-size="12" fill="#1E40AF" font-weight="bold">1. Opening (2-3 sentences)</text>
+    <g fill="#1E40AF" font-size="10">
+      <rect x="266" y="108" width="380" height="3" rx="1"/>
+      <rect x="266" y="116" width="350" height="3" rx="1"/>
+      <rect x="266" y="124" width="370" height="3" rx="1"/>
+    </g>
+  </g>
+
+  <!-- 2 Overarching goal -->
+  <g>
+    <rect x="252" y="144" width="456" height="62" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+    <text x="266" y="164" font-family="sans-serif" font-size="12" fill="#7C2D12" font-weight="bold">2. Overarching goal (bold, 1 sentence) + scope</text>
+    <rect x="266" y="172" width="420" height="6" rx="2" fill="#B45309"/>
+    <g fill="#7C2D12" font-size="10">
+      <rect x="266" y="184" width="380" height="3" rx="1"/>
+      <rect x="266" y="192" width="360" height="3" rx="1"/>
+    </g>
+  </g>
+
+  <!-- 3 Aim 1 -->
+  <g>
+    <rect x="252" y="212" width="456" height="74" rx="3" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="266" y="232" font-family="sans-serif" font-size="12" fill="#5B21B6" font-weight="bold">3. Aim 1 (bold title, action verb)</text>
+    <text x="266" y="248" font-family="sans-serif" font-size="11" fill="#5B21B6" font-style="italic">Hypothesis 1A: <tspan font-weight="normal">testable, one sentence</tspan></text>
+    <text x="266" y="262" font-family="sans-serif" font-size="11" fill="#5B21B6">We will <tspan font-weight="bold">[bold the key methodological innovation]</tspan></text>
+    <text x="266" y="276" font-family="sans-serif" font-size="11" fill="#5B21B6" font-style="italic">Hypothesis 1B: <tspan font-weight="normal">if scope allows</tspan></text>
+  </g>
+
+  <!-- 4 Aim 2 -->
+  <g>
+    <rect x="252" y="292" width="456" height="60" rx="3" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+    <text x="266" y="312" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold">4. Aim 2 (parallel structure; independent of Aim 1)</text>
+    <text x="266" y="328" font-family="sans-serif" font-size="11" fill="#065F46" font-style="italic">Hypothesis 2A: <tspan font-weight="normal">testable prediction</tspan></text>
+    <text x="266" y="342" font-family="sans-serif" font-size="11" fill="#065F46">We will <tspan font-weight="bold">[bold the methodological innovation]</tspan></text>
+  </g>
+
+  <!-- 5 Aim 3 (optional) -->
+  <g>
+    <rect x="252" y="358" width="456" height="46" rx="3" fill="#E0F2FE" stroke="#0891B2" stroke-width="1.2"/>
+    <text x="266" y="378" font-family="sans-serif" font-size="12" fill="#0E7490" font-weight="bold">5. Aim 3 (optional; R21 typically stops at 2)</text>
+    <text x="266" y="394" font-family="sans-serif" font-size="11" fill="#0E7490" font-style="italic">Hypothesis 3A: <tspan font-weight="normal">single-sentence prediction</tspan></text>
+  </g>
+
+  <!-- 6 Expected Impact -->
+  <g>
+    <rect x="252" y="410" width="456" height="74" rx="3" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.2"/>
+    <text x="266" y="430" font-family="sans-serif" font-size="12" fill="#991B1B" font-weight="bold">6. Expected Impact (bold header, numbered deliverables)</text>
+    <text x="266" y="446" font-family="sans-serif" font-size="11" fill="#991B1B">(1) <tspan font-weight="bold">first concrete deliverable</tspan></text>
+    <text x="266" y="460" font-family="sans-serif" font-size="11" fill="#991B1B">(2) second deliverable</text>
+    <text x="266" y="474" font-family="sans-serif" font-size="11" fill="#991B1B">(3) third deliverable, then a closing impact sentence</text>
+  </g>
+
+  <!-- Annotations left -->
+  <g font-family="monospace" font-size="11" fill="#475569" text-anchor="end">
+    <text x="232" y="112">hook + gap</text>
+    <text x="232" y="176">1 bold sentence</text>
+    <text x="232" y="240">testable</text>
+    <text x="232" y="320">independent</text>
+    <text x="232" y="384">only if scope</text>
+    <text x="232" y="446">numbered</text>
+  </g>
+  <g stroke="#475569" stroke-width="0.8" stroke-dasharray="2,3">
+    <line x1="234" y1="109" x2="250" y2="109"/>
+    <line x1="234" y1="173" x2="250" y2="173"/>
+    <line x1="234" y1="237" x2="250" y2="237"/>
+    <line x1="234" y1="317" x2="250" y2="317"/>
+    <line x1="234" y1="381" x2="250" y2="381"/>
+    <line x1="234" y1="443" x2="250" y2="443"/>
+  </g>
+
+  <!-- Annotations right -->
+  <g font-family="monospace" font-size="11" fill="#475569">
+    <text x="730" y="112">~120 words</text>
+    <text x="730" y="176">~60 words</text>
+    <text x="730" y="240">~120 words</text>
+    <text x="730" y="320">~110 words</text>
+    <text x="730" y="384">~70 words</text>
+    <text x="730" y="446">~100 words</text>
+  </g>
+  <g stroke="#475569" stroke-width="0.8" stroke-dasharray="2,3">
+    <line x1="710" y1="109" x2="726" y2="109"/>
+    <line x1="710" y1="173" x2="726" y2="173"/>
+    <line x1="710" y1="237" x2="726" y2="237"/>
+    <line x1="710" y1="317" x2="726" y2="317"/>
+    <line x1="710" y1="381" x2="726" y2="381"/>
+    <line x1="710" y1="443" x2="726" y2="443"/>
+  </g>
+
+  <text x="480" y="524" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Reviewers spend ~10 minutes on this one page. Every sentence earns its place or comes out.</text>
+</svg>

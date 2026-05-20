@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Approach: every Aim follows the same 6-block anatomy</text>
+
+  <!-- aim header -->
+  <g>
+    <rect x="60" y="56" width="840" height="34" rx="6" fill="#065F46"/>
+    <text x="80" y="78" font-family="sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">Aim 1.  Test whether opening-shot animacy shapes early-window ERSP in the HBN cohort</text>
+  </g>
+
+  <!-- 6 blocks: Rationale, Methods, Hypothesis, Analyses, Expected Outcomes, Problems & Alternatives -->
+  <!-- row 1 -->
+  <g>
+    <rect x="60" y="100" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
+    <rect x="60" y="100" width="270" height="22" rx="6" fill="#DBEAFE"/>
+    <text x="74" y="116" font-family="sans-serif" font-size="12" fill="#1E40AF" font-weight="bold">1. Rationale</text>
+    <text x="74" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">why this aim is</text>
+    <text x="74" y="158" font-family="sans-serif" font-size="11" fill="#1E293B">a logical next</text>
+    <text x="74" y="174" font-family="sans-serif" font-size="11" fill="#1E293B">step from the</text>
+    <text x="74" y="190" font-family="sans-serif" font-size="11" fill="#1E293B">cited literature</text>
+    <text x="74" y="208" font-family="sans-serif" font-size="11" fill="#1E40AF" font-style="italic">cites paper-cards</text>
+  </g>
+  <g>
+    <rect x="345" y="100" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+    <rect x="345" y="100" width="270" height="22" rx="6" fill="#EDE9FE"/>
+    <text x="359" y="116" font-family="sans-serif" font-size="12" fill="#5B21B6" font-weight="bold">2. Methods</text>
+    <text x="359" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">cohort, paradigm,</text>
+    <text x="359" y="158" font-family="sans-serif" font-size="11" fill="#1E293B">N (with power),</text>
+    <text x="359" y="174" font-family="sans-serif" font-size="11" fill="#1E293B">acquisition, software,</text>
+    <text x="359" y="190" font-family="sans-serif" font-size="11" fill="#1E293B">standards (BIDS, HED)</text>
+    <text x="359" y="208" font-family="sans-serif" font-size="11" fill="#5B21B6" font-style="italic">links to preliminary data</text>
+  </g>
+  <g>
+    <rect x="630" y="100" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#B45309" stroke-width="1.6"/>
+    <rect x="630" y="100" width="270" height="22" rx="6" fill="#FEF3C7"/>
+    <text x="644" y="116" font-family="sans-serif" font-size="12" fill="#7C2D12" font-weight="bold">3. Hypothesis</text>
+    <text x="644" y="142" font-family="sans-serif" font-size="11" fill="#1E293B">restated from Aims</text>
+    <text x="644" y="158" font-family="sans-serif" font-size="11" fill="#1E293B">with directional</text>
+    <text x="644" y="174" font-family="sans-serif" font-size="11" fill="#1E293B">prediction (effect</text>
+    <text x="644" y="190" font-family="sans-serif" font-size="11" fill="#1E293B">size, sign, latency)</text>
+    <text x="644" y="208" font-family="sans-serif" font-size="11" fill="#7C2D12" font-style="italic">one-sentence each</text>
+  </g>
+
+  <!-- row 2 -->
+  <g>
+    <rect x="60" y="232" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
+    <rect x="60" y="232" width="270" height="22" rx="6" fill="#D1FAE5"/>
+    <text x="74" y="248" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold">4. Analyses</text>
+    <text x="74" y="274" font-family="sans-serif" font-size="11" fill="#1E293B">statistical models,</text>
+    <text x="74" y="290" font-family="sans-serif" font-size="11" fill="#1E293B">multiple-comparison</text>
+    <text x="74" y="306" font-family="sans-serif" font-size="11" fill="#1E293B">correction, what</text>
+    <text x="74" y="322" font-family="sans-serif" font-size="11" fill="#1E293B">counts as a positive result</text>
+    <text x="74" y="340" font-family="sans-serif" font-size="11" fill="#065F46" font-style="italic">pre-registered if possible</text>
+  </g>
+  <g>
+    <rect x="345" y="232" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6"/>
+    <rect x="345" y="232" width="270" height="22" rx="6" fill="#FEE2E2"/>
+    <text x="359" y="248" font-family="sans-serif" font-size="12" fill="#991B1B" font-weight="bold">5. Expected outcomes</text>
+    <text x="359" y="274" font-family="sans-serif" font-size="11" fill="#1E293B">what each result</text>
+    <text x="359" y="290" font-family="sans-serif" font-size="11" fill="#1E293B">pattern would mean</text>
+    <text x="359" y="306" font-family="sans-serif" font-size="11" fill="#1E293B">+ the deliverables</text>
+    <text x="359" y="322" font-family="sans-serif" font-size="11" fill="#1E293B">(figure, code, dataset)</text>
+    <text x="359" y="340" font-family="sans-serif" font-size="11" fill="#991B1B" font-style="italic">tie back to Specific Aims</text>
+  </g>
+  <g>
+    <rect x="630" y="232" width="270" height="120" rx="6" fill="#FFFFFF" stroke="#9333EA" stroke-width="1.6"/>
+    <rect x="630" y="232" width="270" height="22" rx="6" fill="#F3E8FF"/>
+    <text x="644" y="248" font-family="sans-serif" font-size="12" fill="#6B21A8" font-weight="bold">6. Problems &amp; alternatives</text>
+    <text x="644" y="274" font-family="sans-serif" font-size="11" fill="#1E293B">what could go wrong,</text>
+    <text x="644" y="290" font-family="sans-serif" font-size="11" fill="#1E293B">pre-named branches,</text>
+    <text x="644" y="306" font-family="sans-serif" font-size="11" fill="#1E293B">contingency analyses,</text>
+    <text x="644" y="322" font-family="sans-serif" font-size="11" fill="#1E293B">stop conditions</text>
+    <text x="644" y="340" font-family="sans-serif" font-size="11" fill="#6B21A8" font-style="italic">de-risks the bet</text>
+  </g>
+
+  <text x="480" y="372" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Block 6 is what separates a competitive Approach from a hopeful one -- reviewers look for it first.</text>
+</svg>

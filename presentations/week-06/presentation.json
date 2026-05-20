@@ -1,0 +1,922 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 6: Grant Proposal Writing -- NOFO to Specific Aims to Self-Review",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 6: Grant Proposal Writing",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/5dWJCUmUww](https://discord.gg/5dWJCUmUww) | Recording: published to YouTube within 48 h",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: literature review as a managed pipeline with cite-the-card discipline\n\n- Today: the next consumer of that corpus is grant proposals -- Specific Aims is a 1-page literature review\n\n- Format: ~35 min presentation, ~5 min live demo on the practicum, 15 min Q&A\n\n- Course site, Discord, and recording note on the slide"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Weeks 1-2 -- Git, GitHub, Claude Code.** The safety net and the agent.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "**Week 3 -- Project management.** Epic, sub-issues, worktrees, plan mode, `/review-pr`.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "**Week 4 -- CI/CD.** Automated checks outside the repo, on every push.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              },
+              {
+                "text": "**Week 5 -- Literature review.** Cite-the-card corpus, boomerang reviews.",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              },
+              {
+                "text": "**Today -- Grants.** A Specific Aims page is a 1-page literature review with deliverables; the Week-5 corpus is the input.",
+                "animation": { "fragment": true, "type": "fade", "index": 4 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Each week's structure compounds. Week 6 puts the Week-5 corpus to work.\n\n- The same pipeline pattern -- structure first, cite the card, boomerang on review -- applies to grant writing too."
+      },
+      {
+        "id": "agent-agnostic",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## research-skills Is Now Agent-Agnostic",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/agent-agnostic-trio.svg",
+            "alt": "Three labelled runtimes -- Claude Code, Codex CLI, Copilot in VS Code -- each showing the same seven research-skills plugins installed (manuscript, opencite, scientific-figures, presentation, project, grant, neuroinformatics)",
+            "width": "92%",
+            "caption": "**Same plugins, same prompts, same outputs.** The runtime is now a deployment choice.",
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- Major rewrite landed between Week 5 and Week 6. The skills are now portable across Claude Code, OpenAI's Codex CLI, and GitHub Copilot in VS Code (and by extension, Cursor and other VS-Code-derived IDEs).\n\n- The three screenshots are real: Claude Code's /plugin list, Codex CLI's plugin manager, and the @agentPlugins marketplace view inside VS Code. Each shows 7 of 7 research-skills plugins installed.\n\n- The skills + agents protocol is the standard interface; the runtime is just the engine that executes it.\n\n- We will run the rest of today's demo in Claude Code for consistency, but every slash command works equally well in Codex or Copilot."
+      },
+      {
+        "id": "agent-accessibility",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Why This Matters -- Accessibility",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/agent-accessibility.svg",
+            "alt": "Before vs after: a Claude-only setup (locked padlock with paid-subscription requirements) becomes an agent-agnostic setup (open padlock with Copilot free tier and Codex CLI free tier)",
+            "width": "85%",
+            "caption": "**GitHub Copilot is free for students.** A first-year PhD can now run `/grant:grant-writing` and `/grant:grant-review` without a paid subscription.",
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 1x to reveal the callout]\n\n- Land the accessibility point clearly. The course was hard to recommend to LMIC labs and bootstrapped trainees when the only viable runtime was paid Claude Pro plus API credits.\n\n- Now: GitHub Copilot's student tier covers the runtime, GitHub itself is free, and the plugins are open source under permissive licences. Nothing in the pipeline requires a paid subscription for trainees.\n\n- The trade-offs (capability ceiling, latency) differ across runtimes, but the workflow does not."
+      },
+      {
+        "id": "aims-reframe",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Reframe -- Specific Aims = 1-Page Lit Review + Deliverables",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "The Week-5 corpus and its synthesis docs feed the Significance section directly.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "Cite-the-card discipline transfers verbatim: every Significance and Innovation claim points to a `card.md`.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "The Aims add what a lit review does not: **measurable deliverables on a timeline**.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              },
+              {
+                "text": "Same boomerang from Week 5: review findings cycle back into Aims or Strategy, not just into prose edits.",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Lit review = an argument. Aims = an argument with skin in the game.** The Week-5 pipeline taught you to argue from a corpus; today adds the obligation to put deliverables on the page.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 4 },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- This is the headline of the talk. Land it cleanly: today's work is not a new thing; it reuses Week 5's machinery.\n\n- 'Skin in the game' = numbered deliverables you are committing to produce within a timeline.\n\n- A Specific Aims page that cannot point to its source paper-cards is just a story; reviewers know."
+      },
+      {
+        "id": "pipeline-hero",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The 5-Stage Grant Pipeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/grant-pipeline.svg",
+            "alt": "Five-stage horizontal pipeline (NOFO, Aims, Strategy, Self-review, Figure QA) with a boomerang arrow looping from Self-review back to Aims",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Order is enforced. Drafting Aims before parsing the NOFO is a **structural error**, not a style choice. Self-review and Figure QA are not optional polish; they are gates.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The hero diagram. Read each stage label aloud.\n\n- NOFO -> Aims -> Strategy -> Self-review -> Figure QA.\n\n- The boomerang arrow is the rigor signal -- a self-review that converges in one shot is hiding what it found.\n\n- Stages 4-5 are the parts trainees most often skip. Today's demo will hit both."
+      },
+      {
+        "id": "mechanism-cheatsheet",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Pick the Mechanism First",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/mechanism-cheatsheet.svg",
+            "alt": "Comparison table of R01, R21, R03, K99/R00, F31/F32, and NSF CAREER mechanisms with audience, aims-page length, strategy length, budget cap, and submission cycle",
+            "width": "95%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "The `grant-writing` skill takes the mechanism as a parameter and pre-populates page budgets, required sections, and review criteria. **Picking the wrong mechanism is the most expensive avoidable error.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Spend ~30 seconds on each row. The cheat-sheet is a reference, not memorisation.\n\n- For today's practicum: an R21 fits the scope (high-risk pilot, 6-page strategy, $275K total) better than an R01.\n\n- NSF CAREER is on the table for early-career faculty; we focus the rest of the talk on NIH because that is the audience majority."
+      },
+      {
+        "id": "nih-scoring",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Reviewers Score",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/nih-scoring.svg",
+            "alt": "Five NIH review criteria (Significance, Investigator, Innovation, Approach, Environment) with a 1-9 colour-gradient scoring ladder underneath",
+            "width": "95%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Each criterion scores **1-9** independently. The integrated impact score is the reviewer's holistic judgement, **not the average**. A 1 in Significance does not save a 5 in Approach.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Five criteria. Memorise them: Significance, Investigator, Innovation, Approach, Environment.\n\n- The integrated impact score (1-9) is the headline; it is what determines funding.\n\n- 'Fundable' band varies by institute and cycle. NIH-wide success rates are ~20%; specific institutes pay out down to impact ~30."
+      },
+      {
+        "id": "nofo-parse",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 0 -- Parse the NOFO",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/nofo-contract.svg",
+            "alt": "A dense NOFO/FOA page on the left with highlighted lines parses into a structured NOFO.md file on the right capturing mechanism, deadline, page limits, budget cap, required areas, and special requirements",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "The `grant-writing` skill writes `NOFO.md` first. **Every aim, methods choice, and budget line in the rest of the proposal must point back to one of these extracted requirements.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Step 0 is the cheapest mistake to skip. A misread page limit or eligibility rule wastes months.\n\n- NOFO.md is the contract; everything downstream is checked against it.\n\n- This is the first of three defences (NOFO contract, cite-the-card, boomerang)."
+      },
+      {
+        "id": "page-budget",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 1 -- Allocate the Page Budget",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/page-budget.svg",
+            "alt": "Horizontal bar charts for R01, R21, and F31 page budgets showing how Significance, Innovation, Approach, and applicant sections add up to the mechanism's page limit",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Trim **content**, never **spacing**. Reviewers know 9-pt body and 0.4-in margins on sight. Page over-runs are rejection-before-review.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Allocate before you draft. The skill puts placeholder counts in each section and tracks word/line counts as you write.\n\n- For an R01: ~2p Significance, ~1.5p Innovation, ~8.5p Approach (with ~2p preliminary data, ~5p aim breakdowns, ~1p rigor, ~0.5p timeline).\n\n- For an R21: half of those numbers.\n\n- The page budget is a contract with yourself. Going over by ~10 lines costs ~30 lines of trim later."
+      },
+      {
+        "id": "aims-anatomy",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Anatomy of a Specific Aims Page",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/aims-anatomy.svg",
+            "alt": "A 1-page Specific Aims layout with six labelled blocks (Opening, Overarching goal + scope, Aim 1 + hypotheses, Aim 2, optional Aim 3, Expected Impact) and word-count annotations",
+            "width": "62%",
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- Six blocks. They earn their space in this order.\n\n- Reviewers read this page first, often only this page on the first pass.\n\n- The bold overarching-goal sentence is the single most important sentence in the proposal; it appears verbatim later in the Strategy too."
+      },
+      {
+        "id": "grant-writing-skill",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /grant:grant-writing -- What It Does",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Parses the NOFO** into `NOFO.md` and **allocates pages** per mechanism, with running counts.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "**Drafts Specific Aims** with the 6-block anatomy, style rules pre-applied.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "**Drafts Significance / Innovation / Approach** with `cite-the-card` discipline from Week 5.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              },
+              {
+                "text": "**Calls** `manuscript:humanizer` for final polish (no AI-vocabulary, no promotional language).",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "code",
+            "language": "bash",
+            "code": "$ /grant:grant-writing\n\n  NOFO.md\n  specific-aims.md\n  research-strategy/...\n  budget/...",
+            "position": {
+              "area": "right"
+            },
+            "animation": { "fragment": true, "type": "fade", "index": 4 }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- The skill is a workflow, not a one-shot draft.\n\n- It runs Step 0 -> Step 6 from the SKILL.md and asks for human checkpoints between steps.\n\n- 'cite-the-card' is the Week-5 rule applied here: every Significance and Innovation claim points to a paper-card by relative path.\n\n- humanizer is the final polish; it strips AI fingerprints (Pattern 1 significance inflation, Pattern 4 promotional language, Pattern 24 hedging) without flattening the prose."
+      },
+      {
+        "id": "style-rules",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Style Rules the Skill Enforces",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/style-rules.svg",
+            "alt": "Four style rule cards: bold strategically, italicise hypotheses, active voice with quantification, no em-dashes and define abbreviations on first use",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "These rules read as nit-picky; in study section they are how a senior reviewer **decides whether the writing carries the science**. The skill applies them automatically; you only fight them when you really need to.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Land 'bold strategically' especially. New PIs over-bold; the result is that nothing is bold.\n\n- Hypothesis italic + one sentence + continuation on same line is a Yahya house-style preference, but it is also how NIH expects them. It saves vertical space.\n\n- Active voice ('We will demonstrate') reads as confident; passive ('It will be demonstrated') reads as evasive.\n\n- No em-dashes is partly Yahya's preference, partly a corpus-quality signal: AI overuses em-dashes."
+      },
+      {
+        "id": "strategy-three-parts",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Research Strategy = Significance / Innovation / Approach",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/strategy-three-parts.svg",
+            "alt": "Three vertical columns: Significance (problem, gap, why, success enables), Innovation (conceptual, technical, methodological, field advancement), and Approach (preliminary data, aim-by-aim plan, rigor, timeline)",
+            "width": "95%",
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- Three sections, fixed order. The agent will not draft them out of order.\n\n- Significance earns the right to ask the question. Innovation justifies the bet. Approach delivers the work.\n\n- 60% of reviewer comments land in Approach; that is where the most space and the most rigor lives."
+      },
+      {
+        "id": "approach-aim-block",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Approach -- Every Aim Has the Same 6-Block Anatomy",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/approach-aim-block.svg",
+            "alt": "A 2x3 grid of Approach sub-blocks for one Aim: Rationale, Methods, Hypothesis, Analyses, Expected outcomes, Problems and alternatives",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Block 6 (**Problems & Alternatives**) is what separates a competitive Approach from a hopeful one. Reviewers look for it **first**.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- 6 blocks per aim. Repeat the structure verbatim for every aim; reviewers expect it.\n\n- Rationale cites paper-cards (Week-5 corpus is the source).\n\n- Methods + Analyses are where preliminary data is referenced.\n\n- Problems & Alternatives is the de-risking block: name what could go wrong, name your fallback. Skipping it reads as naive."
+      },
+      {
+        "id": "rigor-timeline",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Rigor, Preliminary Data, Timeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/rigor-timeline.svg",
+            "alt": "Three cards side by side: Rigor and reproducibility (biological variables, authentication, blinding, open standards), Preliminary data (feasibility, effect size, pipeline, one key figure), and Timeline + milestones with a Gantt chart and milestone diamonds",
+            "width": "95%",
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "- Three under-loved sub-sections of Approach. The agent insists on all three.\n\n- Rigor & reproducibility: ~1 page in R01. Biological variables (NIH SABV), authentication, blinding, open standards (BIDS / HED for the practicum).\n\n- Preliminary data: 'we can already do this' -- a figure that shows the pipeline runs end-to-end on a smaller subset.\n\n- Timeline: a Gantt with milestones. Reviewers read this for feasibility cross-check."
+      },
+      {
+        "id": "grant-review",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /grant:grant-review -- Simulated Study Section",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/grant-boomerang.svg",
+            "alt": "Five-stage grant pipeline with red and amber dashed boomerang arrows looping from the Review stage back to Aims (critical findings) and Strategy (major findings), and a green in-place box for minor findings",
+            "width": "95%",
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "Plays the **senior reviewer** role with the right calibration for the mechanism.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "Scores all 5 criteria on 1-9, plus an integrated impact estimate.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "Findings tagged **critical / major / minor** -- entry point for the boomerang.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              },
+              {
+                "text": "Reads the PDF visually too: layout, whitespace, figure sizing.",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              },
+              {
+                "text": "**Convergence in one shot is a red flag**, not a green flag.",
+                "animation": { "fragment": true, "type": "fade", "index": 4 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- The review skill is separate from the writing skill. Different prompt, deliberately adversarial framing.\n\n- It calibrates to the mechanism: R21 is not held to R01 preliminary-data standards.\n\n- Severity tagging is the entry point: critical -> revise Aims, major -> revise Strategy, minor -> in-place edit. The pipeline icon shows the cycles.\n\n- It will also render the PDF and read each page visually, flagging whitespace + figure-sizing issues. Useful for catching layout problems before submission."
+      },
+      {
+        "id": "resubmission",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Resubmissions (A1) -- The Introduction Page",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/resubmission-a1.svg",
+            "alt": "Three panels: A0 summary statement with three reviewer critiques, A1 Introduction page with point-by-point responses, and A1 Strategy with vertical change bars in the margin",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Respond, do not rebut.** Mark every change. The Introduction page is 1 page; the body shows the work. The skill drafts the point-by-point response and inserts change bars in the LaTeX source.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- A1 resubmissions get a 1-page Introduction page where you address every reviewer concern point-by-point.\n\n- Bold the changes in the body, or use vertical change bars in the margin -- LaTeX `changes` package handles this cleanly.\n\n- Tone is everything. Rebut only the genuinely wrong critiques; otherwise just respond. Reviewers see rebuttals as defensive."
+      },
+      {
+        "id": "figure-qa",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /grant:grant-figure-qa -- Compliance Pass",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figure-qa.svg",
+            "alt": "A two-panel figure (boy vs puppy ERSP) on the left with a compliance checklist on the right showing pass items (resolution, fonts, colour-blind safe, axes legible) and fail items (no error bars, caption duplicates body, whitespace waste)",
+            "width": "95%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Checks **compliance**, not aesthetics: resolution &gt;= 300 dpi, embedded fonts, colour-blind safe palette, axis-label legibility at printed size, whitespace economy. Runs against the rendered PDF, not the source.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- grant-figure-qa is a Claude Code agent (under plugins/grant/agents/) that converts each PDF page to PNG and reads them visually.\n\n- It catches things that source-level review cannot: text that fell off the page at print, fonts that did not embed, figures that are colour-blind unsafe.\n\n- 'Whitespace economy' matters: a half page of empty space in your Approach is a missed page of preliminary data or rigor."
+      },
+      {
+        "id": "three-defences",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Three Defences -- One Per Stage",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/three-defences-grant.svg",
+            "alt": "Three labelled shields: NOFO contract (Step 0), Cite-the-card (Aims and Strategy), and Review boomerang (grant-review)",
+            "width": "75%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Stack-redundant by design. A proposal that converges on the first self-review has either nothing to say or is hiding what it found.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- This is the moral of the session. Land the punchline.\n\n- NOFO contract guards scope drift at Step 0.\n\n- Cite-the-card guards hallucinated references at Aims and Strategy time.\n\n- Boomerang guards one-shot convergence at review time.\n\n- They are deliberately redundant: none alone is enough, but together they make rigor mechanical."
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo Roadmap",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Topic.** R21 Specific Aims for the HBN naturalistic-movie practicum, drawing on the Week-5 corpus.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "**Live 1.** `/grant:grant-writing` -- draft the overarching goal and Aim 1.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "**Live 2.** `/grant:grant-review` -- walk through whatever findings surface.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              },
+              {
+                "text": "**Live 3.** `/grant:grant-figure-qa` on the preliminary-data figure from Week 5.",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "We do **not** manufacture a finding. If one surfaces, we walk the boomerang back to Aim 1 -- described aloud, not run on stage.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 4 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- The demo continues the Week-3 / Week-5 practicum thread on naturalistic movies.\n\n- An R21 fits the scope better than an R01: pilot data on 183 children for a high-risk animacy-of-shot effect.\n\n- We will not generate a fake critical finding -- if the self-review flags 'preliminary data does not yet show the effect', that is exactly the kind of honest boomerang we want."
+      },
+      {
+        "id": "what-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Today.** A Specific Aims page grounded in the Week-5 corpus, with a 1-page response-ready review.",
+                "animation": { "fragment": true, "type": "fade", "index": 0 }
+              },
+              {
+                "text": "**Today.** Three defences for grants -- NOFO contract, cite-the-card, boomerang.",
+                "animation": { "fragment": true, "type": "fade", "index": 1 }
+              },
+              {
+                "text": "**Today.** Same workflow in Claude Code, Codex CLI, or Copilot in VS Code.",
+                "animation": { "fragment": true, "type": "fade", "index": 2 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Week 7.** Manuscripts -- Aims become the Introduction; Approach becomes Methods + Results.",
+                "animation": { "fragment": true, "type": "fade", "index": 3 }
+              },
+              {
+                "text": "**Week 8.** Scientific Figures -- the preliminary-data figure gets a full publication pass.",
+                "animation": { "fragment": true, "type": "fade", "index": 4 }
+              },
+              {
+                "text": "**Week 9.** Neuroinformatics -- BIDS / HED standards the Rigor section just promised.",
+                "animation": { "fragment": true, "type": "fade", "index": 5 }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "right"
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Questions? Ask while `grant-writing` drafts the Aim.**",
+            "style": { "fontSize": "medium", "alignment": "center", "color": "#059669" },
+            "animation": { "fragment": true, "type": "fade", "index": 6 },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 7x to reveal fragments]\n\n- Take-home in two sentences: a grant is a 1-page lit review plus deliverables; the same agent toolkit drafts and reviews it.\n\n- The closing line bridges into the demo and Q&A. Latency is OK; the audience can interject while opencite or grant-writing runs."
+      }
+    ]
+  }
+}

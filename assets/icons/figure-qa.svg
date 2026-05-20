@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">/grant:grant-figure-qa -- figure compliance pass before submission</text>
+
+  <!-- Mocked figure on the left -->
+  <g>
+    <rect x="40" y="60" width="340" height="240" rx="8" fill="#FFFFFF" stroke="#1E293B" stroke-width="1.4"/>
+    <text x="210" y="84" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="middle">Figure 1.  Group ERSP boy vs puppy</text>
+
+    <!-- panels -->
+    <rect x="58" y="100" width="148" height="120" rx="3" fill="#E0F2FE" stroke="#0891B2" stroke-width="1.2"/>
+    <text x="132" y="122" font-family="sans-serif" font-size="11" fill="#0E7490" font-weight="bold" text-anchor="middle">A. boy</text>
+    <!-- fake heatmap-ish bars -->
+    <rect x="70" y="138" width="14" height="64" rx="2" fill="#06B6D4"/>
+    <rect x="92" y="156" width="14" height="46" rx="2" fill="#0891B2"/>
+    <rect x="114" y="148" width="14" height="54" rx="2" fill="#0E7490"/>
+    <rect x="136" y="166" width="14" height="36" rx="2" fill="#155E75"/>
+    <rect x="158" y="170" width="14" height="32" rx="2" fill="#164E63"/>
+    <rect x="180" y="180" width="14" height="22" rx="2" fill="#0F172A"/>
+
+    <rect x="214" y="100" width="148" height="120" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+    <text x="288" y="122" font-family="sans-serif" font-size="11" fill="#7C2D12" font-weight="bold" text-anchor="middle">B. puppy</text>
+    <rect x="226" y="142" width="14" height="60" rx="2" fill="#F59E0B"/>
+    <rect x="248" y="158" width="14" height="44" rx="2" fill="#D97706"/>
+    <rect x="270" y="170" width="14" height="32" rx="2" fill="#B45309"/>
+    <rect x="292" y="160" width="14" height="42" rx="2" fill="#92400E"/>
+    <rect x="314" y="172" width="14" height="30" rx="2" fill="#78350F"/>
+    <rect x="336" y="180" width="14" height="22" rx="2" fill="#451A03"/>
+
+    <!-- axis labels for legibility -->
+    <text x="132" y="240" font-family="sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">time (ms)</text>
+    <text x="288" y="240" font-family="sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">time (ms)</text>
+    <text x="46" y="174" font-family="sans-serif" font-size="9" fill="#1E293B" transform="rotate(-90 46 174)" text-anchor="middle">power (dB)</text>
+
+    <!-- caption -->
+    <text x="210" y="266" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">N = 183 from HBN R3. Cluster permutation, p &lt; .05 corrected.</text>
+    <text x="210" y="282" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle">Both panels share scale; colour blind safe palette.</text>
+  </g>
+
+  <!-- QA checklist on the right -->
+  <g>
+    <rect x="410" y="60" width="510" height="240" rx="8" fill="#F8FAFC" stroke="#475569" stroke-width="1.4"/>
+    <text x="430" y="86" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold">QA checklist (compliance, not style)</text>
+
+    <g font-family="sans-serif" font-size="12" fill="#1E293B">
+      <!-- pass items -->
+      <g>
+        <circle cx="438" cy="112" r="9" fill="#059669"/>
+        <path d="M433 113 L437 117 L443 109" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="116" font-weight="bold">Resolution &gt;= 300 dpi at print size</text>
+      </g>
+      <g>
+        <circle cx="438" cy="138" r="9" fill="#059669"/>
+        <path d="M433 139 L437 143 L443 135" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="142" font-weight="bold">Fonts embedded (Arial / Helvetica)</text>
+      </g>
+      <g>
+        <circle cx="438" cy="164" r="9" fill="#059669"/>
+        <path d="M433 165 L437 169 L443 161" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="168" font-weight="bold">Colour-blind safe palette (CB-pass)</text>
+      </g>
+      <g>
+        <circle cx="438" cy="190" r="9" fill="#059669"/>
+        <path d="M433 191 L437 195 L443 187" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="194" font-weight="bold">Axis labels legible at 50% page size</text>
+      </g>
+      <!-- fail items -->
+      <g>
+        <circle cx="438" cy="216" r="9" fill="#DC2626"/>
+        <path d="M434 212 L442 220 M442 212 L434 220" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="220" font-weight="bold" fill="#991B1B">N referenced but no error bars on panel B</text>
+      </g>
+      <g>
+        <circle cx="438" cy="242" r="9" fill="#DC2626"/>
+        <path d="M434 238 L442 246 M442 238 L434 246" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="456" y="246" font-weight="bold" fill="#991B1B">Caption duplicates body text -- tighten</text>
+      </g>
+      <g>
+        <circle cx="438" cy="268" r="9" fill="#F59E0B"/>
+        <text x="438" y="272" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">!</text>
+        <text x="456" y="272" font-weight="bold" fill="#92400E">Whitespace wastes ~25% of allocated 1/2 page</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="480" y="340" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">grant-figure-qa converts each PDF page to PNG, then evaluates resolution, fonts, colour, whitespace, and layout.</text>
+</svg>

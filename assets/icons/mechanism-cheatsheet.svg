@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">NIH and NSF mechanism cheat sheet</text>
+
+  <!-- Table header row -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold">
+    <rect x="40" y="50" width="880" height="32" rx="4" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+    <text x="60" y="71">Mechanism</text>
+    <text x="180" y="71">Audience</text>
+    <text x="370" y="71">Aims page</text>
+    <text x="460" y="71">Strategy</text>
+    <text x="620" y="71">Budget cap</text>
+    <text x="760" y="71">Cycle / window</text>
+  </g>
+
+  <!-- R01 -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="90" width="880" height="32" rx="4" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="90" width="6" height="32" fill="#2563EB"/>
+    <text x="60" y="111" font-weight="bold" fill="#2563EB">R01</text>
+    <text x="180" y="111">Established PI, full project</text>
+    <text x="370" y="111">1 page</text>
+    <text x="460" y="111">12 pages</text>
+    <text x="620" y="111">~$500K/yr direct</text>
+    <text x="760" y="111">3 cycles/year (Feb / Jun / Oct)</text>
+  </g>
+
+  <!-- R21 -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="124" width="880" height="32" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="124" width="6" height="32" fill="#7C3AED"/>
+    <text x="60" y="145" font-weight="bold" fill="#7C3AED">R21</text>
+    <text x="180" y="145">Exploratory / high-risk pilot</text>
+    <text x="370" y="145">1 page</text>
+    <text x="460" y="145">6 pages</text>
+    <text x="620" y="145">$275K / 2 yr total</text>
+    <text x="760" y="145">3 cycles/year</text>
+  </g>
+
+  <!-- R03 -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="158" width="880" height="32" rx="4" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="158" width="6" height="32" fill="#059669"/>
+    <text x="60" y="179" font-weight="bold" fill="#059669">R03</text>
+    <text x="180" y="179">Small / secondary-data project</text>
+    <text x="370" y="179">1 page</text>
+    <text x="460" y="179">6 pages</text>
+    <text x="620" y="179">$50K/yr / 2 yr</text>
+    <text x="760" y="179">3 cycles/year</text>
+  </g>
+
+  <!-- K99/R00 -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="192" width="880" height="32" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="192" width="6" height="32" fill="#B45309"/>
+    <text x="60" y="213" font-weight="bold" fill="#B45309">K99/R00</text>
+    <text x="180" y="213">Postdoc-to-independence</text>
+    <text x="370" y="213">1 page</text>
+    <text x="460" y="213">12 + candidate + mentoring</text>
+    <text x="620" y="213">~$249K + R00 phase</text>
+    <text x="760" y="213">3 cycles/year</text>
+  </g>
+
+  <!-- F31/F32 -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="226" width="880" height="32" rx="4" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="226" width="6" height="32" fill="#DC2626"/>
+    <text x="60" y="247" font-weight="bold" fill="#DC2626">F31 / F32</text>
+    <text x="180" y="247">Predoc / Postdoc fellowship</text>
+    <text x="370" y="247">1 page</text>
+    <text x="460" y="247">6 + applicant + sponsor</text>
+    <text x="620" y="247">stipend + tuition</text>
+    <text x="760" y="247">3 cycles/year</text>
+  </g>
+
+  <!-- NSF CAREER -->
+  <g font-family="sans-serif" font-size="12" fill="#1E293B">
+    <rect x="40" y="260" width="880" height="32" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <rect x="40" y="260" width="6" height="32" fill="#0891B2"/>
+    <text x="60" y="281" font-weight="bold" fill="#0891B2">NSF CAREER</text>
+    <text x="180" y="281">Pre-tenure faculty, integrated</text>
+    <text x="370" y="281">1 p summary</text>
+    <text x="460" y="281">15 p description</text>
+    <text x="620" y="281">>=$400K / 5 yr</text>
+    <text x="760" y="281">annual (Jul deadline)</text>
+  </g>
+
+  <!-- Caption -->
+  <g>
+    <rect x="40" y="306" width="880" height="34" rx="4" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
+    <text x="56" y="328" font-family="sans-serif" font-size="12" fill="#7C2D12">
+      <tspan font-weight="bold">Pick the mechanism first.</tspan>
+      <tspan> Page limits, review criteria, and even the page anatomy change with it -- the </tspan>
+      <tspan font-family="monospace" font-size="11.5">grant-writing</tspan>
+      <tspan> skill encodes them.</tspan>
+    </text>
+  </g>
+</svg>

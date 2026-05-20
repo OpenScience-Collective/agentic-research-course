@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" width="960" height="340">
+  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Resubmissions (A1) -- the 1-page introduction page replies, the body shows the work</text>
+
+  <!-- Step 1: Summary statement -->
+  <g>
+    <rect x="40" y="60" width="220" height="230" rx="8" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6"/>
+    <rect x="40" y="60" width="220" height="28" rx="8" fill="#FEE2E2"/>
+    <text x="150" y="80" font-family="sans-serif" font-size="13" fill="#991B1B" font-weight="bold" text-anchor="middle">A0 Summary statement</text>
+
+    <g font-family="sans-serif" font-size="11" fill="#1E293B">
+      <text x="56" y="108" font-weight="bold">Reviewer 1:</text>
+      <text x="56" y="124" fill="#475569">"Approach lacks de-risking</text>
+      <text x="56" y="140" fill="#475569">for Aim 2 dropout."</text>
+
+      <text x="56" y="166" font-weight="bold">Reviewer 2:</text>
+      <text x="56" y="182" fill="#475569">"Preliminary data does not</text>
+      <text x="56" y="198" fill="#475569">support the effect size claim."</text>
+
+      <text x="56" y="224" font-weight="bold">Reviewer 3:</text>
+      <text x="56" y="240" fill="#475569">"Innovation reads as</text>
+      <text x="56" y="256" fill="#475569">incremental in current form."</text>
+
+      <text x="56" y="280" font-style="italic" fill="#991B1B">impact: 38 -- not discussed</text>
+    </g>
+  </g>
+
+  <!-- Arrow -->
+  <g>
+    <path d="M270 175 L344 175" fill="none" stroke="#475569" stroke-width="2.4"/>
+    <polygon points="344,175 334,170 334,180" fill="#475569"/>
+    <text x="307" y="166" font-family="monospace" font-size="11" fill="#475569" text-anchor="middle">respond</text>
+  </g>
+
+  <!-- Step 2: 1-page Introduction -->
+  <g>
+    <rect x="350" y="60" width="260" height="230" rx="8" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
+    <rect x="350" y="60" width="260" height="28" rx="8" fill="#DBEAFE"/>
+    <text x="480" y="80" font-family="sans-serif" font-size="13" fill="#1E40AF" font-weight="bold" text-anchor="middle">A1 Introduction (1 page)</text>
+
+    <g font-family="sans-serif" font-size="11" fill="#1E293B">
+      <text x="366" y="108" font-weight="bold" fill="#1E40AF">Response to Reviewer 1:</text>
+      <text x="366" y="124">Added a fallback aim and</text>
+      <text x="366" y="140">contingency analysis (sec. 3.5).</text>
+
+      <text x="366" y="166" font-weight="bold" fill="#1E40AF">Response to Reviewer 2:</text>
+      <text x="366" y="182">New preliminary cohort (N=24)</text>
+      <text x="366" y="198">replicates the effect (Fig. P2).</text>
+
+      <text x="366" y="224" font-weight="bold" fill="#1E40AF">Response to Reviewer 3:</text>
+      <text x="366" y="240">Repositioned innovation around</text>
+      <text x="366" y="256">naturalistic HED annotation.</text>
+
+      <text x="366" y="280" font-style="italic" fill="#1E40AF">point-by-point, no rebuttal tone</text>
+    </g>
+  </g>
+
+  <!-- Arrow -->
+  <g>
+    <path d="M620 175 L694 175" fill="none" stroke="#475569" stroke-width="2.4"/>
+    <polygon points="694,175 684,170 684,180" fill="#475569"/>
+    <text x="657" y="166" font-family="monospace" font-size="11" fill="#475569" text-anchor="middle">mark changes</text>
+  </g>
+
+  <!-- Step 3: marked-up body -->
+  <g>
+    <rect x="700" y="60" width="220" height="230" rx="8" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
+    <rect x="700" y="60" width="220" height="28" rx="8" fill="#D1FAE5"/>
+    <text x="810" y="80" font-family="sans-serif" font-size="13" fill="#065F46" font-weight="bold" text-anchor="middle">A1 Strategy (marked)</text>
+
+    <!-- text lines with change bars -->
+    <g fill="#94A3B8">
+      <rect x="716" y="106" width="180" height="3" rx="1"/>
+      <rect x="716" y="116" width="170" height="3" rx="1"/>
+      <rect x="716" y="126" width="180" height="3" rx="1"/>
+    </g>
+    <!-- changed paragraph 1 -->
+    <line x1="710" y1="138" x2="710" y2="170" stroke="#059669" stroke-width="2.6"/>
+    <g fill="#065F46" font-weight="bold">
+      <rect x="716" y="138" width="180" height="4" rx="1"/>
+      <rect x="716" y="148" width="170" height="4" rx="1"/>
+      <rect x="716" y="158" width="180" height="4" rx="1"/>
+    </g>
+    <g fill="#94A3B8">
+      <rect x="716" y="176" width="180" height="3" rx="1"/>
+      <rect x="716" y="186" width="170" height="3" rx="1"/>
+    </g>
+    <!-- changed paragraph 2 -->
+    <line x1="710" y1="194" x2="710" y2="226" stroke="#059669" stroke-width="2.6"/>
+    <g fill="#065F46" font-weight="bold">
+      <rect x="716" y="194" width="180" height="4" rx="1"/>
+      <rect x="716" y="204" width="170" height="4" rx="1"/>
+      <rect x="716" y="214" width="180" height="4" rx="1"/>
+    </g>
+    <g fill="#94A3B8">
+      <rect x="716" y="232" width="180" height="3" rx="1"/>
+      <rect x="716" y="242" width="170" height="3" rx="1"/>
+      <rect x="716" y="252" width="180" height="3" rx="1"/>
+    </g>
+
+    <text x="810" y="280" font-family="sans-serif" font-size="11" fill="#065F46" font-style="italic" text-anchor="middle">bold or vertical bars in margin</text>
+  </g>
+
+  <text x="480" y="320" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Bold every change; rebut only what is wrong, otherwise just respond. Tone matters as much as substance.</text>
+</svg>
