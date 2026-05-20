@@ -1,76 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360">
-  <text x="480" y="26" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Two loops, two tools</text>
-  <text x="480" y="44" font-family="sans-serif" font-size="11.5" fill="#64748B" font-style="italic" text-anchor="middle">The agent loop wants pull requests. The human loop wants comments.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="960" height="320">
+  <text x="480" y="22" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Two loops, two tools</text>
 
   <!-- Vertical divider -->
-  <line x1="480" y1="64" x2="480" y2="340" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="480" y1="40" x2="480" y2="312" stroke="#94A3B8" stroke-width="1" stroke-dasharray="3,3"/>
 
   <!-- LEFT: AGENT LOOP (GitHub-native, blue accent) -->
-  <text x="240" y="76" font-family="sans-serif" font-size="13" fill="#1E40AF" font-weight="bold" text-anchor="middle">Agent loop  ( GitHub-native )</text>
-  <text x="240" y="92" font-family="monospace" font-size="10" fill="#475569" text-anchor="middle">agents + author co-write in the repo</text>
+  <text x="240" y="54" font-family="sans-serif" font-size="13" fill="#1E40AF" font-weight="bold" text-anchor="middle">Agent loop  ( GitHub-native )</text>
+  <text x="240" y="70" font-family="monospace" font-size="10" fill="#475569" text-anchor="middle">agents + author co-write in the repo</text>
 
   <!-- PR card -->
-  <rect x="60" y="104" width="360" height="200" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
+  <rect x="60" y="82" width="360" height="200" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.4"/>
   <!-- PR title bar -->
-  <rect x="60" y="104" width="360" height="22" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
-  <circle cx="74" cy="115" r="3.5" fill="#22C55E"/>
-  <text x="86" y="119" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">Pull request #42  --  draft: write Introduction section</text>
+  <rect x="60" y="82" width="360" height="22" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.4"/>
+  <circle cx="74" cy="93" r="3.5" fill="#22C55E"/>
+  <text x="86" y="97" font-family="sans-serif" font-size="10.5" fill="#1E40AF" font-weight="bold">Pull request #42  --  draft: write Introduction section</text>
   <!-- File diff lines -->
-  <text x="74" y="142" font-family="monospace" font-size="9.5" fill="#16A34A">+  Naturalistic stimuli synchronise occipital activity across</text>
-  <text x="74" y="156" font-family="monospace" font-size="9.5" fill="#16A34A">+  viewers [card](../lit-review/psychophysics/hasson-2004/card.md).</text>
-  <text x="74" y="170" font-family="monospace" font-size="9.5" fill="#16A34A">+  Action observation drives a distinct lateral motor signature</text>
-  <text x="74" y="184" font-family="monospace" font-size="9.5" fill="#16A34A">+  during free viewing [card](../lit-review/action/hasson-2008/card.md).</text>
-  <text x="74" y="198" font-family="monospace" font-size="9.5" fill="#DC2626">-  Naturalistic stimuli are interesting and recent studies show...</text>
+  <text x="74" y="120" font-family="monospace" font-size="9.5" fill="#16A34A">+  Naturalistic stimuli synchronise occipital activity across</text>
+  <text x="74" y="134" font-family="monospace" font-size="9.5" fill="#16A34A">+  viewers [card](../lit-review/psychophysics/hasson-2004/card.md).</text>
+  <text x="74" y="148" font-family="monospace" font-size="9.5" fill="#16A34A">+  Action observation drives a distinct lateral motor signature</text>
+  <text x="74" y="162" font-family="monospace" font-size="9.5" fill="#16A34A">+  during free viewing [card](../lit-review/action/hasson-2008/card.md).</text>
+  <text x="74" y="176" font-family="monospace" font-size="9.5" fill="#DC2626">-  Naturalistic stimuli are interesting and recent studies show...</text>
   <!-- CI checks -->
-  <rect x="74" y="216" width="332" height="36" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.8"/>
-  <circle cx="86" cy="227" r="4" fill="#22C55E"/>
-  <text x="96" y="231" font-family="sans-serif" font-size="10" fill="#16A34A">CI / lint and references pass</text>
-  <circle cx="86" cy="242" r="4" fill="#22C55E"/>
-  <text x="96" y="246" font-family="sans-serif" font-size="10" fill="#16A34A">/manuscript:paper-review  posted 3 minor findings</text>
+  <rect x="74" y="194" width="332" height="36" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.8"/>
+  <circle cx="86" cy="205" r="4" fill="#22C55E"/>
+  <text x="96" y="209" font-family="sans-serif" font-size="10" fill="#16A34A">CI / lint and references pass</text>
+  <circle cx="86" cy="220" r="4" fill="#22C55E"/>
+  <text x="96" y="224" font-family="sans-serif" font-size="10" fill="#16A34A">/manuscript:paper-review  posted 3 minor findings</text>
   <!-- PR comment chip -->
-  <rect x="74" y="262" width="332" height="32" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="0.8"/>
-  <text x="84" y="276" font-family="sans-serif" font-size="10" fill="#1E40AF" font-weight="bold">@coauthor  6m ago</text>
-  <text x="84" y="289" font-family="sans-serif" font-size="10" fill="#1E40AF">Approving once the cite-the-card link to Hasson 2008 is added.</text>
-  <text x="240" y="324" font-family="monospace" font-size="10.5" fill="#1E40AF" text-anchor="middle">epic + sub-issues + worktrees + /review-pr</text>
+  <rect x="74" y="240" width="332" height="32" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="0.8"/>
+  <text x="84" y="254" font-family="sans-serif" font-size="10" fill="#1E40AF" font-weight="bold">@coauthor  6m ago</text>
+  <text x="84" y="267" font-family="sans-serif" font-size="10" fill="#1E40AF">Approving once the cite-the-card link to Hasson 2008 is added.</text>
+  <text x="240" y="300" font-family="monospace" font-size="10.5" fill="#1E40AF" text-anchor="middle">epic + sub-issues + worktrees + /review-pr</text>
 
   <!-- RIGHT: HUMAN LOOP (Overleaf, teal accent) -->
-  <text x="720" y="76" font-family="sans-serif" font-size="13" fill="#0F766E" font-weight="bold" text-anchor="middle">Human loop  ( Overleaf )</text>
-  <text x="720" y="92" font-family="monospace" font-size="10" fill="#475569" text-anchor="middle">co-authors + advisors mark up the draft</text>
+  <text x="720" y="54" font-family="sans-serif" font-size="13" fill="#0F766E" font-weight="bold" text-anchor="middle">Human loop  ( Overleaf )</text>
+  <text x="720" y="70" font-family="monospace" font-size="10" fill="#475569" text-anchor="middle">co-authors + advisors mark up the draft</text>
 
   <!-- Overleaf editor card -->
-  <rect x="540" y="104" width="360" height="200" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4"/>
-  <!-- title bar -->
-  <rect x="540" y="104" width="360" height="22" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.4"/>
-  <text x="554" y="119" font-family="sans-serif" font-size="10.5" fill="#0F766E" font-weight="bold">Overleaf -- review-paper.tex</text>
+  <rect x="540" y="82" width="360" height="200" rx="6" fill="#FFFFFF" stroke="#0D9488" stroke-width="1.4"/>
+  <rect x="540" y="82" width="360" height="22" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.4"/>
+  <text x="554" y="97" font-family="sans-serif" font-size="10.5" fill="#0F766E" font-weight="bold">Overleaf -- review-paper.tex</text>
 
   <!-- LaTeX-ish editor lines on left half of editor -->
-  <text x="554" y="142" font-family="monospace" font-size="9.5" fill="#1E293B">\section{Introduction}</text>
-  <text x="554" y="156" font-family="monospace" font-size="9.5" fill="#1E293B">Naturalistic stimuli synchronise occipital</text>
-  <text x="554" y="170" font-family="monospace" font-size="9.5" fill="#1E293B">activity across viewers~\cite{hasson2004}.</text>
-  <text x="554" y="184" font-family="monospace" font-size="9.5" fill="#1E293B">Action observation drives a distinct lateral</text>
-  <text x="554" y="198" font-family="monospace" font-size="9.5" fill="#1E293B">motor signature during free viewing</text>
-  <text x="554" y="212" font-family="monospace" font-size="9.5" fill="#1E293B">~\cite{hasson2008}.</text>
+  <text x="554" y="120" font-family="monospace" font-size="9.5" fill="#1E293B">\section{Introduction}</text>
+  <text x="554" y="134" font-family="monospace" font-size="9.5" fill="#1E293B">Naturalistic stimuli synchronise occipital</text>
+  <text x="554" y="148" font-family="monospace" font-size="9.5" fill="#1E293B">activity across viewers~\cite{hasson2004}.</text>
+  <text x="554" y="162" font-family="monospace" font-size="9.5" fill="#1E293B">Action observation drives a distinct lateral</text>
+  <text x="554" y="176" font-family="monospace" font-size="9.5" fill="#1E293B">motor signature during free viewing</text>
+  <text x="554" y="190" font-family="monospace" font-size="9.5" fill="#1E293B">~\cite{hasson2008}.</text>
 
   <!-- Inline highlight on "occipital" suggesting a comment thread -->
-  <rect x="557" y="148" width="62" height="11" rx="1.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.5" opacity="0.55"/>
+  <rect x="557" y="126" width="62" height="11" rx="1.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="0.5" opacity="0.55"/>
 
   <!-- Comment thread on right side of editor -->
-  <rect x="730" y="140" width="160" height="78" rx="3" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
-  <circle cx="740" cy="152" r="3.5" fill="#CA8A04"/>
-  <text x="748" y="155" font-family="sans-serif" font-size="9" fill="#854D0E" font-weight="bold">Advisor PI</text>
-  <text x="800" y="155" font-family="sans-serif" font-size="9" fill="#A16207" text-anchor="end">2d</text>
-  <text x="740" y="170" font-family="sans-serif" font-size="9" fill="#713F12">Worth distinguishing</text>
-  <text x="740" y="182" font-family="sans-serif" font-size="9" fill="#713F12">occipital vs occipital-</text>
-  <text x="740" y="194" font-family="sans-serif" font-size="9" fill="#713F12">parietal here. Hasson</text>
-  <text x="740" y="206" font-family="sans-serif" font-size="9" fill="#713F12">2008 frames it that way.</text>
-  <text x="740" y="216" font-family="sans-serif" font-size="9" fill="#A16207" font-style="italic">Reply</text>
+  <rect x="730" y="118" width="160" height="78" rx="3" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+  <circle cx="740" cy="130" r="3.5" fill="#CA8A04"/>
+  <text x="748" y="133" font-family="sans-serif" font-size="9" fill="#854D0E" font-weight="bold">Advisor PI</text>
+  <text x="800" y="133" font-family="sans-serif" font-size="9" fill="#A16207" text-anchor="end">2d</text>
+  <text x="740" y="148" font-family="sans-serif" font-size="9" fill="#713F12">Worth distinguishing</text>
+  <text x="740" y="160" font-family="sans-serif" font-size="9" fill="#713F12">occipital vs occipital-</text>
+  <text x="740" y="172" font-family="sans-serif" font-size="9" fill="#713F12">parietal here. Hasson</text>
+  <text x="740" y="184" font-family="sans-serif" font-size="9" fill="#713F12">2008 frames it that way.</text>
+  <text x="740" y="194" font-family="sans-serif" font-size="9" fill="#A16207" font-style="italic">Reply</text>
 
   <!-- Track-change line -->
-  <rect x="540" y="270" width="360" height="26" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="0.8"/>
-  <text x="554" y="286" font-family="sans-serif" font-size="10" fill="#0F766E"><tspan font-weight="bold">Tracked change:</tspan>  "occipital" -&gt; "occipital-parietal" (advisor PI)</text>
+  <rect x="540" y="246" width="360" height="26" rx="4" fill="#F0FDFA" stroke="#0D9488" stroke-width="0.8"/>
+  <text x="554" y="262" font-family="sans-serif" font-size="10" fill="#0F766E"><tspan font-weight="bold">Tracked change:</tspan>  "occipital" -&gt; "occipital-parietal" (advisor PI)</text>
 
-  <text x="720" y="324" font-family="monospace" font-size="10.5" fill="#0F766E" text-anchor="middle">real-time multi-author edits + inline comments</text>
-
-  <!-- Footer caption -->
-  <text x="480" y="350" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">Picking the wrong tool for the wrong loop is the Week 7 failure mode.</text>
+  <text x="720" y="300" font-family="monospace" font-size="10.5" fill="#0F766E" text-anchor="middle">real-time multi-author edits + inline comments</text>
 </svg>

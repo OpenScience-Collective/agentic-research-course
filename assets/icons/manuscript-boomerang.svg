@@ -31,9 +31,11 @@
     <text x="480" y="266" font-family="monospace" font-size="9.5" fill="#475569" text-anchor="middle">paper-review</text>
   </g>
 
-  <!-- Boomerang curves from stage 4 back to stages 1, 2, 3 -->
+  <!-- Boomerang curves from stage 4 back to stages 1, 2, 3.
+       Endpoint tangent (last control 230,110 to endpoint 120,184) is (-110, 74),
+       so the arrowhead base sits to the upper-right of the apex along that tangent. -->
   <path d="M460 184 C 360 110, 230 110, 120 184" fill="none" stroke="#DC2626" stroke-width="2.4" stroke-dasharray="6,5" stroke-linecap="round"/>
-  <polygon points="120,184 113,170 126,170" fill="#DC2626"/>
+  <polygon points="120,184 132.8,181.5 127.2,173.2" fill="#DC2626"/>
 
   <!-- RIGHT: findings table -->
   <g>

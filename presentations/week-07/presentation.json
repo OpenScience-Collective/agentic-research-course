@@ -98,24 +98,16 @@
                 "animation": {"fragment": true, "type": "fade", "index": 1}
               },
               {
-                "text": "**Week 3 -- Project management.** Epic, sub-issues, worktrees, plan mode, `/review-pr`.",
+                "text": "**Weeks 3-4 -- Project management + CI/CD.** Epic, sub-issues, worktrees, `/review-pr`, automated checks.",
                 "animation": {"fragment": true, "type": "fade", "index": 2}
               },
               {
-                "text": "**Week 4 -- CI/CD.** Automated checks outside the repo.",
+                "text": "**Weeks 5-6 -- Literature review + grant pipelines.** Today's lit-review stage is Week 5 verbatim; today's IMRAD structure is Week 6's Aims expanded.",
                 "animation": {"fragment": true, "type": "fade", "index": 3}
               },
               {
-                "text": "**Week 5 -- Literature review pipeline.** Today's lit-review stage is this verbatim.",
-                "animation": {"fragment": true, "type": "fade", "index": 4}
-              },
-              {
-                "text": "**Week 6 -- Grant pipeline.** Today's IMRAD structure is the Aims and Strategy expanded.",
-                "animation": {"fragment": true, "type": "fade", "index": 5}
-              },
-              {
                 "text": "**Today.** A full manuscript, GitHub-native, until co-authors take the wheel.",
-                "animation": {"fragment": true, "type": "slide-up", "index": 6}
+                "animation": {"fragment": true, "type": "slide-up", "index": 4}
               }
             ],
             "bulletStyle": "disc",
@@ -123,7 +115,7 @@
             "position": {"area": "content"}
           }
         ],
-        "speakerNotes": "[Press right 7x to reveal fragments]\n\n- Recap of the 6 weeks before this one. Each bullet is one beat\n\n- The last bullet plants the unique-to-this-week beat: the agent loop ends when co-authors take the wheel; the human loop begins\n\n- Land the line: 'GitHub-native until co-authors take the wheel'"
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Recap of the 6 weeks before this one, paired by theme\n\n- The last bullet plants the unique-to-this-week beat: the agent loop ends when co-authors take the wheel; the human loop begins\n\n- Land the line: 'GitHub-native until co-authors take the wheel'"
       },
       {
         "id": "two-loops",
@@ -140,13 +132,13 @@
             "type": "image",
             "src": "../../assets/icons/two-loops.svg",
             "alt": "Side-by-side comparison of a GitHub pull-request mock with diff and CI checks (agent loop) and an Overleaf editor mock with inline comment threads (human loop)",
-            "width": "92%",
+            "width": "78%",
             "position": {"area": "content"}
           },
           {
             "type": "callout",
             "calloutType": "important",
-            "content": "**The agent loop wants pull requests. The human loop wants comments.** Picking the wrong tool for the wrong loop is the Week 7 failure mode.",
+            "content": "Agent loop wants pull requests. Human loop wants comments. **Picking the wrong tool for the wrong loop is the Week 7 failure mode.**",
             "animation": {"fragment": true, "type": "slide-up", "index": 0},
             "position": {"area": "footer"}
           }
@@ -563,13 +555,13 @@
         "speakerNotes": "- The three-command incantation. Memorise it for the demo\n\n- `git remote add overleaf <url>` then `git fetch overleaf` then `git checkout -b overleaf-merge overleaf/master`\n\n- The overleaf-merge branch sits in the same repo. Reviews, conflict resolution, and merge happen exactly like any other PR"
       },
       {
-        "id": "overleaf-comments-merge",
-        "layout": "two-column",
+        "id": "overleaf-comments-ui",
+        "layout": "single-column",
         "transition": "slide",
         "elements": [
           {
             "type": "text",
-            "content": "## Overleaf Round-Trip Step 4 -- The Comment-Merge Manual Pass",
+            "content": "## Overleaf Round-Trip Step 4a -- What Overleaf Comments Look Like",
             "style": {"fontSize": "xl"},
             "position": {"area": "header"}
           },
@@ -577,25 +569,46 @@
             "type": "image",
             "src": "../../assets/screenshots/overleaf-comments-ui.png",
             "alt": "Overleaf editor screenshot with inline review comments visible in the right panel; the comments highlight specific text in the LaTeX and have reply and resolve actions",
-            "width": "100%",
-            "position": {"area": "left"}
+            "width": "82%",
+            "position": {"area": "content"}
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "**These comments do NOT travel through git.** They live in the Overleaf UI only and disappear the moment you clone back.",
+            "animation": {"fragment": true, "type": "slide-up", "index": 0},
+            "position": {"area": "footer"}
+          }
+        ],
+        "speakerNotes": "- Show the audience what Overleaf comments look like to a co-author\n\n- Anchor: the comments are inline, threaded, tied to a text selection in the LaTeX. They feel natural to use\n\n- Drop the caveat at the end: these do not travel through git. Set up the next slide as the fix"
+      },
+      {
+        "id": "comment-merge-flow",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Overleaf Round-Trip Step 4b -- The Comment-Merge Manual Pass",
+            "style": {"fontSize": "xl"},
+            "position": {"area": "header"}
           },
           {
             "type": "image",
             "src": "../../assets/icons/comment-merge-flow.svg",
             "alt": "Diagram showing Overleaf comment threads on the left being transcribed via a manual-pass arrow into the repo on the right as either a PR comment (for a one-line fix) or a GitHub issue (for non-trivial work)",
-            "width": "100%",
-            "position": {"area": "right"}
+            "width": "94%",
+            "position": {"area": "content"}
           },
           {
             "type": "callout",
-            "calloutType": "warning",
-            "content": "**Overleaf comments do NOT travel through git.** Transcribe every open comment to a GitHub issue or PR comment, then mark Resolved in Overleaf. New defence -- introduced this week.",
+            "calloutType": "important",
+            "content": "Transcribe every open comment to a GitHub issue (non-trivial) or PR comment (one-line fix). Mark Resolved in Overleaf **only after** the transcription lands in the repo. New defence this week.",
             "animation": {"fragment": true, "type": "slide-up", "index": 0},
             "position": {"area": "footer"}
           }
         ],
-        "speakerNotes": "- This is the moral of the session. Land it hard\n\n- The screenshot on the left shows what Overleaf comments look like to the co-author\n\n- The diagram on the right shows what the manual pass looks like\n\n- The amber callout below is the new-this-week defence. Anyone who skips it loses every round of co-author input"
+        "speakerNotes": "- The fix for the caveat on the previous slide\n\n- For each open Overleaf comment: one of two things lands in the repo before you mark it Resolved\n\n- One-line fix -> PR comment on the merge PR; non-trivial fix -> GitHub issue\n\n- Land the punchline: 'Mark Resolved only after the transcription lands in the repo'\n\n- This is the new defence for this week"
       },
       {
         "id": "response-letter",
