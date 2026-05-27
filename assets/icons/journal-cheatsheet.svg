@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Pick the journal first -- canvas widths and font minimums (Step 1: Plan)</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">The validator in Step 4 uses Min body font as the threshold. Choose early so it can warn early.</text>
+
+  <!-- Table -->
+  <g>
+    <!-- Header -->
+    <rect x="80" y="64" width="840" height="36" rx="4" fill="#1E40AF"/>
+    <text x="170" y="86" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Journal</text>
+    <text x="340" y="86" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1 column</text>
+    <text x="500" y="86" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2 column</text>
+    <text x="640" y="86" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Min body font</text>
+    <text x="820" y="86" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Notes</text>
+
+    <!-- Row 1: Nature -->
+    <rect x="80" y="100" width="840" height="50" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6"/>
+    <text x="170" y="130" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold" text-anchor="middle">Nature</text>
+    <text x="340" y="130" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">89 mm</text>
+    <text x="500" y="130" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">183 mm</text>
+    <text x="640" y="130" font-family="sans-serif" font-size="12.5" fill="#D97706" font-weight="bold" text-anchor="middle">5 pt</text>
+    <text x="820" y="130" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">8 pt panel labels</text>
+
+    <!-- Row 2: Science -->
+    <rect x="80" y="150" width="840" height="50" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="0.6"/>
+    <text x="170" y="180" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold" text-anchor="middle">Science</text>
+    <text x="340" y="180" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">55 mm</text>
+    <text x="500" y="180" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">120 mm</text>
+    <text x="640" y="180" font-family="sans-serif" font-size="12.5" fill="#D97706" font-weight="bold" text-anchor="middle">6 pt</text>
+    <text x="820" y="180" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">Myriad / Helvetica</text>
+
+    <!-- Row 3: Cell -->
+    <rect x="80" y="200" width="840" height="50" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="0.6"/>
+    <text x="170" y="230" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold" text-anchor="middle">Cell</text>
+    <text x="340" y="230" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">85 or 112 mm</text>
+    <text x="500" y="230" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">174 mm</text>
+    <text x="640" y="230" font-family="sans-serif" font-size="12.5" fill="#D97706" font-weight="bold" text-anchor="middle">6 pt</text>
+    <text x="820" y="230" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">max 225 mm tall</text>
+
+    <!-- Row 4: PNAS -->
+    <rect x="80" y="250" width="840" height="50" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="0.6"/>
+    <text x="170" y="280" font-family="sans-serif" font-size="13" fill="#1E293B" font-weight="bold" text-anchor="middle">PNAS</text>
+    <text x="340" y="280" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">87 mm</text>
+    <text x="500" y="280" font-family="sans-serif" font-size="12" fill="#1E293B" text-anchor="middle">180 mm</text>
+    <text x="640" y="280" font-family="sans-serif" font-size="12.5" fill="#D97706" font-weight="bold" text-anchor="middle">6 pt</text>
+    <text x="820" y="280" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">no label &lt; 2 mm tall</text>
+
+    <!-- Column separators -->
+    <line x1="260" y1="100" x2="260" y2="300" stroke="#CBD5E1" stroke-width="0.6"/>
+    <line x1="420" y1="100" x2="420" y2="300" stroke="#CBD5E1" stroke-width="0.6"/>
+    <line x1="580" y1="100" x2="580" y2="300" stroke="#CBD5E1" stroke-width="0.6"/>
+    <line x1="720" y1="100" x2="720" y2="300" stroke="#CBD5E1" stroke-width="0.6"/>
+  </g>
+
+  <!-- Bottom annotation strip -->
+  <rect x="80" y="316" width="840" height="32" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+  <text x="500" y="332" font-family="sans-serif" font-size="11" fill="#92400E" font-weight="bold" text-anchor="middle">Full table for ~20 journals lives in references/journal-specs.md</text>
+  <text x="500" y="345" font-family="sans-serif" font-size="10" fill="#78350F" font-style="italic" text-anchor="middle">eLife, IEEE, NeuroImage, Cerebral Cortex, J. Neurosci., PLOS, Cell Reports, JOSS, ...</text>
+</svg>

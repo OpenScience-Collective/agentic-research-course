@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Live demo roadmap -- the HBN practicum algorithm figure</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Three live actions, ~5 minutes. We do not manufacture a finding -- the validator does its job whether we hoped it would or not.</text>
+
+  <!-- Step 1: svg-figure -->
+  <g>
+    <rect x="60" y="86" width="280" height="200" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.8"/>
+    <rect x="60" y="86" width="280" height="32" rx="6" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.8"/>
+    <text x="200" y="107" font-family="sans-serif" font-size="12" fill="#1E40AF" font-weight="bold" text-anchor="middle">Step 1 -- algorithm flow panel</text>
+    <!-- timing badge -->
+    <rect x="294" y="74" width="50" height="22" rx="3" fill="#1E40AF"/>
+    <text x="319" y="89" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1:30</text>
+    <text x="200" y="138" font-family="monospace" font-size="10.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">/figures:svg-figure</text>
+    <!-- mini schematic preview -->
+    <g transform="translate(78,150)">
+      <rect x="0" y="0" width="48" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="24" y="15" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">BIDS load</text>
+      <line x1="48" y1="12" x2="58" y2="12" stroke="#1E40AF" stroke-width="1"/>
+      <rect x="58" y="0" width="46" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="81" y="15" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">AMICA</text>
+      <line x1="104" y1="12" x2="114" y2="12" stroke="#1E40AF" stroke-width="1"/>
+      <rect x="114" y="0" width="46" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="137" y="15" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">IClabel</text>
+      <line x1="160" y1="12" x2="170" y2="12" stroke="#1E40AF" stroke-width="1"/>
+      <rect x="170" y="0" width="62" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="201" y="15" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">shot-epoch</text>
+
+      <line x1="116" y1="36" x2="58" y2="36" stroke="#1E40AF" stroke-width="1"/>
+      <rect x="0" y="36" width="58" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="29" y="51" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">ERSP</text>
+      <line x1="58" y1="48" x2="68" y2="48" stroke="#1E40AF" stroke-width="1"/>
+      <rect x="68" y="36" width="80" height="24" rx="3" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+      <text x="108" y="51" font-family="sans-serif" font-size="7" fill="#1E40AF" text-anchor="middle">cluster stats</text>
+    </g>
+    <text x="200" y="240" font-family="sans-serif" font-size="10" fill="#1E40AF" text-anchor="middle">5-stage horizontal flow</text>
+    <text x="200" y="256" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-style="italic" text-anchor="middle">text anchored in boxes</text>
+    <text x="200" y="272" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-style="italic" text-anchor="middle">arrows touching edges</text>
+  </g>
+
+  <!-- Step 2: plot-styling -->
+  <g>
+    <rect x="360" y="86" width="280" height="200" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.8"/>
+    <rect x="360" y="86" width="280" height="32" rx="6" fill="#A7F3D0" stroke="#059669" stroke-width="1.8"/>
+    <text x="500" y="107" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold" text-anchor="middle">Step 2 -- example ERSP panel</text>
+    <rect x="594" y="74" width="50" height="22" rx="3" fill="#065F46"/>
+    <text x="619" y="89" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1:30</text>
+    <text x="500" y="138" font-family="monospace" font-size="10.5" fill="#065F46" font-weight="bold" text-anchor="middle">/figures:plot-styling</text>
+    <!-- mini ERSP heat-map preview -->
+    <g transform="translate(420,154)">
+      <!-- viridis-ish strip -->
+      <rect x="0" y="0" width="20" height="14" fill="#440154"/>
+      <rect x="20" y="0" width="20" height="14" fill="#482878"/>
+      <rect x="40" y="0" width="20" height="14" fill="#3E4A89"/>
+      <rect x="60" y="0" width="20" height="14" fill="#31688E"/>
+      <rect x="80" y="0" width="20" height="14" fill="#26828E"/>
+      <rect x="100" y="0" width="20" height="14" fill="#1F9E89"/>
+      <rect x="120" y="0" width="20" height="14" fill="#6DCD59"/>
+      <rect x="140" y="0" width="20" height="14" fill="#FDE725"/>
+
+      <rect x="0" y="14" width="20" height="14" fill="#3E4A89"/>
+      <rect x="20" y="14" width="20" height="14" fill="#31688E"/>
+      <rect x="40" y="14" width="20" height="14" fill="#26828E"/>
+      <rect x="60" y="14" width="20" height="14" fill="#1F9E89"/>
+      <rect x="80" y="14" width="20" height="14" fill="#6DCD59"/>
+      <rect x="100" y="14" width="20" height="14" fill="#FDE725"/>
+      <rect x="120" y="14" width="20" height="14" fill="#FDE725"/>
+      <rect x="140" y="14" width="20" height="14" fill="#6DCD59"/>
+
+      <rect x="0" y="28" width="20" height="14" fill="#26828E"/>
+      <rect x="20" y="28" width="20" height="14" fill="#1F9E89"/>
+      <rect x="40" y="28" width="20" height="14" fill="#6DCD59"/>
+      <rect x="60" y="28" width="20" height="14" fill="#FDE725"/>
+      <rect x="80" y="28" width="20" height="14" fill="#FDE725"/>
+      <rect x="100" y="28" width="20" height="14" fill="#6DCD59"/>
+      <rect x="120" y="28" width="20" height="14" fill="#1F9E89"/>
+      <rect x="140" y="28" width="20" height="14" fill="#26828E"/>
+
+      <rect x="0" y="42" width="20" height="14" fill="#31688E"/>
+      <rect x="20" y="42" width="20" height="14" fill="#3E4A89"/>
+      <rect x="40" y="42" width="20" height="14" fill="#482878"/>
+      <rect x="60" y="42" width="20" height="14" fill="#3E4A89"/>
+      <rect x="80" y="42" width="20" height="14" fill="#26828E"/>
+      <rect x="100" y="42" width="20" height="14" fill="#31688E"/>
+      <rect x="120" y="42" width="20" height="14" fill="#3E4A89"/>
+      <rect x="140" y="42" width="20" height="14" fill="#482878"/>
+
+      <text x="-4" y="14" font-family="sans-serif" font-size="6" fill="#065F46" text-anchor="end">30 Hz</text>
+      <text x="-4" y="56" font-family="sans-serif" font-size="6" fill="#065F46" text-anchor="end">5 Hz</text>
+      <text x="80" y="68" font-family="sans-serif" font-size="7" fill="#065F46" text-anchor="middle">Time (s)</text>
+    </g>
+    <text x="500" y="240" font-family="sans-serif" font-size="10" fill="#065F46" text-anchor="middle">single-channel ERSP heat map</text>
+    <text x="500" y="256" font-family="sans-serif" font-size="9.5" fill="#065F46" font-style="italic" text-anchor="middle">plt.style.use(['science','nature'])</text>
+    <text x="500" y="272" font-family="sans-serif" font-size="9.5" fill="#065F46" font-style="italic" text-anchor="middle">savefig(svg, transparent, tight)</text>
+  </g>
+
+  <!-- Step 3: compose + qa -->
+  <g>
+    <rect x="660" y="86" width="280" height="200" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.8"/>
+    <rect x="660" y="86" width="280" height="32" rx="6" fill="#DDD6FE" stroke="#7C3AED" stroke-width="1.8"/>
+    <text x="800" y="107" font-family="sans-serif" font-size="12" fill="#5B21B6" font-weight="bold" text-anchor="middle">Step 3 -- compose + QA</text>
+    <rect x="894" y="74" width="50" height="22" rx="3" fill="#5B21B6"/>
+    <text x="919" y="89" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2:00</text>
+    <text x="800" y="138" font-family="monospace" font-size="10" fill="#5B21B6" font-weight="bold" text-anchor="middle">/figures:scientific-figure</text>
+    <text x="800" y="152" font-family="monospace" font-size="10" fill="#5B21B6" font-weight="bold" text-anchor="middle">+ /figures:figure-qa</text>
+    <!-- composed two-panel preview -->
+    <g transform="translate(692,168)">
+      <rect x="0" y="0" width="216" height="80" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+      <line x1="108" y1="0" x2="108" y2="80" stroke="#7C3AED" stroke-width="1"/>
+      <text x="6" y="14" font-family="sans-serif" font-size="9" fill="#5B21B6" font-weight="bold">A</text>
+      <text x="114" y="14" font-family="sans-serif" font-size="9" fill="#5B21B6" font-weight="bold">B</text>
+      <!-- A: tiny flow -->
+      <rect x="14" y="28" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <rect x="40" y="28" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <rect x="66" y="28" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <rect x="14" y="48" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <rect x="40" y="48" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <rect x="66" y="48" width="22" height="12" rx="2" fill="#BFDBFE" stroke="#2563EB" stroke-width="0.6"/>
+      <!-- B: tiny ersp -->
+      <rect x="120" y="28" width="80" height="32" fill="#3E4A89"/>
+      <rect x="125" y="32" width="14" height="24" fill="#FDE725"/>
+      <rect x="140" y="34" width="14" height="22" fill="#6DCD59"/>
+      <rect x="155" y="36" width="14" height="20" fill="#1F9E89"/>
+      <rect x="170" y="38" width="14" height="18" fill="#26828E"/>
+      <rect x="185" y="40" width="14" height="16" fill="#31688E"/>
+    </g>
+    <text x="800" y="268" font-family="sans-serif" font-size="10" fill="#5B21B6" text-anchor="middle">1-col Nature, 89 mm wide</text>
+    <text x="800" y="282" font-family="sans-serif" font-size="9.5" fill="#5B21B6" font-style="italic" text-anchor="middle">validate_fonts + VLM aesthetic</text>
+  </g>
+
+  <!-- Bottom: boomerang tail -->
+  <rect x="60" y="306" width="880" height="44" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="0.8"/>
+  <text x="500" y="324" font-family="sans-serif" font-size="11" fill="#92400E" font-weight="bold" text-anchor="middle">If the validator flags a font, we walk the remedy live</text>
+  <text x="500" y="340" font-family="sans-serif" font-size="10" fill="#78350F" font-style="italic" text-anchor="middle">rescale the offending panel up (e.g., 0.5 -- 0.6), increase the source pt, or widen the canvas. No finding is manufactured.</text>
+</svg>

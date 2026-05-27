@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">/figures:scientific-figure -- svgutils composer at exact mm coordinates</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Panels placed by mm, not by flexbox. Text preserved as &lt;text&gt; for the font validator.</text>
+
+  <!-- LEFT: panels-config.json -->
+  <g>
+    <rect x="50" y="64" width="430" height="280" rx="6" fill="#1E293B"/>
+    <rect x="50" y="64" width="430" height="26" rx="6" fill="#334155"/>
+    <circle cx="68" cy="77" r="4" fill="#EF4444"/>
+    <circle cx="82" cy="77" r="4" fill="#F59E0B"/>
+    <circle cx="96" cy="77" r="4" fill="#10B981"/>
+    <text x="265" y="82" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">panels-config.json</text>
+
+    <text x="68" y="114" font-family="monospace" font-size="11" fill="#94A3B8">{</text>
+    <text x="84" y="130" font-family="monospace" font-size="11" fill="#FCD34D">"width_mm":</text>
+    <text x="194" y="130" font-family="monospace" font-size="11" fill="#86EFAC">183,</text>
+    <text x="84" y="146" font-family="monospace" font-size="11" fill="#FCD34D">"height_mm":</text>
+    <text x="204" y="146" font-family="monospace" font-size="11" fill="#86EFAC">120,</text>
+    <text x="84" y="162" font-family="monospace" font-size="11" fill="#FCD34D">"journal":</text>
+    <text x="184" y="162" font-family="monospace" font-size="11" fill="#86EFAC">"nature",</text>
+    <text x="84" y="178" font-family="monospace" font-size="11" fill="#FCD34D">"panels":</text>
+    <text x="170" y="178" font-family="monospace" font-size="11" fill="#94A3B8">[</text>
+
+    <text x="100" y="200" font-family="monospace" font-size="10.5" fill="#94A3B8">{"id":</text>
+    <text x="170" y="200" font-family="monospace" font-size="10.5" fill="#86EFAC">"A"</text>
+    <text x="200" y="200" font-family="monospace" font-size="10.5" fill="#94A3B8">, "src":</text>
+    <text x="270" y="200" font-family="monospace" font-size="10.5" fill="#86EFAC">"panels/spectrum.svg"</text>
+    <text x="100" y="216" font-family="monospace" font-size="10.5" fill="#94A3B8">  "x_mm": 0,  "y_mm": 0,  "scale": 0.5,</text>
+    <text x="100" y="232" font-family="monospace" font-size="10.5" fill="#94A3B8">  "label": </text>
+    <text x="180" y="232" font-family="monospace" font-size="10.5" fill="#86EFAC">"A"</text>
+    <text x="200" y="232" font-family="monospace" font-size="10.5" fill="#94A3B8">},</text>
+
+    <text x="100" y="252" font-family="monospace" font-size="10.5" fill="#94A3B8">{"id":</text>
+    <text x="170" y="252" font-family="monospace" font-size="10.5" fill="#86EFAC">"B"</text>
+    <text x="200" y="252" font-family="monospace" font-size="10.5" fill="#94A3B8">, "src":</text>
+    <text x="270" y="252" font-family="monospace" font-size="10.5" fill="#86EFAC">"panels/topomap.svg"</text>
+    <text x="100" y="268" font-family="monospace" font-size="10.5" fill="#94A3B8">  "x_mm": 92,  "y_mm": 0,  "scale": 0.5,</text>
+    <text x="100" y="284" font-family="monospace" font-size="10.5" fill="#94A3B8">  "label": </text>
+    <text x="180" y="284" font-family="monospace" font-size="10.5" fill="#86EFAC">"B"</text>
+    <text x="200" y="284" font-family="monospace" font-size="10.5" fill="#94A3B8">}</text>
+
+    <text x="84" y="304" font-family="monospace" font-size="11" fill="#94A3B8">  ]</text>
+    <text x="68" y="320" font-family="monospace" font-size="11" fill="#94A3B8">}</text>
+
+    <text x="68" y="336" font-family="monospace" font-size="10" fill="#64748B" font-style="italic">$ uv run --with svgutils python compose.py panels-config.json -o figure.svg</text>
+  </g>
+
+  <!-- Arrow between -->
+  <defs>
+    <marker id="arrow-compose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C3AED"/>
+    </marker>
+  </defs>
+  <line x1="490" y1="200" x2="520" y2="200" stroke="#7C3AED" stroke-width="2.2" marker-end="url(#arrow-compose)"/>
+  <text x="505" y="190" font-family="sans-serif" font-size="10" fill="#5B21B6" font-weight="bold" text-anchor="middle">compose</text>
+
+  <!-- RIGHT: composed figure -->
+  <g>
+    <rect x="530" y="64" width="420" height="280" rx="6" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.6"/>
+    <text x="740" y="86" font-family="sans-serif" font-size="11.5" fill="#5B21B6" font-weight="bold" text-anchor="middle">Composed figure (183 mm wide, Nature 2-col)</text>
+
+    <!-- Outer canvas -->
+    <rect x="554" y="106" width="372" height="220" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.4"/>
+    <!-- Vertical divider between A and B panels -->
+    <line x1="740" y1="106" x2="740" y2="326" stroke="#CBD5E1" stroke-width="0.6" stroke-dasharray="2,2"/>
+
+    <!-- Panel A: spectrum -->
+    <text x="568" y="124" font-family="sans-serif" font-size="14" fill="#1E293B" font-weight="bold">A</text>
+    <line x1="588" y1="280" x2="720" y2="280" stroke="#1E293B" stroke-width="1"/>
+    <line x1="588" y1="158" x2="588" y2="280" stroke="#1E293B" stroke-width="1"/>
+    <path d="M 588 268 Q 620 220 660 188 T 720 156" fill="none" stroke="#0072B2" stroke-width="1.6"/>
+    <path d="M 588 276 Q 620 250 660 230 T 720 200" fill="none" stroke="#D55E00" stroke-width="1.6"/>
+    <text x="654" y="298" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">Frequency (Hz)</text>
+    <text x="582" y="220" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="end" transform="rotate(-90 582 220)">Power</text>
+
+    <!-- Panel B: topomap (circle with electrodes) -->
+    <text x="754" y="124" font-family="sans-serif" font-size="14" fill="#1E293B" font-weight="bold">B</text>
+    <circle cx="830" cy="216" r="56" fill="#FEF3C7" stroke="#1E293B" stroke-width="1.4"/>
+    <!-- Nose -->
+    <path d="M 826 162 L 830 154 L 834 162" fill="none" stroke="#1E293B" stroke-width="1.2"/>
+    <!-- Topomap pseudo-data: 7 circular electrodes -->
+    <circle cx="830" cy="182" r="6" fill="#0072B2"/>
+    <circle cx="810" cy="200" r="6" fill="#56B4E9"/>
+    <circle cx="850" cy="200" r="6" fill="#D55E00"/>
+    <circle cx="800" cy="222" r="6" fill="#009E73"/>
+    <circle cx="830" cy="216" r="6" fill="#F0E442"/>
+    <circle cx="860" cy="222" r="6" fill="#E69F00"/>
+    <circle cx="830" cy="246" r="6" fill="#0072B2"/>
+    <text x="830" y="296" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">scalp topography</text>
+
+    <!-- Annotation -->
+    <rect x="554" y="334" width="372" height="0" fill="none"/>
+  </g>
+
+  <!-- Bottom moral -->
+  <rect x="50" y="350" width="900" height="0" fill="none"/>
+</svg>

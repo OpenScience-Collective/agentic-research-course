@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">validate_fonts.py -- the new mechanical defence (Step 4)</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Walks the transform stack to compute effective pt for every &lt;text&gt; element, reports below-minimum.</text>
+
+  <!-- LEFT: validator output (FAIL) -->
+  <g>
+    <rect x="50" y="64" width="430" height="280" rx="6" fill="#1E293B"/>
+    <rect x="50" y="64" width="430" height="26" rx="6" fill="#334155"/>
+    <circle cx="68" cy="77" r="4" fill="#EF4444"/>
+    <circle cx="82" cy="77" r="4" fill="#F59E0B"/>
+    <circle cx="96" cy="77" r="4" fill="#10B981"/>
+    <text x="265" y="82" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">validate_fonts.py output</text>
+
+    <text x="68" y="110" font-family="monospace" font-size="10" fill="#64748B">$ python validate_fonts.py figure.svg --journal nature</text>
+    <text x="68" y="128" font-family="monospace" font-size="11" fill="#94A3B8">{</text>
+    <text x="84" y="144" font-family="monospace" font-size="11" fill="#FCD34D">"svg":</text>
+    <text x="138" y="144" font-family="monospace" font-size="11" fill="#86EFAC">"figure.svg",</text>
+    <text x="84" y="160" font-family="monospace" font-size="11" fill="#FCD34D">"journal":</text>
+    <text x="174" y="160" font-family="monospace" font-size="11" fill="#86EFAC">"nature",</text>
+    <text x="84" y="176" font-family="monospace" font-size="11" fill="#FCD34D">"minimum_pt":</text>
+    <text x="204" y="176" font-family="monospace" font-size="11" fill="#86EFAC">5.0,</text>
+    <text x="84" y="192" font-family="monospace" font-size="11" fill="#FCD34D">"checked_count":</text>
+    <text x="234" y="192" font-family="monospace" font-size="11" fill="#86EFAC">47,</text>
+    <text x="84" y="208" font-family="monospace" font-size="11" fill="#FCD34D">"issue_count":</text>
+    <text x="216" y="208" font-family="monospace" font-size="11" fill="#FCA5A5" font-weight="bold">1,</text>
+    <text x="84" y="224" font-family="monospace" font-size="11" fill="#FCD34D">"issues":</text>
+    <text x="164" y="224" font-family="monospace" font-size="11" fill="#94A3B8">[</text>
+    <!-- Issue object: highlighted with red border -->
+    <rect x="98" y="232" width="372" height="100" rx="3" fill="#7F1D1D" fill-opacity="0.18" stroke="#FCA5A5" stroke-width="1.2" stroke-dasharray="3,2"/>
+    <text x="106" y="248" font-family="monospace" font-size="10.5" fill="#94A3B8">{</text>
+    <text x="120" y="262" font-family="monospace" font-size="10.5" fill="#FCD34D">"text":</text>
+    <text x="186" y="262" font-family="monospace" font-size="10.5" fill="#86EFAC">"Frequency (Hz)",</text>
+    <text x="120" y="276" font-family="monospace" font-size="10.5" fill="#FCD34D">"specified_pt":</text>
+    <text x="240" y="276" font-family="monospace" font-size="10.5" fill="#86EFAC">9.0,</text>
+    <text x="120" y="290" font-family="monospace" font-size="10.5" fill="#FCD34D">"effective_pt":</text>
+    <text x="240" y="290" font-family="monospace" font-size="13" fill="#FCA5A5" font-weight="bold">4.5,</text>
+    <text x="120" y="306" font-family="monospace" font-size="10.5" fill="#FCD34D">"scale_x":</text>
+    <text x="208" y="306" font-family="monospace" font-size="10.5" fill="#86EFAC">0.5,</text>
+    <text x="120" y="320" font-family="monospace" font-size="10.5" fill="#FCD34D">"minimum_pt":</text>
+    <text x="232" y="320" font-family="monospace" font-size="10.5" fill="#86EFAC">5.0</text>
+  </g>
+
+  <!-- Arrow between (remedy) -->
+  <defs>
+    <marker id="arrow-remedy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+    </marker>
+  </defs>
+  <line x1="488" y1="200" x2="514" y2="200" stroke="#059669" stroke-width="2.2" marker-end="url(#arrow-remedy)"/>
+  <text x="501" y="190" font-family="sans-serif" font-size="10" fill="#065F46" font-weight="bold" text-anchor="middle">remedy</text>
+
+  <!-- RIGHT: post-fix figure with green check -->
+  <g>
+    <rect x="530" y="64" width="420" height="280" rx="6" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
+    <text x="740" y="86" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">After rescale -- effective_pt 5.4, PASS</text>
+
+    <!-- Plot mock with the previously-flagged label, now at 5.4 pt -->
+    <rect x="600" y="110" width="328" height="210" fill="#FFFFFF" stroke="#059669" stroke-width="1.2"/>
+    <line x1="652" y1="290" x2="908" y2="290" stroke="#1E293B" stroke-width="1.2"/>
+    <line x1="652" y1="140" x2="652" y2="290" stroke="#1E293B" stroke-width="1.2"/>
+    <!-- data -->
+    <path d="M 652 268 Q 702 220 760 188 T 870 138" fill="none" stroke="#0072B2" stroke-width="1.6"/>
+    <path d="M 652 280 Q 702 240 760 222 T 870 200" fill="none" stroke="#D55E00" stroke-width="1.6"/>
+    <!-- y-axis label OUTSIDE plot rect, at 5.4 pt, with green highlight -->
+    <rect x="568" y="184" width="22" height="80" rx="3" fill="#D1FAE5" stroke="#059669" stroke-width="1"/>
+    <text x="579" y="224" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold" text-anchor="middle" transform="rotate(-90 579 224)">Frequency (Hz)</text>
+    <!-- check -->
+    <circle cx="670" cy="138" r="11" fill="#10B981"/>
+    <path d="M 664 138 L 668 142 L 676 134" fill="none" stroke="#FFFFFF" stroke-width="2.4"/>
+    <text x="780" y="306" font-family="sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">Time (s)</text>
+    <!-- callout box -->
+    <rect x="668" y="156" width="240" height="34" rx="3" fill="#D1FAE5" stroke="#059669" stroke-width="0.8"/>
+    <text x="788" y="172" font-family="monospace" font-size="9.5" fill="#065F46" font-weight="bold" text-anchor="middle">effective_pt: 5.4   minimum_pt: 5.0</text>
+    <text x="788" y="184" font-family="sans-serif" font-size="9" fill="#065F46" font-style="italic" text-anchor="middle">3 remedies: rescale | source pt | wider canvas</text>
+  </g>
+
+  <!-- Bottom moral -->
+  <rect x="50" y="350" width="900" height="0" fill="none"/>
+</svg>

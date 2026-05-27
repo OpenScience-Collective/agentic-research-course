@@ -1,0 +1,896 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 8: Scientific Figures -- a 5-step pipeline (Plan, Build, Compose, Validate, Export) powered by the figures plugin (5 skills + the figure-qa agent), with validate_fonts.py as the new mechanical defence",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": {
+              "fontSize": "xxl",
+              "alignment": "center",
+              "fontWeight": "bold"
+            },
+            "position": {
+              "area": "center"
+            }
+          },
+          {
+            "type": "text",
+            "content": "Week 8: Scientific Figures",
+            "style": {
+              "fontSize": "large",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 1
+            }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#475569"
+            },
+            "position": {
+              "area": "center",
+              "order": 2
+            }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/5dWJCUmUww](https://discord.gg/5dWJCUmUww) | Recording: published to YouTube within 48 h",
+            "style": {
+              "fontSize": "medium",
+              "alignment": "center",
+              "color": "#2563EB"
+            },
+            "position": {
+              "area": "center",
+              "order": 3
+            }
+          }
+        ],
+        "speakerNotes": "- Welcome back\n\n- Last week: a full IMRAD manuscript, GitHub-native end-to-end, with an Overleaf round-trip and the comment-merge manual pass\n\n- Today: the figures stage we used but did not teach. The `figures` plugin expanded between last week and this week from 3 skills to 5 skills + a QA agent\n\n- The new defence introduced today: `validate_fonts.py` -- a deterministic check on effective font sizes across the transform stack. Fixes the journal-rejection failure mode the old workflow had\n\n- Format: ~30 min presentation, ~5 min live demo of the HBN practicum algorithm figure, 15 min Q&A"
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "**Weeks 1-4 -- Git, Claude Code, project management, CI/CD.** The safety net and the agent."
+              },
+              {
+                "text": "**Week 5 -- Lit review.** Cite-the-card discipline. The corpus that fed Weeks 6 and 7.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "**Week 6 -- Grant proposals.** Specific Aims = 1-page lit review with deliverables; `grant-figure-qa` was the first figure-QA agent.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "**Week 7 -- Manuscripts.** Stage 3 of the IMRAD pipeline was figures-as-workflow. Today is figures-as-craft.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Today.** The 5-step figures pipeline. Plan, Build, Compose, Validate, Export.",
+                "animation": {
+                  "fragment": true,
+                  "type": "slide-up",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "content"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 6x to reveal fragments]\n\n- Recap of weeks 1-7, paired by theme\n\n- The Week 6 callout (`grant-figure-qa`) sets up today's unified `figure-qa` agent\n\n- The Week 7 callout sets up the figures-as-craft framing for today\n\n- Land the closing bullet: 'figures-as-craft', the discipline the manuscript pipeline assumes but does not teach"
+      },
+      {
+        "id": "failure-modes",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Why the Old Workflow Broke",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-failure-modes.svg",
+            "alt": "Two figure renderings side by side. Left side: a Nature 1-column panel target with crisp 7 pt axis labels. Right side: the same panel rendered through react-pdf with the y-axis label Frequency (Hz) highlighted in red at 4.5 pt, and a hand-drawn diagonal slash across the panel. A failure-modes strip across the bottom lists two failures: composition did not respect physical size; fonts shrank below readable thresholds.",
+            "width": "76%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "**Two structural failures.** Flexbox shifted dimensions during render; engine scaled the whole figure, pushing axis labels under 4 pt. **Journal-reject territory.**",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- This is the motivation slide. Land both failures aloud\n\n- Failure 1: composition did not respect physical size. The flexbox layout engine treated mm as soft constraints; panels drifted by a fraction of a mm during render. Over a 2-column figure, that drifted into misaligned panel labels\n\n- Failure 2: fonts shrank. When a panel's content overflowed its allotted space, the engine scaled the entire figure uniformly. Axis labels that started at 7 pt landed at 4-4.5 pt -- below Nature's 5 pt minimum\n\n- The right-hand panel's red-highlighted label is the failure made visible. This is what triggered the rewrite"
+      },
+      {
+        "id": "reframe-pipeline",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Reframe -- Figures Are a 5-Step Pipeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-reframe.svg",
+            "alt": "Left side: an old one-shot generator labelled react-pdf, with a single arrow into a garbage-output warning box. Right side: a 5-step pipeline labelled Plan, Build, Compose, Validate, Export, with a boomerang arrow from Validate back to Build. Annotations call out the shift from one-shot to pipeline.",
+            "width": "78%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Same shape as Weeks 5-7. **A figure is a managed pipeline, not a single prompt.** Every step has a mechanical defence.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Land the reframe aloud: figures-as-pipeline, not figures-as-prompt\n\n- The shape carries from prior weeks. Trainees who learned the lit-review or manuscript pipelines recognise it instantly\n\n- The boomerang is the new visual: when the font validator at Step 4 flags an issue, the failed panel cycles back to Step 2 (Build) for rescaling or re-export"
+      },
+      {
+        "id": "pipeline-hero",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The 5-Step scientific-figure Pipeline",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-pipeline.svg",
+            "alt": "Five-step horizontal pipeline: Plan (journal size, panel grid, palette); Build (matplotlib/seaborn per panel; optional icons and substrates); Compose (svgutils at exact mm coordinates; text preserved); Validate (per-element pt vs journal minimum; rescale panel if below minimum); Export (Inkscape if present; cairosvg otherwise). A boomerang arrow loops from Validate back to Build.",
+            "width": "94%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Order enforced. Composing before planning produces dimension drift; exporting before validating produces journal rejections. **The validator is the new mechanical defence.**",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The hero diagram for this week. Read each stage aloud\n\n- Plan -> Build -> Compose -> Validate -> Export\n\n- The boomerang from Validate back to Build is the rigor signal; first-pass convergence means the validator did not actually run or the figure has no text to measure\n\n- The validator is what makes this pipeline different from every other figure workflow I have used"
+      },
+      {
+        "id": "pick-the-journal",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 1 -- Pick the Journal First",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/journal-cheatsheet.svg",
+            "alt": "A 4-row table headed Pick the journal first. Columns are Journal, 1-column width, 2-column width, Min body font, Notes. Rows: Nature 89 mm 183 mm 5 pt 8 pt panel labels; Science 55 mm 120 mm 6 pt Myriad/Helvetica preferred; Cell 85 mm 174 mm 6 pt max 225 mm tall; PNAS 87 mm 180 mm 6 pt no label below 2 mm tall.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Width sets the canvas. **Min body font is the validator's threshold.** Pick early so the validator can warn early.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- This is the slide that prevents the most common figure failure: building at the wrong width\n\n- Nature 89/183, Science 55/120, Cell 85/174, PNAS 87/180. Memorise the one you submit to most often\n\n- Min body font is what the validator enforces. Nature 5 pt, the other three at 6 pt\n\n- The full table for ~20 journals lives in `references/journal-specs.md`"
+      },
+      {
+        "id": "palettes",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 1 -- Colorblind-Safe Palettes",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/palettes.svg",
+            "alt": "Five palette rows with named swatches and hex codes. Wong (8 swatches): black, orange, sky blue, bluish green, yellow, blue, vermilion, reddish purple. Okabe-Ito (8 swatches): same family, lab-calibrated. Tol bright (7 swatches): blue, red, green, yellow, cyan, purple, grey. Viridis sequential (8 gradient steps). Crameri batlow (8 gradient steps).",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Reuse one palette across all panels. The theme bible (`theme.json`) keeps an icon set + plot panels + substrates in the same colour language.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Five palettes the plugin ships with: Wong, Okabe-Ito (both categorical, colour-blind safe), Tol bright (categorical, high contrast), viridis (sequential, perceptually uniform), Crameri batlow (sequential, designed for scientific data)\n\n- The full catalogue (~15 palettes) lives in `references/color-palettes.md`\n\n- The theme bible (`theme.json`) is what stops palette drift across the 8 panels of a multi-panel figure"
+      },
+      {
+        "id": "plugin-map",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The figures Plugin -- 5 Skills + 1 Agent",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figures-plugin-map.svg",
+            "alt": "Centre card: /figures:scientific-figure (the composer). Four element-builder cards around it: /figures:plot-styling (matplotlib, seaborn); /figures:svg-figure (schematics, arrows); /figures:transparent-icons (Codex CLI image_gen, transparency post-process); /figures:ai-full-figure (substrate + overlay). Above the composer: a /figures:figure-qa agent card with arrows down to the composer indicating it runs on every figure produced.",
+            "width": "88%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "The composer is the sink. The element builders feed it. **The QA agent runs on every figure** (programmatic checks plus a VLM aesthetic pass).",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The plugin map slide. The plugin expanded between Weeks 7 and 8 from 3 skills to 5 + the QA agent\n\n- Composer at the centre: `/figures:scientific-figure`. Everything feeds it\n\n- Four element builders: `plot-styling` (data), `svg-figure` (schematics), `transparent-icons` (icons), `ai-full-figure` (pictorial substrates)\n\n- QA agent on top, runs on every figure unless explicitly opted out\n\n- Next four slides: one per element-builder skill"
+      },
+      {
+        "id": "plot-styling-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /figures:plot-styling -- SciencePlots + SVG-with-text",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/plot-styling-skill.svg",
+            "alt": "Two-column slide. Left: a Python code snippet showing import matplotlib.pyplot as plt, import scienceplots, plt.style.use(['science', 'nature', 'no-latex']), then fig.savefig('panel.svg', transparent=True, bbox_inches='tight'). The style.use line and the savefig kwargs are highlighted. Right: a rendered Nature-style line plot with axis labels annotated at 7 pt and a colorblind-safe Wong palette badge.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Save as SVG, transparent, tight bbox, embedded text.** The validator inspects every `<text>` element; rasterised PNG breaks the check.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The library decision tree: matplotlib for control, seaborn for stats, plotnine for ggplot in Python, plotly for HTML supplements\n\n- SciencePlots styles do 80% of the work: `science` (base), `nature` / `ieee` / `vibrant` / `bright`\n\n- `no-latex` is non-optional unless you have system LaTeX installed AND want path-rendered text (which breaks font validation)\n\n- Export discipline: SVG, transparent, tight bbox, embedded text. The validator depends on text-as-text"
+      },
+      {
+        "id": "svg-figure-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /figures:svg-figure -- Schematics with Constraints",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/svg-figure-skill.svg",
+            "alt": "Two-column slide. Left: an SVG code snippet showing a rect at x=10 y=10 width=30 height=14, a text element at x=25 y=17 with text-anchor=middle dominant-baseline=middle reading Cortex, and a line with marker-end pointing at a target rect. Comments call out text centred in box and arrow tip at target edge. Right: the rendered schematic showing the Cortex box, the arrow, and a labelled target box.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Text **inside** box bounds. Arrows end at **target edge** (`refX` near tip). Lines pass under shapes via **document order** -- avoid `z-index`.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- For schematics: boxes, arrows, labels. Use when the figure is structural rather than data\n\n- Three constraints the skill enforces and `figure-qa` later checks: text aligned to box bounds; arrows ending at target edge; lines passing under shapes by document order\n\n- The viewBox convention: `width=89mm height=60mm viewBox=0 0 89 60` so user units equal mm. A `<text font-size=9>` is 9 pt; a `<rect width=20>` is 20 mm\n\n- The skill ships authoring patterns; the user can hand-write SVG or use svgutils.transform for programmatic schematics"
+      },
+      {
+        "id": "transparent-icons-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /figures:transparent-icons -- Codex First, API Fallback",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/transparent-icons-skill.svg",
+            "alt": "Two-column slide. Left: a shell command uv run --with openai --with pillow python scripts/generate_icon.py --template brain-eeg -o brain_eeg.png --transparent, with the --template and --transparent flags highlighted. A small backend toggle note: Codex CLI image_gen (preferred) or OpenAI Images API (fallback). Right: three rendered icons in a row (brain with EEG electrodes, neuron, EEG cap) on a checkerboard transparency background, all in a matching Wong palette.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**No API key required** when `codex login` is configured. Transparency post-process: `threshold` (fast) or `birefnet` (cleaner edges, opt-in).",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Two backends, auto-selected: Codex CLI (preferred -- uses local `codex login`), OpenAI Images API (fallback -- requires `OPENAI_API_KEY`)\n\n- Why two: many researchers have a ChatGPT subscription and `codex login` but no separate API key\n\n- Transparency is a post-process because gpt-image-2 (April 2026) does not accept `background=transparent`. Two methods: `threshold` (Pillow, fast, default) or `birefnet` (rembg + BiRefNet, opt-in, cleaner edges, ~400 MB one-time model download)\n\n- The theme bible (`theme.json`) keeps an icon set consistent across the figure"
+      },
+      {
+        "id": "ai-full-figure-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /figures:ai-full-figure -- Substrate Only, Overlay Programmatic",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/ai-full-figure-skill.svg",
+            "alt": "Two-column slide. Left: a raw substrate showing a watercolour-style human brain on a clean white background with no text, no labels, no arrows. Right: the same substrate with three programmatic labels (Cortex, Cerebellum, Brainstem), two arrows pointing at anatomical landmarks, and a 10 mm scale bar overlaid as a separate SVG layer. A bottom strip lists the hard ceiling: no axis numerals, no equations, no multi-arrow flowcharts, no > 5 labeled elements.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "AI cannot reliably render text inside the image. **Substrate-only generation + programmatic overlay** is the pattern.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- For pictorial scenes: brain renderings, microscope setups, anatomical scenes, lab apparatus, graphical-abstract substrates\n\n- The hard ceiling: AI cannot reliably render axis numerals, equations, multi-arrow flowcharts, or more than 5 labelled elements. Labels longer than 1-2 words drift in position\n\n- The pattern: prompt for the substrate with no text, no labels, no arrows; overlay the labels / arrows / scale bars as a separate SVG layer; ship the combined SVG\n\n- The theme bible is shared with `transparent-icons` so substrate palette + icon palette match"
+      },
+      {
+        "id": "compose-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 3 -- /figures:scientific-figure (svgutils, Exact mm)",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/compose-skill.svg",
+            "alt": "Two-column slide. Left: a panels-config.json with width_mm 183, height_mm 120, journal nature, and three panels A (spectrum.svg at x_mm 0 y_mm 0 scale 0.5), B (topomap.svg at x_mm 92 y_mm 0 scale 0.5), C (timecourse.svg at x_mm 0 y_mm 60 scale 1.0 width_mm 183). Right: the composed figure at 183 mm wide showing two top panels labelled A and B and one wide bottom panel labelled C, with panel labels in 12 pt bold sans-serif.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Panels at **exact mm coordinates**, not flexbox. **Text preserved as `<text>` elements** so the validator can inspect every label before export.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The composer is built around svgutils (`uv run --with svgutils`)\n\n- Two ways to compose: the helper (`scripts/compose.py panels-config.json -o figure.svg`) for the 80% case, or direct `svgutils.compose.Figure` for full control\n\n- The mm coords are not approximations; svgutils preserves the `viewBox` and `transform` stack so each panel lands at the exact x_mm/y_mm requested\n\n- Text remains text. This is the property the validator depends on -- no rasterisation, no path conversion at compose time"
+      },
+      {
+        "id": "font-validator",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 4 -- validate_fonts.py (the New Defence)",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/font-validator.svg",
+            "alt": "Two-column slide. Left: a JSON output block showing svg figure.svg, journal nature, minimum_pt 5.0, checked_count 47, issue_count 1, with one issue object highlighted: text 'Frequency (Hz)', specified_pt 9.0, effective_pt 4.5, scale_x 0.5, minimum_pt 5.0. The effective_pt 4.5 is in red. Right: the same figure after the panel scale is increased from 0.5 to 0.6, with the previously flagged label now annotated at 5.4 pt and a green check mark.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**Walks the transform stack** to compute effective pt for every `<text>` and `<tspan>`. Remedies: rescale panel up, increase source font, or upgrade canvas width.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- This is the slide trainees will quote\n\n- The validator parses every `<text>` and `<tspan>` with a `font-size`, walks the accumulated transform stack to compute the effective pt at final physical dimensions, and reports anything below the journal minimum\n\n- The JSON output: `effective_pt: 4.5` against `minimum_pt: 5.0` for Nature. Caught before export\n\n- Three remedies: rescale the offending panel up (and others down) instead of accepting small text; increase the source plot's font size so even at panel scale 0.5 it passes; upgrade to a wider canvas (1-col -> 1.5-col)\n\n- This is `cite-the-card`'s equivalent for figures: a deterministic check that converts subjective into objective"
+      },
+      {
+        "id": "export-backends",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Step 5 -- Export (Inkscape vs cairosvg)",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/export-backends.svg",
+            "alt": "Two-column slide. Left card: Inkscape branch. SVG -> Inkscape -> PDF arrow with annotation text remains text, fonts subsetted, highest fidelity. A preferred badge on the card. Bottom note brew install inkscape (~200 MB one-time). Right card: cairosvg branch. SVG -> cairosvg -> PDF arrow with annotation text converted to paths when journal font absent. A fallback badge on the card. Bottom note no extra install required.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "`export.py` auto-detects Inkscape on `$PATH`. One-time `brew install inkscape` is worth the ~200 MB.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Two export backends, auto-selected\n\n- Inkscape (preferred when present): text remains text, fonts subsetted, highest fidelity. One-time install\n\n- cairosvg (fallback): works without Inkscape but produces lower-fidelity PDFs when journal-required fonts are not installed locally -- text gets converted to paths\n\n- The script auto-detects Inkscape on `$PATH` and warns when it falls back\n\n- This is the only slide today that asks the user to install something locally"
+      },
+      {
+        "id": "figure-qa-dispatch",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /figures:figure-qa -- Dispatch by Input Type",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/figure-qa-dispatch.svg",
+            "alt": "Three-column flow. Left column: four input-type cards (SVG, raster PNG/JPG/TIFF, plot script, composed-figure directory). Centre: a /figures:figure-qa agent diamond with a no-qa opt-out badge. Right column: three check-script cards (check_svg.py, check_raster.py, check_plot_script.py) and one VLM-judgment card (vision-language model aesthetic pass). Arrows route each input type to the right check script plus the VLM card.",
+            "width": "94%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Detects input type, picks the right deterministic checks, **adds a VLM aesthetic pass on top**. Honours `no-qa` opt-out.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The QA agent dispatches on input type. Four supported types: SVG, raster, plot script (Python source), and composed-figure directory\n\n- Each type maps to a specific deterministic-check script\n\n- The VLM judgment pass runs on top of the deterministic checks, for every input type\n\n- `no-qa` opt-out: pass `no-qa` in the prompt or args to skip QA entirely. Useful for fast iteration; we re-enable it before commit"
+      },
+      {
+        "id": "qa-split",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Deterministic Checks vs VLM Judgment",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/qa-split.svg",
+            "alt": "Two columns with a vertical divider. Left column titled Deterministic (programmatic) lists: hex codes, pt sizes, pixel positions, alpha values, bbox overlap, arrow tip distance, document-order z-order, palette membership. Right column titled VLM (judgment) lists: hierarchy reads clearly, layered correctly, panel labels positioned consistently, visual balance, callout placement, narrative arc across panels. A horizontal arrow at the top reads Strict separation: programmatic for ground truth, VLM for judgment.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Programmatic checks own anything with **ground truth**. VLM owns **judgment**. **Never blur the line** -- the moment a VLM tries to judge an exact hex code, the QA loses its falsifiability.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The strict separation is the design discipline of the QA agent\n\n- Deterministic checks own: anything you can write an exact assertion about. Hex codes are exactly equal. A pt size is below or above the minimum. A bbox overlaps or it does not\n\n- VLM owns: judgment. 'Does the hierarchy read clearly' is not a deterministic question; it depends on visual context\n\n- The agent's prompt explicitly forbids the VLM from re-judging anything the deterministic checks already covered. This is why the agent stays useful as the deterministic-check coverage grows"
+      },
+      {
+        "id": "three-defences",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Three Defences -- One per Phase",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/three-defences-figures.svg",
+            "alt": "Three labelled shields. Shield 1 (Palette + theme consistency) covers the Build phase, carried from prior weeks. Shield 2 (Font validation -- validate_fonts.py) covers Compose -> Validate, marked with a NEW badge. Shield 3 (VLM aesthetic pass -- figure-qa) covers the QA phase, evolved from Week 6's grant-figure-qa.",
+            "width": "82%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Stack-redundant by design. **None alone is sufficient.** The font validator is new this week; it is the slide trainees will quote.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- The moral of the session. Three defences, deliberately redundant\n\n- Palette + theme consistency carried from prior weeks (Week 5 cite-the-card extended to cite-the-figure; Week 6 paper-cards anchor every claim)\n\n- Font validation is new this week. The thing that fixed the react-pdf failure mode\n\n- VLM aesthetic pass evolved from Week 6's `grant-figure-qa`. Now unified across SVG / raster / script / composed-figure input types\n\n- Land the punchline: 'A figure that passes without the validator running, or without the QA agent's aesthetic pass, is hiding what it found'"
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo Roadmap -- HBN Algorithm Figure",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/demo-roadmap-figures.svg",
+            "alt": "Three live-action steps in a row with timing badges. Step 1 (1:30, /figures:svg-figure): draft the algorithm-flow panel -- BIDS load -> AMICA -> IClabel -> shot-aligned epoching -> ERSP -> cluster stats. Step 2 (1:30, /figures:plot-styling): build an example ERSP panel from example-ersp-data.csv at Nature 1-column width. Step 3 (2:00, /figures:scientific-figure + figure-qa): compose the two panels at 89 mm with A and B labels, run validate_fonts.py and the VLM aesthetic pass. An off-stage tail notes that if the validator flags a font, we walk the remedy.",
+            "width": "92%",
+            "position": {
+              "area": "content"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "**We do not manufacture a finding.** If the validator flags a font, we walk the remedy (rescale the panel up). The VLM pass is part of the demo, not separate.",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 0
+            },
+            "position": {
+              "area": "footer"
+            }
+          }
+        ],
+        "speakerNotes": "- Three live actions, ~5 minutes total\n\n- Step 1 (1:30): /figures:svg-figure drafts the 5-stage algorithm flow panel\n\n- Step 2 (1:30): /figures:plot-styling builds the example ERSP panel from a stub data file\n\n- Step 3 (2:00): /figures:scientific-figure composes the two panels at 89 mm, then figure-qa runs validate_fonts.py and the VLM aesthetic pass\n\n- A likely natural finding given the source font sizes: the topomap colorbar label might land at 4.8 pt under Nature's 5 pt. If that surfaces, we rescale the topomap panel from 0.5 to 0.6 live\n\n- Land the closing: 'We do not manufacture a finding. The validator does its job whether or not we hoped it would'"
+      },
+      {
+        "id": "what-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": {
+              "fontSize": "xl"
+            },
+            "position": {
+              "area": "header"
+            }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              {
+                "text": "A **5-step figures pipeline** (Plan, Build, Compose, Validate, Export) inside the same repository as the manuscript.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 0
+                }
+              },
+              {
+                "text": "A **font validator** (`validate_fonts.py`) that catches journal-rejection failures before export.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 1
+                }
+              },
+              {
+                "text": "A **QA agent** (`/figures:figure-qa`) with deterministic checks + a VLM aesthetic pass.",
+                "animation": {
+                  "fragment": true,
+                  "type": "fade",
+                  "index": 2
+                }
+              },
+              {
+                "text": "**Today.** Publication-grade figures that ship next to the manuscript, reproducible from source, journal-compliant before submission.",
+                "animation": {
+                  "fragment": true,
+                  "type": "slide-up",
+                  "index": 3
+                }
+              }
+            ],
+            "bulletStyle": "disc",
+            "style": {
+              "fontSize": "large"
+            },
+            "position": {
+              "area": "left"
+            }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Next week -- neuroinformatics.** Brain Imaging Data Structure (BIDS), Hierarchical Event Descriptors (HED), and what the Methods section cites.\n\n**Questions? Ask while the demo composes.**",
+            "animation": {
+              "fragment": true,
+              "type": "slide-up",
+              "index": 4
+            },
+            "position": {
+              "area": "right"
+            }
+          }
+        ],
+        "speakerNotes": "[Press right 4x to reveal fragments]\n\n- Land the takeaways one at a time\n\n- Today: 5-step pipeline, font validator, QA agent\n\n- Next week: neuroinformatics. BIDS, HED, Methods\n\n- Land the closing line: 'Questions? Ask while the demo composes'"
+      }
+    ]
+  }
+}

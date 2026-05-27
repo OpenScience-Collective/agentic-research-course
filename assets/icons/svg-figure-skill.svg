@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">/figures:svg-figure -- schematics with element-consistency guarantees</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Text in box bounds. Arrows at target edge. Lines under shapes by document order.</text>
+
+  <!-- LEFT: code -->
+  <g>
+    <rect x="50" y="64" width="460" height="280" rx="6" fill="#1E293B"/>
+    <rect x="50" y="64" width="460" height="26" rx="6" fill="#334155"/>
+    <circle cx="68" cy="77" r="4" fill="#EF4444"/>
+    <circle cx="82" cy="77" r="4" fill="#F59E0B"/>
+    <circle cx="96" cy="77" r="4" fill="#10B981"/>
+    <text x="280" y="82" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">panel_b.svg (89 mm x 60 mm)</text>
+
+    <text x="68" y="112" font-family="monospace" font-size="11" fill="#94A3B8">&lt;svg width="89mm" height="60mm"</text>
+    <text x="68" y="128" font-family="monospace" font-size="11" fill="#86EFAC">     viewBox="0 0 89 60"&gt;</text>
+    <text x="68" y="144" font-family="monospace" font-size="10.5" fill="#64748B" font-style="italic"># viewBox units = mm</text>
+
+    <text x="68" y="170" font-family="monospace" font-size="11" fill="#94A3B8">&lt;rect x="10" y="10" width="30" height="14"</text>
+    <text x="68" y="186" font-family="monospace" font-size="11" fill="#94A3B8">      fill="#F4F1DE"/&gt;</text>
+    <text x="68" y="204" font-family="monospace" font-size="11" fill="#FCD34D">&lt;text x="25" y="17"</text>
+    <text x="68" y="220" font-family="monospace" font-size="11" fill="#86EFAC">      text-anchor="middle"</text>
+    <text x="68" y="236" font-family="monospace" font-size="11" fill="#86EFAC">      dominant-baseline="middle"</text>
+    <text x="68" y="252" font-family="monospace" font-size="11" fill="#94A3B8">      font-size="6"&gt;Cortex&lt;/text&gt;</text>
+
+    <text x="68" y="278" font-family="monospace" font-size="11" fill="#FCD34D">&lt;line x1="40" y1="17" x2="55" y2="17"</text>
+    <text x="68" y="294" font-family="monospace" font-size="11" fill="#86EFAC">      marker-end="url(#arrow)"/&gt;</text>
+
+    <text x="68" y="316" font-family="monospace" font-size="11" fill="#94A3B8">&lt;rect x="55" y="10" width="24" height="14"</text>
+    <text x="68" y="332" font-family="monospace" font-size="11" fill="#94A3B8">      fill="#FFFFFF"/&gt;</text>
+  </g>
+
+  <!-- Annotations -->
+  <defs>
+    <marker id="arrow-note-svg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1E40AF"/>
+    </marker>
+  </defs>
+  <line x1="540" y1="220" x2="510" y2="220" stroke="#1E40AF" stroke-width="1.2" marker-end="url(#arrow-note-svg)"/>
+  <text x="544" y="216" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold">text centred</text>
+  <text x="544" y="228" font-family="sans-serif" font-size="9" fill="#1E40AF" font-style="italic">x=rect.cx, y=rect.cy</text>
+
+  <line x1="540" y1="294" x2="510" y2="294" stroke="#1E40AF" stroke-width="1.2" marker-end="url(#arrow-note-svg)"/>
+  <text x="544" y="290" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold">arrow tip = target edge</text>
+  <text x="544" y="302" font-family="sans-serif" font-size="9" fill="#1E40AF" font-style="italic">marker refX near tip</text>
+
+  <!-- RIGHT: rendered schematic -->
+  <g>
+    <rect x="540" y="64" width="410" height="280" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
+    <text x="745" y="86" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold" text-anchor="middle">Rendered schematic</text>
+
+    <!-- Cortex box -->
+    <rect x="582" y="120" width="120" height="56" rx="3" fill="#F4F1DE" stroke="#1F3A5F" stroke-width="1.4"/>
+    <text x="642" y="152" font-family="sans-serif" font-size="14" fill="#1F3A5F" text-anchor="middle" dominant-baseline="middle">Cortex</text>
+
+    <!-- arrow tip touches target -->
+    <defs>
+      <marker id="arrow-render" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3A5F"/>
+      </marker>
+    </defs>
+    <line x1="702" y1="148" x2="782" y2="148" stroke="#1F3A5F" stroke-width="1.6" marker-end="url(#arrow-render)"/>
+
+    <!-- Target box -->
+    <rect x="788" y="120" width="120" height="56" rx="3" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="1.4"/>
+    <text x="848" y="152" font-family="sans-serif" font-size="14" fill="#1F3A5F" text-anchor="middle" dominant-baseline="middle">Thalamus</text>
+
+    <!-- Z-order demo: line under circle -->
+    <line x1="600" y1="240" x2="900" y2="240" stroke="#94A3B8" stroke-width="1.2"/>
+    <circle cx="748" cy="240" r="18" fill="#FFFFFF" stroke="#1F3A5F" stroke-width="1.4"/>
+    <text x="748" y="244" font-family="sans-serif" font-size="11" fill="#1F3A5F" text-anchor="middle">node</text>
+
+    <!-- Bottom callouts -->
+    <text x="582" y="200" font-family="sans-serif" font-size="9.5" fill="#475569" font-style="italic">arrow visually ends at target.x</text>
+    <text x="582" y="272" font-family="sans-serif" font-size="9.5" fill="#475569" font-style="italic">line drawn first, circle second -- circle on top</text>
+
+    <rect x="600" y="316" width="290" height="14" rx="2" fill="#DBEAFE" stroke="#2563EB" stroke-width="0.6"/>
+    <text x="745" y="326" font-family="sans-serif" font-size="9.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">QA agent checks tip-to-target distance + bbox alignment</text>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Why the old workflow broke -- the react-pdf failure modes</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Composition did not respect physical size. Fonts shrank below readable thresholds. Journal-reject territory.</text>
+
+  <!-- LEFT panel: target Nature 1-column -->
+  <g>
+    <text x="250" y="76" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold" text-anchor="middle">Target -- Nature 1-column</text>
+    <text x="250" y="92" font-family="sans-serif" font-size="10" fill="#475569" font-style="italic" text-anchor="middle">89 mm wide, 7 pt axis labels</text>
+
+    <!-- Mock plot frame -->
+    <rect x="120" y="108" width="260" height="180" fill="#FFFFFF" stroke="#059669" stroke-width="1.6"/>
+    <!-- axes -->
+    <line x1="160" y1="260" x2="360" y2="260" stroke="#1E293B" stroke-width="1"/>
+    <line x1="160" y1="130" x2="160" y2="260" stroke="#1E293B" stroke-width="1"/>
+    <!-- ticks -->
+    <line x1="200" y1="260" x2="200" y2="263" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="240" y1="260" x2="240" y2="263" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="280" y1="260" x2="280" y2="263" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="320" y1="260" x2="320" y2="263" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="157" y1="220" x2="160" y2="220" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="157" y1="180" x2="160" y2="180" stroke="#1E293B" stroke-width="0.8"/>
+    <line x1="157" y1="140" x2="160" y2="140" stroke="#1E293B" stroke-width="0.8"/>
+    <!-- data line -->
+    <path d="M 160 240 Q 200 200 240 180 T 320 150 L 360 145" fill="none" stroke="#0072B2" stroke-width="1.4"/>
+    <path d="M 160 250 Q 200 230 240 220 T 320 200 L 360 195" fill="none" stroke="#D55E00" stroke-width="1.4"/>
+    <!-- y-axis label, crisp at 7 pt, positioned LEFT of tick labels -->
+    <text x="130" y="195" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle" transform="rotate(-90 130 195)">Frequency (Hz)</text>
+    <text x="260" y="284" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Time (s)</text>
+    <!-- tick labels -->
+    <text x="200" y="272" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">0.1</text>
+    <text x="240" y="272" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">0.2</text>
+    <text x="280" y="272" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">0.3</text>
+    <text x="320" y="272" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">0.4</text>
+    <text x="155" y="223" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="end">10</text>
+    <text x="155" y="183" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="end">20</text>
+    <text x="155" y="143" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="end">30</text>
+    <!-- annotation -->
+    <rect x="180" y="296" width="140" height="26" rx="3" fill="#D1FAE5" stroke="#059669" stroke-width="0.8"/>
+    <text x="250" y="313" font-family="sans-serif" font-size="10" fill="#065F46" font-weight="bold" text-anchor="middle">7 pt labels -- legible</text>
+  </g>
+
+  <!-- RIGHT panel: react-pdf shrunk -->
+  <g>
+    <text x="750" y="76" font-family="sans-serif" font-size="12" fill="#991B1B" font-weight="bold" text-anchor="middle">react-pdf render -- broken</text>
+    <text x="750" y="92" font-family="sans-serif" font-size="10" fill="#475569" font-style="italic" text-anchor="middle">flexbox shifted, fonts shrank</text>
+
+    <!-- Mock plot frame -->
+    <rect x="620" y="108" width="260" height="180" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6"/>
+    <!-- diagonal slash overlay -->
+    <line x1="620" y1="108" x2="880" y2="288" stroke="#DC2626" stroke-width="2.4" stroke-opacity="0.35"/>
+    <!-- axes (smaller) -->
+    <line x1="670" y1="252" x2="860" y2="252" stroke="#1E293B" stroke-width="1"/>
+    <line x1="670" y1="140" x2="670" y2="252" stroke="#1E293B" stroke-width="1"/>
+    <!-- data -->
+    <path d="M 670 232 Q 710 200 750 180 T 830 152 L 860 150" fill="none" stroke="#0072B2" stroke-width="1.2"/>
+    <path d="M 670 244 Q 710 224 750 218 T 830 198 L 860 192" fill="none" stroke="#D55E00" stroke-width="1.2"/>
+    <!-- y-axis label SHRUNK to 4.5 pt with red highlight box, well left of axis -->
+    <rect x="620" y="175" width="28" height="60" fill="#FEE2E2" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="634" y="208" font-family="sans-serif" font-size="6.5" fill="#1E293B" text-anchor="middle" transform="rotate(-90 634 208)">Frequency (Hz)</text>
+    <text x="765" y="280" font-family="sans-serif" font-size="7" fill="#1E293B" text-anchor="middle">Time (s)</text>
+    <text x="710" y="263" font-family="sans-serif" font-size="6" fill="#475569" text-anchor="middle">0.1</text>
+    <text x="750" y="263" font-family="sans-serif" font-size="6" fill="#475569" text-anchor="middle">0.2</text>
+    <text x="790" y="263" font-family="sans-serif" font-size="6" fill="#475569" text-anchor="middle">0.3</text>
+    <text x="830" y="263" font-family="sans-serif" font-size="6" fill="#475569" text-anchor="middle">0.4</text>
+    <!-- callout arrow to shrunk label -->
+    <defs>
+      <marker id="arrow-callout" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+      </marker>
+    </defs>
+    <line x1="555" y1="205" x2="615" y2="205" stroke="#DC2626" stroke-width="1.4" marker-end="url(#arrow-callout)"/>
+    <text x="548" y="200" font-family="sans-serif" font-size="10" fill="#DC2626" font-weight="bold" text-anchor="end">4.5 pt</text>
+    <text x="548" y="213" font-family="sans-serif" font-size="9" fill="#7F1D1D" font-style="italic" text-anchor="end">under 5 pt min</text>
+    <!-- annotation -->
+    <rect x="680" y="296" width="140" height="26" rx="3" fill="#FEE2E2" stroke="#DC2626" stroke-width="0.8"/>
+    <text x="750" y="313" font-family="sans-serif" font-size="10" fill="#991B1B" font-weight="bold" text-anchor="middle">labels rejected at submission</text>
+  </g>
+
+  <!-- Bottom failure-modes strip -->
+  <rect x="60" y="334" width="880" height="22" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="0.8"/>
+  <text x="500" y="349" font-family="sans-serif" font-size="10.5" fill="#7F1D1D" font-weight="bold" text-anchor="middle">Failure 1: composition did not respect physical size  --  Failure 2: fonts shrank below readable thresholds</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Reframe -- figures are a 5-step pipeline, not a single prompt</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Same shape as Weeks 5-7. Every step has a mechanical defence.</text>
+
+  <!-- Left side: old one-shot -->
+  <g>
+    <text x="240" y="78" font-family="sans-serif" font-size="12" fill="#7F1D1D" font-weight="bold" text-anchor="middle">Old: one-shot generator</text>
+    <rect x="120" y="95" width="240" height="80" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.6"/>
+    <text x="240" y="125" font-family="sans-serif" font-size="11" fill="#7F1D1D" font-weight="bold" text-anchor="middle">"make me a figure"</text>
+    <text x="240" y="148" font-family="sans-serif" font-size="10" fill="#7F1D1D" font-style="italic" text-anchor="middle">react-pdf + flexbox</text>
+    <text x="240" y="164" font-family="sans-serif" font-size="10" fill="#7F1D1D" font-style="italic" text-anchor="middle">no physical-size discipline</text>
+    <!-- arrow down -->
+    <defs>
+      <marker id="arrow-bad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#DC2626"/>
+      </marker>
+    </defs>
+    <line x1="240" y1="178" x2="240" y2="205" stroke="#DC2626" stroke-width="1.8" marker-end="url(#arrow-bad)"/>
+    <!-- garbage warning -->
+    <rect x="120" y="220" width="240" height="60" rx="6" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6" stroke-dasharray="4,3"/>
+    <text x="240" y="240" font-family="sans-serif" font-size="11" fill="#DC2626" font-weight="bold" text-anchor="middle">font shrink + dimension drift</text>
+    <text x="240" y="258" font-family="sans-serif" font-size="10" fill="#7F1D1D" text-anchor="middle">axis labels &lt; 5 pt</text>
+    <text x="240" y="272" font-family="sans-serif" font-size="10" fill="#7F1D1D" text-anchor="middle">journal-reject territory</text>
+  </g>
+
+  <!-- Arrow from left to right (transform) -->
+  <defs>
+    <marker id="arrow-transform" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0D9488"/>
+    </marker>
+  </defs>
+  <line x1="370" y1="185" x2="430" y2="185" stroke="#0D9488" stroke-width="2.2" marker-end="url(#arrow-transform)"/>
+  <text x="400" y="172" font-family="sans-serif" font-size="11" fill="#0D9488" font-weight="bold" text-anchor="middle">rewrite</text>
+
+  <!-- Right side: new 5-step pipeline -->
+  <g>
+    <text x="700" y="78" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold" text-anchor="middle">New: 5-step managed pipeline</text>
+    <!-- 5 small stage boxes -->
+    <rect x="445" y="95" width="90" height="60" rx="4" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.2"/>
+    <text x="490" y="118" font-family="sans-serif" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="middle">1. Plan</text>
+    <text x="490" y="136" font-family="sans-serif" font-size="9" fill="#1E40AF" text-anchor="middle">journal</text>
+    <text x="490" y="148" font-family="sans-serif" font-size="9" fill="#1E40AF" text-anchor="middle">palette</text>
+
+    <rect x="545" y="95" width="90" height="60" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="1.2"/>
+    <text x="590" y="118" font-family="sans-serif" font-size="10" fill="#065F46" font-weight="bold" text-anchor="middle">2. Build</text>
+    <text x="590" y="136" font-family="sans-serif" font-size="9" fill="#065F46" text-anchor="middle">panels</text>
+    <text x="590" y="148" font-family="sans-serif" font-size="9" fill="#065F46" text-anchor="middle">+ icons</text>
+
+    <rect x="645" y="95" width="90" height="60" rx="4" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.2"/>
+    <text x="690" y="118" font-family="sans-serif" font-size="10" fill="#5B21B6" font-weight="bold" text-anchor="middle">3. Compose</text>
+    <text x="690" y="136" font-family="sans-serif" font-size="9" fill="#5B21B6" text-anchor="middle">svgutils</text>
+    <text x="690" y="148" font-family="sans-serif" font-size="9" fill="#5B21B6" text-anchor="middle">exact mm</text>
+
+    <rect x="745" y="95" width="90" height="60" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1.4"/>
+    <text x="790" y="118" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold" text-anchor="middle">4. Validate</text>
+    <text x="790" y="136" font-family="sans-serif" font-size="9" fill="#92400E" text-anchor="middle">font pt vs</text>
+    <text x="790" y="148" font-family="sans-serif" font-size="9" fill="#92400E" text-anchor="middle">journal min</text>
+
+    <rect x="845" y="95" width="90" height="60" rx="4" fill="#CCFBF1" stroke="#0D9488" stroke-width="1.2"/>
+    <text x="890" y="118" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold" text-anchor="middle">5. Export</text>
+    <text x="890" y="136" font-family="sans-serif" font-size="9" fill="#134E4A" text-anchor="middle">Inkscape /</text>
+    <text x="890" y="148" font-family="sans-serif" font-size="9" fill="#134E4A" text-anchor="middle">cairosvg</text>
+
+    <!-- thin connectors -->
+    <line x1="535" y1="125" x2="545" y2="125" stroke="#475569" stroke-width="1.2"/>
+    <line x1="635" y1="125" x2="645" y2="125" stroke="#475569" stroke-width="1.2"/>
+    <line x1="735" y1="125" x2="745" y2="125" stroke="#475569" stroke-width="1.2"/>
+    <line x1="835" y1="125" x2="845" y2="125" stroke="#475569" stroke-width="1.2"/>
+
+    <!-- boomerang from Validate back to Build -->
+    <path d="M 790 155 C 790 200, 590 210, 590 155" fill="none" stroke="#DC2626" stroke-width="1.4" stroke-dasharray="4,2" marker-end="url(#arrow-bad)"/>
+    <text x="690" y="208" font-family="sans-serif" font-size="9" fill="#DC2626" font-weight="bold" text-anchor="middle">boomerang on font failure</text>
+
+    <!-- outcome -->
+    <rect x="445" y="230" width="490" height="56" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.6"/>
+    <text x="690" y="252" font-family="sans-serif" font-size="11" fill="#166534" font-weight="bold" text-anchor="middle">publication-grade, journal-compliant, reproducible from source</text>
+    <text x="690" y="270" font-family="sans-serif" font-size="10" fill="#166534" font-style="italic" text-anchor="middle">every step has a mechanical defence; the validator is the new one this week</text>
+  </g>
+</svg>

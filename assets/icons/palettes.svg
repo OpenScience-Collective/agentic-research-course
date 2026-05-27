@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Colorblind-safe palettes -- pick one, reuse across all panels</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">theme.json keeps icons + plots + substrates in the same colour language</text>
+
+  <!-- Wong (categorical) -->
+  <g>
+    <text x="170" y="78" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="end">Wong</text>
+    <text x="170" y="94" font-family="sans-serif" font-size="9" fill="#64748B" text-anchor="end" font-style="italic">categorical (8)</text>
+    <rect x="200" y="66" width="60" height="36" fill="#000000"/>
+    <rect x="266" y="66" width="60" height="36" fill="#E69F00"/>
+    <rect x="332" y="66" width="60" height="36" fill="#56B4E9"/>
+    <rect x="398" y="66" width="60" height="36" fill="#009E73"/>
+    <rect x="464" y="66" width="60" height="36" fill="#F0E442"/>
+    <rect x="530" y="66" width="60" height="36" fill="#0072B2"/>
+    <rect x="596" y="66" width="60" height="36" fill="#D55E00"/>
+    <rect x="662" y="66" width="60" height="36" fill="#CC79A7"/>
+    <text x="230" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#000</text>
+    <text x="296" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#E69F00</text>
+    <text x="362" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#56B4E9</text>
+    <text x="428" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#009E73</text>
+    <text x="494" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#F0E442</text>
+    <text x="560" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#0072B2</text>
+    <text x="626" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#D55E00</text>
+    <text x="692" y="120" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">#CC79A7</text>
+  </g>
+
+  <!-- Okabe-Ito (categorical) -->
+  <g>
+    <text x="170" y="146" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="end">Okabe-Ito</text>
+    <text x="170" y="162" font-family="sans-serif" font-size="9" fill="#64748B" text-anchor="end" font-style="italic">categorical (8)</text>
+    <rect x="200" y="134" width="60" height="36" fill="#000000"/>
+    <rect x="266" y="134" width="60" height="36" fill="#E69F00"/>
+    <rect x="332" y="134" width="60" height="36" fill="#56B4E9"/>
+    <rect x="398" y="134" width="60" height="36" fill="#009E73"/>
+    <rect x="464" y="134" width="60" height="36" fill="#F0E442"/>
+    <rect x="530" y="134" width="60" height="36" fill="#0072B2"/>
+    <rect x="596" y="134" width="60" height="36" fill="#D55E00"/>
+    <rect x="662" y="134" width="60" height="36" fill="#CC79A7"/>
+    <text x="750" y="156" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">same family,</text>
+    <text x="750" y="170" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">lab-calibrated</text>
+  </g>
+
+  <!-- Tol bright (categorical) -->
+  <g>
+    <text x="170" y="214" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="end">Tol bright</text>
+    <text x="170" y="230" font-family="sans-serif" font-size="9" fill="#64748B" text-anchor="end" font-style="italic">categorical (7)</text>
+    <rect x="200" y="202" width="68" height="36" fill="#4477AA"/>
+    <rect x="274" y="202" width="68" height="36" fill="#EE6677"/>
+    <rect x="348" y="202" width="68" height="36" fill="#228833"/>
+    <rect x="422" y="202" width="68" height="36" fill="#CCBB44"/>
+    <rect x="496" y="202" width="68" height="36" fill="#66CCEE"/>
+    <rect x="570" y="202" width="68" height="36" fill="#AA3377"/>
+    <rect x="644" y="202" width="68" height="36" fill="#BBBBBB"/>
+    <text x="750" y="224" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">SciencePlots</text>
+    <text x="750" y="238" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">"bright" style</text>
+  </g>
+
+  <!-- Viridis (sequential) -->
+  <g>
+    <text x="170" y="278" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="end">viridis</text>
+    <text x="170" y="294" font-family="sans-serif" font-size="9" fill="#64748B" text-anchor="end" font-style="italic">sequential (8)</text>
+    <rect x="200" y="266" width="65" height="36" fill="#440154"/>
+    <rect x="265" y="266" width="65" height="36" fill="#482878"/>
+    <rect x="330" y="266" width="65" height="36" fill="#3E4A89"/>
+    <rect x="395" y="266" width="65" height="36" fill="#31688E"/>
+    <rect x="460" y="266" width="65" height="36" fill="#26828E"/>
+    <rect x="525" y="266" width="65" height="36" fill="#1F9E89"/>
+    <rect x="590" y="266" width="65" height="36" fill="#6DCD59"/>
+    <rect x="655" y="266" width="65" height="36" fill="#FDE725"/>
+    <text x="750" y="288" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">perceptually</text>
+    <text x="750" y="302" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">uniform</text>
+  </g>
+
+  <!-- Crameri batlow (sequential) -->
+  <g>
+    <text x="170" y="338" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="end">Crameri batlow</text>
+    <text x="170" y="354" font-family="sans-serif" font-size="9" fill="#64748B" text-anchor="end" font-style="italic">sequential (8)</text>
+    <rect x="200" y="326" width="65" height="28" fill="#011959"/>
+    <rect x="265" y="326" width="65" height="28" fill="#1A3667"/>
+    <rect x="330" y="326" width="65" height="28" fill="#4D5666"/>
+    <rect x="395" y="326" width="65" height="28" fill="#6E7355"/>
+    <rect x="460" y="326" width="65" height="28" fill="#998F4B"/>
+    <rect x="525" y="326" width="65" height="28" fill="#C9A55A"/>
+    <rect x="590" y="326" width="65" height="28" fill="#EFB47C"/>
+    <rect x="655" y="326" width="65" height="28" fill="#FACDB0"/>
+    <text x="750" y="346" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic">scientific</text>
+    <text x="755" y="356" font-family="sans-serif" font-size="10" fill="#64748B" font-style="italic" text-anchor="start">geosciences-designed</text>
+  </g>
+</svg>

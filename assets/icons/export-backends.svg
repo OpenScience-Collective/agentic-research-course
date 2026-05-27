@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Step 5 -- Export (Inkscape preferred, cairosvg fallback)</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">export.py auto-detects Inkscape on $PATH and warns on fallback</text>
+
+  <!-- LEFT card: Inkscape preferred -->
+  <g>
+    <rect x="60" y="70" width="420" height="220" rx="6" fill="#CCFBF1" stroke="#0D9488" stroke-width="2"/>
+    <!-- Preferred badge -->
+    <rect x="76" y="58" width="84" height="24" rx="3" fill="#0D9488"/>
+    <text x="118" y="74" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">PREFERRED</text>
+
+    <text x="270" y="106" font-family="sans-serif" font-size="14" fill="#134E4A" font-weight="bold" text-anchor="middle">Inkscape backend</text>
+
+    <!-- Pipeline visual: SVG -> Inkscape -> PDF -->
+    <rect x="84" y="130" width="80" height="42" rx="4" fill="#FFFFFF" stroke="#134E4A" stroke-width="1.2"/>
+    <text x="124" y="148" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold" text-anchor="middle">figure.svg</text>
+    <text x="124" y="162" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">text + paths</text>
+
+    <defs>
+      <marker id="arrow-inkscape" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#0D9488"/>
+      </marker>
+    </defs>
+    <line x1="166" y1="151" x2="200" y2="151" stroke="#0D9488" stroke-width="1.6" marker-end="url(#arrow-inkscape)"/>
+
+    <rect x="202" y="130" width="92" height="42" rx="4" fill="#0D9488"/>
+    <text x="248" y="148" font-family="sans-serif" font-size="10.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">Inkscape</text>
+    <text x="248" y="162" font-family="sans-serif" font-size="9" fill="#CCFBF1" text-anchor="middle">--export-pdf</text>
+
+    <line x1="296" y1="151" x2="330" y2="151" stroke="#0D9488" stroke-width="1.6" marker-end="url(#arrow-inkscape)"/>
+
+    <rect x="332" y="130" width="80" height="42" rx="4" fill="#FFFFFF" stroke="#134E4A" stroke-width="1.2"/>
+    <text x="372" y="148" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold" text-anchor="middle">figure.pdf</text>
+    <text x="372" y="162" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">text remains</text>
+
+    <!-- Properties list -->
+    <text x="84" y="200" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold">text remains text  (selectable, searchable in PDF)</text>
+    <text x="84" y="216" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold">fonts subsetted    (smaller PDF, fully embedded)</text>
+    <text x="84" y="232" font-family="sans-serif" font-size="10" fill="#134E4A" font-weight="bold">highest fidelity   (journal-portal accepts as-is)</text>
+
+    <!-- Install note -->
+    <rect x="84" y="248" width="328" height="32" rx="3" fill="#FFFFFF" stroke="#134E4A" stroke-width="0.8"/>
+    <text x="248" y="265" font-family="monospace" font-size="10" fill="#134E4A" font-weight="bold" text-anchor="middle">brew install inkscape</text>
+    <text x="248" y="277" font-family="sans-serif" font-size="9" fill="#475569" font-style="italic" text-anchor="middle">~200 MB, one-time, auto-detected on $PATH</text>
+  </g>
+
+  <!-- RIGHT card: cairosvg fallback -->
+  <g>
+    <rect x="520" y="70" width="420" height="220" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+    <rect x="536" y="58" width="84" height="24" rx="3" fill="#D97706"/>
+    <text x="578" y="74" font-family="sans-serif" font-size="11" fill="#FFFFFF" font-weight="bold" text-anchor="middle">FALLBACK</text>
+
+    <text x="730" y="106" font-family="sans-serif" font-size="14" fill="#92400E" font-weight="bold" text-anchor="middle">cairosvg backend</text>
+
+    <rect x="544" y="130" width="80" height="42" rx="4" fill="#FFFFFF" stroke="#92400E" stroke-width="1.2"/>
+    <text x="584" y="148" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold" text-anchor="middle">figure.svg</text>
+    <text x="584" y="162" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">text + paths</text>
+
+    <defs>
+      <marker id="arrow-cairo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#D97706"/>
+      </marker>
+    </defs>
+    <line x1="626" y1="151" x2="660" y2="151" stroke="#D97706" stroke-width="1.6" marker-end="url(#arrow-cairo)"/>
+
+    <rect x="662" y="130" width="92" height="42" rx="4" fill="#D97706"/>
+    <text x="708" y="148" font-family="sans-serif" font-size="10.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">cairosvg</text>
+    <text x="708" y="162" font-family="sans-serif" font-size="9" fill="#FEF3C7" text-anchor="middle">Python lib</text>
+
+    <line x1="756" y1="151" x2="790" y2="151" stroke="#D97706" stroke-width="1.6" marker-end="url(#arrow-cairo)"/>
+
+    <rect x="792" y="130" width="80" height="42" rx="4" fill="#FFFFFF" stroke="#92400E" stroke-width="1.2"/>
+    <text x="832" y="148" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold" text-anchor="middle">figure.pdf</text>
+    <text x="832" y="162" font-family="sans-serif" font-size="9" fill="#7F1D1D" text-anchor="middle">text as paths</text>
+
+    <text x="544" y="200" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold">text converted to paths  (not selectable / searchable)</text>
+    <text x="544" y="216" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold">acceptable for previews  (good enough for review)</text>
+    <text x="544" y="232" font-family="sans-serif" font-size="10" fill="#92400E" font-weight="bold">lower fidelity  (when journal font is not installed)</text>
+
+    <rect x="544" y="248" width="328" height="32" rx="3" fill="#FFFFFF" stroke="#92400E" stroke-width="0.8"/>
+    <text x="708" y="265" font-family="monospace" font-size="10" fill="#92400E" font-weight="bold" text-anchor="middle">uv run --with cairosvg python export.py</text>
+    <text x="708" y="277" font-family="sans-serif" font-size="9" fill="#475569" font-style="italic" text-anchor="middle">zero install, used automatically when Inkscape is absent</text>
+  </g>
+
+  <!-- Bottom strip -->
+  <rect x="60" y="296" width="880" height="20" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="310" font-family="sans-serif" font-size="10" fill="#1E293B" text-anchor="middle">export.py auto-detects Inkscape on $PATH at runtime. Stderr warning when it falls back.</text>
+</svg>
