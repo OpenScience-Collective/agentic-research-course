@@ -287,7 +287,7 @@
           {
             "type": "callout",
             "calloutType": "important",
-            "content": "HBN-EEG, Figure 9: Claude redrew the Surround Suppression stimulus from the **HED annotation alone.** If a model can rebuild your stimulus from the annotation, it is complete; if it can't, you left something out. *(Shirazi et al., 2024)*",
+            "content": "HBN-EEG (Healthy Brain Network EEG), Figure 9: Claude redrew the Surround Suppression stimulus from the **HED annotation alone.** If a model can rebuild your stimulus from the annotation, it is complete; if it can't, you left something out. *(Shirazi et al., 2024)*",
             "animation": { "fragment": true, "type": "slide-up", "index": 0 },
             "position": { "area": "footer" }
           }

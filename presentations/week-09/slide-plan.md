@@ -1,6 +1,6 @@
 # Week 9 Slide Plan -- Neuroinformatics: Standards, Sharing, and Credit
 
-## Target: 22 slides, ~30 min presentation, then ~5 min live demo + ~15 min Q&A
+## Target: 23 slides, ~30 min presentation, then ~5 min live demo + ~15 min Q&A
 
 **Core message.** A finished analysis is not a finished contribution. The data behind it has to be reproducible, shareable, and citable, or the work dies with the paper. Two standards carry the weight: **Brain Imaging Data Structure (BIDS)** answers *where everything lives* (structure), and **Hierarchical Event Descriptors (HED)** answers *what every event meant* (semantics). The single most useful idea this session: the bar for a complete annotation is concrete and falsifiable: **a language model should be able to reconstruct the stimulus, or the experiment, from the annotation alone.** This is not a metaphor; it is exactly the test demonstrated in the HBN-EEG paper (Shirazi et al., 2024, Figure 9), where Claude Sonnet 3.5 regenerated the Surround Suppression stimulus as SVG using only its HED description. The `neuroinformatics` plugin gets data to that bar; `HEDit` automates the hardest leg (natural language to validated HED); `nemar-cli` ships it with automatic ORCID author linking on the DOI, the one feature OpenNeuro still lacks.
 

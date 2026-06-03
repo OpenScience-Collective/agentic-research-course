@@ -1,6 +1,6 @@
 # Week 9 Guide: Neuroinformatics -- Standards, Sharing, and Credit
 
-*A finished analysis is not a finished contribution. The data behind it has to be reproducible, shareable, and citable, or the work dies with the paper. Two standards carry the weight: the Brain Imaging Data Structure (BIDS) answers where everything lives (structure), and Hierarchical Event Descriptors (HED) answer what every event meant (semantics). The single most useful idea this week: the bar for a complete annotation is concrete and falsifiable. **A language model should be able to reconstruct the stimulus, or the experiment, from the annotation alone.** That is not a metaphor; it is exactly the test demonstrated in the HBN-EEG paper (Shirazi et al., 2024, Figure 9), where Claude Sonnet 3.5 regenerated the Surround Suppression stimulus from its HED description with no image. The `neuroinformatics` plugin gets data to that bar; HEDit automates the hardest leg (natural language to validated HED); and `nemar-cli` ships it with rich, ORCID-linked DataCite metadata, the part OpenNeuro still leaves blank.*
+*A finished analysis is not a finished contribution. The data behind it has to be reproducible, shareable, and citable, or the work dies with the paper. Two standards carry the weight: the Brain Imaging Data Structure (BIDS) answers where everything lives (structure), and Hierarchical Event Descriptors (HED) answer what every event meant (semantics). The single most useful idea this week: the bar for a complete annotation is concrete and falsifiable. **A language model should be able to reconstruct the stimulus, or the experiment, from the annotation alone.** That is not a metaphor; it is exactly the test demonstrated in the Healthy Brain Network EEG (HBN-EEG) paper (Shirazi et al., 2024, Figure 9), where Claude Sonnet 3.5 regenerated the Surround Suppression stimulus from its HED description with no image. The `neuroinformatics` plugin gets data to that bar; HEDit automates the hardest leg (natural language to validated HED); and `nemar-cli` ships it with rich, Open Researcher and Contributor ID (ORCID)-linked DataCite metadata, the part OpenNeuro still leaves blank.*
 
 This guide accompanies [Week 9](../sessions/week-09/) of the Agentic Research Course by the [Open Science Collective](https://osc.earth). It builds directly on Week 8 (figures), where a language model regenerated a stimulus figure from its HED annotation; this week that same trick becomes the standard of annotation completeness. The dataset throughout is HBN-EEG, the very data the course has analyzed since Week 3 ("The Present" movie). It is itself a BIDS + HED dataset published on both OpenNeuro and NEMAR with exactly the tools this session teaches: the loop closes, the data you analyzed is the worked example for how to share data.
 
@@ -14,7 +14,7 @@ A lab collects dense, synchronized data. What reaches re-users is a thin `events
 
 - **Structure** -- where is everything? Custom folder layouts mean every re-user writes glue code before they can start.
 - **Semantics** -- what did the events mean? A numeric event code is meaningless outside the lab.
-- **Credit** -- who is cited when the data is reused? Without a DOI and author identifiers, reuse traces back to no one.
+- **Credit** -- who is cited when the data is reused? Without a Digital Object Identifier (DOI) and author identifiers, reuse traces back to no one.
 
 The phrase from the HBN-EEG paper is the target: a dataset is "analysis-ready" when re-users need **no forensic search for unreported details**. The information is not lost; it just never reaches the shared artifact. BIDS, HED, and good sharing are what close the three locks.
 
@@ -148,7 +148,7 @@ The agent locates the dataset, runs the BIDS validator, categorizes findings (er
 ```text
 ## BIDS Validation Report
 Subjects: 12   Modalities: eeg
-Errors fixed: 3
+Errors fixed: 2
   [FIXED] missing dataset_description.json
   [FIXED] _eeg.json missing PowerLineFrequency -> 60
 Remaining warnings: 2
@@ -180,7 +180,7 @@ It wraps the official BIDS validator (Deno), and it also runs automatically on u
 ### nemar-cli: upload to publish, and the collaboration model
 
 ```bash
-nemar auth login                              # one-time, token cached
+nemar auth login                              # one-time, API key cached
 nemar dataset validate ./my-dataset           # BIDS check, must pass
 nemar dataset upload ./my-dataset             # creates a private GitHub repo
 nemar dataset publish request nm000XXX        # admin approves -> public + DOI
@@ -209,7 +209,7 @@ This is not a claim; it is live DataCite data on the audience's own dataset. The
 | Links to papers + related datasets | 5 | 0 |
 | Funding references | 2 | 0 |
 
-OpenNeuro's DOI record carries only a title and author names; everything else is blank. NEMAR fills every field. **Findability (the F in FAIR) and credit are metadata the platform writes, not luck.** (Source: `api.datacite.org`, live records.)
+OpenNeuro's DOI record carries only a title and author names; everything else is blank. NEMAR fills every field. **Findability (the F in FAIR: Findable, Accessible, Interoperable, Reusable) and credit are metadata the platform writes, not luck.** (Source: `api.datacite.org`, live records.)
 
 ---
 

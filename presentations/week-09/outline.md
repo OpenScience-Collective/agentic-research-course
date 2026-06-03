@@ -1,7 +1,7 @@
 # Week 9 Outline -- Neuroinformatics: Standards, Sharing, and Credit
 
 ## Target
-22 slides, ~30 min presentation + ~5 min live demo + ~15 min Q&A.
+23 slides, ~30 min presentation + ~5 min live demo + ~15 min Q&A.
 
 ## Core message
 You spent eight weeks producing an analysis. This week is about making the *data* behind it reproducible, shareable, and citable, so the work outlives the paper. Two standards do the heavy lifting: **BIDS** answers *where everything lives* (structure); **HED** answers *what every event meant* (semantics). The bar for "good enough" is concrete and high: an annotation is complete when a language model can reconstruct the stimulus or the experiment from the annotation alone, with no forensic search for unreported details. The `neuroinformatics` plugin gets your data to that bar (`/neuroinformatics:bids-conversion` + the `bids-validator` agent), `HEDit` automates the hardest part (natural language to validated HED), and `nemar-cli` ships it to the world with the one feature OpenNeuro still lacks: automatic ORCID author linking on the minted DOI, so credit flows back to you.

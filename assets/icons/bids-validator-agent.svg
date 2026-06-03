@@ -59,7 +59,7 @@
     <text x="440" y="80" font-family="monospace" font-size="11.5" fill="#1E293B" font-weight="bold" text-anchor="start">BIDS Validation Report</text>
 
     <text x="440" y="108" font-family="monospace" font-size="10.5" fill="#1E293B" text-anchor="start">Subjects: 12   Modalities: eeg</text>
-    <text x="440" y="128" font-family="monospace" font-size="10.5" fill="#065F46" text-anchor="start">Errors fixed: 3</text>
+    <text x="440" y="128" font-family="monospace" font-size="10.5" fill="#065F46" text-anchor="start">Errors fixed: 2</text>
     <text x="456" y="148" font-family="monospace" font-size="10.5" fill="#065F46" text-anchor="start">[FIXED] missing dataset_description.json</text>
     <text x="456" y="166" font-family="monospace" font-size="10.5" fill="#065F46" text-anchor="start">[FIXED] _eeg.json missing</text>
     <text x="472" y="182" font-family="monospace" font-size="10.5" fill="#065F46" text-anchor="start">PowerLineFrequency -&gt; 60</text>
