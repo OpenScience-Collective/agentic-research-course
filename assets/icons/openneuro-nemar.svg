@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Two homes for BIDS data -- OpenNeuro and NEMAR</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Both speak BIDS; one is the broad archive, one sits next to a supercomputer</text>
+
+  <!-- Left big card: OpenNeuro (blue) -->
+  <g>
+    <rect x="60" y="66" width="370" height="216" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.8"/>
+    <rect x="60" y="66" width="370" height="30" rx="6" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.8"/>
+    <text x="245" y="87" font-family="sans-serif" font-size="14" fill="#1E40AF" font-weight="bold" text-anchor="middle">OpenNeuro</text>
+    <text x="245" y="123" font-family="sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">Broad open neuroimaging archive</text>
+    <text x="245" y="148" font-family="sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">All modalities: fMRI, MRI, EEG, MEG...</text>
+    <text x="245" y="173" font-family="sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">Open sharing (private upload too, CLI-only)</text>
+    <text x="245" y="198" font-family="sans-serif" font-size="11" fill="#1E40AF" text-anchor="middle">DataCite DOI for every version</text>
+    <text x="245" y="247" font-family="sans-serif" font-size="10" fill="#1E40AF" font-style="italic" text-anchor="middle">the general-purpose front door</text>
+  </g>
+
+  <!-- Right big card: NEMAR (green) -->
+  <g>
+    <rect x="570" y="66" width="370" height="216" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.8"/>
+    <rect x="570" y="66" width="370" height="30" rx="6" fill="#A7F3D0" stroke="#059669" stroke-width="1.8"/>
+    <text x="755" y="87" font-family="sans-serif" font-size="14" fill="#065F46" font-weight="bold" text-anchor="middle">NEMAR</text>
+    <text x="755" y="123" font-family="sans-serif" font-size="11" fill="#065F46" text-anchor="middle">EEG / MEG focus, BIDS-native</text>
+    <text x="755" y="148" font-family="sans-serif" font-size="11" fill="#065F46" text-anchor="middle">Sits next to SDSC supercomputer compute</text>
+    <text x="755" y="173" font-family="sans-serif" font-size="11" fill="#065F46" text-anchor="middle">Analyze without downloading</text>
+    <text x="755" y="198" font-family="sans-serif" font-size="11" fill="#065F46" text-anchor="middle">GitHub-backed: you're admin, invite collaborators</text>
+    <text x="755" y="247" font-family="sans-serif" font-size="10" fill="#065F46" font-style="italic" text-anchor="middle">compute lives where the data lives</text>
+  </g>
+
+  <!-- Shared BIDS chip in the middle -->
+  <line x1="430" y1="174" x2="468" y2="174" stroke="#475569" stroke-width="1.4"/>
+  <line x1="532" y1="174" x2="570" y2="174" stroke="#475569" stroke-width="1.4"/>
+  <g>
+    <rect x="468" y="156" width="64" height="36" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+    <text x="500" y="179" font-family="monospace" font-size="13" fill="#92400E" font-weight="bold" text-anchor="middle">BIDS</text>
+  </g>
+
+  <!-- Bottom note / moral strip -->
+  <rect x="60" y="316" width="880" height="22" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="331" font-family="sans-serif" font-size="10.5" fill="#1E293B" text-anchor="middle">HBN-EEG lives on both.</text>
+</svg>

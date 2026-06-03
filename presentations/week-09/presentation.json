@@ -1,0 +1,668 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 9: Neuroinformatics -- standards, sharing, and credit. BIDS for structure, HED for semantics, the bar that an LLM can recreate the stimulus from the annotation alone, the neuroinformatics plugin (bids-conversion + bids-validator agent), and sharing on OpenNeuro/NEMAR where nemar-cli mints DOIs with automatic ORCID author linking.",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": { "fontSize": "xxl", "alignment": "center", "fontWeight": "bold" },
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "Week 9: Neuroinformatics -- Standards, Sharing, and Credit",
+            "style": { "fontSize": "large", "alignment": "center", "color": "#2563EB" },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": { "fontSize": "medium", "alignment": "center", "color": "#475569" },
+            "position": { "area": "center", "order": 2 }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/5dWJCUmUww](https://discord.gg/5dWJCUmUww) | Recording: published to YouTube within 48 h",
+            "style": { "fontSize": "medium", "alignment": "center", "color": "#2563EB" },
+            "position": { "area": "center", "order": 3 }
+          }
+        ],
+        "speakerNotes": "- Welcome back.\n\n- Last week: publication-grade figures, validated before export.\n\n- Today: the data underneath the analysis. Eight weeks of work produces a result; this week makes the *data* reproducible, shareable, and citable, so it outlives the paper.\n\n- Two standards do the heavy lifting: BIDS (Brain Imaging Data Structure) for structure, HED (Hierarchical Event Descriptors) for semantics. Then the neuroinformatics plugin, and sharing on OpenNeuro / NEMAR.\n\n- The dataset throughout is HBN-EEG, the same data the course has analyzed since Week 3. It is itself shared with exactly these tools.\n\n- Format: ~30 min, two tiny live demos, 15 min Q&A."
+      },
+      {
+        "id": "where-we-are",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              { "text": "**Weeks 1-4 -- Git, Claude Code, project management, CI/CD.** The safety net and the agent." },
+              { "text": "**Weeks 5-7 -- Lit review, grants, manuscripts.** The writing pipeline; cite-the-card discipline throughout.", "animation": { "fragment": true, "type": "fade", "index": 0 } },
+              { "text": "**Week 8 -- Scientific figures.** Publication-grade panels, validated before export.", "animation": { "fragment": true, "type": "fade", "index": 1 } },
+              { "text": "**Today -- the data underneath.** You have an analysis and figures; now make the *data* reproducible, shareable, and citable.", "animation": { "fragment": true, "type": "slide-up", "index": 2 } }
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "content" }
+          }
+        ],
+        "speakerNotes": "[Press right 3x to reveal fragments]\n\n- Recap the arc. Weeks 1-4 were the engine and the safety net; 5-7 the writing pipeline; 8 the figures.\n\n- Land the closing bullet: everything so far assumed you *had* analysis-ready data. Today is how that data gets made and shared.\n\n- The thread is reproducibility and credit: who can rerun this, and who gets cited when they do."
+      },
+      {
+        "id": "reuse-gap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## A Finished Analysis Nobody Can Reuse",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/reuse-credit-gap.svg",
+            "alt": "A rich raw recording (EEG 128-channel, event markers, behavioral log, stimulus log) funneling down to a thin shared artifact: a one-column events.tsv and a lone results figure locked in a folder. Three padlocks across the bottom labelled Structure (can't find things), Semantics (can't decode events), and Credit (reuse traces to no one).",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Three locks at once: **structure** (where is everything?), **semantics** (what did the events mean?), **credit** (who is cited when it is reused?). Analysis-ready means **no forensic search for unreported details.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The motivation slide. A lab collects dense, synchronized data; what reaches re-users is a thin file and a figure.\n\n- Three failures, and the talk is structured around them: structure, semantics, credit.\n\n- 'Forensic search for unreported details' is the phrase from the HBN-EEG paper. That is exactly what BIDS + HED + good sharing eliminate.\n\n- This is not a will problem. The data exists; the format and the platform decide whether anyone can use it."
+      },
+      {
+        "id": "two-standards",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Two Standards, One Bar for Clarity",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/two-standards-bar.svg",
+            "alt": "A full-width banner reading 'the bar -- a language model can recreate the stimulus from the annotation alone'. Below it two cards: a blue BIDS = STRUCTURE card (where files live; naming sub- ses- task-; sidecars + TSVs; answers WHERE) and a green HED = SEMANTICS card (what each event meant; controlled composable vocabulary; machine-readable; answers WHAT).",
+            "width": "88%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "**BIDS answers where; HED answers what.** The bar that judges both: someone, or an LLM, can reconstruct your experiment without emailing you.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- Plant the two-standard framing and the bar early; the bar pays off on slide 10.\n\n- BIDS = structure: the filesystem and metadata convention. HED = semantics: the controlled vocabulary for what happened.\n\n- The bar is deliberately concrete and falsifiable. Not 'good annotation' in the abstract, but: can a model rebuild the stimulus from it?\n\n- Both define abbreviations on first use: BIDS = Brain Imaging Data Structure, HED = Hierarchical Event Descriptors."
+      },
+      {
+        "id": "what-is-bids",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Is BIDS -- One Layout, Every Dataset",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/bids-tree.svg",
+            "alt": "An annotated BIDS directory tree for one HBN-EEG subject: dataset root with dataset_description.json, participants.tsv, README, and a sub-NDARAB1234 folder containing an eeg subfolder with _eeg.set, _eeg.json sidecar, _channels.tsv, _events.tsv, and _events.json. Annotation chips point at the description file, the sidecar, channels.tsv, and events.json.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "A filesystem convention plus metadata: predictable names (`sub-`, `ses-`, `task-`), JSON sidecars, and TSV tables. **The same shape in every BIDS dataset, anywhere.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- Walk the tree. Root holds dataset_description.json and participants.tsv; each subject has a modality folder (eeg/) with the signals plus sidecars and TSVs.\n\n- The naming is the contract: a tool that knows BIDS finds the events file without being told where it is.\n\n- HBN uses NDAR GUIDs for subject IDs; the task here is surroundSupp.\n\n- Sidecars and TSVs are where the next two acts live: the sidecar is acquisition metadata, events.tsv is the timeline."
+      },
+      {
+        "id": "why-bids",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Why BIDS -- One Layout, Every Tool",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/bids-why.svg",
+            "alt": "A hub-and-spoke diagram with a central BIDS dataset node and arrows out to EEGLAB, MNE-Python, the BIDS validator, BIDS Apps, OpenNeuro, NEMAR, and mega-analysis.",
+            "width": "84%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Readable by EEGLAB, MNE, validators, and BIDS Apps; the upload format both OpenNeuro and NEMAR expect. **Standard structure turns 'my data' into 'reusable data.'**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- BIDS is worth the effort because the tooling assumes it.\n\n- One layout means analysis software, validators, BIDS Apps, and both major archives all read your data without custom glue.\n\n- It is also what makes mega-analysis across studies possible: common structure plus, next, common semantics.\n\n- Land it: the payoff of BIDS is leverage, not bureaucracy."
+      },
+      {
+        "id": "sidecar-events",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where Structure Ends -- the Sidecar and events.tsv",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/sidecar-anatomy.svg",
+            "alt": "Two panels. Left: a mock _eeg.json sidecar with TaskName, SamplingFrequency 500, EEGReference Cz, PowerLineFrequency 60, EEGChannelCount 128. Right: a mock events.tsv with onset, duration, value columns and three rows. A red tag under the table reads 'structure says WHERE the event is; it cannot say WHAT it was', and a green arrow exits to the right labelled toward HED.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "The sidecar carries acquisition metadata; `events.tsv` carries the timeline. **Structure tells you where an event is, not what it was.** That gap is semantics.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- This is the hinge slide between structure and semantics.\n\n- The sidecar answers acquisition questions: sampling rate, reference, line frequency, channel counts. BIDS handles this well.\n\n- events.tsv gives onset, duration, and a value. It places events on the timeline but does not say what they meant.\n\n- The green arrow is the bridge: to say what, you need HED."
+      },
+      {
+        "id": "events-thin",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## events.tsv Is Thin",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/events-thin.svg",
+            "alt": "Left: a thin events.tsv with onset, duration, value columns and rows whose value is a cryptic numeric code (12, 14, 12, 13). Right: a red 'what's missing' list (stimulus content, modality, condition, participant response, trial context). A note: HBN originally shipped numeric event codes; step one was replacing them with meaningful strings.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "An onset and a cryptic code. Stimulus, modality, condition, response, context -- all real, all recorded, **none of it in the shared file.** The meaning is not lost; it just never reaches re-users.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The one-column problem. A numeric code is meaningless to anyone outside the lab.\n\n- Everything a re-analysis needs (what was on screen, was it visual or audio, which condition, did the subject respond) exists in the raw records but is not in events.tsv.\n\n- For HBN-EEG, the very first curation step was replacing numeric codes with meaningful strings, then annotating with HED.\n\n- Set up the fix: HED carries this meaning in a sidecar without touching the timeseries."
+      },
+      {
+        "id": "hed-principle",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## HED -- the Fix in Principle",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/hed-anatomy.svg",
+            "alt": "Three zones. Top: one HED tag shown as a comma-separated path through the schema (Sensory-event, Visual-presentation, foreground disk with high contrast, uniform background, 25 Hz). Bottom-left: an inheritance tree Action to Move to Move-body-part to Move-upper-extremity to Press, noting analysis works at the leaf or any ancestor. Bottom-right: the sidecar pattern, an unchanged events.tsv beside an events.json mapping value codes to HED tag strings.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Controlled, composable, validatable. The hierarchy means analysis works at any level, and `events.tsv` stays unchanged: **all meaning lives in `events.json`** under HED keys.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- HED = Hierarchical Event Descriptors. A controlled vocabulary that is composable and machine-validatable.\n\n- One tag is a comma-separated path; the hierarchy carries meaning, so you can analyze at the leaf (Press) or at any ancestor (Move).\n\n- The sidecar pattern: events.tsv does not change, so existing analyses keep working; the semantics live in events.json.\n\n- Three stated objectives from the paper: build event context; machine-readable and human-understandable annotation for mega-analysis and ML; task transparency and reproducibility."
+      },
+      {
+        "id": "recreate-the-stimulus",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Bar: Recreate the Stimulus",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/recreate-the-stimulus-figure.svg",
+            "alt": "HBN-EEG Figure 9, annotated. A banner notes the model was given the HED annotation only -- no image, no example. Two panels: left, the intended Surround Suppression stimulus (four horizontal-grating disks on a vertical-grating background with central fixation); right, Claude Sonnet 3.5's regeneration from the HED alone. A green callout under the left panel lists what was reproduced (four disks, gratings, background, fixation, contrast); an amber callout under the right panel notes the only miss: the disks' size and position, which were both left out because they are awkward to express in HED.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "HBN-EEG, Figure 9: Claude redrew the Surround Suppression stimulus from the **HED annotation alone.** If a model can rebuild your stimulus from the annotation, it is complete; if it can't, you left something out. *(Shirazi et al., 2024)*",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- This is the slide trainees will quote. The bar made concrete.\n\n- In the HBN-EEG paper, the HED annotation of the Surround Suppression task was handed to a language model with no image, and it regenerated the visual stimulus as SVG, accurate down to foreground/background contrast and flicker; the only error was a circle rotation that was never in the annotation.\n\n- That is the test: annotation completeness = an LLM can reconstruct the stimulus. The same trick drew several of the paper's figures (a callback to last week's figures session).\n\n- Walk the annotations: everything structural was reproduced from the HED alone (the gratings, the vertical-grating background, central fixation, the contrast relationship, four disks present). The only miss is the disks' size and position: both are awkward to express in HED, so they were left out, and the model had no way to reproduce them. That miss is the proof the test is honest, and a real lesson: HED nails event semantics, but spatial geometry (size, position) is hard to encode.\n\n- Cite: Shirazi et al. (2024), bioRxiv 10.1101/2024.10.03.615261."
+      },
+      {
+        "id": "hed-workflow-pain",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Why HED Workflows Stall",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/hed-workflow-pain.svg",
+            "alt": "A four-step pain pipeline: read the paper (hours per session), learn the schema (about 2000 tags, expert-only), write the sidecar (value levels and value slots, error-prone), validate and repeat (cryptic validator messages). A red bottom strip reads: HED adoption stays inside the labs that build HED.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "About 2000 tags, expert-only fluency, a validator with cryptic messages. **A workflow problem, not a willingness problem** -- and where HEDit comes in.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- Frame the gap honestly: HED is powerful, but writing it by hand is a wall for most labs.\n\n- Reading the paper, learning a 2000-tag schema, hand-writing value-level sidecars, looping on a terse validator. The labs that author the schema can do this fluently; everyone else stops.\n\n- This is the adoption bottleneck the next slide addresses."
+      },
+      {
+        "id": "hedit",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## HEDit -- Describe in English, Get Validated HED",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/hedit-pipeline.svg",
+            "alt": "A three-stage pipeline: Parser (natural language to structured facts: action, body-part, direction, magnitude, unit), Tagger (retrieve HED nodes via RAG over the schema, compose the tag string), Validator (official HED validator: tag exists, units valid, value slot well-formed), with a red dashed feedback loop from Validator back to Tagger labelled re-tag with validator feedback. A bottom rail: the HED schema is the contract; no agent invents vocabulary.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "You write one rich prose description per event; HEDit returns BIDS-compliant HED with the **official validator in the loop.** Tuned for exactly the detail the recreate-the-stimulus bar demands -- garbage in, garbage out.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- HEDit turns the wall into a paragraph. You describe the event in plain English; it composes and validates the HED.\n\n- LangGraph multi-agent: Parser extracts structured facts, Tagger composes from the schema (RAG over node names and definitions), Validator runs the official HED validator and loops back on failure.\n\n- The schema is the contract: no agent invents vocabulary.\n\n- The link to the bar: HEDit is only as good as the description. The more completely you describe the stimulus, the closer the annotation gets to recreatable."
+      },
+      {
+        "id": "plugin-map",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The neuroinformatics Plugin -- 2 Skills + 1 Agent",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/neuro-plugin-map.svg",
+            "alt": "A plugin map: a central blue card /neuroinformatics:bids-conversion (guided BIDS conversion), a magenta bids-validator agent card with an arrow into the center (autonomous validate and fix, this week's mechanical defence), and a dimmed secondary card /neuroinformatics:experiment-design (PsychoPy + Lab Streaming Layer, data collection, not today's focus). A bottom strip: HED annotation lives inside the skills.",
+            "width": "88%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Today's focus: **`/neuroinformatics:bids-conversion`** and the **`bids-validator`** agent. The `experiment-design` skill (PsychoPy + LSL, the collection side) ships in the plugin too.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The plugin map. Two user-facing skills plus one autonomous agent.\n\n- bids-conversion (center): guided conversion to BIDS. bids-validator (agent): autonomous validation and fixes. experiment-design (dimmed): the data-collection side, PsychoPy and Lab Streaming Layer, in the README but not today.\n\n- HED annotation is woven into the skills rather than a separate command.\n\n- Next two slides: one per today's-focus skill/agent."
+      },
+      {
+        "id": "bids-conversion",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /neuroinformatics:bids-conversion",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/bids-conversion-flow.svg",
+            "alt": "A guided six-step conversion flow: 1 Inventory source data (formats, subjects, channels), 2 Scaffold (dataset_description.json, participants.tsv), 3 Convert files (BrainVision, EEGLAB .set, EDF, BDF), 4 JSON sidecars (SamplingFrequency, EEGReference), 5 TSV tables (channels, events, electrodes), 6 Validate (bids-validator). Bottom strip: modalities EEG, EMG, MEG, fMRI, behavioral.",
+            "width": "94%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "A guided six-step workflow that ends where the next act begins: **validation.** Handles EEG, EMG, MEG, fMRI, and behavioral data from the common source formats.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The conversion skill walks you from raw files to a valid BIDS dataset in six steps.\n\n- Inventory, scaffold the dataset (dataset_description.json, participants.tsv), convert the files, write JSON sidecars, write the TSV tables, then validate.\n\n- Source formats: BrainVision, EEGLAB .set, EDF, BDF; modalities EEG, EMG, MEG, fMRI, behavioral.\n\n- The last step is validation, which is the next slide's agent."
+      },
+      {
+        "id": "bids-validator-agent",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The bids-validator Agent -- the Mechanical Defence",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/bids-validator-agent.svg",
+            "alt": "Left: a magenta bids-validator agent card with a vertical loop, locate dataset, run BIDS validator, categorize errors warnings info, apply fixes with confirmation, re-validate, with a dashed loop-until-clean arrow. Right: a sample BIDS Validation Report with subjects and modalities, errors fixed (missing dataset_description.json, _eeg.json missing PowerLineFrequency added 60), remaining warnings, and Ready for submission YES in green. A note: fixes your data locally; nemar-cli validates again at the gate.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "Runs the validator, categorizes errors vs warnings, fixes with confirmation, re-validates, and reports readiness. This week's `cite-the-card`: **a deterministic gate that turns 'looks fine' into pass/fail.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- Every week has a mechanical defence; this is Week 9's.\n\n- The agent locates the dataset, runs the BIDS validator, sorts findings into errors (must-fix), warnings (should-fix), and info, applies fixes with your confirmation, re-validates, and reports whether the dataset is ready for OpenNeuro/NEMAR.\n\n- Division of labour: this agent fixes your data locally; nemar-cli validates again at the upload gate. Two checks, by design.\n\n- Parallels cite-the-card (Week 5) and validate_fonts.py (Week 8): convert a vague worry into a precise, falsifiable result."
+      },
+      {
+        "id": "openneuro",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where BIDS Data Goes -- OpenNeuro",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/openneuro-flow.svg",
+            "alt": "A three-step flow: Validate (BIDS), Upload (browser or CLI), Public plus DOI. An amber honest-note card below reads: private upload exists but only via CLI or direct push, with no polished GUI, and the DOI record stays sparse with no ORCID author links and minimal metadata.",
+            "width": "88%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "The de-facto open BIDS archive: validated on ingest, public, and DOI-minted. **Honest caveat:** private upload exists, but only via CLI / direct push (no polished GUI), and the DOI record stays sparse -- no ORCID author links.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- OpenNeuro is the default home for shared neuro data and a genuinely great resource.\n\n- Validate, upload (browser or CLI), and the dataset is public with a DOI.\n\n- Two honest caveats that set up NEMAR: private upload is possible but only via CLI / direct push (no polished GUI for it), and the DOI record does not link authors to their ORCID iDs yet (we prove this with live data in a few slides).\n\n- Not a knock on OpenNeuro; a gap that NEMAR fills."
+      },
+      {
+        "id": "nemar",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## NEMAR -- EEG/MEG Focus, Compute Adjacency",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/openneuro-nemar.svg",
+            "alt": "Two cards sharing a central BIDS chip. Left: OpenNeuro, a broad open neuro archive, all modalities, public, DataCite DOI. Right: NEMAR, EEG/MEG focus, BIDS, next to San Diego Supercomputer Center compute so you can analyze without downloading, and GitHub-backed via nemar-cli so you are admin of your dataset and can invite collaborators. A note: HBN-EEG lives on both.",
+            "width": "88%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "The Neuroelectromagnetic Data Archive and Tools Resource: BIDS datasets specialized for EEG/MEG, **sitting next to SDSC compute** so you can analyze without downloading. HBN-EEG lives on both.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- NEMAR = Neuroelectromagnetic Data Archive and Tools Resource. Both archives speak BIDS; the difference is focus and features.\n\n- NEMAR specializes in EEG/MEG and sits next to San Diego Supercomputer Center compute, so analysis can run where the data is.\n\n- HBN-EEG is on both OpenNeuro and NEMAR, which is exactly what lets us compare their DOI records head-to-head shortly.\n\n- Next: why uploading to NEMAR via nemar-cli is now easy."
+      },
+      {
+        "id": "nemar-validate",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## nemar-cli -- Validation Is Now Trivial",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/nemar-validate.svg",
+            "alt": "A dark terminal card running `nemar dataset validate ./hbn-eeg` with output ending in a green line, BIDS valid -- 0 errors, 2 warnings, and a green TRIVIAL badge. Three side notes: wraps the official BIDS validator (Deno); also runs automatically on upload and on every update PR; no separate toolchain to install.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "`nemar dataset validate ./ds` wraps the official BIDS validator, and it **also runs automatically on upload and on every update PR.** No separate toolchain to install or configure.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The first nemar-cli headline: validation is one command.\n\n- nemar dataset validate ./ds wraps the official Deno-based BIDS validator. Nothing else to install.\n\n- It is not a one-off: validation runs automatically when you upload and on every update pull request, so a dataset cannot drift out of spec.\n\n- This is the gate that complements the plugin's bids-validator agent: fix locally, then the platform checks again."
+      },
+      {
+        "id": "nemar-upload-publish",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## nemar-cli -- Upload to Publish",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/nemar-upload-publish.svg",
+            "alt": "A four-step command pipeline with a private-to-public toggle. Step 1 nemar auth login (one-time, token cached). Step 2 nemar dataset validate ./ds (BIDS check, must pass). Step 3 nemar dataset upload ./ds (private by default, lock icon). Step 4 nemar dataset publish request id (admin approves to public plus DOI, globe icon). A red bottom strip: nemar-cli creates a private GitHub repo where you are admin -- invite collaborators and push directly until publish; after publishing, changes go through pull requests and version tags.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "`auth login` &rarr; `validate` &rarr; `upload` &rarr; `publish request`. Upload creates a **private GitHub repo where you're admin** -- invite collaborators and push directly until publish; after that, changes go via **PR + version tags**.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The full path in four commands: log in once, validate, upload, request publication.\n\n- Upload creates a private GitHub repo where you're the admin; you can invite collaborators and push directly until you publish. On publish request, an admin approves and the dataset goes public with a DOI; after that, changes go through pull requests and version tags.\n\n- OpenNeuro also supports private upload, just CLI-only -- so the real NEMAR advantages are this collaboration model plus the rich DOI metadata (next two slides), not 'private vs public'.\n\n- The DOI minted at publish is where the next two slides go."
+      },
+      {
+        "id": "doi-orcid",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## DOI Minting + ORCID Auto-Link",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/doi-orcid.svg",
+            "alt": "A left-to-right flow: dataset authors each linked to an ORCID iD chip, into a DataCite DOI (via EZID) box noting a concept DOI plus per-version DOIs, then onto each author's ORCID record automatically (an ORCID profile card listing the dataset). An amber callout: OpenNeuro does not link authors to ORCID on the DOI yet.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "important",
+            "content": "On publish, nemar-cli mints a **concept DOI + per-version DOIs (DataCite via EZID)** and **auto-links every author's ORCID iD** in the metadata. Your dataset lands on your ORCID record automatically. OpenNeuro does not do this yet.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The differentiator, as a mechanism.\n\n- At publish, nemar-cli mints a concept DOI (one stable citation across all versions) plus per-version DOIs, via EZID writing DataCite kernel-4 metadata.\n\n- Crucially, it auto-collects and embeds every author's ORCID iD, so the dataset appears on each author's ORCID record with no manual 'add work'.\n\n- OpenNeuro does not link authors to ORCID on the DOI yet. The next slide proves this on a real dataset."
+      },
+      {
+        "id": "metadata-gap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Metadata Gap -- Same Dataset, Two Homes",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/doi-metadata-gap.svg",
+            "alt": "A side-by-side DataCite comparison of the same dataset on two homes: NEMAR nm000103 vs OpenNeuro ds005505, HBN-EEG Release 1, the same eight authors. Findability rows: license (CC-BY-NC-SA-4.0 vs none), keywords (8 vs 0), description (yes vs none), links to papers and related datasets (5 vs 0). Credit rows: authors linked to ORCID (8 of 8 vs 0 of 8, highlighted), stable concept DOI and funding (yes and 2 vs version-only and 0). A strip: OpenNeuro's DOI record carries only a title and author names; everything else is blank. Source api.datacite.org.",
+            "width": "92%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Live DataCite records, same data, same 8 authors. OpenNeuro's DOI carries **only a title and author names**; NEMAR fills license, keywords, description, related links, **8/8 ORCID**, and funding. **Findable and citable is metadata, not luck.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- The proof, on the audience's own dataset. This is the strongest slide in the deck because it is real, current data.\n\n- Both DOIs describe HBN-EEG Release 1 with the same eight authors. Pulled live from api.datacite.org.\n\n- OpenNeuro's record: title and author names, nothing else. No license, no keywords, no description, no related links, 0/8 ORCID, no funding.\n\n- NEMAR's record: CC-BY-NC-SA-4.0, 8 keywords, abstract + citation, 5 related links (papers, GitHub, Zenodo archive), 8/8 ORCID, 2 funders, and a stable concept DOI.\n\n- Findability (the F in FAIR) and credit are fields the platform writes. nemar-cli writes them; on OpenNeuro the same dataset stays bare."
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo -- Small and Honest",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/demo-roadmap-neuro.svg",
+            "alt": "Two demo steps with timing badges. Step 1 (about 2 minutes), HEDit: one rich prose description of an HBN event becomes a validated HED string, captioned the recreate-the-stimulus bar in miniature. Step 2 (about 2 minutes), a dark terminal running nemar dataset validate on the HBN practicum dataset producing a clean BIDS report. A tail note: we do not manufacture a pass.",
+            "width": "90%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "note",
+            "content": "Two actions: (1) **HEDit** turns one prose description into validated HED; (2) **`nemar dataset validate`** on the HBN dataset returns a clean BIDS report. **We do not manufacture a pass.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "- Two small, honest live actions, ~4 minutes total.\n\n- Step 1: HEDit. Write one rich prose description of an HBN event and watch it become a validated HED string. The recreate-the-stimulus bar in miniature: the richer the description, the better the tag.\n\n- Step 2: nemar dataset validate on the HBN practicum dataset, returning a clean BIDS report.\n\n- If validation surfaces something, we walk it; we do not manufacture a pass."
+      },
+      {
+        "id": "what-next",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What Today Gives You / What's Next",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              { "text": "**BIDS for structure, HED for semantics**, and a concrete bar: an LLM can recreate the stimulus from the annotation alone.", "animation": { "fragment": true, "type": "fade", "index": 0 } },
+              { "text": "**The neuroinformatics plugin**: `bids-conversion` + the `bids-validator` agent (the mechanical defence).", "animation": { "fragment": true, "type": "fade", "index": 1 } },
+              { "text": "**Sharing with credit**: nemar-cli's trivial validation, private-until-ready upload, and DOIs with ORCID auto-link.", "animation": { "fragment": true, "type": "fade", "index": 2 } },
+              { "text": "**The loop closes:** the HBN data you've analyzed since Week 3 is itself a BIDS + HED dataset, shared this exact way.", "animation": { "fragment": true, "type": "slide-up", "index": 3 } }
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "position": { "area": "left" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Next week -- Week 10: build your own plugin.** The last research-workflow plugin of the course; next you make one.\n\n**Questions? Ask while the demo runs.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 4 },
+            "position": { "area": "right" }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Land the takeaways one at a time: two standards + the bar; the plugin; sharing with credit.\n\n- Close the loop: the practicum dataset is itself a BIDS + HED dataset on OpenNeuro and NEMAR, shared with these exact tools.\n\n- Next week is Week 10: building your own plugin, the capstone.\n\n- Open the floor: questions while the demo runs."
+      }
+    ]
+  }
+}

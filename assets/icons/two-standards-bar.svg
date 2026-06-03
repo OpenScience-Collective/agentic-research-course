@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">Two standards, one bar for clarity</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Structure says where the data lives; semantics say what each event meant</text>
+
+  <!-- Full-width banner: the bar -->
+  <g>
+    <rect x="60" y="58" width="880" height="46" rx="6" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.8"/>
+    <text x="500" y="79" font-family="sans-serif" font-size="11.5" fill="#5B21B6" font-weight="bold" text-anchor="middle">THE BAR</text>
+    <text x="500" y="96" font-family="sans-serif" font-size="11.5" fill="#5B21B6" text-anchor="middle">A language model can recreate the stimulus from the annotation alone.</text>
+  </g>
+
+  <!-- Left card: BIDS = STRUCTURE (blue) -->
+  <g>
+    <rect x="60" y="120" width="420" height="186" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.8"/>
+    <rect x="60" y="120" width="420" height="30" rx="6" fill="#BFDBFE" stroke="#2563EB" stroke-width="1.8"/>
+    <text x="270" y="141" font-family="sans-serif" font-size="14" fill="#1E40AF" font-weight="bold" text-anchor="middle">BIDS = STRUCTURE</text>
+    <text x="270" y="178" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">Where the files live on disk</text>
+    <text x="270" y="205" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">Naming: sub- / ses- / task-</text>
+    <text x="270" y="232" font-family="sans-serif" font-size="11.5" fill="#1E40AF" text-anchor="middle">Sidecars + TSV tables</text>
+    <text x="270" y="285" font-family="sans-serif" font-size="13" fill="#1E40AF" font-weight="bold" text-anchor="middle">answers WHERE</text>
+  </g>
+
+  <!-- Right card: HED = SEMANTICS (green) -->
+  <g>
+    <rect x="520" y="120" width="420" height="186" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.8"/>
+    <rect x="520" y="120" width="420" height="30" rx="6" fill="#A7F3D0" stroke="#059669" stroke-width="1.8"/>
+    <text x="730" y="141" font-family="sans-serif" font-size="14" fill="#065F46" font-weight="bold" text-anchor="middle">HED = SEMANTICS</text>
+    <text x="730" y="178" font-family="sans-serif" font-size="11.5" fill="#065F46" text-anchor="middle">What each event actually meant</text>
+    <text x="730" y="205" font-family="sans-serif" font-size="11.5" fill="#065F46" text-anchor="middle">Controlled, composable vocabulary</text>
+    <text x="730" y="232" font-family="sans-serif" font-size="11.5" fill="#065F46" text-anchor="middle">Machine-readable annotations</text>
+    <text x="730" y="285" font-family="sans-serif" font-size="13" fill="#065F46" font-weight="bold" text-anchor="middle">answers WHAT</text>
+  </g>
+
+  <!-- Bottom moral strip -->
+  <rect x="60" y="320" width="880" height="22" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="335" font-family="sans-serif" font-size="10.5" fill="#1E293B" text-anchor="middle">Structure + semantics together clear the bar -- reproducible by humans and machines alike.</text>
+</svg>
