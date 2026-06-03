@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="22" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">The metadata gap -- findability and credit</text>
+  <text x="500" y="39" font-family="sans-serif" font-size="10.5" fill="#64748B" font-style="italic" text-anchor="middle">Live DataCite records, same dataset, same 8 authors: NEMAR nm000103 vs OpenNeuro ds005505 (HBN-EEG Release 1)</text>
+
+  <!-- Header cards -->
+  <rect x="372" y="48" width="268" height="32" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.6"/>
+  <text x="506" y="62" font-family="sans-serif" font-size="12" fill="#065F46" font-weight="bold" text-anchor="middle">NEMAR -- nm000103</text>
+  <text x="506" y="74" font-family="monospace" font-size="7.5" fill="#065F46" text-anchor="middle">concept DOI  10.82901/NEMAR.nm000103</text>
+
+  <rect x="668" y="48" width="292" height="32" rx="6" fill="#E2E8F0" stroke="#64748B" stroke-width="1.6"/>
+  <text x="814" y="62" font-family="sans-serif" font-size="12" fill="#334155" font-weight="bold" text-anchor="middle">OpenNeuro -- ds005505</text>
+  <text x="814" y="74" font-family="monospace" font-size="7" fill="#475569" text-anchor="middle">10.18112/openneuro.ds005505.v1.0.1  (version only)</text>
+
+  <!-- ===== SECTION A: FINDABILITY ===== -->
+  <rect x="30" y="86" width="930" height="18" rx="3" fill="#EFF6FF"/>
+  <text x="40" y="99" font-family="sans-serif" font-size="10" fill="#1E40AF" font-weight="bold" text-anchor="start">FINDABILITY (FAIR) -- can anyone discover and reuse it?</text>
+
+  <!-- A1 license -->
+  <rect x="30" y="106" width="930" height="25" fill="#F8FAFC"/>
+  <text x="40" y="123" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="start">License / reuse terms</text>
+  <text x="506" y="123" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  CC-BY-NC-SA-4.0</text>
+  <text x="814" y="123" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  none</text>
+
+  <!-- A2 keywords -->
+  <rect x="30" y="131" width="930" height="25" fill="#FFFFFF"/>
+  <text x="40" y="148" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="start">Keywords (subjects)</text>
+  <text x="506" y="148" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  8 terms</text>
+  <text x="814" y="148" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  0</text>
+
+  <!-- A3 description -->
+  <rect x="30" y="156" width="930" height="25" fill="#F8FAFC"/>
+  <text x="40" y="173" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="start">Description / abstract</text>
+  <text x="506" y="173" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  yes</text>
+  <text x="814" y="173" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  none</text>
+
+  <!-- A4 related links -->
+  <rect x="30" y="181" width="930" height="25" fill="#FFFFFF"/>
+  <text x="40" y="198" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="start">Links to papers + related datasets</text>
+  <text x="506" y="198" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  5 links</text>
+  <text x="814" y="198" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  0</text>
+
+  <!-- ===== SECTION B: CREDIT ===== -->
+  <rect x="30" y="210" width="930" height="18" rx="3" fill="#ECFDF5"/>
+  <text x="40" y="223" font-family="sans-serif" font-size="10" fill="#065F46" font-weight="bold" text-anchor="start">CREDIT -- does reuse trace back to you?</text>
+
+  <!-- B1 ORCID (HIGHLIGHT) -->
+  <rect x="30" y="230" width="930" height="27" fill="#FEF3C7" stroke="#D97706" stroke-width="1.4"/>
+  <text x="40" y="248" font-family="sans-serif" font-size="11.5" fill="#1E293B" font-weight="bold" text-anchor="start">Authors linked to ORCID iD</text>
+  <text x="506" y="248" font-family="sans-serif" font-size="13" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  8 / 8</text>
+  <text x="814" y="248" font-family="sans-serif" font-size="13" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  0 / 8</text>
+
+  <!-- B2 concept DOI + funding -->
+  <rect x="30" y="257" width="930" height="25" fill="#FFFFFF"/>
+  <text x="40" y="274" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="start">Stable concept DOI &#183; funding references</text>
+  <text x="506" y="274" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">&#10003;  yes &#183; 2</text>
+  <text x="814" y="274" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">&#10007;  version-only &#183; 0</text>
+
+  <!-- column dividers -->
+  <line x1="368" y1="106" x2="368" y2="206" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="664" y1="106" x2="664" y2="206" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="368" y1="230" x2="368" y2="282" stroke="#CBD5E1" stroke-width="1"/>
+  <line x1="664" y1="230" x2="664" y2="282" stroke="#CBD5E1" stroke-width="1"/>
+
+  <!-- Bottom strip -->
+  <rect x="30" y="288" width="930" height="44" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+  <text x="500" y="305" font-family="sans-serif" font-size="11.5" fill="#7F1D1D" font-weight="bold" text-anchor="middle">OpenNeuro's DOI record carries only a title and author names -- everything else is blank.</text>
+  <text x="500" y="322" font-family="sans-serif" font-size="9.5" fill="#991B1B" text-anchor="middle">License, keywords, description, related links, ORCID, funding: NEMAR fills every field. Source: api.datacite.org (live).</text>
+
+  <!-- moral strip -->
+  <rect x="30" y="338" width="930" height="18" rx="3" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="351" font-family="sans-serif" font-size="10" fill="#1E293B" text-anchor="middle">Findable and citable is metadata, not luck -- nemar-cli populates it; the same dataset on OpenNeuro stays bare.</text>
+</svg>

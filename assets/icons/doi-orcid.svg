@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">DOI minting + ORCID auto-link -- credit, automatically</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Publish a dataset and every author's contribution lands on their ORCID record without a single manual step</text>
+
+  <defs>
+    <marker id="arrowfwd2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowgreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A9E1F"/>
+    </marker>
+  </defs>
+
+  <!-- ====== STAGE 1: Authors + ORCID chips ====== -->
+  <rect x="36" y="74" width="262" height="186" rx="8" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.4"/>
+  <text x="167" y="94" font-family="sans-serif" font-size="12" fill="#1E293B" font-weight="bold" text-anchor="middle">Dataset authors</text>
+
+  <!-- Author 1 chip -->
+  <rect x="50" y="104" width="234" height="44" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <circle cx="72" cy="126" r="10" fill="#A6CE39"/>
+  <text x="72" y="129.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">iD</text>
+  <text x="90" y="121" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Author 1</text>
+  <text x="90" y="137" font-family="monospace" font-size="9.5" fill="#475569">0000-0001-2345-6789</text>
+
+  <!-- Author 2 chip -->
+  <rect x="50" y="153" width="234" height="44" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <circle cx="72" cy="175" r="10" fill="#A6CE39"/>
+  <text x="72" y="178.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">iD</text>
+  <text x="90" y="170" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Author 2</text>
+  <text x="90" y="186" font-family="monospace" font-size="9.5" fill="#475569">0000-0002-9876-5432</text>
+
+  <!-- Author 3 chip -->
+  <rect x="50" y="202" width="234" height="44" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <circle cx="72" cy="224" r="10" fill="#A6CE39"/>
+  <text x="72" y="227.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">iD</text>
+  <text x="90" y="219" font-family="sans-serif" font-size="11" fill="#1E293B" font-weight="bold">Author 3</text>
+  <text x="90" y="235" font-family="monospace" font-size="9.5" fill="#475569">0000-0003-1122-3344</text>
+
+  <!-- ORCID green label under the chips -->
+  <text x="167" y="256" font-family="sans-serif" font-size="9" fill="#7A9E1F" font-weight="bold" text-anchor="middle">each linked to an ORCID iD</text>
+
+  <!-- Arrow stage1 -> stage2 -->
+  <line x1="300" y1="166" x2="358" y2="166" stroke="#475569" stroke-width="1.8" marker-end="url(#arrowfwd2)"/>
+
+  <!-- ====== STAGE 2: DataCite DOI box (blue, emphasized) ====== -->
+  <rect x="362" y="86" width="262" height="160" rx="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <rect x="362" y="86" width="262" height="30" rx="8" fill="#2563EB"/>
+  <rect x="362" y="104" width="262" height="12" fill="#2563EB"/>
+  <text x="493" y="106" font-family="sans-serif" font-size="12.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">DataCite DOI (via EZID)</text>
+
+  <text x="493" y="138" font-family="sans-serif" font-size="10.5" fill="#1E40AF" text-anchor="middle">DOI minted on publish, metadata</text>
+  <text x="493" y="153" font-family="sans-serif" font-size="10.5" fill="#1E40AF" text-anchor="middle">includes every author's ORCID iD</text>
+
+  <!-- concept + version DOIs -->
+  <rect x="380" y="166" width="226" height="26" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+  <text x="493" y="183" font-family="monospace" font-size="9" fill="#1E40AF" text-anchor="middle">concept DOI  10.82901/NEMAR.nm000104</text>
+  <rect x="380" y="196" width="226" height="40" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+  <text x="493" y="211" font-family="sans-serif" font-size="9.5" fill="#1E40AF" text-anchor="middle" font-weight="bold">+ per-version DOIs</text>
+  <text x="493" y="226" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">...v1.0.0   ...v1.1.0   ...v2.0.0</text>
+
+  <!-- Arrow stage2 -> stage3 (green, the auto-link) -->
+  <line x1="626" y1="166" x2="684" y2="166" stroke="#7A9E1F" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <text x="655" y="156" font-family="sans-serif" font-size="8.5" fill="#7A9E1F" font-weight="bold" text-anchor="middle">auto</text>
+
+  <!-- ====== STAGE 3: ORCID profile card ====== -->
+  <rect x="688" y="86" width="276" height="160" rx="8" fill="#FFFFFF" stroke="#A6CE39" stroke-width="2"/>
+  <rect x="688" y="86" width="276" height="30" rx="8" fill="#A6CE39"/>
+  <rect x="688" y="104" width="276" height="12" fill="#A6CE39"/>
+  <circle cx="708" cy="101" r="9" fill="#FFFFFF"/>
+  <text x="708" y="104.5" font-family="sans-serif" font-size="9" fill="#A6CE39" font-weight="bold" text-anchor="middle">iD</text>
+  <text x="833" y="105" font-family="sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold" text-anchor="middle">ORCID record -- Author 1</text>
+
+  <text x="704" y="134" font-family="sans-serif" font-size="9.5" fill="#475569">Works  -- Datasets</text>
+  <line x1="704" y1="140" x2="948" y2="140" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- the dataset entry that appears automatically -->
+  <rect x="704" y="148" width="244" height="44" rx="5" fill="#F7FBE9" stroke="#A6CE39" stroke-width="1.2"/>
+  <text x="714" y="164" font-family="sans-serif" font-size="10" fill="#1E293B" font-weight="bold">HBN-EEG: movie shot-change dataset</text>
+  <text x="714" y="178" font-family="sans-serif" font-size="9" fill="#475569">Dataset -- NEMAR -- 2026</text>
+  <text x="714" y="189" font-family="monospace" font-size="8.5" fill="#7A9E1F">Source: DataCite   doi:10.82901/NEMAR...</text>
+
+  <text x="826" y="210" font-family="sans-serif" font-size="9.5" fill="#7A9E1F" font-weight="bold" text-anchor="middle">appears on each author's</text>
+  <text x="826" y="223" font-family="sans-serif" font-size="9.5" fill="#7A9E1F" font-weight="bold" text-anchor="middle">ORCID record automatically</text>
+  <text x="826" y="237" font-family="sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">no copy-paste, no manual "add work"</text>
+
+  <!-- ====== Prominent callout (amber/red) ====== -->
+  <rect x="36" y="272" width="928" height="40" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <!-- warning triangle -->
+  <g transform="translate(56,278)">
+    <path d="M 14 0 L 28 26 L 0 26 Z" fill="#D97706"/>
+    <rect x="12.5" y="8" width="3" height="10" rx="1.5" fill="#FFFFFF"/>
+    <circle cx="14" cy="22" r="1.8" fill="#FFFFFF"/>
+  </g>
+  <text x="510" y="290" font-family="sans-serif" font-size="12" fill="#92400E" font-weight="bold" text-anchor="middle">OpenNeuro does not link authors to ORCID on the DOI yet.</text>
+  <text x="510" y="305" font-family="sans-serif" font-size="10" fill="#7F1D1D" text-anchor="middle">Same DataCite DOI infrastructure, but the credit never reaches the author's ORCID profile -- NEMAR closes that loop.</text>
+
+  <!-- Bottom moral strip -->
+  <rect x="36" y="320" width="928" height="22" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.8"/>
+  <text x="500" y="335" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Authors -&gt; ORCID iDs -&gt; DataCite DOI -&gt; back onto every author's ORCID record. Credit flows automatically.</text>
+</svg>

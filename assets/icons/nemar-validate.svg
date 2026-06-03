@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">nemar-cli -- validation is now trivial</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">One command checks Brain Imaging Data Structure (BIDS) compliance before anything leaves your machine</text>
+
+  <!-- TRIVIAL badge near the title -->
+  <rect x="638" y="13" width="58" height="16" rx="3" fill="#059669"/>
+  <text x="667" y="24.5" font-family="sans-serif" font-size="9.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">TRIVIAL</text>
+
+  <!-- Dark terminal block -->
+  <rect x="60" y="80" width="600" height="220" rx="8" fill="#0F172A" stroke="#1E293B" stroke-width="1.4"/>
+  <!-- Title bar -->
+  <rect x="60" y="80" width="600" height="26" rx="8" fill="#1E293B"/>
+  <rect x="60" y="98" width="600" height="8" fill="#1E293B"/>
+  <circle cx="78" cy="93" r="4.5" fill="#EF4444"/>
+  <circle cx="94" cy="93" r="4.5" fill="#F59E0B"/>
+  <circle cx="110" cy="93" r="4.5" fill="#22C55E"/>
+  <text x="360" y="96.5" font-family="monospace" font-size="10" fill="#94A3B8" text-anchor="middle">terminal -- nemar-cli</text>
+
+  <!-- Command line -->
+  <text x="80" y="138" font-family="monospace" font-size="11.5" fill="#64748B">$</text>
+  <text x="96" y="138" font-family="monospace" font-size="11.5" fill="#E2E8F0">nemar dataset validate ./hbn-eeg</text>
+
+  <!-- Output lines -->
+  <text x="80" y="166" font-family="monospace" font-size="11" fill="#94A3B8">Resolving BIDS validator (Deno) ...</text>
+  <text x="80" y="186" font-family="monospace" font-size="11" fill="#94A3B8">Scanning ./hbn-eeg  -- 124 files, 12 subjects</text>
+  <text x="80" y="206" font-family="monospace" font-size="11" fill="#94A3B8">Checking sidecars, events, channels ...</text>
+  <text x="80" y="232" font-family="monospace" font-size="11" fill="#FBBF24">! 2 warnings  (optional README fields)</text>
+
+  <!-- Success line in green -->
+  <text x="80" y="262" font-family="monospace" font-size="12.5" fill="#34D399" font-weight="bold">BIDS valid -- 0 errors, 2 warnings</text>
+  <text x="80" y="284" font-family="monospace" font-size="11" fill="#64748B">$</text>
+  <rect x="96" y="276" width="8" height="13" fill="#E2E8F0"/>
+
+  <!-- Side notes (3 boxes) -->
+  <rect x="688" y="92" width="272" height="58" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/>
+  <text x="704" y="115" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">wraps the official BIDS</text>
+  <text x="704" y="131" font-family="sans-serif" font-size="11" fill="#1E40AF" font-weight="bold">validator (Deno)</text>
+  <text x="704" y="146" font-family="sans-serif" font-size="9.5" fill="#475569">same engine NEMAR runs server-side</text>
+
+  <rect x="688" y="162" width="272" height="58" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.4"/>
+  <text x="704" y="185" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold">runs automatically on upload</text>
+  <text x="704" y="201" font-family="sans-serif" font-size="11" fill="#065F46" font-weight="bold">AND on every update PR</text>
+  <text x="704" y="216" font-family="sans-serif" font-size="9.5" fill="#475569">no way to ship an invalid dataset</text>
+
+  <rect x="688" y="232" width="272" height="58" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.4"/>
+  <text x="704" y="255" font-family="sans-serif" font-size="11" fill="#92400E" font-weight="bold">no separate toolchain</text>
+  <text x="704" y="271" font-family="sans-serif" font-size="11" fill="#92400E" font-weight="bold">to install</text>
+  <text x="704" y="286" font-family="sans-serif" font-size="9.5" fill="#475569">the CLI fetches the validator for you</text>
+
+  <!-- Bottom moral strip -->
+  <rect x="60" y="318" width="900" height="22" rx="4" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.8"/>
+  <text x="510" y="333" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle">Validation moved from a multi-step chore to a single command you can run before, during, and after upload.</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="24" font-family="sans-serif" font-size="15" fill="#1E293B" font-weight="bold" text-anchor="middle">nemar-cli -- upload to publish</text>
+  <text x="500" y="42" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">Four commands, end to end -- private while you stage, public only when you ask</text>
+
+  <defs>
+    <marker id="arrowfwd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- State indicator strip (above the steps) -->
+  <!-- Private region label -->
+  <rect x="44" y="62" width="606" height="18" rx="4" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="0.8"/>
+  <text x="347" y="75" font-family="sans-serif" font-size="10" fill="#475569" text-anchor="middle" font-weight="bold">PRIVATE repo -- you're admin: invite collaborators, push directly</text>
+  <!-- Public region label -->
+  <rect x="664" y="62" width="292" height="18" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="0.8"/>
+  <text x="810" y="75" font-family="sans-serif" font-size="10" fill="#065F46" text-anchor="middle" font-weight="bold">PUBLIC -- on request; then PR + tags</text>
+
+  <!-- Step 1: auth login (blue) -->
+  <rect x="44" y="120" width="200" height="120" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/>
+  <circle cx="64" cy="140" r="9" fill="#2563EB"/>
+  <text x="64" y="143.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1</text>
+  <text x="144" y="165" font-family="sans-serif" font-size="11.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">Authenticate</text>
+  <rect x="58" y="178" width="172" height="24" rx="4" fill="#0F172A"/>
+  <text x="68" y="194" font-family="monospace" font-size="10" fill="#E2E8F0">nemar auth login</text>
+  <text x="144" y="222" font-family="sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">one-time, API key cached</text>
+  <!-- lock glyph -->
+  <g transform="translate(136,228)">
+    <rect x="0" y="6" width="16" height="11" rx="2" fill="#475569"/>
+    <path d="M 3 6 V 3.5 a 5 5 0 0 1 10 0 V 6" fill="none" stroke="#475569" stroke-width="2"/>
+  </g>
+
+  <!-- Step 2: validate (blue) -->
+  <rect x="268" y="120" width="200" height="120" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.6"/>
+  <circle cx="288" cy="140" r="9" fill="#2563EB"/>
+  <text x="288" y="143.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2</text>
+  <text x="368" y="165" font-family="sans-serif" font-size="11.5" fill="#1E40AF" font-weight="bold" text-anchor="middle">Validate</text>
+  <rect x="282" y="178" width="172" height="24" rx="4" fill="#0F172A"/>
+  <text x="292" y="194" font-family="monospace" font-size="9.5" fill="#E2E8F0">nemar dataset validate ./ds</text>
+  <text x="368" y="222" font-family="sans-serif" font-size="9.5" fill="#475569" text-anchor="middle">BIDS check, must pass</text>
+  <g transform="translate(360,228)">
+    <rect x="0" y="6" width="16" height="11" rx="2" fill="#475569"/>
+    <path d="M 3 6 V 3.5 a 5 5 0 0 1 10 0 V 6" fill="none" stroke="#475569" stroke-width="2"/>
+  </g>
+
+  <!-- Step 3: upload (amber) -->
+  <rect x="492" y="120" width="200" height="120" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+  <circle cx="512" cy="140" r="9" fill="#D97706"/>
+  <text x="512" y="143.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">3</text>
+  <text x="592" y="165" font-family="sans-serif" font-size="11.5" fill="#92400E" font-weight="bold" text-anchor="middle">Upload</text>
+  <rect x="506" y="178" width="172" height="24" rx="4" fill="#0F172A"/>
+  <text x="516" y="194" font-family="monospace" font-size="9.5" fill="#E2E8F0">nemar dataset upload ./ds</text>
+  <text x="592" y="222" font-family="sans-serif" font-size="9.5" fill="#92400E" text-anchor="middle" font-weight="bold">private by default</text>
+  <g transform="translate(584,228)">
+    <rect x="0" y="6" width="16" height="11" rx="2" fill="#92400E"/>
+    <path d="M 3 6 V 3.5 a 5 5 0 0 1 10 0 V 6" fill="none" stroke="#92400E" stroke-width="2"/>
+  </g>
+
+  <!-- Step 4: publish request (green) -->
+  <rect x="716" y="120" width="240" height="120" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="2"/>
+  <circle cx="736" cy="140" r="9" fill="#059669"/>
+  <text x="736" y="143.5" font-family="sans-serif" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">4</text>
+  <text x="836" y="165" font-family="sans-serif" font-size="11.5" fill="#065F46" font-weight="bold" text-anchor="middle">Publish request</text>
+  <rect x="730" y="178" width="212" height="24" rx="4" fill="#0F172A"/>
+  <text x="740" y="194" font-family="monospace" font-size="9" fill="#E2E8F0">nemar dataset publish request &lt;id&gt;</text>
+  <text x="836" y="222" font-family="sans-serif" font-size="9.5" fill="#065F46" text-anchor="middle" font-weight="bold">admin approves -&gt; public + DOI</text>
+  <!-- globe glyph -->
+  <g transform="translate(826,226)">
+    <circle cx="9" cy="9" r="8" fill="none" stroke="#059669" stroke-width="1.6"/>
+    <ellipse cx="9" cy="9" rx="3.4" ry="8" fill="none" stroke="#059669" stroke-width="1.2"/>
+    <line x1="1" y1="9" x2="17" y2="9" stroke="#059669" stroke-width="1.2"/>
+    <line x1="2.2" y1="4.6" x2="15.8" y2="4.6" stroke="#059669" stroke-width="1"/>
+    <line x1="2.2" y1="13.4" x2="15.8" y2="13.4" stroke="#059669" stroke-width="1"/>
+  </g>
+
+  <!-- Forward arrows -->
+  <line x1="244" y1="180" x2="266" y2="180" stroke="#475569" stroke-width="1.6" marker-end="url(#arrowfwd)"/>
+  <line x1="468" y1="180" x2="490" y2="180" stroke="#475569" stroke-width="1.6" marker-end="url(#arrowfwd)"/>
+  <line x1="692" y1="180" x2="714" y2="180" stroke="#475569" stroke-width="1.6" marker-end="url(#arrowfwd)"/>
+
+  <!-- Private/public divider -->
+  <line x1="704" y1="58" x2="704" y2="246" stroke="#94A3B8" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Bottom moral strip -->
+  <rect x="44" y="296" width="912" height="46" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="500" y="316" font-family="sans-serif" font-size="11.5" fill="#991B1B" font-weight="bold" text-anchor="middle">nemar-cli makes a private GitHub repo, you the admin -- invite collaborators and push directly, until publish.</text>
+  <text x="500" y="333" font-family="sans-serif" font-size="10" fill="#7F1D1D" text-anchor="middle">After publishing, changes go through pull requests + version tags. (OpenNeuro also allows private upload, just CLI-only.)</text>
+</svg>

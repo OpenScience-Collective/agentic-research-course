@@ -6,3 +6,6 @@ node_modules/
 .env
 .env.local
 .gstack/
+
+# Working QA scratch (renders, base64 embeds, DataCite probes)
+.context/qa/
