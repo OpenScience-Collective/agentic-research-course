@@ -1,0 +1,668 @@
+{
+  "presentation": {
+    "metadata": {
+      "title": "Agentic Research Course",
+      "author": "Seyed Yahya Shirazi, Ph.D.",
+      "description": "Week 10: Build Your Own -- skills, agents, and the researcher's plugin. The six building blocks (skill, agent, command, hook, MCP, plugin), two questions that pick the right one for any job, building a skill with /skill-development, testing that it triggers, the skill-reviewer agent, and forking research-skills to make it your own. The capstone: tool user in, tool builder out.",
+      "theme": "default",
+      "aspectRatio": "16:9",
+      "controls": {
+        "slideNumbers": true,
+        "progress": true
+      }
+    },
+    "slides": [
+      {
+        "id": "title",
+        "layout": "title",
+        "transition": "fade",
+        "elements": [
+          {
+            "type": "text",
+            "content": "# Agentic Research Course",
+            "style": { "fontSize": "xxl", "alignment": "center", "fontWeight": "bold" },
+            "position": { "area": "center" }
+          },
+          {
+            "type": "text",
+            "content": "Week 10: Build Your Own -- Skills, Agents, and the Researcher's Plugin",
+            "style": { "fontSize": "large", "alignment": "center", "color": "#2563EB" },
+            "position": { "area": "center", "order": 1 }
+          },
+          {
+            "type": "text",
+            "content": "**Seyed Yahya Shirazi, Ph.D.**\nAssistant Project Scientist, Swartz Center for Computational Neuroscience\nUC San Diego\n\n[Open Science Collective](https://osc.earth)",
+            "style": { "fontSize": "medium", "alignment": "center", "color": "#475569" },
+            "position": { "area": "center", "order": 2 }
+          },
+          {
+            "type": "text",
+            "content": "Course: [courses.osc.earth/agentic-research](https://courses.osc.earth/agentic-research/) | Discord: [discord.gg/5dWJCUmUww](https://discord.gg/5dWJCUmUww) | Recording: published to YouTube within 48 h",
+            "style": { "fontSize": "medium", "alignment": "center", "color": "#2563EB" },
+            "position": { "area": "center", "order": 3 }
+          }
+        ],
+        "speakerNotes": "- The capstone. Welcome to the last session.\n\n- For nine weeks you used tools other people built. Today you learn the six kinds of tool a coding agent can run, which one to reach for, and how to build the simplest of them -- a skill.\n\n- The arc: name the six building blocks, then build one live with /skill-development.\n\n- The promise to land at the end: you arrived a tool user; you leave a tool builder.\n\n- Format: ~30 min, one small live demo, 15 min Q&A."
+      },
+      {
+        "id": "the-reveal",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Where We Are -- and the Turn",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              { "text": "**Weeks 1-4 -- git, Claude Code, project management, CI/CD.** The safety net and the agent." },
+              { "text": "**Weeks 5-9 -- lit review, grants, manuscripts, figures, BIDS.** A whole research pipeline, one workflow at a time.", "animation": { "fragment": true, "type": "fade", "index": 0 } },
+              { "text": "**Every week you ran a tool -- and never named what kind it was.**", "animation": { "fragment": true, "type": "fade", "index": 1 } },
+              { "text": "**Today: name all six building blocks, learn which to reach for, and build one.** You arrived a tool user. You leave a tool builder.", "animation": { "fragment": true, "type": "slide-up", "index": 2 } }
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "content" }
+          }
+        ],
+        "speakerNotes": "[Press right 3x to reveal fragments]\n\n- Recap the arc fast: 1-4 the engine and safety net; 5-9 the writing-and-data pipeline.\n\n- The turn: everything so far assumed the tool already existed. This week you build the tool.\n\n- Land the closing line slowly -- it is the thesis of the whole session and the course."
+      },
+      {
+        "id": "the-question",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Skill? Agent? Command? Hook? MCP? Plugin?",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/six-blocks-jumble.svg",
+            "alt": "Six overlapping, tilted pills -- Skill (green), Plugin (blue), Agent (purple), MCP (red), Command (teal), Hook (amber) -- scattered with faint question marks on the left, a blue arrow pointing right to a card titled TWO QUESTIONS: 1. Who triggers it? 2. Where does it run?",
+            "width": "70%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "These six words are not interchangeable. **You do not need six definitions -- you need two questions.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- This is the real question every researcher has after a few weeks with Claude Code.\n\n- Resist defining all six up front; promise the two-question shortcut instead.\n\n- The colors here are a legend used the whole deck: Skill green, Agent purple, Command teal, Hook amber, MCP red, Plugin blue."
+      },
+      {
+        "id": "two-questions",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Two Questions That Sort Them All",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/two-questions.svg",
+            "alt": "A 2-by-3 grid. Rows are who triggers it: Claude, You, An event, Always-on. Columns are where it runs: Main chat, Its own context, Outside the model. Skill sits at Claude x Main chat; Agent at Claude x Own context; Command at You x Main chat; Hook at An event x Outside; MCP server at Always-on x Outside.",
+            "width": "66%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Who triggers it?** Claude (from intent), you (explicitly), an event, or an always-on connection. **Where does it run?** The main chat, its own context, or outside the model.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- Walk the two axes once, slowly: trigger down the side, location across the top.\n\n- Point out the placements: a skill and an agent are both Claude-triggered, but one stays in the main chat and one gets its own context. That single distinction is the next slide.\n\n- A plugin is not on the grid: it is the box that ships these together."
+      },
+      {
+        "id": "decision-table",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Which Tool? Two Columns Decide.",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/tool-decision-table.svg",
+            "alt": "A decision table. Left column YOU WANT, right column REACH FOR A. Rows: follow your procedure when the topic comes up -> Skill; a scoped job done on its own returning a result -> Agent; a deliberate slash entry-point -> Command; something automatic on an event -> Hook; reach an external system -> MCP server; bundle and share any of the above -> Plugin. A dark rail reads Skill = knowledge, Agent = a worker, Command = a button, Hook = a tripwire, MCP = a wire outside, Plugin = the box.",
+            "width": "58%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**Screenshot this one** -- it answers 'which tool?' once and for good.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- This is the durable takeaway of the session. Read each row as a sentence: 'I want X, so I reach for a Y.'\n\n- Tell them to screenshot it; researchers stay confused about skill vs agent vs MCP long after a course ends, and this table is the cure.\n\n- The bottom rail is the one-line mnemonic. Say it out loud."
+      },
+      {
+        "id": "skill-vs-agent",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Skill vs Agent -- the Confusion Worth Clearing",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/skill-vs-agent.svg",
+            "alt": "Two panels. Left: MAIN CONVERSATION, a green scientific-figure skill card inside a chat bubble, labeled knowledge in context, Claude keeps working. Right: ITS OWN CONTEXT WINDOW, a purple figure-qa agent box with its own tools (Bash, Read, own model), labeled a worker, isolated, returns a result. A purple delegate arrow goes right and a green result arrow comes back.",
+            "width": "68%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Both are triggered by Claude. **A skill is knowledge in the room you're already in; an agent is a separate worker with its own context and tools.** Reach for an agent when the work is isolated, repeatable, or runs in parallel.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- This is the number-one confusion. Use the Week 8 example: scientific-figure (skill) is procedure you use directly; figure-qa (agent) is a worker you hand a figure to and it reports back.\n\n- The agent has its own context window -- that is why several can run at once and why you give it a restricted tool set.\n\n- Rule of thumb on the callout: isolated, repeatable, or parallel -> agent; otherwise a skill."
+      },
+      {
+        "id": "skill-vs-mcp",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Skill vs MCP -- Knowledge vs a Wire",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/mcp-wire.svg",
+            "alt": "Claude on the left wired to an MCP server (red), which fans out to external systems on the right: MATLAB + EEGLAB (highlighted, labeled matlab-mcp, you drove this all course), a database, a web API, and a browser.",
+            "width": "72%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "A skill teaches Claude with tools it already has. **An MCP server gives it new tools by wiring to an external system.** You drove one the whole course: `matlab-mcp` for MATLAB + EEGLAB.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The second confusion: skill vs MCP. Knowledge vs a connection.\n\n- The course's own practicum is the proof: no skill could make Claude run MATLAB. It needed matlab-mcp, an MCP server -- a socket to the outside.\n\n- Land the test: if the job needs the outside world (a program, a database, an API, a browser), it is an MCP server, not a skill."
+      },
+      {
+        "id": "used-all-six",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## You Have Used All Six Already",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/used-all-six.svg",
+            "alt": "A timeline of Weeks 1-9, each tagged by tool type: Wk1 git and Wk2 CLAUDE.md as foundation, Wk3 /epic-dev as Command, Wk4 pre-commit as Hook, Wk5 opencite, Wk6 grant, Wk7 manuscript as Skills, Wk8 figure-qa and Wk9 bids-validator as Agents. A red band spanning Wk3-9 marks matlab-mcp the MCP server; a blue band over Wk5-9 marks research-skills the plugin.",
+            "width": "80%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Commands (Wk3), hooks (Wk4), skills (Wk5-9), agents (Wk8-9), an MCP server the whole practicum, all inside a plugin. **None of it was magic -- and today you author one.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The graduation slide. Walk the timeline and name each week's tool type -- the colors match the legend.\n\n- The point: they already trust every one of these. The building blocks are not new; only the names are.\n\n- matlab-mcp ran underneath the practicum the whole time; research-skills shipped weeks 5-9. Today they build their own."
+      },
+      {
+        "id": "plugin-box",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Plugin Is the Box; the Marketplace Is the Shelf",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/plugin-box.svg",
+            "alt": "A blue plugin box titled plugin.json with compartments skills (green), agents (purple), commands (teal), hooks (amber), and an optional dashed MCP server config (red). An arrow points to a shelf titled marketplace.json holding plugin boxes labeled neuroinformatics, figures, manuscript, grant, with a note: 7 plugins in research-skills.",
+            "width": "80%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "One `plugin.json` bundles skills, agents, commands, and hooks. A marketplace lists them for install. **`research-skills` is one marketplace holding seven plugins.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The plugin is the only one of the six that is a container, not a capability.\n\n- plugin.json is the manifest; the folders are the compartments. An MCP server config can ride along too.\n\n- A marketplace.json is just a list of plugins. research-skills is one marketplace with seven plugins -- the thing they have been installing since Week 5.\n\n- Bridge: now let us open the simplest box -- a skill."
+      },
+      {
+        "id": "what-is-a-skill",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## What a Skill Actually Is",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/skill-anatomy.svg",
+            "alt": "A directory tree for shot-change-erp with SKILL.md (required, frontmatter plus body) highlighted green, and optional references, scripts, and assets folders. Annotation cards explain: SKILL.md is the entry point always read first; references are detailed docs loaded only when needed; scripts are code executed token-free; assets are templates and icons used in output.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "An onboarding guide for a domain: a required `SKILL.md`, plus optional `references/`, `scripts/`, `assets/`. **Knowledge, packaged so it loads only when it is relevant.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- A skill turns general Claude into a specialist by handing over procedural knowledge no model fully has.\n\n- Only SKILL.md is required. The three folders are optional and each has a job: references to read, scripts to run, assets to use in output.\n\n- The mental frame to repeat all session: a skill is an onboarding guide written for the next Claude."
+      },
+      {
+        "id": "progressive-disclosure",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Progressive Disclosure -- Why Skills Stay Cheap",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/progressive-disclosure.svg",
+            "alt": "A three-tier funnel. Tier 1: metadata, name plus description, always in context, about 100 words. Tier 2: SKILL.md body, loaded only when the skill triggers, target 1,500-2,000 words. Tier 3: references, scripts, assets, pulled only when needed, effectively unlimited, with a note that scripts run without being read into context.",
+            "width": "78%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Metadata is always loaded; the body loads on trigger; resources load only when needed. **Keep SKILL.md lean; let references/ carry the weight.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- This is why you can install dozens of skills without drowning the context window.\n\n- Three levels, loaded in order. Only the ~100-word metadata is always present; the body appears on trigger; the heavy material loads on demand.\n\n- Practical rule: a fat SKILL.md taxes every trigger. Move detail to references/."
+      },
+      {
+        "id": "trigger-description",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## The Trigger Description Decides Everything",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/trigger-description.svg",
+            "alt": "A dissected description field showing third-person phrasing plus exact user phrases. Below, a green PASS card with a specific description full of concrete phrases that will fire, and a red FAIL card with vague descriptions like Provides guidance for figures that never load.",
+            "width": "80%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Third person, full of the exact phrases users say. **A perfect skill with a vague description never fires.** The body is for when it loads; the description is whether it loads.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The single highest-leverage line in the whole skill. If Claude cannot match a user message to your description, the skill is invisible.\n\n- Two rules: third person ('This skill should be used when...') and the literal phrases people type.\n\n- Show the PASS/FAIL contrast: concrete phrases fire; 'Provides guidance for figures' does nothing."
+      },
+      {
+        "id": "write-for-claude",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Write for the Next Claude, in Imperative Form",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/write-for-claude.svg",
+            "alt": "Two columns. Left, crossed out: Writing for a human -- second person, prose, restates what a model knows, with a verbose example. Right, checked: Writing for the next Claude -- imperative, lean, only the non-obvious steps, with a terse example of epoching shot-onset events.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "A skill is onboarding for a future agent, not docs for a human. Imperative voice, no duplication, only the non-obvious. **If a capable model already knows it, leave it out.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The non-obvious mindset shift: you are not documenting for a person, you are onboarding a future model.\n\n- Imperative voice ('Read the file', not 'You should read the file'); no duplication between SKILL.md and references; skip what any capable model already knows.\n\n- The right-hand example is what a good skill body looks like: terse, procedural, specific."
+      },
+      {
+        "id": "skill-development",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## /skill-development -- the Skill That Builds Skills",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/skill-dev-process.svg",
+            "alt": "A six-step flow: 1 Understand (concrete example prompts), 2 Plan (scripts, references, assets), 3 Scaffold (mkdir skills/shot-change-erp), 4 Write (description plus lean SKILL.md body), 5 Validate (skill-reviewer agent), 6 Iterate (use, notice, refine), with a dashed loop arrow from step 6 back to step 4.",
+            "width": "86%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Understand -> plan -> scaffold -> write -> validate -> iterate. **Steps 4-6 loop until it triggers cleanly.** It ships in the official `plugin-dev` plugin.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- You do not author skills from a blank file -- you run /skill-development, which is itself a skill.\n\n- Six steps. The front three are planning; the back three are the real loop you live in.\n\n- It is part of the official plugin-dev plugin, alongside agent-development, command-development, hook-development, mcp-integration, and plugin-structure."
+      },
+      {
+        "id": "does-it-trigger",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Test It: Does It Trigger?",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/trigger-test.svg",
+            "alt": "Two test scenarios: an on-topic prompt 'analyze the shot-change ERPs' loads the shot-change-erp skill with a green check; an off-topic prompt 'what is the capital of France?' correctly loads no skill, also a check. Below, a terminal shows claude --plugin-dir ./my-plugin for local testing.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "The first test is loading, not prose. Say the phrase and watch it fire; test locally with `claude --plugin-dir`. **An untriggered skill is a skill that does not exist.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The most common beginner mistake is polishing the body of a skill that never loads.\n\n- Two-sided test: the right prompt fires it, and the wrong prompt does NOT. Both are passing.\n\n- Test locally before publishing with claude --plugin-dir pointing at your plugin folder, then type the phrases and watch what loads."
+      },
+      {
+        "id": "review-iterate",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Review, Then Iterate",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/skill-reviewer-iterate.svg",
+            "alt": "A purple skill-reviewer agent card emitting a checklist: description specific, body lean, detail in references, imperative writing, examples complete. To the right, a loop: use it for real, notice the struggle, revise by sharpening, moving, or adding a script, then use again.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "The `skill-reviewer` agent checks description, leanness, and disclosure. Then real use shows what to fix. **This is Week 10's mechanical defence** -- like cite-the-card (Wk5) and validate_fonts.py (Wk8).",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- Naturally, the thing that reviews a skill is an agent: skill-reviewer.\n\n- It checks the mechanical stuff: is the description specific, is the body lean, is detail in references, is the writing imperative.\n\n- Then the real loop is use-notice-revise. Every week had a mechanical defence; this is Week 10's."
+      },
+      {
+        "id": "level-up",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## When a Skill Is Not Enough -- Level Up",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/level-up-tools.svg",
+            "alt": "A green Skill at the center with arrows to four targets: Agent (purple, a separate isolated worker, agent-development), Command (teal, a deliberate entry point, command-development), Hook (amber, automatic on every event, hook-development), and MCP server (red, a wire to an external system, mcp-integration). A note: all six live in plugin-dev.",
+            "width": "78%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Need an isolated worker, an entry point, an event trigger, or an external connection? **Agent, command, hook, MCP** -- each has its own `plugin-dev` skill to guide you.",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- A skill cannot do everything, and that is fine -- it is the starting point, not the ceiling.\n\n- Map the four upgrades back to the decision table: isolated worker -> agent; deliberate entry point -> command; automatic on an event -> hook; external system -> MCP.\n\n- Each has a plugin-dev skill that teaches it, the same way skill-development taught this one."
+      },
+      {
+        "id": "fork",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Fork research-skills -- Make It Your Own",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/fork-research-skills.svg",
+            "alt": "The upstream repo neuromechanist/research-skills (7 plugins, skills-first, BSD-3) with a Fork arrow to you/research-skills, whose plugins tree shows neuroinformatics/skills/bids-conversion and a highlighted new shot-change-erp skill folder.",
+            "width": "82%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "The marketplace you installed in Week 5 is a public repo. Fork it and it's yours: `plugins/*`, `marketplace.json`, `AGENTS.md`. **The tools you used all course are a repo you can own.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The make-it-your-own move. research-skills is not a black box; it is a public GitHub repo.\n\n- Fork it and you get the whole thing: seven plugins, the marketplace manifest, the cross-agent AGENTS.md.\n\n- Note: we are NOT doing this live (demo risk); the commands are on the next two slides and in the blog."
+      },
+      {
+        "id": "add-install",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Add Your Skill, Install It Back",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/add-install-back.svg",
+            "alt": "A four-step rail: 1 add the folder skills/shot-change-erp; 2 bump the version in plugin.json from 0.2.3 to 0.3.0; 3 claude plugin marketplace add ./research-skills; 4 claude plugin install neuroinformatics@research-skills. A green badge: AGENTS.md means the same skill works in Codex and Copilot CLI too.",
+            "width": "86%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Drop the folder in, bump the version, `claude plugin marketplace add ./fork`, install. **Because of `AGENTS.md`, the same skill works in Codex and Copilot CLI too.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- Four steps from a folder on disk to an installed tool.\n\n- The version bump matters: adding a skill is a minor bump (next slide).\n\n- The cross-agent payoff is free: because instructions live in AGENTS.md, the same skill loads in Codex and Copilot CLI, not just Claude Code."
+      },
+      {
+        "id": "version-share",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Version It, Then Share It",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/version-share.svg",
+            "alt": "Left: VERSION per plugin, the semver 0.3.0 with MAJOR breaking, MINOR new skill or plugin, PATCH edit within, plus rules: add a new skill is a minor bump, edit within a plugin is a patch bump. Right: SHARE three paths -- push your fork, open a pull request upstream, post it in the OSC Discord.",
+            "width": "86%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Semver per plugin: a new skill is a minor bump, an edit is a patch. Then push your fork, open a pull request, or post in Discord. **A skill your lab can install beats a script in your downloads folder.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- Versioning is per plugin, not per marketplace. The two rules from the repo: new skill -> minor bump; edit within a plugin -> patch bump.\n\n- Three ways to share, in increasing reach: your fork for your lab, a pull request to contribute upstream, or the OSC Discord for the community.\n\n- The moral: a packaged, installable skill outlives a one-off script."
+      },
+      {
+        "id": "pre-flight",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Before You Build -- and When Not To",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/pre-flight-checklist.svg",
+            "alt": "A pre-flight checklist: is there already a skill for this; is it knowledge, a connection, or an event; will I reuse it; is SKILL.md lean with detail in references; did I test that it triggers; any secrets or data (never). A red band: skip it if it is a one-off, it already exists, or it needs a secret.",
+            "width": "78%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "warning",
+            "content": "Already a skill? Knowledge, a connection, or an event? Will you reuse it? Any secrets (never)? **The bar is reuse: if you'll do it again, make it a skill.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- The honest counterweight to a whole session about building: do not over-build.\n\n- Walk the checklist; the most important questions are 'does this already exist' and 'will I actually reuse it'.\n\n- Hard rule: never put secrets or data in a skill -- it is shared knowledge, not a vault.\n\n- The bar is reuse. A genuine one-off does not need to be a skill."
+      },
+      {
+        "id": "demo-roadmap",
+        "layout": "single-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Live Demo -- One Skill, Start to Finish",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "image",
+            "src": "../../assets/icons/demo-roadmap-build.svg",
+            "alt": "Two demo steps: 1 build with /skill-development, writing a strong trigger description and a lean SKILL.md for shot-change-erp (find shot events, epoch, average, plot), badged about 3 minutes; 2 prove it triggers by typing the phrase and watching the skill load, optionally running skill-reviewer, badged about 1 minute. A note: no live git fork, no install on stage.",
+            "width": "86%",
+            "position": { "area": "content" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "Build `shot-change-erp` with `/skill-development` (~3 min), then prove it triggers (~1 min). **No live fork or install -- a network hiccup won't derail the finale.**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 0 },
+            "position": { "area": "footer" }
+          }
+        ],
+        "speakerNotes": "[Press right to reveal the callout]\n\n- Keep the demo small and honest. Two steps, about four minutes.\n\n- Build a tiny shot-change-erp skill -- the analysis the course has run since Week 3 -- then prove it triggers by typing the natural-language phrase.\n\n- The point is not a speed-run of a whole plugin; it is that building a skill is approachable. If validation surfaces something, we walk it; we do not manufacture a pass."
+      },
+      {
+        "id": "graduation",
+        "layout": "two-column",
+        "transition": "slide",
+        "elements": [
+          {
+            "type": "text",
+            "content": "## Graduation -- What You Can Do Now",
+            "style": { "fontSize": "xl" },
+            "position": { "area": "header" }
+          },
+          {
+            "type": "bullets",
+            "items": [
+              { "text": "**From `git init` (Week 1) to a published skill (Week 10).** You used all six building blocks; today you built one.", "animation": { "fragment": true, "type": "fade", "index": 0 } },
+              { "text": "**The decision table is yours:** skill / agent / command / hook / MCP / plugin, and which to reach for.", "animation": { "fragment": true, "type": "fade", "index": 1 } },
+              { "text": "**The loop closes:** the HBN shot-change analysis you've grown since Week 3 is now a reusable skill anyone can install.", "animation": { "fragment": true, "type": "fade", "index": 2 } },
+              { "text": "**You arrived a tool user. You leave a tool builder.**", "animation": { "fragment": true, "type": "slide-up", "index": 3 } }
+            ],
+            "bulletStyle": "disc",
+            "style": { "fontSize": "large" },
+            "position": { "area": "left" }
+          },
+          {
+            "type": "callout",
+            "calloutType": "tip",
+            "content": "**What's next:** build a skill for the chore you redo most; fork `research-skills`; contribute back; help the next cohort.\n\n**Thank you for ten weeks. Questions while we build?**",
+            "animation": { "fragment": true, "type": "slide-up", "index": 4 },
+            "position": { "area": "right" }
+          }
+        ],
+        "speakerNotes": "[Press right 5x to reveal fragments]\n\n- Land the course in one breath: git init in Week 1 to a published skill in Week 10.\n\n- The takeaways, one at a time: you used all six and built one; the decision table is yours; the practicum loop closes.\n\n- The closing line is the thesis -- say it slowly, then pause: tool user in, tool builder out.\n\n- Thank the cohort for ten weeks, then open the floor and start the live build."
+      }
+    ]
+  }
+}

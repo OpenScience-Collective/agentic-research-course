@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">Write for the next Claude, not for a human</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">a skill is onboarding for a future agent, not documentation for a reader</text>
+
+  <!-- LEFT: writing for a human (muted) -->
+  <rect x="60" y="72" width="410" height="222" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.4"/>
+  <circle cx="86" cy="98" r="11" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="86" y="103" font-family="sans-serif" font-size="14" font-weight="bold" fill="#DC2626" text-anchor="middle">✕</text>
+  <text x="106" y="103" font-family="sans-serif" font-size="13" font-weight="bold" fill="#64748B">Writing for a human</text>
+  <text x="80" y="132" font-family="sans-serif" font-size="11" fill="#64748B">·  second person ("you should...")</text>
+  <text x="80" y="154" font-family="sans-serif" font-size="11" fill="#64748B">·  prose and background</text>
+  <text x="80" y="176" font-family="sans-serif" font-size="11" fill="#64748B">·  restates what a model already knows</text>
+  <rect x="80" y="196" width="370" height="78" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="92" y="218" font-family="monospace" font-size="9.5" fill="#94A3B8">You should start by reading the file.</text>
+  <text x="92" y="234" font-family="monospace" font-size="9.5" fill="#94A3B8">As you probably know, EEG data is a</text>
+  <text x="92" y="250" font-family="monospace" font-size="9.5" fill="#94A3B8">time series of voltages, so first you</text>
+  <text x="92" y="266" font-family="monospace" font-size="9.5" fill="#94A3B8">will want to think about epoching...</text>
+
+  <!-- RIGHT: writing for the next Claude (good) -->
+  <rect x="530" y="72" width="410" height="222" rx="10" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.8"/>
+  <circle cx="556" cy="98" r="11" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="556" y="103" font-family="sans-serif" font-size="13" font-weight="bold" fill="#16A34A" text-anchor="middle">✓</text>
+  <text x="576" y="103" font-family="sans-serif" font-size="13" font-weight="bold" fill="#166534">Writing for the next Claude</text>
+  <text x="550" y="132" font-family="sans-serif" font-size="11" fill="#166534">·  imperative ("Read the file.")</text>
+  <text x="550" y="154" font-family="sans-serif" font-size="11" fill="#166534">·  lean -- only the non-obvious steps</text>
+  <text x="550" y="176" font-family="sans-serif" font-size="11" fill="#166534">·  no duplication across files</text>
+  <rect x="550" y="196" width="370" height="78" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.2"/>
+  <text x="562" y="218" font-family="monospace" font-size="9.5" fill="#166534">Read events.tsv; keep shot-onset rows.</text>
+  <text x="562" y="234" font-family="monospace" font-size="9.5" fill="#166534">Epoch -200..600 ms around each onset.</text>
+  <text x="562" y="250" font-family="monospace" font-size="9.5" fill="#166534">Baseline-correct, average, plot ERP.</text>
+  <text x="562" y="266" font-family="monospace" font-size="9.5" fill="#166534">Flag channels over threshold.</text>
+
+  <!-- bottom strip -->
+  <rect x="60" y="318" width="880" height="26" rx="5" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="335" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="middle" font-weight="bold">If a capable model already knows it, leave it out.</text>
+</svg>

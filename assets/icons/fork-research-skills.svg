@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" width="1000" height="350">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">Fork research-skills -- make it your own</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">the marketplace you installed in Week 5 is a public repo you can own</text>
+
+  <defs>
+    <marker id="arrow-fork" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- upstream repo -->
+  <rect x="60" y="96" width="300" height="160" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.6"/>
+  <rect x="60" y="96" width="300" height="30" rx="10" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.6"/>
+  <text x="80" y="116" font-family="monospace" font-size="12" font-weight="bold" fill="#334155">neuromechanist/research-skills</text>
+  <text x="80" y="152" font-family="sans-serif" font-size="11" fill="#475569">·  7 plugins</text>
+  <text x="80" y="176" font-family="sans-serif" font-size="11" fill="#475569">·  skills-first, cross-agent</text>
+  <text x="80" y="200" font-family="sans-serif" font-size="11" fill="#475569">·  BSD-3 licensed</text>
+  <text x="80" y="232" font-family="sans-serif" font-size="10" font-style="italic" fill="#94A3B8">the upstream you have been installing</text>
+
+  <!-- fork arrow -->
+  <path d="M 360 176 Q 460 176 460 176 L 556 176" fill="none" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow-fork)"/>
+  <text x="460" y="160" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1E40AF" text-anchor="middle">Fork</text>
+  <text x="460" y="196" font-family="sans-serif" font-size="9.5" fill="#64748B" text-anchor="middle">one click on GitHub</text>
+
+  <!-- your repo -->
+  <rect x="560" y="80" width="380" height="206" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+  <rect x="560" y="80" width="380" height="30" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="580" y="100" font-family="monospace" font-size="12" font-weight="bold" fill="#1E40AF">you/research-skills</text>
+  <text x="580" y="138" font-family="monospace" font-size="11" fill="#1E293B">plugins/</text>
+  <text x="600" y="160" font-family="monospace" font-size="11" fill="#1E293B">neuroinformatics/</text>
+  <text x="620" y="182" font-family="monospace" font-size="11" fill="#1E293B">skills/</text>
+  <text x="640" y="204" font-family="monospace" font-size="11" fill="#1E293B">bids-conversion/</text>
+  <rect x="636" y="212" width="284" height="24" rx="5" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.6"/>
+  <text x="648" y="229" font-family="monospace" font-size="11" font-weight="bold" fill="#166534">shot-change-erp/   ← your new skill</text>
+  <text x="580" y="262" font-family="sans-serif" font-size="10" font-style="italic" fill="#1E40AF">your copy -- edit, add, publish freely</text>
+
+  <!-- bottom strip -->
+  <rect x="60" y="302" width="880" height="24" rx="5" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="318" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle" font-weight="bold">The tools you used all course are a repo you can own.</text>
+</svg>

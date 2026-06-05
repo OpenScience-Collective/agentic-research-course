@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="1000" height="380">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">When a skill is not enough -- level up</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">start with a skill; graduate to the others only when it cannot carry the job</text>
+
+  <defs>
+    <marker id="arrow-lu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- arrows from center skill to each target (drawn first, behind boxes) -->
+  <line x1="430" y1="178" x2="362" y2="120" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-lu)"/>
+  <line x1="570" y1="178" x2="638" y2="120" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-lu)"/>
+  <line x1="430" y1="222" x2="362" y2="280" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-lu)"/>
+  <line x1="570" y1="222" x2="638" y2="280" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-lu)"/>
+
+  <!-- center skill -->
+  <rect x="420" y="166" width="160" height="68" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <text x="500" y="196" font-family="sans-serif" font-size="14" font-weight="bold" fill="#166534" text-anchor="middle">Skill</text>
+  <text x="500" y="216" font-family="sans-serif" font-size="9.5" fill="#166534" text-anchor="middle">your starting point</text>
+
+  <!-- Agent (top-left) -->
+  <rect x="110" y="78" width="252" height="66" rx="8" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.8"/>
+  <text x="236" y="100" font-family="sans-serif" font-size="13" font-weight="bold" fill="#5B21B6" text-anchor="middle">Agent</text>
+  <text x="236" y="118" font-family="sans-serif" font-size="9.5" fill="#5B21B6" text-anchor="middle">a separate, isolated worker</text>
+  <text x="236" y="134" font-family="monospace" font-size="9.5" fill="#7C3AED" text-anchor="middle">agent-development</text>
+
+  <!-- Command (top-right) -->
+  <rect x="638" y="78" width="252" height="66" rx="8" fill="#CFFAFE" stroke="#0891B2" stroke-width="1.8"/>
+  <text x="764" y="100" font-family="sans-serif" font-size="13" font-weight="bold" fill="#155E75" text-anchor="middle">Command</text>
+  <text x="764" y="118" font-family="sans-serif" font-size="9.5" fill="#155E75" text-anchor="middle">a deliberate entry point</text>
+  <text x="764" y="134" font-family="monospace" font-size="9.5" fill="#0891B2" text-anchor="middle">command-development</text>
+
+  <!-- Hook (bottom-left) -->
+  <rect x="110" y="280" width="252" height="66" rx="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+  <text x="236" y="302" font-family="sans-serif" font-size="13" font-weight="bold" fill="#92400E" text-anchor="middle">Hook</text>
+  <text x="236" y="320" font-family="sans-serif" font-size="9.5" fill="#92400E" text-anchor="middle">automatic on every event</text>
+  <text x="236" y="336" font-family="monospace" font-size="9.5" fill="#B45309" text-anchor="middle">hook-development</text>
+
+  <!-- MCP (bottom-right) -->
+  <rect x="638" y="280" width="252" height="66" rx="8" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.8"/>
+  <text x="764" y="302" font-family="sans-serif" font-size="13" font-weight="bold" fill="#991B1B" text-anchor="middle">MCP server</text>
+  <text x="764" y="320" font-family="sans-serif" font-size="9.5" fill="#991B1B" text-anchor="middle">a wire to an external system</text>
+  <text x="764" y="336" font-family="monospace" font-size="9.5" fill="#DC2626" text-anchor="middle">mcp-integration</text>
+
+  <!-- bottom strip -->
+  <rect x="380" y="344" width="240" height="22" rx="5" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="359" font-family="sans-serif" font-size="10" fill="#1E293B" text-anchor="middle">all six live in plugin-dev</text>
+</svg>
