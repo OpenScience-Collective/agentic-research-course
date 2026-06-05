@@ -399,7 +399,7 @@
           {
             "type": "callout",
             "calloutType": "tip",
-            "content": "Understand &#8594; plan &#8594; scaffold &#8594; write &#8594; validate &#8594; iterate. **Steps 4-6 loop until it triggers cleanly.** It ships in the official `plugin-dev` plugin.",
+            "content": "Understand -> plan -> scaffold -> write -> validate -> iterate. **Steps 4-6 loop until it triggers cleanly.** It ships in the official `plugin-dev` plugin.",
             "animation": { "fragment": true, "type": "slide-up", "index": 0 },
             "position": { "area": "footer" }
           }

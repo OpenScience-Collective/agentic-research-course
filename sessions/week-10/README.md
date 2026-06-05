@@ -5,7 +5,7 @@
 ## Learning Objectives
 
 By the end of this session, you will:
-- Name the six building blocks of an agent toolkit and tell them apart: **skill, agent, command, hook, MCP server, plugin**
+- Name the six building blocks of an agent toolkit and tell them apart: **skill, agent, command, hook, MCP (Model Context Protocol) server, plugin**
 - Use two questions (who triggers it, where it runs) to pick the right one for a given job
 - Understand what a skill really is: an onboarding guide that turns general Claude into a specialist
 - Build a working skill with `/skill-development`: frontmatter, trigger description, progressive disclosure, imperative writing
@@ -32,7 +32,7 @@ By the end of this session, you will:
 
 ### Part 3: Building a skill with /skill-development (10 min)
 - The six-step process: understand, plan resources, scaffold, write, validate, iterate
-- Live build: a small practicum-flavored skill that encodes the shot-change ERP workflow you have run since Week 3
+- Live build: a small practicum-flavored skill that encodes the shot-change event-related potential (ERP) workflow you have run since Week 3
 - Testing: say the trigger phrase and watch it fire; local install with `--plugin-dir`
 - The `skill-reviewer` agent and the iterate loop
 - When a skill is not enough: leveling up to agents, commands, hooks, or an MCP server
@@ -45,16 +45,16 @@ By the end of this session, you will:
 
 ### Considerations and close (2 min) + Q&A (15 min)
 - What to consider before you build, and when not to build at all
-- Graduation: you used all six, you built one. The HBN analysis you have grown since Week 3 is now a reusable skill anyone can install.
+- Graduation: you used all six, you built one. The Healthy Brain Network (HBN) analysis you have grown since Week 3 is now a reusable skill anyone can install.
 
 ## Key Concepts
 
 - **Skill:** Knowledge plus a workflow that auto-triggers from its description and runs in the main conversation. An onboarding guide for a domain. (`SKILL.md` + optional `references/`, `scripts/`, `assets/`.)
 - **Agent (subagent):** An autonomous worker with its own context window, restricted tool set, and model choice. Delegated a scoped job, returns a result. (Examples this course: `bids-validator`, `figure-qa`.)
 - **Command:** A user-invoked `/slash-command` entry point for a workflow that needs a deliberate trigger. (Examples: `/epic-dev`, `/init-project`.)
-- **Hook:** Event-driven automation (PreToolUse, PostToolUse, Stop, and others) that runs deterministically when an event fires, not when the model decides. (Week 4's pre-commit and CI checks.)
+- **Hook:** Event-driven automation (PreToolUse, PostToolUse, Stop, and others) that runs deterministically when an event fires, not when the model decides. (Week 4's pre-commit and continuous integration (CI) checks.)
 - **MCP server:** Model Context Protocol; a connection that gives Claude new tools by wiring it to an external system. (The course's own `matlab-mcp`, which lets Claude drive MATLAB and EEGLAB.)
-- **Plugin:** The package that bundles skills, agents, commands, hooks, and MCP server configs and ships them through a marketplace. (`plugin.json` manifest; `research-skills` is a marketplace of seven plugins.)
+- **Plugin:** The package that bundles skills, agents, commands, hooks, and MCP server configs and ships them through a marketplace. (`.claude-plugin/plugin.json` manifest; `research-skills` is a marketplace of seven plugins.)
 - **Progressive disclosure:** The three-level loading that keeps skills cheap: metadata always in context, `SKILL.md` body on trigger, bundled resources only when needed.
 - **Trigger description:** The third-person, phrase-specific `description` in a skill's frontmatter that decides whether Claude loads it at all.
 

@@ -173,7 +173,7 @@ A skill is the starting point, not the ceiling. When it cannot carry the job, th
 
 ### Fork research-skills
 
-The marketplace you installed back in Week 5 is a public GitHub repository. Fork it and it is yours: `plugins/*` each with a `plugin.json`, a top-level `marketplace.json`, and an `AGENTS.md` plus `CLAUDE.md` pair. The tools you have used all course are a repo you can own.
+The marketplace you installed back in Week 5 is a public GitHub repository. Fork it and it is yours: `plugins/*` each with a `.claude-plugin/plugin.json`, a `.claude-plugin/marketplace.json` at the root, and an `AGENTS.md` plus `CLAUDE.md` pair. The tools you have used all course are a repo you can own.
 
 ### Add your skill, install it back
 
