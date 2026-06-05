@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">You have used all six already</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">every week ran one of the building blocks; here are their real names</text>
+
+  <!-- timeline rail -->
+  <line x1="70" y1="130" x2="930" y2="130" stroke="#94A3B8" stroke-width="2"/>
+
+  <!-- Week 1: foundation -->
+  <text x="100" y="92" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">git / CLI</text>
+  <text x="100" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk1</text>
+  <circle cx="100" cy="130" r="7" fill="#64748B" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="100" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#64748B" text-anchor="middle">foundation</text>
+
+  <!-- Week 2: context -->
+  <text x="200" y="92" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">CLAUDE.md</text>
+  <text x="200" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk2</text>
+  <circle cx="200" cy="130" r="7" fill="#64748B" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="200" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#64748B" text-anchor="middle">context</text>
+
+  <!-- Week 3: command -->
+  <text x="300" y="92" font-family="monospace" font-size="9" fill="#155E75" text-anchor="middle">/epic-dev</text>
+  <text x="300" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk3</text>
+  <circle cx="300" cy="130" r="7" fill="#0891B2" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="300" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#0891B2" text-anchor="middle">Command</text>
+
+  <!-- Week 4: hook -->
+  <text x="400" y="92" font-family="monospace" font-size="9" fill="#92400E" text-anchor="middle">pre-commit</text>
+  <text x="400" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk4</text>
+  <circle cx="400" cy="130" r="7" fill="#D97706" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="400" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#D97706" text-anchor="middle">Hook</text>
+
+  <!-- Week 5: skill -->
+  <text x="500" y="92" font-family="monospace" font-size="9" fill="#166534" text-anchor="middle">opencite</text>
+  <text x="500" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk5</text>
+  <circle cx="500" cy="130" r="7" fill="#16A34A" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="500" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#16A34A" text-anchor="middle">Skill</text>
+
+  <!-- Week 6: skill -->
+  <text x="600" y="92" font-family="monospace" font-size="9" fill="#166534" text-anchor="middle">grant</text>
+  <text x="600" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk6</text>
+  <circle cx="600" cy="130" r="7" fill="#16A34A" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="600" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#16A34A" text-anchor="middle">Skill</text>
+
+  <!-- Week 7: skill -->
+  <text x="700" y="92" font-family="monospace" font-size="9" fill="#166534" text-anchor="middle">manuscript</text>
+  <text x="700" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk7</text>
+  <circle cx="700" cy="130" r="7" fill="#16A34A" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="700" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#16A34A" text-anchor="middle">Skill</text>
+
+  <!-- Week 8: agent -->
+  <text x="800" y="92" font-family="monospace" font-size="9" fill="#5B21B6" text-anchor="middle">figure-qa</text>
+  <text x="800" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk8</text>
+  <circle cx="800" cy="130" r="7" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="800" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#7C3AED" text-anchor="middle">Agent</text>
+
+  <!-- Week 9: agent -->
+  <text x="900" y="92" font-family="monospace" font-size="9" fill="#5B21B6" text-anchor="middle">bids-validator</text>
+  <text x="900" y="110" font-family="sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">Wk9</text>
+  <circle cx="900" cy="130" r="7" fill="#7C3AED" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="900" y="152" font-family="sans-serif" font-size="9.5" font-weight="bold" fill="#7C3AED" text-anchor="middle">Agent</text>
+
+  <!-- matlab-mcp band (spans the practicum, Wk3-9) -->
+  <rect x="280" y="180" width="650" height="28" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="605" y="199" font-family="sans-serif" font-size="10.5" fill="#991B1B" text-anchor="middle">matlab-mcp -- the MCP server that drove MATLAB + EEGLAB across the whole practicum</text>
+
+  <!-- research-skills band (ships Wk5-9) -->
+  <rect x="470" y="216" width="460" height="28" rx="6" fill="#DBEAFE" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="700" y="235" font-family="sans-serif" font-size="10.5" fill="#1E40AF" text-anchor="middle">research-skills -- the plugin that shipped weeks 5-9</text>
+
+  <!-- legend -->
+  <rect x="80" y="270" width="13" height="13" rx="2" fill="#16A34A"/>
+  <text x="100" y="281" font-family="sans-serif" font-size="10" fill="#475569">Skill</text>
+  <rect x="160" y="270" width="13" height="13" rx="2" fill="#7C3AED"/>
+  <text x="180" y="281" font-family="sans-serif" font-size="10" fill="#475569">Agent</text>
+  <rect x="245" y="270" width="13" height="13" rx="2" fill="#0891B2"/>
+  <text x="265" y="281" font-family="sans-serif" font-size="10" fill="#475569">Command</text>
+  <rect x="355" y="270" width="13" height="13" rx="2" fill="#D97706"/>
+  <text x="375" y="281" font-family="sans-serif" font-size="10" fill="#475569">Hook</text>
+  <rect x="430" y="270" width="13" height="13" rx="2" fill="#DC2626"/>
+  <text x="450" y="281" font-family="sans-serif" font-size="10" fill="#475569">MCP</text>
+  <rect x="505" y="270" width="13" height="13" rx="2" fill="#2563EB"/>
+  <text x="525" y="281" font-family="sans-serif" font-size="10" fill="#475569">Plugin</text>
+  <rect x="590" y="270" width="13" height="13" rx="2" fill="#64748B"/>
+  <text x="610" y="281" font-family="sans-serif" font-size="10" fill="#475569">Foundation</text>
+
+  <!-- bottom strip -->
+  <rect x="60" y="332" width="880" height="26" rx="5" fill="#0F172A"/>
+  <text x="500" y="349" font-family="sans-serif" font-size="11.5" fill="#E2E8F0" text-anchor="middle">None of it was magic. Six building blocks -- and today you author one.</text>
+</svg>

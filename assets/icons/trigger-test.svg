@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">Test it: does it trigger?</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">the first test is not "does the body read well" -- it is "does it load when it should"</text>
+
+  <defs>
+    <marker id="arrow-tt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <!-- scenario A: on-topic prompt fires the skill -->
+  <rect x="60" y="78" width="300" height="46" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.4"/>
+  <text x="210" y="100" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="middle">"analyze the shot-change ERPs"</text>
+  <text x="210" y="116" font-family="sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">on-topic user message</text>
+  <line x1="362" y1="101" x2="430" y2="101" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-tt)"/>
+  <rect x="436" y="78" width="320" height="46" rx="8" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.8"/>
+  <text x="596" y="106" font-family="monospace" font-size="12" font-weight="bold" fill="#166534" text-anchor="middle">skill loaded: shot-change-erp</text>
+  <circle cx="800" cy="101" r="17" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <text x="800" y="107" font-family="sans-serif" font-size="17" font-weight="bold" fill="#16A34A" text-anchor="middle">✓</text>
+
+  <!-- scenario B: off-topic prompt correctly does NOT fire -->
+  <rect x="60" y="148" width="300" height="46" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.4"/>
+  <text x="210" y="170" font-family="sans-serif" font-size="11.5" fill="#1E293B" text-anchor="middle">"what is the capital of France?"</text>
+  <text x="210" y="186" font-family="sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">off-topic user message</text>
+  <line x1="362" y1="171" x2="430" y2="171" stroke="#94A3B8" stroke-width="1.8" marker-end="url(#arrow-tt)"/>
+  <rect x="436" y="148" width="320" height="46" rx="8" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.6"/>
+  <text x="596" y="176" font-family="monospace" font-size="12" font-weight="bold" fill="#475569" text-anchor="middle">no skill loaded</text>
+  <circle cx="800" cy="171" r="17" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <text x="800" y="177" font-family="sans-serif" font-size="17" font-weight="bold" fill="#16A34A" text-anchor="middle">✓</text>
+  <text x="596" y="208" font-family="sans-serif" font-size="9.5" font-style="italic" fill="#64748B" text-anchor="middle">staying asleep on the wrong prompt is also passing</text>
+
+  <!-- local test terminal -->
+  <rect x="60" y="232" width="880" height="78" rx="8" fill="#0F172A"/>
+  <text x="80" y="256" font-family="sans-serif" font-size="11" font-weight="bold" fill="#94A3B8">Test locally before you publish:</text>
+  <text x="80" y="282" font-family="monospace" font-size="13" fill="#7DD3FC">$ claude --plugin-dir ./my-plugin</text>
+  <text x="80" y="300" font-family="monospace" font-size="10" fill="#64748B"># load your plugin from disk, then type the phrases above and watch what fires</text>
+
+  <!-- bottom strip -->
+  <rect x="60" y="322" width="880" height="24" rx="5" fill="#F1F5F9" stroke="#94A3B8" stroke-width="0.6"/>
+  <text x="500" y="338" font-family="sans-serif" font-size="11" fill="#1E293B" text-anchor="middle" font-weight="bold">An untriggered skill is a skill that does not exist.</text>
+</svg>

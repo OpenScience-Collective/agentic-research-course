@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" width="1000" height="320">
+  <text x="500" y="26" font-family="sans-serif" font-size="16" fill="#1E293B" font-weight="bold" text-anchor="middle">Live demo -- one skill, start to finish</text>
+  <text x="500" y="46" font-family="sans-serif" font-size="11" fill="#64748B" font-style="italic" text-anchor="middle">small and honest; fork + publish are on the slides, not risked live</text>
+
+  <defs>
+    <marker id="arrow-dr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- step 1 -->
+  <rect x="80" y="78" width="370" height="140" rx="10" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="100" y="106" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1E40AF">1 · Build with /skill-development</text>
+  <text x="100" y="132" font-family="sans-serif" font-size="11" fill="#1E40AF">Write a strong trigger description and a</text>
+  <text x="100" y="150" font-family="sans-serif" font-size="11" fill="#1E40AF">lean SKILL.md for shot-change-erp:</text>
+  <text x="100" y="174" font-family="monospace" font-size="10" fill="#1E3A8A">find shot events → epoch → average → plot</text>
+  <rect x="330" y="186" width="100" height="24" rx="12" fill="#1E40AF"/>
+  <text x="380" y="203" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">~3 min</text>
+
+  <!-- arrow -->
+  <line x1="452" y1="148" x2="546" y2="148" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow-dr)"/>
+
+  <!-- step 2 -->
+  <rect x="550" y="78" width="370" height="140" rx="10" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+  <text x="570" y="106" font-family="sans-serif" font-size="14" font-weight="bold" fill="#166534">2 · Prove it triggers</text>
+  <text x="570" y="132" font-family="sans-serif" font-size="11" fill="#166534">Type the phrase, watch the skill load.</text>
+  <text x="570" y="150" font-family="sans-serif" font-size="11" fill="#166534">Optionally run the skill-reviewer agent.</text>
+  <text x="570" y="174" font-family="monospace" font-size="10" fill="#14532D">"analyze the shot-change ERPs" → loaded ✓</text>
+  <rect x="800" y="186" width="100" height="24" rx="12" fill="#166534"/>
+  <text x="850" y="203" font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF" text-anchor="middle">~1 min</text>
+
+  <!-- honest-scope note -->
+  <text x="500" y="248" font-family="sans-serif" font-size="10.5" font-style="italic" fill="#64748B" text-anchor="middle">No live git fork, no install on stage -- a network hiccup will not derail the finale.</text>
+
+  <!-- bottom strip -->
+  <rect x="60" y="270" width="880" height="26" rx="5" fill="#0F172A"/>
+  <text x="500" y="287" font-family="sans-serif" font-size="11.5" fill="#E2E8F0" text-anchor="middle" font-weight="bold">The point of the finale: building a skill is approachable.</text>
+</svg>
