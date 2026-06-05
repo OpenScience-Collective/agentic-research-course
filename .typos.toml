@@ -3,6 +3,13 @@
 # the course. typos confuses it with HEAD. Preserve the exact casing.
 HED = "HED"
 hed = "hed"
+# The typos CI action pulls the latest typos dictionary, so its wordlist drifts
+# and now flags these pre-existing, intentional strings from earlier weeks.
+# Allowlist them (config-only) rather than editing already-merged materials.
+mis = "mis"          # "mis-scoped" (the mis- prefix)
+Mis = "Mis"
+PN = "PN"            # "PNGs" tokenizes to PN
+browseable = "browseable"  # accepted variant of "browsable"
 
 [files]
 # Skip bundled third-party artifacts and lock files.
